@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import './colors.scss';
-
-
 
 h1, h2 {font-size: 36px;}
 h3, h4 {font-size: 36px;}
@@ -11,10 +9,23 @@ h2, h4, .subTitle {font-weight: 600;}
 
 .title {font-size: 18px;}
 
-.subTitle, .text, p, a, li, span {
+.subTitle, .text, .link, .label, p, a, li, span, label {
   font-size: 16px;
   > span {
     font-size: inherit;
   }
+}
+
+.smallText, small {
+  font-size: 14px;
+}
+
+a, .link {
+  color: $articCitric;
+
+  &:hover {text-decoration: underline;}
+  &:active {color: $balataGreen;}
+  &:visited {color: $purpleRain;}
+  &:disabled {color: $greyDark;}
 }
 
