@@ -1,0 +1,10 @@
+@import '~styles/import.scss';
+
+.card {
+  position: relative;
+  width: auto;
+  padding: $space;
+  background-color: $white;
+  border: 1px solid $borderColor;
+  border-radius: $radius;
+}
