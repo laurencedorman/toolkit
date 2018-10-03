@@ -1,0 +1,42 @@
+@import '../../colors.scss';
+@import '../../variables.scss';
+
+.switch {
+  position: absolute;
+  border: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.label {
+  display: inline-block;
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  background-color: $greyDarker;
+  border-radius: 30px;
+  cursor: pointer;
+
+  &::after, &.active::after { transition: all $timeout ease-in-out }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1.64rem;
+    height: 1.64rem;
+    top: .125rem; left: .125rem;
+    background-color: $white;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.35);
+    z-index: z($sub-levels, middle)
+  }
+
+  &.active {
+    background-color: $balataGreen;
+
+    &::after {
+      content: '';
+      transform: translateX(18px)
+    }
+  }
+}
