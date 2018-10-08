@@ -5,7 +5,7 @@ import styles from './Input.module.scss';
  * @visibleName Input
  */
 const Input = ({
-  label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden }: propTypes) => {
+                 label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden }: propTypes) => {
 
   const hasValue = value && 'hasValue';
   const hasError = error && 'hasError';
