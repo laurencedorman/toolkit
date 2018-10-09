@@ -1,4 +1,6 @@
-@import '~styles/import.scss';
+@import '../../colors.scss';
+@import '../../variables.scss';
+@import '../../fonts.scss';
 
 $tinySpace: calc(#{$space} / 4);
 
