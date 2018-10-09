@@ -1,5 +1,8 @@
+const projectWebpackConfig = require('./webpack.config');
+
 module.exports = {
   title: 'Mano-Toolkit',
+  webpackConfig: projectWebpackConfig,
   components: 'src/components/**/*.jsx',
   template: {
     head: {
@@ -44,5 +47,10 @@ module.exports = {
         backgroundSize: 'contain',
       },
     },
+    StyleGuide: {
+      '@global body': {
+        fontFamily: 'Open Sans'
+      }
+    }
   },
 };
