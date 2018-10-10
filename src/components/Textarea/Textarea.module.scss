@@ -1,0 +1,42 @@
+@import '../../colors.scss';
+
+.manoolkitTextarea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 1rem;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $borderColor;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  &::placeholder {
+    display: block;
+    position: absolute;
+    margin-left: 17px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $greyDarker;
+    transform: translateY(0);
+    transition: all .15s ease;
+    opacity: 1;
+    &.required::after {
+      content: "*";
+      display: inline-block;
+      color: $cocoCorail;
+      padding-left: 4px;
+    }
+  }
+
+  &:focus::placeholder {
+    transform: translateY(-1.3rem);
+  }
+
+  &:disabled {
+    background-color: $greyLight;
+    cursor: not-allowed;
+  }
+}
