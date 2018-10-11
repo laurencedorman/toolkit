@@ -2,8 +2,9 @@ import React from 'react';
 import InputCheck from './index';
 import styles from './InputCheck.module.scss';
 
+
 const InputRadioGroup = ({
-  direction, options, groupName, label, value, checked, disabled, onChange }: PropTypes) => (
+  direction, options, groupName, label, value, selectedOption, disabled, onChange }: PropTypes) => (
 
   <div direction={direction} className={`${styles.manoolkitRadioGroup} ${styles[direction]}`}>
     {options.map((option, id) => (
@@ -13,7 +14,7 @@ const InputRadioGroup = ({
         name={groupName}
         label={option.label}
         id={option.value}
-        checked={checked}
+        checked={option.value === selectedOption}
         disabled={disabled}
         onChange={onChange}
       />
@@ -26,7 +27,7 @@ type PropTypes = {
   options: Array,
   value: string,
   groupName: string,
-  checked?: boolean,
+  selectedOption?: string,
   disabled?: boolean,
   onChange?: () => {},
   label: string,
@@ -34,7 +35,7 @@ type PropTypes = {
 
 InputRadioGroup.defaultProps = {
   direction: 'horizontal',
-  checked: false,
+  selectedOption: '',
   disabled: false,
   onChange: null,
 };

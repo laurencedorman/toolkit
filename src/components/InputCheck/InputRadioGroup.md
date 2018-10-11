@@ -1,19 +1,19 @@
 Input Radio Group Horizontal: 
 ```js
 initialState = {
-  selected: 'one',
+  selected: 'mp3',
   options: [
     {
-      label: 'one',
-      value: 'one',
+      label: 'Vinyle',
+      value: 'vinyle',
     },
     {
-      label: 'two',
-      value: 'two',
+      label: 'CD',
+      value: 'cd',
     },
     {
-      label: 'three',
-      value: 'three',
+      label: 'Mp3',
+      value: 'mp3',
     },
   ]
 };
@@ -21,7 +21,7 @@ initialState = {
 <InputRadioGroup
   options={state.options}
   groupName="horizontal"
-  checked={state.selected === state.options[0].value}
+  selectedOption={state.selected}
   onChange={e => setState({ selected: e.target.value })}
 />
 ```
@@ -29,28 +29,29 @@ initialState = {
 Input Radio Group Vertical: 
 ```js
 initialState = {
-  selected: 'one',
+  selected: 'magneto',
   options: [
     {
-      label: 'four',
-      value: 'four',
+      label: 'Cassette',
+      value: 'cassette',
     },
     {
-      label: 'five',
-      value: 'five',
+      label: 'Magneto',
+      value: 'magneto',
     },
     {
-      label: 'six',
-      value: 'six',
+      label: 'MiniDisc',
+      value: 'minidisc',
     },
   ]
 };
+
 
 <InputRadioGroup
   direction="vertical"
   options={state.options}
   groupName="vertical"
-  checked={state.selected === state.options[0].value}
+  selectedOption={state.selected}
   onChange={e => setState({ selected: e.target.value })}
 />
 ```
