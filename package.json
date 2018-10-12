@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "jest-enzyme": "^6.1.2",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -31,7 +28,16 @@
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
     "babel-preset-flow": "^6.23.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-flowtype": "2.35.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "jest-enzyme": "^6.1.2",
     "flow-bin": "^0.82.0"
   }
 }
