@@ -4,9 +4,10 @@ import styles from './InputCheck.module.scss';
 
 
 const InputRadioGroup = ({
-  direction, options, groupName, label, value, selectedOption, disabled, onChange }: PropTypes) => (
+  radioGroupTitle, direction, options, groupName, selectedOption, disabled, onChange }: PropTypes) => (
 
   <div direction={direction} className={`${styles.manoolkitRadioGroup} ${styles[direction]}`}>
+    {radioGroupTitle && <span>{radioGroupTitle}</span>}
     {options.map((option, id) => (
       <InputCheck
         type="radio"
@@ -23,17 +24,17 @@ const InputRadioGroup = ({
 );
 
 type PropTypes = {
+  radioGroupTitle?: string,
   direction?: Array<'horizontal', 'vertical'>,
   options: Array,
-  value: string,
   groupName: string,
   selectedOption?: string,
   disabled?: boolean,
   onChange?: () => {},
-  label: string,
 };
 
 InputRadioGroup.defaultProps = {
+  radioGroupTitle: '',
   direction: 'horizontal',
   selectedOption: '',
   disabled: false,
