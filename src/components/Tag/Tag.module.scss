@@ -1,18 +1,17 @@
 @import '../../colors.scss';
+@import '../../variables.scss';
+@import '../../typo.scss';
 
-.tags {
+.tag {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0 .75em;
+  padding: 0 $space;
   background-color: $white;
-  border: 1px solid $borderColor;
+  border: $border $borderColor;
   border-radius: 17px;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  font-weight: 400;
   text-align: center;
-  transition: all .15s ease;
+  transition: all .2s ease;
   cursor: pointer;
   white-space: nowrap;
 

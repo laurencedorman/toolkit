@@ -1,14 +1,14 @@
-Tags default:
 
+Tag default:
 ```js
 <div style={{ padding: 20 }}>
-    <Tags>Tag</Tags>
+    <Tag>Tag</Tag>
 </div>
 ```
 
-Tags disabled: 
+Tag disabled: 
 ```js
 <div style={{ padding: 20 }}>
-    <Tags disabled>Tag</Tags>
+    <Tag disabled>Tag</Tag>
 </div>
 ```
