@@ -18,12 +18,3 @@ placeholder="Disabled Placeholder"
 disabled
 />
 ```
-
-```js
-<Textarea 
-name="textarea"
-id="id"
-placeholder="Disabled Placeholder"
-readOnly
-/>
-```

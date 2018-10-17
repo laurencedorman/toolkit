@@ -1,4 +1,6 @@
 @import '../../colors.scss';
+@import '../../variables.scss';
+@import '../../typo.scss';
 
 .manoolkitTextarea {
   position: relative;
@@ -6,37 +8,35 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  padding: 1rem;
+  padding: $space;
+  margin-bottom: $space;
   background-color: $white;
   background-clip: padding-box;
-  border: 1px solid $borderColor;
-  border-radius: 3px;
+  border: $border $borderColor;
+  border-radius: $radius;
   box-sizing: border-box;
+  font-size: 1rem;
 
   &::placeholder {
     display: block;
     position: absolute;
-    margin-left: 17px;
-    font-size: 0.875rem;
-    font-weight: 400;
+    margin-left: $space;
     color: $greyDarker;
-    transform: translateY(0);
-    transition: all .15s ease;
+    transform: translateX(0) scale(1);
+    transition: all .3s ease;
     opacity: 1;
     &.required::after {
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: 4px;
+      padding-left: calc(#{$space} / 4)
     }
   }
 
-  &:focus::placeholder {
-    transform: translateY(-1.3rem);
-  }
+  &:focus::placeholder { transform: translateX(-100%) scale(.5) }
 
   &:disabled {
     background-color: $greyLight;
-    cursor: not-allowed;
+    cursor: not-allowed
   }
 }
