@@ -28,7 +28,7 @@ $sub-levels: (
   middle : 10
 );
 
-/*func to call z-index level - Ex: z-index($layers, nav)*/
+/*func to call z-index level - Ex: z-index: z($layers, nav)*/
 @function z($array, $element) {
   @return map-get($array, $element)
 }
