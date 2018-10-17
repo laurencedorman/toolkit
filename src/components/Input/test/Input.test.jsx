@@ -28,14 +28,7 @@ describe('Input', () => {
   });
 
   it('should render an helper span', () => {
-<<<<<<< HEAD
     expect(wrapper.find('span').text()).toEqual('helper');
   });
 
-=======
-    // expect(wrapper.find('span').text()).toEqual('helper');
-  });
-
-  console.log(wrapper.debug());
->>>>>>> Update input component
 });
