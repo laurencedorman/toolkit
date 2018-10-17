@@ -1,31 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import './colors.scss';
 
-h1, h2 {font-size: 36px;}
-h3, h4 {font-size: 36px;}
+* { margin: 0; padding: 0 }
+
+html, body {
+  font: 1rem/1.618 'Open Sans';
+  color: $squidInk;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+h1, h2 { font-size: 2.25rem }
+h3, h4 { font-size: 2rem }
 
 h1, h3, .title {font-weight: 700;}
 h2, h4, .subTitle {font-weight: 600;}
 
-.title {font-size: 18px;}
+h1, h2, h3, h4 { letter-spacing: -0.01em }
 
-.subTitle, .text, .link, .label, p, a, li, span, label {
-  font-size: 16px;
-  > span {
+.title { font-size: 1.125rem }
+
+.subTitle, .text, .link, .label,
+p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.003em;
+  > span, a {
     font-size: inherit;
+    color: inherit
   }
 }
 
-.smallText, small {
-  font-size: 14px;
-}
+.smallText, small { font-size: 0.875rem }
 
 a, .link {
   color: $articCitric;
+  &:hover {
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+  }
+  &:active { color: $balataGreen }
+  &:visited { color: $purpleRain }
+  &:disabled { color: $greyDark }
+}
 
-  &:hover {text-decoration: underline;}
-  &:active {color: $balataGreen;}
-  &:visited {color: $purpleRain;}
-  &:disabled {color: $greyDark;}
+h1, h2, h3, h4, p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
+  line-height: 1.618;
+  margin-bottom: 1.5rem
 }
 

@@ -1,0 +1,33 @@
+
+/*Use 'calc' to Up spacing*/
+$margin: 0.5rem;
+$padding: 0.5rem;
+
+/*MediaQueries*/
+
+/*func to call z-index level*/
+@function z($array, $element) {
+  @return map-get($array, $element)
+}
+
+$layers: (
+  fullScreen   : 8000,
+  nav          : 7000,
+  header       : 6000,
+  notification : 5000,
+  mask         : 4000,
+  cta          : 3000,
+  footer       : 2000
+);
+
+$levels: (
+  max    : 500,
+  top    : 200,
+  middle : 100
+);
+
+$sub-levels: (
+  max    : 50,
+  top    : 20,
+  middle : 10
+);
