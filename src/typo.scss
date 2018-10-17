@@ -22,7 +22,6 @@ h1, h2, h3, h4 { letter-spacing: -0.01em }
 
 .subTitle, .text, .link, .label,
 p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
-  margin-bottom: 1.5rem;
   letter-spacing: -0.003em;
   > span, a {
     font-size: inherit;
@@ -45,6 +44,6 @@ a, .link {
 
 h1, h2, h3, h4, p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
   line-height: 1.618;
-  margin-bottom: 1.5rem
+  margin-bottom: 1rem
 }
 
