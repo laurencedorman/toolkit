@@ -1,14 +1,9 @@
 
 /*Use 'calc' to Up spacing*/
-$margin: 0.5rem;
-$padding: 0.5rem;
-
-/*MediaQueries*/
-
-/*func to call z-index level*/
-@function z($array, $element) {
-  @return map-get($array, $element)
-}
+$smallSpace: 0.5rem;
+$space: 1rem;
+$radius: 3px;
+$border: 1px solid;
 
 $layers: (
   fullScreen   : 8000,
@@ -31,3 +26,10 @@ $sub-levels: (
   top    : 20,
   middle : 10
 );
+
+/*func to call z-index level - Ex: z-index($layers, nav)*/
+@function z($array, $element) {
+  @return map-get($array, $element)
+}
+
+/*MediaQueries*/
