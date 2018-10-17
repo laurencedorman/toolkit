@@ -23,8 +23,12 @@ h1, h2, h3, h4 { letter-spacing: -0.01em }
 .title { font-size: 1.125rem }
 
 .subTitle, .text, .link, .label,
+<<<<<<< HEAD:src/fonts.scss
 p, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
   font-weight: 400;
+=======
+p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
+>>>>>>> Update Card Component:src/typo.scss
   letter-spacing: -0.003em;
   > span, a {
     font-size: inherit;
