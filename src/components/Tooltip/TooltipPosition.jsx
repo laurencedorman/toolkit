@@ -1,27 +1,26 @@
-import React from 'react';
-
 const TooltipPosition = (ref, position) => {
   const { top, left, width, right, height } = ref.getBoundingClientRect();
   const space = 12;
   const lateralPositionWidth = 176;
+  const bottomSpace = document.body.clientHeight - top - window.scrollY;
 
   const topStyle = {
-    bottom: document.body.clientHeight - top - window.scrollY + space,
+    bottom: bottomSpace + space,
     left: left + width / 2 + window.scrollX,
   };
 
   const leftStyle = {
-    bottom: document.body.clientHeight - top - window.scrollY - space,
+    bottom: bottomSpace - space,
     left: left - lateralPositionWidth,
   };
 
   const rightStyle = {
-    bottom: document.body.clientHeight - top - window.scrollY - space,
+    bottom: bottomSpace - space,
     right: right - lateralPositionWidth,
   };
 
   const bottomStyle = {
-    bottom: document.body.clientHeight - top - window.scrollY - (height * 3),
+    bottom: bottomSpace - (height * 3),
     left: left + width / 2 + window.scrollX,
   };
 
