@@ -13,21 +13,51 @@
     border-radius: $radius;
     color: $white;
     text-align: center;
-    left: -50%;
     font-size: 0.75rem;
-    animation: smoothIn .2s ease;
-    transition: all .2s ease
+    //animation: smoothIn .2s ease;
+    //transition: all .2s ease
   }
 
-  & > span {
-    display: block;
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    bottom: -1.3rem; left: -.5rem;
-    background-color: $squidInk;
-    transform: rotate(45deg);
-    z-index: -1;
+  svg { position: absolute }
+
+  &.top > div {
+    transform: translateX(-50%);
+    svg {
+      left: calc(50% - 8px);
+      bottom: -.65rem;
+    }
+  }
+
+  &.left, &.right { max-width: 160px }
+
+  &.left > div {
+    left: 0;
+    transform: translateY(50%);
+    svg {
+      top: calc(50% - 8px);
+      right: -.65rem;
+      transform: rotate(-90deg)
+    }
+  }
+
+  &.right > div {
+    right: 0;
+    transform: translate(0%, 50%);
+    svg {
+      left: -.65rem;
+      top: calc(50% - 8px);
+      transform: rotate(90deg)
+    }
+  }
+
+  &.bottom > div {
+    right: 0;
+    transform: translateX(-50%);
+    svg {
+      left: calc(50% - 8px);
+      top: -.65rem;
+      transform: rotate(180deg)
+    }
   }
 }
 
@@ -37,6 +67,24 @@
   cursor: pointer
 }
 
+.entering{
+  display: block;
+  animation-delay: 300ms;
+  opacity: .1;
+  transform: scale(.5) translateY(-1rem)
+}
+
+.entered{
+  opacity: 1;
+  transform: scale(1) translateY(0)
+}
+.exiting{
+  display: block;
+}
+.exited{
+  display: block;
+}
+
 @keyframes smoothIn {
   from {
     opacity: .1;
@@ -44,7 +92,7 @@
   }
 
   to {
-    opacity: 1;
-    transform: scale(1) translateY(0)
+    opacity: .1;
+    transform: scale(.5) translateY(-1rem)
   }
 }
