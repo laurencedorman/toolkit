@@ -38,10 +38,11 @@ p:not(:last-child) { margin-bottom: 1.3em }
 p, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
   font-weight: 400;
   letter-spacing: -0.003em;
-  > span, a {
+  > span, > a {
+    margin-bottom: 0;
     font-size: inherit;
     font-weight: inherit;
-    color: inherit
+    color: inherit;
   }
 }
 
