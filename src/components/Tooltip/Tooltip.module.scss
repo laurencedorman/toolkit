@@ -20,14 +20,10 @@ $marginArrow: -10px;
     transition: all 300ms ease;
     animation: inOut 300ms ease;
 
-    &.top, &.bottom {
-      left: -50%;
-      transform: translateY(0);
-    }
+    &.top, &.bottom {transform: translateX(-50%)}
     &.left, &.right {
       width: 160px;
       transform: translateY(50%);
-      // top: 50%;
     }
   }
 }
