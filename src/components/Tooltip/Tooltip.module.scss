@@ -73,6 +73,8 @@ $marginArrow: -10px;
 .manoolkitTooltip {
   display: inline-flex;
   position: relative;
+  font-size: inherit;
+  font-weight: inherit;
   cursor: pointer
 }
 
