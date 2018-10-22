@@ -2,61 +2,74 @@
 @import '../../variables.scss';
 @import '../../fonts.scss';
 
+$marginArrow: -10px;
+
 .portalsTooltip {
   position: absolute;
   width: auto;
 
   & > div {
     position: relative;
+    min-width: 160px;
     padding: $smallSpace;
     background-color: $squidInk;
     border-radius: $radius;
     color: $white;
     text-align: center;
     font-size: 0.75rem;
-    //animation: smoothIn .2s ease;
-    //transition: all .2s ease
+    transition: all 300ms ease;
+    animation: inOut 300ms ease;
+
+    &.top, &.bottom {
+      left: -50%;
+      transform: translateY(0);
+    }
+    &.left, &.right {
+      width: 160px;
+      transform: translateY(50%);
+      // top: 50%;
+    }
   }
+}
+
+.svgContent {
+  position: absolute;
+  display: flex;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  z-index: -1;
 
   svg { position: absolute }
 
-  &.top > div {
-    transform: translateX(-50%);
+  .top &, .bottom & { justify-content: center }
+  .left &, .right & { align-items: center }
+
+  .top & {
+    align-items: flex-end;
+    svg { bottom: $marginArrow }
+  }
+
+  .bottom & {
+    align-items: flex-start;
     svg {
-      left: calc(50% - 8px);
-      bottom: -.65rem;
+      top: $marginArrow;
+      transform: rotate(180deg)
     }
   }
 
-  &.left, &.right { max-width: 160px }
-
-  &.left > div {
-    left: 0;
-    transform: translateY(50%);
+  .left & {
+    justify-content: flex-end;
     svg {
-      top: calc(50% - 8px);
-      right: -.65rem;
+      right: $marginArrow;
       transform: rotate(-90deg)
     }
   }
 
-  &.right > div {
-    right: 0;
-    transform: translate(0%, 50%);
+  .right & {
+    justify-content: flex-start;
     svg {
-      left: -.65rem;
-      top: calc(50% - 8px);
+      left: $marginArrow;
       transform: rotate(90deg)
-    }
-  }
-
-  &.bottom > div {
-    right: 0;
-    transform: translateX(-50%);
-    svg {
-      left: calc(50% - 8px);
-      top: -.65rem;
-      transform: rotate(180deg)
     }
   }
 }
@@ -67,32 +80,7 @@
   cursor: pointer
 }
 
-.entering{
-  display: block;
-  animation-delay: 300ms;
-  opacity: .1;
-  transform: scale(.5) translateY(-1rem)
-}
-
-.entered{
-  opacity: 1;
-  transform: scale(1) translateY(0)
-}
-.exiting{
-  display: block;
-}
-.exited{
-  display: block;
-}
-
-@keyframes smoothIn {
-  from {
-    opacity: .1;
-    transform: scale(.5) translateY(-1rem)
-  }
-
-  to {
-    opacity: .1;
-    transform: scale(.5) translateY(-1rem)
-  }
+@keyframes inOut {
+  from {opacity: .1}
+  to { opacity: 1 }
 }
