@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
-import './typo.scss';
+import './fonts.scss';
 
 class App extends Component {
   render() {
