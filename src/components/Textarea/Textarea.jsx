@@ -29,7 +29,7 @@ type PropTypes = {
   rows?: string,
   required?: boolean,
   disabled?: boolean,
-  form?: 'sting',
+  form?: string,
   onChange: () => {},
 };
 
