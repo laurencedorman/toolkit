@@ -1,18 +1,16 @@
+const space = 16;
+const tooltipWidth = 176;
+const requiredSpace = 100;
 
 export const tooltipPosition = (ref, position) => {
   const { top, left, right, bottom, width, height } = ref.getBoundingClientRect();
-  const space = 16;
-  const tooltipWidth = 176;
-  const requiredSpace = 100;
   const bottomSpace = document.body.clientHeight - top - window.scrollY;
   const sideSpace = document.body.clientWidth - left + window.scrollX;
-  let styles = {};
-
-  console.log(styles);
+  const leftSpace = left + width / 2 + window.scrollX;
 
   switch (true) {
     case window.innerWidth - right < requiredSpace || position === 'left':
-      return styles = {
+      return {
         class: 'left',
         style: {
           bottom: bottomSpace - space,
@@ -21,7 +19,7 @@ export const tooltipPosition = (ref, position) => {
       };
 
     case left < requiredSpace || position === 'right':
-      return styles = {
+      return {
         class: 'right',
         style: {
           bottom: bottomSpace - space,
@@ -30,25 +28,25 @@ export const tooltipPosition = (ref, position) => {
       };
 
     case top < requiredSpace || position === 'bottom':
-      return styles = {
+      return {
         class: 'bottom',
         style: {
-          bottom: bottomSpace - (height * 3),
-          left: left + width / 2 + window.scrollX,
+          bottom: document.body.clientHeight - bottom - height - (space * 2) - window.scrollY,
+          left: leftSpace,
         },
       };
 
     case window.innerHeight - bottom < requiredSpace || position === 'top':
-      return styles = {
+      return {
         class: 'top',
         style: {
           bottom: bottomSpace + space,
-          left: left + width / 2 + window.scrollX,
+          left: leftSpace,
         },
       };
 
     default:
-      return styles = {
+      return {
         class: 'top',
         top: {
           bottom: bottomSpace + space,
