@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Tag.module.scss';
 
 const Tag = ({ className, children, disabled }: propTypes) => {
-  const isDisabled = disabled && styles.disabled;
+  const isDisabled = disabled ? styles.disabled : '';
   return(
     <small className={`${styles.tag} ${isDisabled} ${className}`}>
       {children}
