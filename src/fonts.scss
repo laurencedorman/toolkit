@@ -10,8 +10,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale
 }
 
-h1, h2 { font-size: 2.25rem }
-h3, h4 { font-size: 2rem }
+h1 { font-size: 2.25rem }
+h2 { font-size: 2.125rem }
+h3 { font-size: 2rem }
+h4 { font-size: 1.625rem }
 
 h1, h3, .title {font-weight: 700;}
 h2, h4, .subTitle {font-weight: 600;}
@@ -44,7 +46,7 @@ a, .link {
   &:disabled { color: $greyDark }
 }
 
-h1, h2, h3, h4, p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
+h3, h4, p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
   line-height: 1.618;
   margin-bottom: 1rem
 }
