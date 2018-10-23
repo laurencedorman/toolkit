@@ -1,6 +1,6 @@
 @import '../../colors.scss';
 @import '../../variables.scss';
-@import '../../typo.scss';
+@import '../../fonts.scss';
 
 .tag {
   display: inline-flex;
@@ -11,24 +11,18 @@
   border: $border $borderColor;
   border-radius: 17px;
   text-align: center;
-  transition: all .2s ease;
+  transition: all $timeout ease;
   cursor: pointer;
   white-space: nowrap;
 
-  &:hover {
-    background-color: $greyMed;
-  }
+  &:hover { background-color: $greyMed }
 
-  &:active {
-    background-color: $manoBlack;
-  }
+  &:active { background-color: $manoBlack }
+
+  &:active, &.disabled { color: $white }
 
   &.disabled {
     background-color: $greyDark;
-    cursor: not-allowed;
-  }
-
-  &:active, &.disabled {
-    color: $white;
+    cursor: not-allowed
   }
 }
