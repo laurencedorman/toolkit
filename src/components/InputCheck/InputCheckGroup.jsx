@@ -8,7 +8,7 @@ import styles from './InputCheck.module.scss';
 const InputCheckGroup = ({
   inputGroupTitle, direction, options, type, groupName, selectedOption, disabled, onChange }: PropTypes) => (
 
-  <div className={`${styles.manoolkitCheckGroup} ${styles[direction]}`} direction={direction} >
+  <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction} >
     {inputGroupTitle && <span>{inputGroupTitle}</span>}
     {options.map((option, id) => (
       <InputCheck
