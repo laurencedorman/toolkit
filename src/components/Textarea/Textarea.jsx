@@ -7,7 +7,7 @@ import styles from './Textarea.module.scss';
 const Textarea = ({
   placeholder, name, id, value, cols, rows, required, disabled, form, onChange }: PropTypes) => (
   <textarea
-    className={styles.manoolkitTextarea}
+    className={styles.textarea}
     placeholder={placeholder}
     name={name}
     value={value}
