@@ -1,0 +1,29 @@
+@import '../../colors.scss';
+
+.logo {
+  display: block;
+
+  &.color, &.colorWhite {
+    .hexagone { fill: url(#linearGradient-1) }
+    .hexagoneLetter { fill: $white }
+  }
+
+  &.colorWhite, &.white {
+    .letters { fill: $white }
+  }
+
+  &.color {
+    .letters { fill: $bellaNotte }
+  }
+
+  &.black {
+    .hexagone { fill: $black }
+    .hexagoneLetter { fill: $white }
+    .letters { fill: $black }
+  }
+
+  &.white {
+    .hexagone { fill: $white }
+    .hexagoneLetter { fill: $black }
+  }
+}
