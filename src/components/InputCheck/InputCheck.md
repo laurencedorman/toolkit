@@ -7,7 +7,7 @@ initialState = {checked: false};
   type="checkbox"
   label="Checkbox"
   id="id"
-  name="name"
+  name="exempleOne"
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
 />
@@ -23,7 +23,7 @@ onChange = e => setState({ selected: e.target.value });
       type="radio"
       label="Choice One"
       id="valueRadioOne"
-      name="group"
+      name="exempleTwo"
       checked={state.selected === "valueRadioOne"}
       onChange={onChange}
     />
@@ -31,7 +31,7 @@ onChange = e => setState({ selected: e.target.value });
       type="radio"
       label="Choice Two"
       id="valueRadioTwo"
-      name="group"
+      name="exempleTwo"
       checked={state.selected === "valueRadioTwo"}
       onChange={onChange}
     />

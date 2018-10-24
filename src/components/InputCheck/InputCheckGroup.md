@@ -22,7 +22,7 @@ initialState = {
   inputGroupTitle="this is Radio Group :"
   type="radio"
   options={state.options}
-  groupName="horizontal"
+  groupName="radioGroupHorizontal"
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
 />
@@ -54,7 +54,7 @@ initialState = {
   type="radio"
   direction="vertical"
   options={state.options}
-  groupName="vertical"
+  groupName="radioGroupVertical"
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
 />
@@ -86,7 +86,7 @@ initialState = {
   type="checkbox" 
   direction="horizontal"
   options={state.options}
-  groupName="checkboxGoup"
+  groupName="checkboxGroup"
   selectedOption={state.selected}
 
   onChange={e => {

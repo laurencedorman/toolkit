@@ -1,8 +1,8 @@
 @import '../../colors.scss';
 @import '../../variables.scss';
-@import '../../typo.scss';
+@import '../../fonts.scss';
 
-.manoolkitInputCheck {
+.inputCheck {
   position: relative;
 
   input[type="checkbox"], input[type="radio"] {

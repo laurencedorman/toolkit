@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './InputCheck.module.scss';
 
 const InputCheck = ({ type, value, name, disabled, checked, onChange, label }: PropTypes) => (
-  <div className={styles.manoolkitInputCheck}>
+  <div className={styles.inputCheck}>
     <input
       type={type}
       id={value}
