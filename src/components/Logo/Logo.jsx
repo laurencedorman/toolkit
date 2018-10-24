@@ -14,7 +14,11 @@ const Logo = ({ theme, mini }: propTypes) => (
         <stop stopColor="#00ECCD" offset="99.71%" />
       </linearGradient>
     </defs>
-    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+    <g
+      stroke="none"
+      strokeWidth="1"
+      fill="none"
+      fillRule="evenodd">
       <g>
         <path
           className={styles.hexagone}
