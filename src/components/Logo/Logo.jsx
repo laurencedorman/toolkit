@@ -4,7 +4,7 @@ import styles from './Logo.module.scss';
 const Logo = ({ theme, mini }: propTypes) => (
   <svg
     className={`${styles.logo} ${styles[theme]}`}
-    width="139px"
+		width={mini ? '32px' : '139px'}
     height="30px"
     viewBox="0 0 139 30"
     xmlns="http://www.w3.org/2000/svg">
