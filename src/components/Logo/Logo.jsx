@@ -6,7 +6,7 @@ const Logo = ({ theme, mini }: propTypes) => (
     className={`${styles.logo} ${styles[theme]}`}
 		width={mini ? '32px' : '139px'}
     height="30px"
-    viewBox="0 0 139 30"
+		viewBox={mini ? '0 0 32 30' : '0 0 139 30'}
     xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient x1="17.2641491%" y1="78.4718674%" x2="72.4875789%" y2="30.3997693%" id="linearGradient-1">
@@ -47,7 +47,7 @@ type propTypes = {
     'black',
     'white',
     ],
-  mini: bool,
+  mini: boolean,
 };
 
 Logo.defaultProps = {
