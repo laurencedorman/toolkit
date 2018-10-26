@@ -1,14 +1,17 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({ name, id, checked, onChange }: propTypes) => {
-  const isChecked = checked && styles.active;
+  const labelClass = cn(styles.label,{
+    [styles.active]: checked,
+  });
 
   return (
     <div>
       <label
         htmlFor={id}
-        className={`${styles.label} ${isChecked}`}
+        className={labelClass}
       />
       <input
         className={styles.switch}
