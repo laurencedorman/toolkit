@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { type Node } from 'react';
+import cn from 'classnames';
 import styles from './Tag.module.scss';
 
 const Tag = ({ className, children, disabled }: propTypes) => {
-  const isDisabled = disabled ? styles.disabled : '';
+  const isDisabled = cn(styles.tag, {
+		className,
+		[styles.disabled]: disabled,
+	});
+
   return(
-    <small className={`${styles.tag} ${isDisabled} ${className}`}>
+    <small className={isDisabled}>
       {children}
     </small>
   )
@@ -12,7 +17,7 @@ const Tag = ({ className, children, disabled }: propTypes) => {
 
 type propTypes = {
   className?: string,
-  children: string | ReactNode,
+	children: string | Node,
   disabled: boolean,
 };
 
