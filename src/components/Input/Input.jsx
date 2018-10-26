@@ -1,22 +1,31 @@
 import React from 'react';
+import cn from 'classnames';
 import styles from './Input.module.scss';
 
 /**
  * @visibleName Input
  */
 const Input = ({
-                 label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden }: propTypes) => {
+  label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden }: propTypes) => {
 
-  const hasValue = value && 'hasValue';
-  const hasError = error && 'hasError';
-  const hasSuccess = (value && valid) && 'hasSuccess';
-  const isRequired = required && 'required';
+  const isRequired = cn({
+    [styles.required]: required
+  });
+
+	const containerClass = cn(styles.content, {
+	  [styles.hasValue]: value,
+    [styles.hasSuccess]: value && valid,
+  });
+
+	const hasError = cn({
+		[styles.hasError]: error,
+	});
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.content} ${styles[hasValue]} ${styles[hasSuccess]}`}>
+      <div className={containerClass}>
         <input
-          className={styles[hasError]}
+          className={hasError}
           type={type}
           id={id}
           name={name}
@@ -30,7 +39,7 @@ const Input = ({
           valid={valid}
           hidden={hidden}
         />
-        <label htmlFor={id} className={styles[isRequired]}>{label}</label>
+        <label htmlFor={id} className={isRequired}>{label}</label>
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{error}</span>}
