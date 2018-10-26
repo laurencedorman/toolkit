@@ -12,7 +12,7 @@ const Input = ({
     [styles.required]: required
   });
 
-	const containerClass = cn(styles.content, {
+	const contentClass = cn(styles.content, {
 	  [styles.hasValue]: value,
     [styles.hasSuccess]: value && valid,
   });
@@ -23,7 +23,7 @@ const Input = ({
 
   return (
     <div className={styles.container}>
-      <div className={containerClass}>
+      <div className={contentClass}>
         <input
           className={hasError}
           type={type}
