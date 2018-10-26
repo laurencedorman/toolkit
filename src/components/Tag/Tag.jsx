@@ -3,13 +3,13 @@ import cn from 'classnames';
 import styles from './Tag.module.scss';
 
 const Tag = ({ className, children, disabled }: propTypes) => {
-  const isDisabled = cn(styles.tag, {
+  const tagClass = cn(styles.tag, {
 		className,
 		[styles.disabled]: disabled,
 	});
 
   return(
-    <small className={isDisabled}>
+    <small className={tagClass}>
       {children}
     </small>
   )
