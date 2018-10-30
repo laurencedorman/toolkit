@@ -8,8 +8,6 @@ const safePostCssParser = require('postcss-safe-parser');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-
 
 const publicPath = paths.servedPath;
 const shouldUseRelativeAssetPaths = publicPath === './';
@@ -69,8 +67,8 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
 
 module.exports = {
   mode: 'production',
-  bail: true,
-  devtool: shouldUseSourceMap ? 'source-map' : false,
+  // bail: true,
+  // devtool: shouldUseSourceMap ? 'source-map' : false,
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
@@ -197,21 +195,14 @@ module.exports = {
     ],
   },
   plugins: [
-    new ModuleNotFoundPlugin(paths.appPath),
-    new webpack.DefinePlugin(env.stringified),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css',
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({
+      "React": "react",
+    }),
   ],
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
   target: 'web',
   externals: [nodeExternals()],
   performance: false,
