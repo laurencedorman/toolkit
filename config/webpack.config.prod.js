@@ -1,16 +1,16 @@
 const path = require('path');
+const paths = require('./paths');
+const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
+
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const paths = require('./paths');
-const getClientEnvironment = require('./env');
 
+const getClientEnvironment = require('./env');
 const publicPath = paths.servedPath;
-const shouldUseRelativeAssetPaths = publicPath === './';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
@@ -19,56 +19,41 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
 
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
-
-const getStyleLoaders = (cssOptions, preProcessor) => {
-  const loaders = [
-    {
-      loader: MiniCssExtractPlugin.loader,
-      options: Object.assign(
-        {},
-        shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
-      ),
-    },
-    {
-      loader: require.resolve('css-loader'),
-      options: cssOptions,
-    },
-    {
-      loader: require.resolve('postcss-loader'),
-      options: {
-        ident: 'postcss',
-        plugins: () => [
-          require('postcss-flexbugs-fixes'),
-          require('postcss-preset-env')({
-            autoprefixer: {
-              flexbox: 'no-2009',
-            },
-            stage: 3,
-          }),
-        ],
-        sourceMap: shouldUseSourceMap,
-      },
-    },
-  ];
-  if (preProcessor) {
-    loaders.push({
-      loader: require.resolve(preProcessor),
-      options: {
-        sourceMap: shouldUseSourceMap,
-      },
-    });
+const CSSModuleLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    sourceMap: true,
+    localIdentName: '[local]__[hash:base64:5]',
+    minimize: true
   }
-  return loaders;
-};
+}
+
+const CSSLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: false,
+    sourceMap: true,
+    minimize: true
+  }
+}
+
+const postCSSLoader = {
+  loader: 'postcss-loader',
+  options: {
+    ident: 'postcss',
+    sourceMap: true,
+    plugins: () => [
+      autoprefixer({
+        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
+        flexbox: 'no-2009',
+      })
+    ]
+  }
+}
 
 module.exports = {
   mode: 'production',
-  // bail: true,
-  // devtool: shouldUseSourceMap ? 'source-map' : false,
   entry: [paths.appIndexJs],
   output: {
     path: paths.appBuild,
@@ -119,7 +104,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    strictExportPresence: true,
+    //strictExportPresence: true,
     rules: [
       {
         oneOf: [
@@ -133,53 +118,25 @@ module.exports = {
           },
           {
             test: /\.jsx?$/,
-            include: [
-              paths.appSrc,
-            ],
+            include: [ paths.appSrc ],
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
             },
           },
           {
-            test: cssRegex,
-            exclude: cssModuleRegex,
-            loader: getStyleLoaders({
-              importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
-            }),
-            sideEffects: true,
+            test: /\.scss$/,
+            exclude: /\.module\.scss$/,
+            use: ['style-loader', CSSLoader, postCSSLoader, 'sass-loader']
           },
           {
-            test: cssModuleRegex,
-            loader: getStyleLoaders({
-              importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
-              modules: true,
-              getLocalIdent: getCSSModuleLocalIdent,
-            }),
-          },
-          {
-            test: sassRegex,
-            exclude: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
-                importLoaders: 2,
-              },
-              'sass-loader'
-            ),
-            sideEffects: true,
-          },
-          {
-            test: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
-                importLoaders: 2,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
-              },
-              'sass-loader'
-            ),
+            test: /\.module\.scss$/,
+            use: [
+              'style-loader',
+              CSSModuleLoader,
+              postCSSLoader,
+              'sass-loader',
+            ]
           },
           {
             loader: require.resolve('file-loader'),
@@ -193,10 +150,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-    }),
     new webpack.ProvidePlugin({
       "React": "react",
     }),
