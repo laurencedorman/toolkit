@@ -1,8 +1,5 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
-const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -102,7 +99,7 @@ module.exports = {
     // The build folder.
     path: paths.appBuild,
     filename: 'index.js',
-    library: 'toolkit',
+    library: '',
     libraryTarget: 'commonjs',
   },
   optimization: {
