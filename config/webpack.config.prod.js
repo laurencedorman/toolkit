@@ -165,7 +165,6 @@ module.exports = {
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
               },
               'sass-loader'
             ),
@@ -176,7 +175,6 @@ module.exports = {
             loader: getStyleLoaders(
               {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent,
               },
