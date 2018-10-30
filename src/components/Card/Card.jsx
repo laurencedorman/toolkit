@@ -1,15 +1,11 @@
 // @flow
 import React from 'react';
-import styles from './Card.module.scss';
+import styles from './Card.scss';
 
-const Card = ({ children }: propTypes) => (
+const Card = ({ children }) => (
   <div className={styles.card}>
     {children}
   </div>
 );
-
-type propTypes = {
-  children: Node,
-}
 
 export default Card;
