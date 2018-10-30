@@ -104,7 +104,6 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    //strictExportPresence: true,
     rules: [
       {
         oneOf: [

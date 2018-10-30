@@ -33,20 +33,22 @@
     "styleguide:build": "styleguidist build"
   },
   "eslintConfig": {
-    "extends": [
-      "airbnb"
-    ],
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "airbnb-flow"],
+    "globals": {
+      "BABEL_ENV": "production"
+    },
     "env": {
       "browser": true,
       "jest": true
     },
     "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "16.3"
+      },
       "import/resolver": {
-        "node": {
-          "paths": [
-            "src"
-          ]
-        }
+        "babel-module": {}
       }
     },
     "rules": {
@@ -54,6 +56,7 @@
       "import/no-extraneous-dependencies": [
         "error",
         {
+          "peerDependencies": true,
           "devDependencies": true
         }
       ],
@@ -68,16 +71,19 @@
           "ignoreComments": true
         }
       ],
-      "react/style-prop-object": 0,
-      "radix": 0,
-      "max-len": [
+      "no-bitwise": [
         "error",
         {
-          "code": 120
+          "allow": [
+            "~"
+          ]
         }
       ]
     }
   },
+  "eslintIgnore": [
+    "flow-typed/**"
+  ],
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -87,6 +93,7 @@
   "peerDependencies": {
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "eslint": ">= 3",
     "react": "^16.4.2",
     "react-dom": "^16.5.2"
   },
@@ -112,6 +119,7 @@
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-flow": "^1.0.2",
     "eslint-config-react-app": "^3.0.3",
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
