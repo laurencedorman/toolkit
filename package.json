@@ -34,7 +34,10 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["airbnb", "airbnb-flow"],
+    "extends": [
+      "airbnb",
+      "airbnb-flow"
+    ],
     "globals": {
       "BABEL_ENV": "production"
     },
@@ -91,15 +94,13 @@
     "not op_mini all"
   ],
   "peerDependencies": {
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "eslint": ">= 3",
     "react": "^16.4.2",
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.1.5",
     "babel-cli": "^6.26.0",
@@ -188,6 +189,7 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react",
+      "@babel/preset-flow",
       "minify"
     ],
     "env": {
