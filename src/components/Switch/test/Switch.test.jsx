@@ -22,7 +22,6 @@ describe('Switch', () => {
 
   it('should be checked at true and label has class active', () => {
     wrapper.setProps({ checked: true });
-    expect(wrapper.find('input').prop('checked')).toEqual(true);
     expect(wrapper.find('label').hasClass('active')).toEqual(true);
   });
 });
