@@ -1,0 +1,42 @@
+@import '~styles/import.scss';
+
+.manoolkitAlert {
+  position: relative;
+  display: flex;
+  flex-flow: row noWrap;
+  padding: $space;
+  border: $border;
+  border-radius: $radius;
+
+  &.default {
+    color: $white;
+    background-color: $squidInk;
+    border-color: $bellaNotte;
+  }
+
+  &.danger {
+    color: $cocoCorail;
+    background-color: lighten($cocoCorail, 30%);
+    border-color: $cocoCorail;
+    svg { fill: $cocoCorail }
+  }
+
+  &.light {
+    color: $squidInk;
+    background-color: $greyMed;
+    border-color: $greyDarker;
+    svg { fill: $vaALaPlaya }
+  }
+
+  &.menthe {
+    color: $squidInk;
+    background-color: $menthealeau;
+    border-color: $menthealeau;
+    svg { fill: $squidInk }
+  }
+
+  .img {
+    flex-grow: 0;
+    margin-right: $space;
+  }
+}
