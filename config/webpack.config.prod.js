@@ -24,7 +24,7 @@ const CSSModuleLoader = {
   options: {
     modules: true,
     sourceMap: true,
-    localIdentName: '[local]__[hash:base64:5]',
+    localIdentName: '[hash:base64:5]',
     minimize: true
   }
 }
@@ -108,14 +108,6 @@ module.exports = {
       {
         oneOf: [
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
-            options: {
-              limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-          {
             test: /\.jsx?$/,
             include: [ paths.appSrc ],
             loader: 'babel-loader',
@@ -136,13 +128,6 @@ module.exports = {
               postCSSLoader,
               'sass-loader',
             ]
-          },
-          {
-            loader: require.resolve('file-loader'),
-            exclude: [/\.(js|jsx)$/, /\.html$/, /\.json$/],
-            options: {
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
           },
         ],
       },
