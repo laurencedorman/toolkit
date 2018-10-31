@@ -1,0 +1,40 @@
+@import '~styles/import.scss';
+
+.textarea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: $space;
+  margin-bottom: $space;
+  background-color: $white;
+  background-clip: padding-box;
+  border: $border $borderColor;
+  border-radius: $radius;
+  box-sizing: border-box;
+  font-size: 1rem;
+
+  &::placeholder {
+    display: block;
+    position: absolute;
+    margin-left: $space;
+    color: $greyDarker;
+    transform: translateX(0) scale(1);
+    transition: all .3s ease;
+    opacity: 1;
+    &.required::after {
+      content: "*";
+      display: inline-block;
+      color: $cocoCorail;
+      padding-left: calc(#{$space} / 4)
+    }
+  }
+
+  &:focus::placeholder { transform: translateX(-100%) scale(.5) }
+
+  &:disabled {
+    background-color: $greyLight;
+    cursor: not-allowed
+  }
+}
