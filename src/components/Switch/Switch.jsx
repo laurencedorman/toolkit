@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import cn from 'classnames';
 import styles from './Switch.module.scss';
@@ -30,7 +31,7 @@ type propTypes = {
   id: string,
   name: string,
   checked: boolean,
-  onChange: () => {},
+  onChange: SyntheticInputEvent<HTMLInputElement> => void,
 };
 
 export default Switch;
