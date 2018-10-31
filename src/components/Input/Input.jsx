@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import cn from 'classnames';
 import styles from './Input.module.scss';
@@ -12,14 +13,14 @@ const Input = ({
     [styles.required]: required
   });
 
-	const contentClass = cn(styles.content, {
-	  [styles.hasValue]: value,
+  const contentClass = cn(styles.content, {
+    [styles.hasValue]: value,
     [styles.hasSuccess]: value && valid,
   });
 
-	const hasError = cn({
-		[styles.hasError]: error,
-	});
+  const hasError = cn({
+    [styles.hasError]: error,
+  });
 
   return (
     <div className={styles.container}>
