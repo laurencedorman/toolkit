@@ -1,14 +1,13 @@
 module.exports = {
+  webpackConfig: require('./config/webpack.config.dev.js'),
   title: 'Mano-Toolkit',
   components: 'src/components/**/*.jsx',
   template: {
     head: {
-      links: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Open+Sans',
-        },
-      ],
+      links: [{
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Open+Sans',
+      }],
     },
   },
   pagePerSection: true,
