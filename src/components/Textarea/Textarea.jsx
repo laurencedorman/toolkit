@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styles from './Textarea.module.scss';
 
@@ -5,7 +6,7 @@ import styles from './Textarea.module.scss';
  * @visibleName Textarea
  */
 const Textarea = ({
-  placeholder, name, id, value, cols, rows, required, disabled, form, onChange }: PropTypes) => (
+  placeholder, name, id, value, cols, rows, required, disabled, form, onChange }: propTypes) => (
   <textarea
     className={styles.textarea}
     placeholder={placeholder}
@@ -20,7 +21,7 @@ const Textarea = ({
   />
 );
 
-type PropTypes = {
+type propTypes = {
   placeholder?: string,
   name: string,
   id: string,
