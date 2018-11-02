@@ -29,7 +29,7 @@ const InputCheckGroup = ({
 type PropTypes = {
   inputGroupTitle?: string,
   direction?: 'horizontal' | 'vertical',
-  options: Array,
+  options: Array<{label: string} | {value: string}>,
   type: 'radio' | 'checkbox',
   groupName: string,
   selectedOption?: string | Array<string>,
