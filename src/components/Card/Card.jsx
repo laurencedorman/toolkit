@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import styles from './Card.module.scss';
 
 const Card = ({ children }: propTypes) => (
@@ -9,7 +9,7 @@ const Card = ({ children }: propTypes) => (
 );
 
 type propTypes = {
-  children: Node,
+  children: string | Node,
 }
 
 export default Card;
