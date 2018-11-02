@@ -11,10 +11,10 @@ const InputCheckGroup = ({
 
   <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction} >
     {inputGroupTitle && <span>{inputGroupTitle}</span>}
-    {options.map((option, id) => (
+    {options.map((option) => (
       <InputCheck
         type={type}
-        key={id}
+        key={option.value}
         name={groupName}
         label={option.label}
         value={option.value}
