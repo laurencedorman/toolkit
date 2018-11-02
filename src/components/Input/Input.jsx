@@ -62,9 +62,9 @@ type propTypes = {
   error?: boolean,
   helper?: string,
   hidden?: boolean,
-  onChange?: () => {},
-  onFocus?: () => {},
-  onBlur?: () => {},
+  onChange?: () => void,
+  onFocus?: () => void,
+  onBlur?: () => void,
 };
 
 Input.defaultProps = {

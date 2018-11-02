@@ -31,7 +31,7 @@ type propTypes = {
   required?: boolean,
   disabled?: boolean,
   form?: string,
-  onChange: () => {},
+  onChange: () => void,
 };
 
 Textarea.defaultProps = {
