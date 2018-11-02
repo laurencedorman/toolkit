@@ -9,7 +9,7 @@ $marginArrow: -10px;
   & > div {
     position: relative;
     min-width: 160px;
-    padding: $smallSpace;
+    padding: calc(#{$space} / 2);
     background-color: $squidInk;
     border-radius: $radius;
     color: $white;
