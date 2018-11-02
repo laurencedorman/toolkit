@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styles from './Icon.module.scss';
-import { icons } from '../../assets/setIcons';
+import icons from '../../assets/setIcons';
 
 const Icon = ({ name, size, fill }: propTypes) => (
   <svg
