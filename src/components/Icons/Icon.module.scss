@@ -1,3 +1,8 @@
- .svg {
-   display: inline-flex;
- }
+
+.container {
+  flex-grow: 0;
+}
+
+.svg {
+  display: inline-flex;
+}

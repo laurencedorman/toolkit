@@ -10,5 +10,4 @@ describe('Icon', () => {
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
   });
-  
 });

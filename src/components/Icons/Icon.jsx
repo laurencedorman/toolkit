@@ -4,18 +4,20 @@ import styles from './Icon.module.scss';
 import icons from '../../assets/setIcons';
 
 const Icon = ({ name, size, fill }: propTypes) => (
-  <svg
-    className={styles.svg}
-    width={`${size}px`}
-    height={`${size}px`}
-    viewBox={icons[name].viewBox}
-    aria-labelledby={icons[name]}
-    xmlns="http://www.w3.org/2000/svg"
-    role="img">
-    <path
-      d={icons[name].d}
-      fill={fill} />
-  </svg>
+  <div className={styles.container}>
+    <svg
+      className={styles.svg}
+      width={`${size}px`}
+      height={`${size}px`}
+      viewBox={icons[name].viewBox}
+      aria-labelledby={icons[name]}
+      xmlns="http://www.w3.org/2000/svg"
+      role="img">
+      <path
+        d={icons[name].d}
+        fill={fill} />
+    </svg>
+  </div>
 );
 
 type propTypes = {
