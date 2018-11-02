@@ -1,0 +1,117 @@
+@import '~styles/import.scss';
+
+.inputCheck {
+  position: relative;
+
+  input[type="checkbox"], input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+
+    + label {
+      position: relative;
+      display: inline-block;
+      padding-left: calc(#{$space}*2);
+      cursor: pointer;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 0; left: 0;
+        box-sizing: border-box;
+        transition: all .15s linear
+      }
+
+      &::before {
+        border: $border $borderColor
+      }
+
+      &:hover::before {
+        border-color: $balataGreen
+      }
+    }
+
+    &:checked + label::before {
+      border-color: $balataGreen
+    }
+
+    &:not(checked) + label {
+      &::after {
+        opacity: 0;
+        transform: scale(0)
+      }
+    }
+
+    &:disabled + label, &:disabled:hover + label {
+      cursor: not-allowed;
+      &::before {
+        background: $greyDark;
+        border-color: transparent;
+        cursor: not-allowed
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    + label {
+      &::before, &::after {
+        border-radius: $radius
+      }
+    }
+    &:checked + label::after {
+      content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' fill='#ffffff' viewBox='-5 -7 30 30'><path d='M.24,8.8a.77.77,0,0,1,0-1.12L1.36,6.56a.77.77,0,0,1,1.12,0l.08.08L7,11.36a.39.39,0,0,0,.56,0L18.24.24h.08a.77.77,0,0,1,1.12,0l1.12,1.12a.77.77,0,0,1,0,1.12h0L7.76,15.76a.77.77,0,0,1-1.12,0L.4,9Z'/></svg>");
+      display: block;
+      background: $balataGreen;
+      opacity: 1;
+      transform: scale(1)
+    }
+  }
+
+  input[type="radio"] {
+    + label {
+      &::before, &::after {
+        border-radius: 100%
+      }
+    }
+    &:checked + label::after {
+      width: 1.125rem;
+      height: 1.125rem;
+      top: 0.1875rem; left: 0.1875rem;
+      border-radius: 100%;
+      background: $balataGreen;
+      opacity: 1;
+      transform: scale(1)
+    }
+  }
+}
+
+.CheckGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  label { margin-bottom: 0 }
+
+  &.vertical {
+    flex-flow: column wrap;
+    & > div:not(:last-child) {
+      margin-bottom: $space;
+    }
+  }
+
+  &.horizontal{
+    flex-flow: row wrap;
+    & > div:not(:last-child) {
+      margin-right: calc(#{$space}*2)
+    }
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    margin-bottom: $space
+  }
+}
+
