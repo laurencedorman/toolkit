@@ -7,11 +7,13 @@
   padding: $space;
   border: $border;
   border-radius: $radius;
+  font-size: 0.875rem;
 
   &.default {
     color: $white;
     background-color: $squidInk;
     border-color: $bellaNotte;
+    svg { fill: $white }
   }
 
   &.danger {
