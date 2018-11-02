@@ -1,12 +1,12 @@
 
 Input Checkbox: 
 ```js
-initialState = {checked: false};
+initialState = { checked: false };
 
 <InputCheck
   type="checkbox"
   label="Checkbox"
-  id="id"
+  value="value"
   name="exempleOne"
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
@@ -15,14 +15,14 @@ initialState = {checked: false};
 
 Input radio: 
 ```js
-initialState = {selected: 'valueRadioTwo'};
+initialState = {selected: 'valueRadioOne'};
 onChange = e => setState({ selected: e.target.value });
 
 <div style={{ display: 'flex', justifyContent: 'space-around', width: 400 }}>
     <InputCheck
       type="radio"
       label="Choice One"
-      id="valueRadioOne"
+      value="valueRadioOne"
       name="exempleTwo"
       checked={state.selected === "valueRadioOne"}
       onChange={onChange}
@@ -30,7 +30,7 @@ onChange = e => setState({ selected: e.target.value });
     <InputCheck
       type="radio"
       label="Choice Two"
-      id="valueRadioTwo"
+      value="valueRadioTwo"
       name="exempleTwo"
       checked={state.selected === "valueRadioTwo"}
       onChange={onChange}

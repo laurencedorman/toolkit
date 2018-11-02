@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import InputCheck from './index';
 import styles from './InputCheck.module.scss';
@@ -33,7 +34,7 @@ type PropTypes = {
   groupName: string,
   selectedOption?: string | Array<string>,
   disabled?: boolean,
-  onChange?: (Event) => {},
+  onChange?: (Event) => void,
 };
 
 InputCheckGroup.defaultProps = {

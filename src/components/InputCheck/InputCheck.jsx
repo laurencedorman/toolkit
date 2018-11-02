@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styles from './InputCheck.module.scss';
 
@@ -22,7 +23,7 @@ type PropTypes = {
   name: string,
   checked?: boolean,
   disabled?: boolean,
-  onChange?: (Event) => {},
+  onChange?: (Event) => void,
   label: string,
 };
 
