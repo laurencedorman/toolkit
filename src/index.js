@@ -1,3 +1,4 @@
+export { default as Alert } from './components/Modal';
 export { default as Button } from './components/Button';
 export { default as Card } from './components/Card';
 export { default as Hint } from './components/Hint';
