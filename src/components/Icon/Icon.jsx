@@ -10,7 +10,7 @@ const Icon = ({ name, size, fill }: propTypes) => (
       width={`${size}px`}
       height={`${size}px`}
       viewBox={icons[name].viewBox}
-      aria-labelledby={icons[name]}
+      aria-describedby={name}
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
       role="img">

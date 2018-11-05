@@ -1,0 +1,76 @@
+@import '~styles/import.scss';
+
+$smallSpace: .75rem;
+
+.manoolkitButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: $border transparent;
+  border-radius: $radius;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .15s ease;
+
+  &.default, &.primary {
+    color: $white;
+    svg { fill: $white }
+  }
+
+  &.default {
+    background-color: $balataGreen;
+    &:hover { background-color: $articCitric }
+    &:active { background-color: $squidInk }
+  }
+
+  &.primary, &.primary:active {
+    background-color: $squidInk;
+    &:hover { background-color: $bellaNotte }
+  }
+
+  &.secondary {
+    color: $manoBlack;
+    background-color: $white;
+    border-color: $greyMedDarker;
+    &:hover { background-color: $greyDark }
+    &:active {
+      background-color: $greyDarker;
+      border-color: $greyDarker;
+    }
+    svg { fill: $manoBlack }
+  }
+
+  &:disabled, &:disabled:hover {
+    background-color: $greyDarker !important;
+    border-color: $greyDarker !important;
+    cursor: not-allowed;
+  }
+
+  //SIZE SPACE
+  &.default { padding: $smallSpace }
+  &.big { padding: $space }
+  &.small { padding: calc(#{$space} / 4) $space }
+  &.xsmall { padding: 0 $space }
+  &.small, &.xsmall {
+    font-size: 0.75rem;
+    svg { width: 12px }
+  }
+
+  //ICON SPACE
+  &.icon svg{ margin-right: $smallSpace }
+
+  &.reverse {
+    flex-direction: row-reverse;
+    svg{
+      margin-right: 0;
+      margin-left: $smallSpace;
+    }
+  }
+
+  &.onlyIcon {
+    svg{ margin: 0 }
+  }
+}

@@ -4,9 +4,9 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({ name, id, checked, onChange }: propTypes) => {
-  const labelClass = cn(styles.label,{
-    [styles.active]: checked,
-  });
+    const labelClass = cn(styles.label,{
+      [styles.active]: checked,
+    });
 
   return (
     <div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Hint from '../Hint';
+import Button from '../Button';
 
-describe('Hint', () => {
+describe('Button', () => {
   let wrapper;
 
-  wrapper = shallow(<Hint />);
+  wrapper = shallow(<Button />);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);
