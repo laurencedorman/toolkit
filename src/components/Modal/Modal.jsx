@@ -58,9 +58,7 @@ export default class Modal extends PureComponent<propTypes> {
 
     return(
       <Fragment>
-        <span onClick={this.handleShow}>
-          {children}
-        </span>
+        <span onClick={this.handleShow}>{children}</span>
         {this.renderModal()}
       </Fragment>
     )
