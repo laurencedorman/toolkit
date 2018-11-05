@@ -1,6 +1,6 @@
 @import '~styles/import.scss';
 
-$defaultSpace: calc(#{$space} / 1.333333);
+$smallSpace: .75rem;
 
 .manoolkitButton {
   position: relative;
@@ -8,7 +8,7 @@ $defaultSpace: calc(#{$space} / 1.333333);
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: $border;
+  border: $border transparent;
   border-radius: $radius;
   background: transparent;
   font-size: 1rem;
@@ -22,23 +22,23 @@ $defaultSpace: calc(#{$space} / 1.333333);
 
   &.default {
     background-color: $balataGreen;
-    border-color: $balataGreen;
+    // border-color: $balataGreen;
     &:hover {
       background-color: $articCitric;
-      border-color: $articCitric;
+      //  border-color: $articCitric;
     }
     &:active {
       background-color: $squidInk;
-      border-color: $squidInk;
+      // border-color: $squidInk;
     }
   }
 
   &.primary, &.primary:active {
     background-color: $squidInk;
-    border-color: $squidInk;
+    // border-color: $squidInk;
     &:hover {
       background-color: $bellaNotte;
-      border-color: $bellaNotte;
+      // border-color: $bellaNotte;
     }
   }
 
@@ -63,7 +63,7 @@ $defaultSpace: calc(#{$space} / 1.333333);
   }
 
   //SIZE SPACE
-  &.default { padding: $defaultSpace }
+  &.default { padding: $smallSpace }
   &.big { padding: $space }
   &.small { padding: calc(#{$space} / 4) $space }
   &.xsmall { padding: 0 $space }
@@ -73,13 +73,13 @@ $defaultSpace: calc(#{$space} / 1.333333);
   }
 
   //ICON SPACE
-  &.icon svg{ margin-right: $defaultSpace }
+  &.icon svg{ margin-right: $smallSpace }
 
   &.reverse {
     flex-direction: row-reverse;
     svg{
       margin-right: 0;
-      margin-left: $defaultSpace;
+      margin-left: $smallSpace;
     }
   }
 
