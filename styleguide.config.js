@@ -4,12 +4,10 @@ module.exports = {
   components: 'src/components/**/*.jsx',
   template: {
     head: {
-      links: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700',
-        },
-      ],
+      links: [{
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Open+Sans',
+      }],
     },
     body: {
       raw: '<div id="root"></div><div id="portalRoot"></div>',
@@ -50,8 +48,7 @@ module.exports = {
     },
     StyleGuide: {
       '@global body': {
-        fontFamily: 'Open Sans',
-        fontWeight: 400,
+        fontFamily: 'Open Sans'
       }
     }
   },

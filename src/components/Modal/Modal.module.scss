@@ -3,47 +3,23 @@
 .modal {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
-  background-color: rgba($manoBlack, .35);
-  transition: all 150ms ease;
+  background-color: rgba($manoBlack, .5);
+  transition: opacity 150ms ease;
   z-index: 998;
   cursor: pointer;
 
   & > div {
     position: absolute;
     display: flex;
-    padding: 8px;
+    padding: calc(#{$space} * 3);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 3px;
-    border: 1px solid transparent;
+    background: $white;
+    border-radius: $radius;
+    border: $border transparent;
     box-sizing: border-box;
     text-align: left;
     z-index: 999;
-
-    &.default {
-      color: $white;
-      background-color: $squidInk;
-      border-color: $bellaNotte;
-    }
-
-    &.danger {
-      color: $cocoCorail;
-      background-color: $bellaNotte;
-      border-color: $cocoCorail;
-    }
-
-    &.light {
-      color: $bellaNotte;
-      background-color: $greyMed;
-      border-color: $greyDarker;
-    }
-
-  }
-
-  button {
-    display: block;
-    cursor: pointer;
-
   }
 
   &.entering, &.exiting {
@@ -51,7 +27,12 @@
     opacity: 0.01;
   }
 
-  &.entered {opacity: 1}
+  &.entered { opacity: 1 }
 
-  &.exited{display: none}
+  &.exited{ display: none }
+
+  .icon {
+    position: absolute;
+    top: .75rem; right: .75rem;
+  }
 }

@@ -28,8 +28,12 @@ const Input = ({
 }: propTypes) => {
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value,
+<<<<<<< HEAD
     [styles.hasSuccess]: !!value && !!valid,
     [styles.reverse]: reverse && icon,
+=======
+    [styles.hasSuccess]: value ? valid : null,
+>>>>>>> Create modal
   });
 
   const labelStyle = cn({
