@@ -66,3 +66,19 @@ const style = {
     <Button theme="primary" size="xsmall" icon="edit" reverse>Button</Button>   
 </div>
 ```
+
+Icon only Button:
+```js
+const style = {
+  width: '500px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+};
+<div style={style}>
+    <Button size="big" icon="edit" reverse />
+    <Button icon="edit" reverse />
+    <Button size="small" icon="edit" reverse />
+    <Button size="xsmall" icon="edit" reverse />  
+</div>
+```

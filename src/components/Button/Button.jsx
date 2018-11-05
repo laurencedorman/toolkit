@@ -4,7 +4,6 @@ import Icon from '../Icon';
 import cn from 'classnames';
 import styles from './Button.module.scss';
 
-
 /**
  * @visibleName Button
  */
@@ -17,6 +16,7 @@ const Button = ({
     {
       [styles.icon]: icon,
       [styles.reverse]: reverse,
+      [styles.onlyIcon]: !children,
     }
   );
 
@@ -30,13 +30,13 @@ const Button = ({
     >
       {icon &&
       <Icon name={icon} size="16" />}
-      {children}
+      {children && children}
     </button>
   );
 };
 
 type propTypes = {
-  children: string | Node,
+  children?: string | Node,
   theme?: 'default' | 'primary' | 'secondary',
   size?: 'big' | 'default' | 'small' | 'xsmall',
   type?: 'submit' | 'reset' | 'button' | 'menu',
@@ -48,6 +48,7 @@ type propTypes = {
 };
 
 Button.defaultProps = {
+  children: null,
   theme: 'default',
   size: 'default',
   type: 'button',

@@ -82,4 +82,8 @@ $defaultSpace: calc(#{$space} / 1.333333);
       margin-left: $defaultSpace;
     }
   }
+
+  &.onlyIcon {
+    svg{ margin: 0 }
+  }
 }
