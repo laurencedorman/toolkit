@@ -1,6 +1,7 @@
 // @flow
 import React, { Fragment, PureComponent } from 'react';
 // import ReactDOM from 'react-dom';
+import { Transition } from 'react-transition-group';
 import Icon from '../Icon';
 import styles from './Modal.module.scss';
 
@@ -10,9 +11,14 @@ import styles from './Modal.module.scss';
 type propTypes = {
   children: string | Node,
   content: string,
+  className: string,
 };
 
 export default class Modal extends PureComponent<propTypes> {
+  static defaultProps = {
+    className: '',
+  };
+
   constructor(props) {
     super(props);
     this.state = { active: false }
@@ -34,31 +40,36 @@ export default class Modal extends PureComponent<propTypes> {
     const { content } = this.props;
     const { active } = this.state;
 
-    if (active) {
-      return (
-        <div
-          className={styles.modal}
-          onClick={this.handleHide}
-          onKeyPress={this.handleKey}>
-          <div>
-            <Icon
-              name="close-circle"
-              size="26"
-              onClick={this.handleHide}
-              className={styles.icon} />
-            <p>{content}</p>
+    return (
+      <Transition in={active} timeout={300}>
+        {state => (
+          <div
+            className={`${styles.modal} ${styles[state]}`}
+            onClick={this.handleHide}
+            onKeyPress={this.handleKey}>
+            <div>
+              <Icon
+                name="close-circle"
+                size="26"
+                onClick={this.handleHide}
+                className={styles.icon} />
+              <p>{content}</p>
+            </div>
           </div>
-        </div>
-      )
-    }
+        )}
+      </Transition>
+    )
   };
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
 
     return(
       <Fragment>
-        <span onClick={this.handleShow}>{children}</span>
+        <div
+          className={`${styles.trigger} ${className}`}
+          onClick={this.handleShow}
+        >{children}</div>
         {this.renderModal()}
       </Fragment>
     )
