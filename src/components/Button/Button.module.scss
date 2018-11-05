@@ -22,33 +22,20 @@ $smallSpace: .75rem;
 
   &.default {
     background-color: $balataGreen;
-    // border-color: $balataGreen;
-    &:hover {
-      background-color: $articCitric;
-      //  border-color: $articCitric;
-    }
-    &:active {
-      background-color: $squidInk;
-      // border-color: $squidInk;
-    }
+    &:hover { background-color: $articCitric }
+    &:active { background-color: $squidInk }
   }
 
   &.primary, &.primary:active {
     background-color: $squidInk;
-    // border-color: $squidInk;
-    &:hover {
-      background-color: $bellaNotte;
-      // border-color: $bellaNotte;
-    }
+    &:hover { background-color: $bellaNotte }
   }
 
   &.secondary {
     color: $manoBlack;
     background-color: $white;
     border-color: $greyMedDarker;
-    &:hover {
-      background-color: $greyDark;
-    }
+    &:hover { background-color: $greyDark }
     &:active {
       background-color: $greyDarker;
       border-color: $greyDarker;
