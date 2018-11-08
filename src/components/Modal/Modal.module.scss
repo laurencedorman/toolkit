@@ -1,12 +1,14 @@
 @import '~styles/import.scss';
 
 .modal {
+  display: none;
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   background-color: rgba($manoBlack, .5);
   transition: opacity 150ms ease;
   z-index: 214748364;
   cursor: pointer;
+  will-change: transform;
 
   & > div {
     position: absolute;
@@ -22,14 +24,14 @@
     z-index: 2147483647;
   }
 
-  &.entering, &.exiting {
-    display: block;
-    opacity: 0.01;
-  }
-
-  &.entered { opacity: 1 }
-
-  &.exited{ display: none }
+  //&.entering, &.exiting {
+  //  display: block;
+  //  opacity: 0.01;
+  //}
+  //
+  //&.entered { opacity: 1 }
+  //
+  //&.exited{ display: none; opacity: 0.01; }
 
   .icon {
     position: absolute;
@@ -40,8 +42,35 @@
   }
 }
 
-.trigger {
-  display: inline-flex;
-  margin: 0; padding: 0;
-  cursor: pointer;
+.modalEnter {
+  display: block;
+  animation-name: modalIn;
+  animation-duration: 400ms;
+  animation-fill-mode: both;
+}
+
+.modalExit {
+  display: none;
+  animation-name: modalOut;
+  animation-duration: 100ms;
+  animation-fill-mode: both;
+}
+
+@keyframes modalIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0.01;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalOut {
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }

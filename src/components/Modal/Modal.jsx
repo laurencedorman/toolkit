@@ -1,7 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { Transition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import Icon from '../Icon';
 import styles from './Modal.module.scss';
 
@@ -32,32 +32,36 @@ export default class Modal extends PureComponent<propTypes> {
     document.removeEventListener('keydown', this.props.close(), false);
   };
 
+
+
+
   render() {
     const { children, open, close, transitionTime } = this.props;
 
+    const classNames = {
+      enter: styles['enter'],
+      enterActive: styles['enter-active'],
+      exit: styles['exit'],
+      exitActive: styles['my-active-exit'],
+      exitDone: styles['done-exit'],
+    };
+
     return(
-      <Transition
-        appear
+      <CSSTransition
+        className={classNames}
         in={open}
         timeout={transitionTime}>
-        {state => {
-          console.log(state);
-          return(
-            <div
-              className={`${styles.modal} ${styles[state]}`}
-              onClick={close}>
-              <div>
-                <Icon
-                  name="close-circle"
-                  size="26"
-                  onClick={close}
-                  className={styles.icon} />
-                {children}
-              </div>
+          <div onClick={close}>
+            <div>
+              <Icon
+                name="close-circle"
+                size="26"
+                onClick={close}
+                className={styles.icon} />
+              {children}
             </div>
-          )
-        }}
-      </Transition>
+          </div>
+      </CSSTransition>
     )
   }
 }
