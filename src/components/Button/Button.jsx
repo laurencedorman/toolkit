@@ -10,7 +10,7 @@ import styles from './Button.module.scss';
 const Button = ({
   children, size, theme, disabled, type, icon, reverse, onClick, dataQa }: propTypes) => {
   const className = cn(
-    styles.manoolkitButton,
+    styles.button,
     styles[size],
     styles[theme],
     {
