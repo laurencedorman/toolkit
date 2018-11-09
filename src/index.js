@@ -9,6 +9,7 @@ export {
   Logo,
   Modal,
   Portal,
+  Select,
   Switch,
   Tag,
   Toggle,
