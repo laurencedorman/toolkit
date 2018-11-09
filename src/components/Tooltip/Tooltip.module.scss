@@ -16,7 +16,7 @@ $marginArrow: -10px;
     text-align: center;
     font-size: 0.75rem;
     transition: opacity 300ms ease;
-    animation: inOut 300ms ease;
+    animation: tooltipIn 300ms ease;
 
     &.top, &.bottom {transform: translateX(-50%)}
     &.left, &.right {
@@ -79,7 +79,12 @@ $marginArrow: -10px;
   cursor: pointer
 }
 
-@keyframes inOut {
+@keyframes tooltipIn {
+  from {opacity: .1}
+  to { opacity: 1 }
+}
+
+@keyframes tooltipOut {
   from {opacity: .1}
   to { opacity: 1 }
 }
