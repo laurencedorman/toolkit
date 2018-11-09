@@ -32,9 +32,11 @@ export default class Modal extends PureComponent<propTypes> {
   };
 
   render() {
-    const { children, open, close, transitionTime } = this.props;
+    const {
+      children, open, close, transitionTime,
+    } = this.props;
 
-    return(
+    return (
       <Transition
         in={open}
         mountOnEnter
@@ -47,7 +49,8 @@ export default class Modal extends PureComponent<propTypes> {
                 name="close-circle"
                 size="26"
                 onClick={close}
-                className={styles.icon} />
+                className={styles.icon}
+              />
               {children}
             </div>
           </div>
