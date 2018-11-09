@@ -14,6 +14,7 @@ $timeout: 300ms;
   & > div {
     position: absolute;
     display: flex;
+    max-width: 75%;
     padding: calc(#{$space} * 3);
     background: $white;
     border-radius: $radius;
@@ -32,35 +33,14 @@ $timeout: 300ms;
   }
 }
 
-.modalEnter {
+.entering {
   animation-name: modalIn;
   animation-duration: $timeout;
   animation-fill-mode: both;
 }
 
-.modalExit {
+.exiting {
   animation-name: modalOut;
-  animation-duration: $timeout;
-  animation-fill-mode: both;
-}
-
-.contentEnter {
-  animation-name: childIn;
-  animation-duration: $timeout;
-  animation-fill-mode: both;
-  //animation-delay: 9000ms;
-}
-
-.modalEnterDone {
-  align-items: center;
-}
-
-.contentEnterDone {
-  justify-content: center;
-}
-
-.contentExit {
-  animation-name: childOut;
   animation-duration: $timeout;
   animation-fill-mode: both;
 }
@@ -72,25 +52,6 @@ $timeout: 300ms;
 
 @keyframes modalOut {
   to { opacity: 0.01 }
-}
-
-
-@keyframes childIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0.01;
-  }
-  to {
-    transform: scale(1.3);
-    opacity: 1;
-  }
-}
-
-@keyframes childOut {
-  to {
-    transform: scale(0.8);
-    opacity: 0;
-  }
 }
 
 

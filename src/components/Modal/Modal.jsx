@@ -1,8 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react';
-import ReactDOM from 'react-dom';
-//import { CSSTransition } from 'react-transition-group';
-import Animation from '../Animation';
+import { Transition } from 'react-transition-group';
 import Icon from '../Icon';
 import styles from './Modal.module.scss';
 
@@ -37,15 +35,13 @@ export default class Modal extends PureComponent<propTypes> {
     const { children, open, close, transitionTime } = this.props;
 
     return(
-      <Animation
-        display={open}
-        timeout={transitionTime}
-        name="modal">
-        <div onClick={close} className={styles.modal}>
-          <Animation
-            display={open}
-            timeout={transitionTime}
-            name="content">
+      <Transition
+        in={open}
+        mountOnEnter
+        unmountOnExit
+        timeout={transitionTime}>
+        {state => (
+          <div onClick={close} className={`${styles.modal} ${styles[state]}`}>
             <div className={styles.content}>
               <Icon
                 name="close-circle"
@@ -54,9 +50,9 @@ export default class Modal extends PureComponent<propTypes> {
                 className={styles.icon} />
               {children}
             </div>
-          </Animation>
-        </div>
-      </Animation>
+          </div>
+        )}
+      </Transition>
     )
   }
 }
