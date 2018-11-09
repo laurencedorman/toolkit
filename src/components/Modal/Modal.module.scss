@@ -1,21 +1,20 @@
 @import '~styles/import.scss';
+$timeout: 300ms;
 
 .modal {
-  display: none;
   position: fixed;
+  display: flex;
   top: 0; right: 0; bottom: 0; left: 0;
+  justify-content: center;
+  align-items: center;
   background-color: rgba($manoBlack, .5);
-  transition: opacity 150ms ease;
-  z-index: 214748364;
   cursor: pointer;
-  will-change: transform;
+  z-index: z($layers, modal);
 
   & > div {
     position: absolute;
     display: flex;
     padding: calc(#{$space} * 3);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
     background: $white;
     border-radius: $radius;
     border: $border transparent;
@@ -23,15 +22,6 @@
     text-align: left;
     z-index: 2147483647;
   }
-
-  //&.entering, &.exiting {
-  //  display: block;
-  //  opacity: 0.01;
-  //}
-  //
-  //&.entered { opacity: 1 }
-  //
-  //&.exited{ display: none; opacity: 0.01; }
 
   .icon {
     position: absolute;
@@ -43,34 +33,64 @@
 }
 
 .modalEnter {
-  display: block;
   animation-name: modalIn;
-  animation-duration: 400ms;
+  animation-duration: $timeout;
   animation-fill-mode: both;
 }
 
 .modalExit {
-  display: none;
   animation-name: modalOut;
-  animation-duration: 100ms;
+  animation-duration: $timeout;
+  animation-fill-mode: both;
+}
+
+.contentEnter {
+  animation-name: childIn;
+  animation-duration: $timeout;
+  animation-fill-mode: both;
+  //animation-delay: 9000ms;
+}
+
+.modalEnterDone {
+  align-items: center;
+}
+
+.contentEnterDone {
+  justify-content: center;
+}
+
+.contentExit {
+  animation-name: childOut;
+  animation-duration: $timeout;
   animation-fill-mode: both;
 }
 
 @keyframes modalIn {
+  from { opacity: 0.01 }
+  to { opacity: 1 }
+}
+
+@keyframes modalOut {
+  to { opacity: 0.01 }
+}
+
+
+@keyframes childIn {
   from {
     transform: scale(0.8);
     opacity: 0.01;
   }
-
   to {
-    transform: scale(1);
+    transform: scale(1.3);
     opacity: 1;
   }
 }
 
-@keyframes modalOut {
+@keyframes childOut {
   to {
     transform: scale(0.8);
     opacity: 0;
   }
 }
+
+

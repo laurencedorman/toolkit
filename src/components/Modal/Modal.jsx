@@ -1,7 +1,8 @@
 // @flow
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
+//import { CSSTransition } from 'react-transition-group';
+import Animation from '../Animation';
 import Icon from '../Icon';
 import styles from './Modal.module.scss';
 
@@ -19,7 +20,7 @@ export default class Modal extends PureComponent<propTypes> {
   static defaultProps = {
     open: false,
     close: null,
-    transitionTime: 150,
+    transitionTime: 300,
   };
 
   componentDidMount() {
@@ -29,30 +30,23 @@ export default class Modal extends PureComponent<propTypes> {
   };
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.close(), false);
+    document.removeEventListener('keydown', this.props.close, false);
   };
-
-
-
 
   render() {
     const { children, open, close, transitionTime } = this.props;
 
-    const classNames = {
-      enter: styles['enter'],
-      enterActive: styles['enter-active'],
-      exit: styles['exit'],
-      exitActive: styles['my-active-exit'],
-      exitDone: styles['done-exit'],
-    };
-
     return(
-      <CSSTransition
-        className={classNames}
-        in={open}
-        timeout={transitionTime}>
-          <div onClick={close}>
-            <div>
+      <Animation
+        display={open}
+        timeout={transitionTime}
+        name="modal">
+        <div onClick={close} className={styles.modal}>
+          <Animation
+            display={open}
+            timeout={transitionTime}
+            name="content">
+            <div className={styles.content}>
               <Icon
                 name="close-circle"
                 size="26"
@@ -60,8 +54,9 @@ export default class Modal extends PureComponent<propTypes> {
                 className={styles.icon} />
               {children}
             </div>
-          </div>
-      </CSSTransition>
+          </Animation>
+        </div>
+      </Animation>
     )
   }
 }

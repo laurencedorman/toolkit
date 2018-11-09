@@ -1,7 +1,5 @@
 
-
-
-modal with props trigger :
+modal:
 ```js
 initialState = {
   show: false,
