@@ -43,8 +43,12 @@ export default class Modal extends PureComponent<propTypes> {
         unmountOnExit
         timeout={transitionTime}>
         {state => (
-          <div onClick={close} className={`${styles.modal} ${styles[state]}`}>
-            <div className={`${styles.content} ${styles[state]}`} onClick={e => e.stopPropagation()}>
+          <div
+            onClick={close}
+            className={`${styles.modal} ${styles[state]}`}>
+            <div
+              className={`${styles.content} ${styles[state]}`}
+              onClick={e => e.stopPropagation()}>
               <Icon
                 name="close-circle"
                 size="26"
