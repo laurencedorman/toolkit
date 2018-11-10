@@ -11,38 +11,33 @@ $timeout: 300ms;
   cursor: pointer;
   z-index: z($layers, modal);
 
-  & > div {
-    position: absolute;
-    display: flex;
-    max-width: 75%;
-    padding: calc(#{$space} * 3);
-    background: $white;
-    border-radius: $radius;
-    border: $border transparent;
-    box-sizing: border-box;
-    text-align: left;
-    z-index: 2147483647;
-  }
+  &.entering { animation: modalIn $timeout ease both }
+  &.exiting { animation: modalOut $timeout ease both }
 
   .icon {
     position: absolute;
     top: .75rem; right: .75rem;
     cursor: pointer;
-    transition: all .15s ease;
+    transition: hover .15s ease;
     &:hover { fill: $hover }
   }
 }
 
-.entering {
-  animation-name: modalIn;
-  animation-duration: $timeout;
-  animation-fill-mode: both;
-}
+.content {
+  position: absolute;
+  display: flex;
+  max-width: 75%;
+  padding: calc(#{$space} * 3);
+  background: $white;
+  border-radius: $radius;
+  border: $border transparent;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: default;
+  z-index: z($levels, max);
 
-.exiting {
-  animation-name: modalOut;
-  animation-duration: $timeout;
-  animation-fill-mode: both;
+  &.entering { animation: contentIn $timeout ease both }
+  &.exiting { animation: contentOut $timeout ease both }
 }
 
 @keyframes modalIn {
@@ -52,6 +47,24 @@ $timeout: 300ms;
 
 @keyframes modalOut {
   to { opacity: 0.01 }
+}
+
+@keyframes contentIn {
+  from {
+    opacity: 0.01;
+    transform: scale(.6) translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes contentOut {
+  to {
+    opacity: 0.01;
+    transform: scale(.6) translateY(-200px);
+  }
 }
 
 

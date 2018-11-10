@@ -28,7 +28,7 @@ export default class Modal extends PureComponent<propTypes> {
   };
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.close, false);
+    document.removeEventListener('keydown', this.props.close);
   };
 
   render() {
@@ -44,7 +44,7 @@ export default class Modal extends PureComponent<propTypes> {
         timeout={transitionTime}>
         {state => (
           <div onClick={close} className={`${styles.modal} ${styles[state]}`}>
-            <div className={styles.content}>
+            <div className={`${styles.content} ${styles[state]}`} onClick={e => e.stopPropagation()}>
               <Icon
                 name="close-circle"
                 size="26"
