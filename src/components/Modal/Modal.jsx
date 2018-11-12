@@ -28,7 +28,7 @@ export default class Modal extends PureComponent<propTypes> {
   };
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.close);
+    document.removeEventListener('keydown', this.props.close());
   };
 
   render() {
