@@ -25,7 +25,8 @@
 .content {
   position: absolute;
   display: flex;
-  max-width: 75%;
+  min-width: 320px;
+  max-width: 50%;
   padding: calc(#{$space} * 3);
   background: $white;
   border-radius: $radius;
@@ -62,7 +63,7 @@
 @keyframes contentOut {
   to {
     opacity: 0.01;
-    transform: scale(.6) translateY(-200px);
+    transform: scale(.6) translateY(200px);
   }
 }
 

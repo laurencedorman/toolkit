@@ -4,9 +4,8 @@ modal:
 initialState = {
   show: false,
 };
-
-<div id="root">
-    <button onClick={() => setState({ show: true })}>open by controlled props</button>
+<div>
+    <Button onClick={() => setState({ show: true })}>open Modal</Button>
     <Modal
       open={state.show}
       close={() => setState({ show: false })}>
