@@ -4,7 +4,12 @@ import React, { Component } from 'react';
 /**
  * @visibleName Toggle
  */
-export default class Toggle extends Component {
+type propTypes = {
+  children: Node,
+  toggle: () => void,
+}
+
+export default class Toggle extends Component<propTypes> {
   constructor(props) {
     super(props);
     this.state = { on: false }
