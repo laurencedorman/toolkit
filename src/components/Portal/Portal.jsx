@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 
 const portalRoot = document.getElementById('portal');
 
-export default class Portal extends Component {
+type propTypes = {
+  children: Node,
+}
+
+export default class Portal extends Component<propTypes> {
   constructor(props) {
     super(props);
     this.el = document.createElement('div');
