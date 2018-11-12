@@ -33,9 +33,10 @@ $tinySpace: calc(#{$space} / 4);
     box-sizing: border-box;
     font: 1rem/1.618 'Open Sans';
 
-    & > div:not(.option) {
+    & > div:first-child {
       width: 100%;
-      height: 100%;
+      height: 64px;
+      padding: 0;
       border: $border $borderColor;
       border-radius: $radius;
     }
