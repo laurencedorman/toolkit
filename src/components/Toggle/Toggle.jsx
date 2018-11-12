@@ -1,5 +1,9 @@
+// @flow
 import React, { Component } from 'react';
 
+/**
+ * @visibleName Toggle
+ */
 export default class Toggle extends Component {
   constructor(props) {
     super(props);
