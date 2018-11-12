@@ -10,7 +10,7 @@ describe('Select', () => {
     wrapper = shallow(
       <Select
         options={options}
-        name: 'testName'
+        name="testName"
         placeholder={placeholder}
       />);
   });

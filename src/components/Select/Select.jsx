@@ -41,16 +41,16 @@ export class Select extends Component<propTypes> {
     });
 
     const customStyles = {
-      option: (provided, state) => ({
-        ...provided,
+      option: (style, state) => ({
+        ...style,
         backgroundColor: state.isSelected && '#0c193a',
         cursor: 'pointer',
         '&:hover': {
           backgroundColor: '#e8e8e8',
         }
       }),
-      control: (state) => ({
-        ...state,
+      control: (style) => ({
+        ...style,
         boxShadow: 'none',
         borderColor: '#e8e8e8',
         '&:hover': {
@@ -70,8 +70,8 @@ export class Select extends Component<propTypes> {
         height: 62,
         padding: '0 16px',
       }),
-      multiValueRemove: (state) => ({
-        ...state,
+      multiValueRemove: (style) => ({
+        ...style,
         '&:hover': {
           backgroundColor: '#0c193a',
           color: '#fff',
