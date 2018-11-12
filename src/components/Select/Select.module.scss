@@ -23,7 +23,6 @@ $tinySpace: calc(#{$space} / 4);
 }
 
 .content {
-
   .select {
     position: relative;
     display: block;
@@ -34,7 +33,7 @@ $tinySpace: calc(#{$space} / 4);
     box-sizing: border-box;
     font: 1rem/1.618 'Open Sans';
 
-    & > div {
+    & > div:not(.option) {
       width: 100%;
       height: 100%;
       border: $border $borderColor;
@@ -45,8 +44,4 @@ $tinySpace: calc(#{$space} / 4);
       border-color: $cocoCorail
     }
   }
-}
-
-.Select-control {
-  height: 34px !important;
 }

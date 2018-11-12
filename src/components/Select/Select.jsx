@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import ReactSelect from 'react-select';
 import cn from 'classnames';
-//import 'react-select/dist/react-select.css';
 import styles from './Select.module.scss';
 
 /**
@@ -48,9 +47,9 @@ export class Select extends Component<propTypes> {
     return (
       <div className={styles.container}>
         <div className={contentClass}>
+          {label && <label>{label}</label>}
           <ReactSelect
             className={select}
-            //value={value}
             name={name}
             onChange={onChange}
             onBlur={onBlur}
@@ -58,7 +57,6 @@ export class Select extends Component<propTypes> {
             matchPos="start"
             placeholder={placeholder}
           />
-          <label>{label}</label>
         </div>
         {helper && <span className={styles.helper}>{helper}</span>}
         {error && <span className={styles.error}>{error}</span>}
