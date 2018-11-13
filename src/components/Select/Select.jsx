@@ -51,6 +51,7 @@ export class Select extends Component<propTypes> {
       }),
       control: (style) => ({
         ...style,
+        borderRadius: 3,
         boxShadow: 'none',
         borderColor: '#e8e8e8',
         '&:hover': {
@@ -58,17 +59,21 @@ export class Select extends Component<propTypes> {
         },
       }),
       input: () => ({
-        height: 64,
         padding: 0,
         borderWidth: 1,
         boxSizing: 'border-box',
       }),
       valueContainer: () => ({
         display: 'flex',
+        flexFlow: 'row wrap',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        height: 62,
-        padding: '0 16px',
+        maxWidth: 'calc(100% - 115px)',
+        minHeight: 46,
+        padding: '8px 16px',
+      }),
+      indicatorSeparator: (style) => (console.log(style),{
+        ...style,
       }),
       multiValueRemove: (style) => ({
         ...style,
