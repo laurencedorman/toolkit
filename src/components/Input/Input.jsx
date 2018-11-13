@@ -1,16 +1,18 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
+import Icon from '../Icon';
 import styles from './Input.module.scss';
 
 /**
  * @visibleName Input
  */
 const Input = ({
-  label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden }: propTypes) => {
+  label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden, icon, reverse }: propTypes) => {
 
-  const isRequired = cn({
-    [styles.required]: required
+  const labelStyle = cn({
+    [styles.required]: required,
+    [styles.reverse]: reverse,
   });
 
   const contentClass = cn(styles.content, {
@@ -18,15 +20,21 @@ const Input = ({
     [styles.hasSuccess]: value && valid,
   });
 
-  const hasError = cn({
+  const inputStyle = cn({
     [styles.hasError]: error,
+    [styles.reverse]: reverse,
+  });
+
+  const iconStyle = cn(styles.icon, {
+    [styles.icon]: icon,
+    [styles.reverse]: reverse,
   });
 
   return (
     <div className={styles.container}>
       <div className={contentClass}>
         <input
-          className={hasError}
+          className={inputStyle}
           type={type}
           id={id}
           name={name}
@@ -40,7 +48,9 @@ const Input = ({
           valid={valid}
           hidden={hidden}
         />
-        <label htmlFor={id} className={isRequired}>{label}</label>
+        <label htmlFor={id} className={labelStyle}>{label}</label>
+        {icon &&
+        <Icon name={icon} size="16" className={iconStyle} />}
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{error}</span>}
@@ -65,6 +75,8 @@ type propTypes = {
   onChange?: () => void,
   onFocus?: () => void,
   onBlur?: () => void,
+
+  icon?: string,
 };
 
 Input.defaultProps = {
@@ -79,6 +91,8 @@ Input.defaultProps = {
   onChange: null,
   onFocus: null,
   onBlur: null,
+
+  icon: '',
 };
 
 export default Input;

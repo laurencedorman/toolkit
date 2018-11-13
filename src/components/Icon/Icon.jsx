@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './Icon.module.scss';
 import icons from '../../assets/setIcons';
 
-const Icon = ({ name, size, fill }: propTypes) => (
-  <div className={styles.container}>
+const Icon = ({ name, size, fill, className }: propTypes) => (
+  <div className={`${styles.container} ${className}`}>
     <svg
       className={styles.svg}
       width={`${size}px`}
@@ -20,12 +20,14 @@ const Icon = ({ name, size, fill }: propTypes) => (
 );
 
 type propTypes = {
+  className?: string,
   name: string,
   size?: number,
   fill?: string,
 };
 
 Icon.defaultProps = {
+  className: '',
   size: 32,
   fill: '#0c193a',
 };
