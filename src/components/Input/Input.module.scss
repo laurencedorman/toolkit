@@ -64,13 +64,9 @@ $iconSpace: 40px;
     &.hasError {
       border-color: $cocoCorail
     }
-
-    &.reverse {
-      padding: $tinySpace $space $tinySpace $iconSpace ;
-    }
   }
 
-  input:focus + label, &.hasValue label {
+  input:focus + label, &.hasValue input + label {
     transform: translate(1px, -1.3rem);
     font-size: .75rem;
   }
@@ -86,17 +82,20 @@ $iconSpace: 40px;
     align-items: center;
     height: 100%;
     top: 0; right: $space;
+    svg { fill: $greyDarker }
+  }
 
-    &.hasSuccess {
-      svg { fill: $kaktus }
-    }
+  &.hasSuccess {
+    svg { fill: $kaktus }
+  }
 
-    &.reverse {
+  &.reverse {
+    input { padding: $tinySpace $space $tinySpace $iconSpace }
+    label { transform: translate(25px, 0) }
+    .icon {
       right: initial;
       left: $space;
     }
-
-    svg { fill: $greyDarker }
   }
 }
 

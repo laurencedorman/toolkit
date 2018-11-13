@@ -10,32 +10,25 @@ import styles from './Input.module.scss';
 const Input = ({
   label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden, icon, reverse }: propTypes) => {
 
-  const labelStyle = cn({
-    [styles.required]: required,
-    [styles.reverse]: reverse  && icon,
-  });
-
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value,
     [styles.hasSuccess]: !!value && !!valid,
+    [styles.reverse]: reverse && icon,
+  });
+
+  const labelStyle = cn({
+    [styles.required]: required,
   });
 
   const inputStyle = cn({
     [styles.hasError]: error,
-    [styles.reverse]: reverse && icon,
-  });
-
-  const iconStyle = cn(styles.icon, {
-    [styles.icon]: icon,
-    [styles.reverse]: reverse && icon,
-    [styles.hasSuccess]: !!value && !!valid,
   });
 
   const handleIcon = () => (
     (!!value && !!valid && !reverse)
-      ? <Icon name="check" size="32" className={iconStyle} />
+      ? <Icon name="check" size="32" className={styles.icon} />
       : icon
-        ? <Icon name={icon} size="16" className={iconStyle} />
+        ? <Icon name={icon} size="16" className={styles.icon} />
         : null
   );
 
