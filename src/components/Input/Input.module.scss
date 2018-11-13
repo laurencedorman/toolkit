@@ -1,6 +1,7 @@
 @import '~styles/import.scss';
 
 $tinySpace: calc(#{$space} / 4);
+$iconSpace: 40px;
 
 .container {
   position: relative;
@@ -33,13 +34,17 @@ $tinySpace: calc(#{$space} / 4);
     position: absolute;
     margin-left: $space;
     color: $greyDarker;
-    transform: translateY(0);
-    transition: all .15s ease;
+    transform: translate(0);
+    transition: transform .15s ease;
     &.required::after {
       content: "*";
       display: inline-block;
       color: $cocoCorail;
       padding-left: $tinySpace
+    }
+
+    &.reverse {
+      transform: translate(25px, 0);
     }
   }
 
@@ -48,7 +53,7 @@ $tinySpace: calc(#{$space} / 4);
     display: block;
     width: 100%;
     height: calc(#{$space} * 4);
-    padding: $tinySpace $space;
+    padding: $tinySpace $iconSpace $tinySpace $space;
     background-color: $white;
     background-clip: padding-box;
     border: $border $borderColor;
@@ -59,10 +64,14 @@ $tinySpace: calc(#{$space} / 4);
     &.hasError {
       border-color: $cocoCorail
     }
+
+    &.reverse {
+      padding: $tinySpace $space $tinySpace $iconSpace ;
+    }
   }
 
   input:focus + label, &.hasValue label {
-    transform: translateY(-1.3rem);
+    transform: translate(1px, -1.3rem);
     font-size: .75rem;
   }
 
@@ -80,4 +89,19 @@ $tinySpace: calc(#{$space} / 4);
     top: 23px;
     right: 0
   }
+}
+
+.icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  top: 0; right: $space;
+
+  &.reverse {
+    right: initial;
+    left: $space;
+  }
+
+  svg { fill: $greyDarker }
 }

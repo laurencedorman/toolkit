@@ -116,3 +116,34 @@ initialState = {value: 'Value is valid !'};
   valid
 />
 ```
+
+Input with icon :
+```js
+initialState = {value: ''};
+
+<Input
+  label="Input with icon"
+  type="text"
+  id="Icon"
+  name="Icon"
+  icon="lock"
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+/>
+```
+
+Input with icon left :
+```js
+initialState = {value: ''};
+
+<Input
+  label="Input with icon"
+  type="text"
+  id="IconReverse"
+  name="Icon reverse"
+  icon="lock"
+  reverse
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+/>
+```
