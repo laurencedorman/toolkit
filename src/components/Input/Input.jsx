@@ -32,8 +32,6 @@ const Input = ({
         : null
   );
 
-  console.log(handleIcon());
-
   return (
     <div className={styles.container}>
       <div className={contentClass}>
