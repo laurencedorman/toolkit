@@ -27,6 +27,7 @@
   "scripts": {
     "start": "styleguidist server",
     "build": "node scripts/build.js",
+    "prepare": "npm run build",
     "test": "jest --coverage",
     "lint": "eslint ./src --ext .js --ext .jsx",
     "styleguide": "styleguidist server",
