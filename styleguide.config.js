@@ -1,5 +1,3 @@
-const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
-
 module.exports = {
   webpackConfig: require('./config/webpack.config.dev.js'),
   title: 'Mano-Toolkit',
