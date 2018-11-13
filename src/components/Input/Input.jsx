@@ -10,25 +10,27 @@ import styles from './Input.module.scss';
 const Input = ({
   label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden, icon, reverse }: propTypes) => {
 
-  const labelStyle = cn({
-    [styles.required]: required,
-    [styles.reverse]: reverse,
-  });
-
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value,
-    [styles.hasSuccess]: value && valid,
+    [styles.hasSuccess]: !!value && !!valid,
+    [styles.reverse]: reverse && icon,
+  });
+
+  const labelStyle = cn({
+    [styles.required]: required,
   });
 
   const inputStyle = cn({
     [styles.hasError]: error,
-    [styles.reverse]: reverse,
   });
 
-  const iconStyle = cn(styles.icon, {
-    [styles.icon]: icon,
-    [styles.reverse]: reverse,
-  });
+  const handleIcon = () => (
+    (!!value && !!valid && !reverse)
+      ? <Icon name="check" size="32" className={styles.icon} />
+      : icon
+        ? <Icon name={icon} size="16" className={styles.icon} />
+        : null
+  );
 
   return (
     <div className={styles.container}>
@@ -49,8 +51,7 @@ const Input = ({
           hidden={hidden}
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
-        {icon &&
-        <Icon name={icon} size="16" className={iconStyle} />}
+        { handleIcon() }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{error}</span>}
@@ -75,7 +76,6 @@ type propTypes = {
   onChange?: () => void,
   onFocus?: () => void,
   onBlur?: () => void,
-
   icon?: string,
 };
 
@@ -91,7 +91,6 @@ Input.defaultProps = {
   onChange: null,
   onFocus: null,
   onBlur: null,
-
   icon: '',
 };
 

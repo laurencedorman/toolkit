@@ -64,13 +64,9 @@ $iconSpace: 40px;
     &.hasError {
       border-color: $cocoCorail
     }
-
-    &.reverse {
-      padding: $tinySpace $space $tinySpace $iconSpace ;
-    }
   }
 
-  input:focus + label, &.hasValue label {
+  input:focus + label, &.hasValue input + label {
     transform: translate(1px, -1.3rem);
     font-size: .75rem;
   }
@@ -80,28 +76,27 @@ $iconSpace: 40px;
     cursor: not-allowed
   }
 
-  &.hasSuccess::after {
-    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' fill='#5ac869' viewBox='0 0 40 60'><path d='M.24,8.8a.77.77,0,0,1,0-1.12L1.36,6.56a.77.77,0,0,1,1.12,0l.08.08L7,11.36a.39.39,0,0,0,.56,0L18.24.24h.08a.77.77,0,0,1,1.12,0l1.12,1.12a.77.77,0,0,1,0,1.12h0L7.76,15.76a.77.77,0,0,1-1.12,0L.4,9Z'/></svg>");
-    display: block;
+  .icon {
     position: absolute;
-    width: 40px;
+    display: flex;
+    align-items: center;
     height: 100%;
-    top: 23px;
-    right: 0
+    top: 0; right: $space;
+    svg { fill: $greyDarker }
   }
-}
 
-.icon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  top: 0; right: $space;
+  &.hasSuccess {
+    svg { fill: $kaktus }
+  }
 
   &.reverse {
-    right: initial;
-    left: $space;
+    input { padding: $tinySpace $space $tinySpace $iconSpace }
+    label { transform: translate(25px, 0) }
+    .icon {
+      right: initial;
+      left: $space;
+    }
   }
-
-  svg { fill: $greyDarker }
 }
+
+
