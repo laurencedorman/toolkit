@@ -1,3 +1,5 @@
+const MiniHtmlWebpackPlugin = require('mini-html-webpack-plugin');
+
 module.exports = {
   webpackConfig: require('./config/webpack.config.dev.js'),
   title: 'Mano-Toolkit',
@@ -9,6 +11,10 @@ module.exports = {
         href: 'https://fonts.googleapis.com/css?family=Open+Sans',
       }],
     },
+    body: {
+      raw: `<div id="root"></div>
+            <div id="portalRoot"></div>`
+    }
   },
   pagePerSection: true,
   theme: {

@@ -1,24 +1,29 @@
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-const portalRoot = document.getElementById('portal');
-
+/**
+ * @visibleName Portal
+ */
 type propTypes = {
   children: Node,
+  portalRoot: string,
 }
 
 export default class Portal extends Component<propTypes> {
+  static defaultProps = { portalRoot: 'portalRoot' }
+
   constructor(props) {
     super(props);
+    this.root = document.getElementById(props.portalRoot);
     this.el = document.createElement('div');
   }
 
   componentDidMount() {
-    portalRoot.appendChild(this.el);
+    this.root && this.root.appendChild(this.el);
   };
 
   componentWillUnmount() {
-    portalRoot.removeChild(this.el);
+    this.root && this.root.removeChild(this.el);
   };
 
   render() {
