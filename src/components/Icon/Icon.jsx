@@ -3,8 +3,9 @@ import React from 'react';
 import styles from './Icon.module.scss';
 import icons from '../../assets/setIcons';
 
-const Icon = ({ name, size, fill, className }: propTypes) => (
-  <div className={`${styles.container} ${className}`}>
+const Icon = ({ onClick, className, name, size, fill }: propTypes) => (
+  <div className={`${styles.container} ${className}`} onClick={onClick}>
+    {icons.hasOwnProperty(name) &&
     <svg
       className={styles.svg}
       width={`${size}px`}
@@ -16,10 +17,12 @@ const Icon = ({ name, size, fill, className }: propTypes) => (
       role="img">
       <path d={icons[name].d} />
     </svg>
+    }
   </div>
 );
 
 type propTypes = {
+  onClick?: () => void,
   className?: string,
   name: string,
   size?: number,
@@ -27,6 +30,7 @@ type propTypes = {
 };
 
 Icon.defaultProps = {
+  onClick: null,
   className: '',
   size: 32,
   fill: '#0c193a',
