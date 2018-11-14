@@ -1,5 +1,5 @@
 // @flow
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Transition } from 'react-transition-group';
 import Icon from '../Icon';
 import styles from './Modal.module.scss';
@@ -7,55 +7,50 @@ import styles from './Modal.module.scss';
 /**
  * @visibleName Modal
  */
+const Modal = ({
+  on, toggle, transitionTime, children,
+}: propTypes) => (
+  <Transition
+    in={on}
+    mountOnEnter
+    unmountOnExit
+    timeout={transitionTime}
+  >
+    {state => (
+      /* eslint-disable */
+      <div
+        onClick={toggle}
+        className={`${styles.modal} ${styles[state]}`}
+        role="Dialog"
+      >
+        <div
+          className={`${styles.content} ${styles[state]}`}
+          onClick={e => e.stopPropagation()}
+          role="Contentinfo"
+        >
+          <Icon
+            name="close-circle"
+            size="26"
+            onClick={toggle}
+            className={styles.icon}
+          />
+          {children}
+        </div>
+      </div>
+      /* eslint-disable */
+    )}
+  </Transition>
+);
+
 type propTypes = {
-  open?: boolean,
-  close?: () => void,
+  on: boolean,
+  toggle: () => void,
   transitionTime?: number,
   children: string | Node,
 };
 
-export default class Modal extends PureComponent<propTypes> {
-  static defaultProps = {
-    open: false,
-    close: null,
-    transitionTime: 300,
-  };
+Modal.defaultProps = {
+  transitionTime: 300,
+};
 
-  componentDidMount() {
-    document.addEventListener('keydown',
-      e => e.key === 'Escape' && this.props.close(), false
-    );
-  };
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.close());
-  };
-
-  render() {
-    const {
-      children, open, close, transitionTime,
-    } = this.props;
-
-    return (
-      <Transition
-        in={open}
-        mountOnEnter
-        unmountOnExit
-        timeout={transitionTime}>
-        {state => (
-          <div onClick={close} className={`${styles.modal} ${styles[state]}`}>
-            <div className={`${styles.content} ${styles[state]}`} onClick={e => e.stopPropagation()}>
-              <Icon
-                name="close-circle"
-                size="26"
-                onClick={close}
-                className={styles.icon}
-              />
-              {children}
-            </div>
-          </div>
-        )}
-      </Transition>
-    )
-  }
-}
+export default Modal;
