@@ -3,11 +3,15 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './Switch.module.scss';
 
-const Switch = ({ name, id, checked, onChange }: propTypes) => {
-    const labelClass = cn(styles.label,{
-      [styles.active]: checked,
-    });
+const Switch = ({
+  name, id, checked, onChange,
+}: propTypes) => {
+  const labelClass = cn(styles.label, {
+    [styles.active]: checked,
+  });
 
+  /* eslint-disable jsx-a11y/label-has-for */
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
     <div>
       <label
@@ -24,7 +28,9 @@ const Switch = ({ name, id, checked, onChange }: propTypes) => {
         onChange={onChange}
       />
     </div>
-  )
+  );
+  /* eslint-enable jsx-a11y/label-has-associated-control */
+  /* eslint-enable jsx-a11y/label-has-for */
 };
 
 type propTypes = {

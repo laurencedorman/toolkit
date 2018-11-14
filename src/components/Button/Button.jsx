@@ -1,14 +1,16 @@
 // @flow
 import React from 'react';
-import Icon from '../Icon';
 import cn from 'classnames';
+
+import Icon from '../Icon';
 import styles from './Button.module.scss';
 
 /**
  * @visibleName Button
  */
 const Button = ({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa }: propTypes) => {
+  children, size, theme, disabled, type, icon, reverse, onClick, dataQa,
+}: propTypes) => {
   const className = cn(
     styles.button,
     styles[size],
@@ -17,22 +19,24 @@ const Button = ({
       [styles.icon]: icon,
       [styles.reverse]: reverse,
       [styles.onlyIcon]: !children,
-    }
+    },
   );
 
-  return(
+  /* eslint-disable react/button-has-type */
+  return (
     <button
       disabled={disabled}
-      type={type}
       onClick={onClick}
+      type={type}
       className={className}
       data-qa={dataQa}
     >
-      {icon &&
-      <Icon name={icon} size="16" />}
+      {icon
+        && <Icon name={icon} size="16" />}
       {children && children}
     </button>
   );
+  /* eslint-enable react/button-has-type */
 };
 
 type propTypes = {

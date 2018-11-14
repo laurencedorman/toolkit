@@ -3,15 +3,13 @@ import { shallow } from 'enzyme';
 import InputCheck from '../InputCheck';
 
 describe('InputCheck', () => {
-  let wrapper;
-
-  wrapper = shallow(
+  const wrapper = shallow(
     <InputCheck
       type="radio"
       value="test"
       name="name"
       label="label"
-    />
+    />,
   );
 
   it('should render without crash', () => {
@@ -31,4 +29,3 @@ describe('InputCheck', () => {
     expect(wrapper.find('input').prop('checked')).toEqual(true);
   });
 });
-

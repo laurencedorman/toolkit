@@ -3,7 +3,9 @@ import React from 'react';
 import styles from './Hint.module.scss';
 import Icon from '../Icon';
 
-const Hint = ({ showAlert, transitionTime, theme, textAlert, icon, iconWidth }: PropTypes) => (
+const Hint = ({
+  theme, textAlert, icon, iconWidth,
+}: PropTypes) => (
   <div className={`${styles.hint} ${styles[theme]}`}>
     <div className={styles.img}>
       <Icon name={icon} size={iconWidth} />

@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 import Tags from '../Tag';
 
 describe('Tags', () => {
-  let wrapper;
-
-  wrapper = shallow(<Tags>Tag</Tags>);
+  const wrapper = shallow(<Tags>Tag</Tags>);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);

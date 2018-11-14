@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
  */
 type propTypes = {
   children: Node,
-  portalRoot: string,
+  portalRoot?: string,
 }
 
 export default class Portal extends Component<propTypes> {
@@ -19,12 +19,16 @@ export default class Portal extends Component<propTypes> {
   }
 
   componentDidMount() {
-    this.root && this.root.appendChild(this.el);
-  };
+    if (this.root) {
+      this.root.appendChild(this.el);
+    }
+  }
 
   componentWillUnmount() {
-    this.root && this.root.removeChild(this.el);
-  };
+    if (this.root) {
+      this.root.removeChild(this.el);
+    }
+  }
 
   render() {
     const { children } = this.props;

@@ -3,16 +3,14 @@ import { shallow } from 'enzyme';
 import Input from '../Input';
 
 describe('Input', () => {
-  let wrapper;
-
-  wrapper = shallow(
+  const wrapper = shallow(
     <Input
       type="text"
       id="id"
       name="name"
       label="label"
       helper="helper"
-    />
+    />,
   );
 
   it('should render without crash', () => {
@@ -30,5 +28,4 @@ describe('Input', () => {
   it('should render an helper span', () => {
     expect(wrapper.find('span').text()).toEqual('helper');
   });
-
 });

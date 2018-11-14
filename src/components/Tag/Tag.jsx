@@ -9,11 +9,11 @@ const Tag = ({ className, children, disabled }: propTypes) => {
     [styles.disabled]: disabled,
   });
 
-  return(
+  return (
     <small className={tagClass}>
       {children}
     </small>
-  )
+  );
 };
 
 type propTypes = {
@@ -24,7 +24,6 @@ type propTypes = {
 
 Tag.defaultProps = {
   className: '',
-  disabled: false,
 };
 
 export default Tag;
