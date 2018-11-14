@@ -3,13 +3,11 @@ import { shallow } from 'enzyme';
 import Textarea from '../Textarea';
 
 describe('Textarea', () => {
-  let wrapper;
-
-  wrapper = shallow(
+  const wrapper = shallow(
     <Textarea
       name="name"
       placeholder="placeholder"
-    />
+    />,
   );
 
   it('should render without crash', () => {

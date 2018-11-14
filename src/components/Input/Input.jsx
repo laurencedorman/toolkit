@@ -8,8 +8,24 @@ import styles from './Input.module.scss';
  * @visibleName Input
  */
 const Input = ({
-  label, type, id, name, value, placeholder, disabled, required, helper, valid, onChange, onFocus, onBlur, error, hidden, icon, reverse }: propTypes) => {
-
+  label,
+  type,
+  id,
+  name,
+  value,
+  placeholder,
+  disabled,
+  required,
+  helper,
+  valid,
+  onChange,
+  onFocus,
+  onBlur,
+  error,
+  hidden,
+  icon,
+  reverse,
+}: propTypes) => {
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value,
     [styles.hasSuccess]: !!value && !!valid,
@@ -24,6 +40,7 @@ const Input = ({
     [styles.hasError]: error,
   });
 
+  /* eslint-disable no-nested-ternary */
   const handleIcon = () => (
     (!!value && !!valid && !reverse)
       ? <Icon name="check" size="32" className={styles.icon} />
@@ -31,7 +48,9 @@ const Input = ({
         ? <Icon name={icon} size="16" className={styles.icon} />
         : null
   );
+  /* eslint-enable no-nested-ternary */
 
+  /* eslint-disable jsx-a11y/label-has-for */
   return (
     <div className={styles.container}>
       <div className={contentClass}>
@@ -56,7 +75,8 @@ const Input = ({
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{error}</span>}
     </div>
-  )
+  /* eslint-enable jsx-a11y/label-has-for */
+  );
 };
 
 
@@ -77,6 +97,7 @@ type propTypes = {
   onFocus?: () => void,
   onBlur?: () => void,
   icon?: string,
+  reverse?: boolean,
 };
 
 Input.defaultProps = {
@@ -92,6 +113,7 @@ Input.defaultProps = {
   onFocus: null,
   onBlur: null,
   icon: '',
+  reverse: false,
 };
 
 export default Input;

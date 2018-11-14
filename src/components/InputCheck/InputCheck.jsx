@@ -2,7 +2,10 @@
 import React from 'react';
 import styles from './InputCheck.module.scss';
 
-const InputCheck = ({ type, value, name, disabled, checked, onChange, label }: PropTypes) => (
+const InputCheck = ({
+  type, value, name, disabled, checked, onChange, label,
+}: PropTypes) => (
+  /* eslint-disable jsx-a11y/label-has-for */
   <div className={styles.inputCheck}>
     <input
       type={type}
@@ -15,6 +18,7 @@ const InputCheck = ({ type, value, name, disabled, checked, onChange, label }: P
     />
     <label htmlFor={value}>{label}</label>
   </div>
+  /* eslint-enable jsx-a11y/label-has-for */
 );
 
 type PropTypes = {

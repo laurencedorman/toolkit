@@ -7,11 +7,18 @@ import styles from './InputCheck.module.scss';
  * @visibleName CheckBox & Radio Group
  */
 const InputCheckGroup = ({
-  inputGroupTitle, direction, options, type, groupName, selectedOption, disabled, onChange }: PropTypes) => (
-
-  <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction} >
+  inputGroupTitle,
+  direction,
+  options,
+  type,
+  groupName,
+  selectedOption,
+  disabled,
+  onChange,
+}: PropTypes) => (
+  <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction}>
     {inputGroupTitle && <span>{inputGroupTitle}</span>}
-    {options.map((option) => (
+    {options.map(option => (
       <InputCheck
         type={type}
         key={option.value}

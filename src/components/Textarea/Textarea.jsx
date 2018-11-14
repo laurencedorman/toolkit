@@ -6,7 +6,8 @@ import styles from './Textarea.module.scss';
  * @visibleName Textarea
  */
 const Textarea = ({
-  placeholder, name, id, value, cols, rows, required, disabled, form, onChange }: propTypes) => (
+  placeholder, name, value, cols, rows, required, disabled, form, onChange,
+}: propTypes) => (
   <textarea
     className={styles.textarea}
     placeholder={placeholder}
@@ -24,7 +25,6 @@ const Textarea = ({
 type propTypes = {
   placeholder?: string,
   name: string,
-  id: string,
   value?: string,
   cols?: string,
   rows?: string,
@@ -41,8 +41,7 @@ Textarea.defaultProps = {
   rows: '5',
   required: false,
   disabled: false,
-  form:'',
-  onChange: null,
+  form: '',
 };
 
 export default Textarea;

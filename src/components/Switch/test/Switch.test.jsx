@@ -3,13 +3,11 @@ import { shallow } from 'enzyme';
 import Switch from '../Switch';
 
 describe('Switch', () => {
-  let wrapper;
-
-  wrapper = shallow(
+  const wrapper = shallow(
     <Switch
       id="test"
       name="name"
-    />
+    />,
   );
 
   it('should render without crash', () => {
