@@ -12,3 +12,5 @@ export { default as Switch } from './components/Switch';
 export { default as Tag } from './components/Tag';
 export { default as Toggle } from './components/Toggle';
 export { default as Textarea } from './components/Textarea';
+
+export { default as withPortal } from './components/PortalHOC';

@@ -121,9 +121,9 @@ module.exports = function(webpackEnv) {
             parser: safePostCssParser,
             map: shouldUseSourceMap
               ? {
-                  inline: false,
-                  annotation: true,
-                }
+                inline: false,
+                annotation: true,
+              }
               : false,
           },
         }),

@@ -3,10 +3,8 @@ import { shallow } from 'enzyme';
 import Modal from '../Modal';
 
 describe('Modal', () => {
-  let wrapper;
-
-  wrapper = shallow(
-    <Modal><p>Modal test</p></Modal>
+  const wrapper = shallow(
+    <Modal><p>Modal test</p></Modal>,
   );
 
   it('should render without crash', () => {

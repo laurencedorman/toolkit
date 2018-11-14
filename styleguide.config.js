@@ -48,8 +48,8 @@ module.exports = {
     },
     StyleGuide: {
       '@global body': {
-        fontFamily: 'Open Sans'
-      }
-    }
+        fontFamily: 'Open Sans',
+      },
+    },
   },
 };

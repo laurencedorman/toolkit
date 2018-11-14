@@ -25,6 +25,7 @@
 .content {
   position: absolute;
   display: flex;
+  flex-flow: column wrap;
   min-width: 320px;
   max-width: 50%;
   padding: calc(#{$space} * 3);
