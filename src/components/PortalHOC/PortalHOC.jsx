@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+type propTypes = {
+  portalRoot?: string,
+};
+
 const withPortal = Component => () => {
   class HOC extends React.Component<propTypes> {
-    static defaultProps = { portalRoot: 'portalRoot' }
+    static defaultProps = { portalRoot: 'portalRoot' };
 
     constructor(props) {
       super(props);

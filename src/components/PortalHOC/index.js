@@ -1,1 +1,1 @@
-export { default as withPortal } from '../PortalHOC';
+export { default } from './PortalHOC';
