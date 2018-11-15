@@ -12,8 +12,12 @@ describe('Select', () => {
         options={options}
         name="testName"
         placeholder="placeholder"
+<<<<<<< HEAD
       />,
     );
+=======
+      />);
+>>>>>>> rebase and fix packages install
   });
 
   it('should render without crash', () => {

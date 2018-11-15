@@ -10,7 +10,10 @@ import styles from './Select.module.scss';
 const Select = ({
   options,
   placeholder,
+<<<<<<< HEAD
   value,
+=======
+>>>>>>> rebase and fix packages install
   onChange,
   onBlur,
   onFocus,
@@ -20,12 +23,63 @@ const Select = ({
   isMulti,
   defaultValue,
   name,
+<<<<<<< HEAD
   ...props
+=======
+>>>>>>> rebase and fix packages install
 }:propTypes) => {
   const select = cn(styles.select, {
     [styles.hasError]: error,
   });
 
+<<<<<<< HEAD
+=======
+  const customStyles = {
+    option: (style, state) => ({
+      ...style,
+      backgroundColor: state.isSelected && '#0c193a',
+      cursor: 'pointer',
+      '&:hover': {
+        backgroundColor: '#e8e8e8',
+      },
+    }),
+    control: style => ({
+      ...style,
+      borderRadius: 3,
+      boxShadow: 'none',
+      borderColor: '#e8e8e8',
+      '&:hover': {
+        borderColor: '#e8e8e8',
+      },
+    }),
+    input: () => ({
+      padding: 0,
+      borderWidth: 1,
+      boxSizing: 'border-box',
+    }),
+    valueContainer: () => ({
+      display: 'flex',
+      flexFlow: 'row wrap',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      maxWidth: 'calc(100% - 115px)',
+      minHeight: 46,
+      padding: '8px 16px',
+    }),
+    indicatorSeparator: style => ({
+      ...style,
+    }),
+    multiValueRemove: style => ({
+      ...style,
+      '&:hover': {
+        backgroundColor: '#0c193a',
+        color: '#fff',
+        cursor: 'pointer',
+      },
+    }),
+  };
+
+>>>>>>> rebase and fix packages install
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -35,7 +89,10 @@ const Select = ({
           /* eslint-disable */
         }
         <ReactSelect
+<<<<<<< HEAD
           {...props}
+=======
+>>>>>>> rebase and fix packages install
           className={select}
           styles={customStyles}
           name={name}
@@ -44,7 +101,10 @@ const Select = ({
           onFocus={onFocus}
           defaultValue={defaultValue}
           options={options}
+<<<<<<< HEAD
           inputValue={value}
+=======
+>>>>>>> rebase and fix packages install
           isMulti={isMulti}
           matchPos="start"
           placeholder={placeholder}
@@ -56,6 +116,7 @@ const Select = ({
   );
 };
 
+<<<<<<< HEAD
 const customStyles = {
   option: (style, state) => ({
     ...style,
@@ -101,6 +162,8 @@ const customStyles = {
   }),
 };
 
+=======
+>>>>>>> rebase and fix packages install
 type propTypes = {
   label?: string,
   placeholder?: string,
