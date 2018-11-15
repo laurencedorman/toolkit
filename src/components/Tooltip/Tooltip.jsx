@@ -51,9 +51,7 @@ export default class Tooltip extends PureComponent<propTypes> {
 
   render() {
     const { children } = this.props;
-    console.log(this.transmitter.current);
-
-
+  
     /* eslint-disable */
     return (
       <Fragment>
