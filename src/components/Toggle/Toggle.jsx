@@ -6,7 +6,6 @@ import { Component } from 'react';
  */
 type propTypes = {
   children: Node,
-  toggle: () => void,
 }
 
 export default class Toggle extends Component<propTypes> {
@@ -18,12 +17,12 @@ export default class Toggle extends Component<propTypes> {
   toggle = () => this.setState(prevState => ({ on: !prevState.on }));
 
   render() {
-    const { children, toggle } = this.props;
+    const { children } = this.props;
     const { on } = this.state;
 
     return children({
       on,
-      toggle,
+      toggle: this.toggle,
     });
   }
 }

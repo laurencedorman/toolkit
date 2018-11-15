@@ -1,11 +1,12 @@
 
 /*Use 'calc' to Up or Down spacing*/
-$space: 1rem;
+$space: 1em;
 $radius: 3px;
 $border: 1px solid;
-$timeout: 200ms;
+$timeout: 250ms;
 
 $layers: (
+  modal        : 9000,
   fullScreen   : 8000,
   nav          : 7000,
   header       : 6000,

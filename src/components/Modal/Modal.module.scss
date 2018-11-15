@@ -1,0 +1,70 @@
+@import 'styles/import.scss';
+
+.modal {
+  position: fixed;
+  display: flex;
+  top: 0; right: 0; bottom: 0; left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($manoBlack, .5);
+  cursor: pointer;
+
+  &.entering { animation: modalIn $timeout ease both }
+  &.exiting { animation: modalOut $timeout ease both }
+
+  .icon {
+    position: absolute;
+    top: .75rem; right: .75rem;
+    cursor: pointer;
+    transition: hover .15s ease;
+    &:hover { fill: $hover }
+  }
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-flow: column wrap;
+  min-width: 320px;
+  max-width: 50%;
+  padding: calc(#{$space} * 3);
+  background: $white;
+  border-radius: $radius;
+  border: $border transparent;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: default;
+  z-index: z($levels, max);
+
+  &.entering { animation: contentIn $timeout ease both }
+  &.exiting { animation: contentOut $timeout ease both }
+}
+
+@keyframes modalIn {
+  from { opacity: 0.01 }
+  to { opacity: 1 }
+}
+
+@keyframes modalOut {
+  to { opacity: 0.01 }
+}
+
+@keyframes contentIn {
+  from {
+    opacity: 0.01;
+    transform: scale(.6) translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes contentOut {
+  to {
+    opacity: 0.01;
+    transform: scale(.6) translateY(200px);
+  }
+}
+
+
