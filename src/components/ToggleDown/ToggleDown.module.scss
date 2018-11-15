@@ -1,0 +1,19 @@
+@import 'styles/import.scss';
+
+.toggleDown {
+  height: auto;
+  overflow: hidden;
+
+  &.entering { animation: contentIn 400ms ease-in-out both }
+  &.exiting { animation: contentOut 400ms ease-in-out both }
+}
+
+@keyframes contentIn {
+  from { max-height: 0 }
+  to { max-height: 500px }
+}
+
+@keyframes contentOut {
+  from { max-height: 500px }
+  to { max-height: 0 }
+}
