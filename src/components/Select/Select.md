@@ -61,12 +61,12 @@ initialState = {
     { value: 'ocean', label: 'Ocean' },
     { value: 'mountain', label: 'Mountain' },
     { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
-    { value: 'campagn', label: 'Campagn' },
+    { value: 'one', label: 'one' },
+    { value: 'two', label: 'two' },
+    { value: 'three', label: 'three' },
+    { value: 'four', label: 'four' },
+    { value: 'five', label: 'five' },
+    { value: 'six', label: 'six' },
   ]
 };
 
