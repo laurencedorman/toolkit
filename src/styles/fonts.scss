@@ -3,24 +3,36 @@
 
 * { margin: 0; padding: 0 }
 
-html, body {
-  font: 1rem/1.618 'Open Sans';
+html { font-size: 0.875rem }
+
+body {
+  font-family: 'Open Sans', sans-serif;
   color: $squidInk;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
 
-h1 { font-size: 2.25rem }
-h2 { font-size: 2.125rem }
-h3 { font-size: 2rem }
-h4 { font-size: 1.625rem }
+h1, h2, h3, h4 {
+  margin-bottom: .5em;
+  line-height: 1.2
+}
 
-h1, h3, .title {font-weight: 700;}
-h2, h4, .subTitle {font-weight: 600;}
+h1 {
+  margin-top: 0;
+  font-size: 2.25rem;
+}
 
-h1, h2, h3, h4 { letter-spacing: -0.01em }
+h2 { font-size: 1.728rem }
+h3 { font-size: 1.44rem }
+h4 { font-size: 1.2rem }
 
-.title { font-size: 1.125rem }
+h1, h2, h3, h4, .title, .subTitle {
+  letter-spacing: -0.01em;
+  font-weight: 600
+}
+
+p { margin-bottom: 1.3em }
 
 .subTitle, .text, .link, .label,
 p, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
@@ -33,7 +45,7 @@ p, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
   }
 }
 
-.smallText, small { font-size: 0.875rem }
+.smallText, small { font-size: 0.833rem }
 
 a, .link {
   color: $articCitric;
@@ -46,6 +58,3 @@ a, .link {
   &:disabled { color: $greyDark }
 }
 
-h3, h4, p, a, ul, li, ol, figure, pre, table, span, label, fieldset {
-  line-height: 1.618;
-}
