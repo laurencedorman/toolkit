@@ -3,12 +3,10 @@ import { shallow } from 'enzyme';
 import Tooltip from '../Tooltip';
 
 describe('Tooltip', () => {
-  let wrapper;
-
-  wrapper = shallow(
+  const wrapper = shallow(
     <Tooltip content="She starred in one of the ones that became nothing.">
       source tooltip
-    </Tooltip>
+    </Tooltip>,
   );
 
   it('should render without crash', () => {
