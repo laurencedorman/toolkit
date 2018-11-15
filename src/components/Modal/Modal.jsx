@@ -2,6 +2,7 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
 import Icon from '../Icon';
+import Portal from '../Portal';
 import styles from './Modal.module.scss';
 
 /**
@@ -10,36 +11,38 @@ import styles from './Modal.module.scss';
 const Modal = ({
   on, toggle, transitionTime, children,
 }: propTypes) => (
-  <Transition
-    in={on}
-    mountOnEnter
-    unmountOnExit
-    timeout={transitionTime}
-  >
-    {state => (
-      /* eslint-disable */
-      <div
-        onClick={toggle}
-        className={`${styles.modal} ${styles[state]}`}
-        role="Dialog"
-      >
+  <Portal>
+    <Transition
+      in={on}
+      mountOnEnter
+      unmountOnExit
+      timeout={transitionTime}
+    >
+      {state => (
+        /* eslint-disable */
         <div
-          className={`${styles.content} ${styles[state]}`}
-          onClick={e => e.stopPropagation()}
-          role="Contentinfo"
+          onClick={toggle}
+          className={`${styles.modal} ${styles[state]}`}
+          role="Dialog"
         >
-          <Icon
-            name="close-circle"
-            size="26"
-            onClick={toggle}
-            className={styles.icon}
-          />
-          {children}
+          <div
+            className={`${styles.content} ${styles[state]}`}
+            onClick={e => e.stopPropagation()}
+            role="Contentinfo"
+          >
+            <Icon
+              name="close-circle"
+              size="26"
+              onClick={toggle}
+              className={styles.icon}
+            />
+            {children}
+          </div>
         </div>
-      </div>
-      /* eslint-disable */
-    )}
-  </Transition>
+        /* eslint-disable */
+      )}
+    </Transition>
+  </Portal>
 );
 
 type propTypes = {
