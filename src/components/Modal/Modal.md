@@ -11,5 +11,5 @@ modal:
         </Modal>
       </div>
     )}
-    </Toggle>
+  
 

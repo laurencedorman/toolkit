@@ -1,7 +1,6 @@
 // @flow
 import React, { Fragment, PureComponent } from 'react';
 import { tooltipPosition } from './TooltipPosition';
-import Portal from '../Portal';
 import styles from './Tooltip.module.scss';
 
 type propTypes = {
@@ -26,10 +25,14 @@ export default class Tooltip extends PureComponent<propTypes> {
   renderTooltip = () => {
     const { content, position } = this.props;
     const { active } = this.state;
-    const addTooltipPosition = tooltipPosition(this.transmitter.current, position);
+    let addTooltipPosition;
+
+    if (this.transmitter.current) {
+      addTooltipPosition = tooltipPosition(this.transmitter.current, position);
+    }
 
     return (
-      <Portal>
+      <Fragment>
         {active && (
           <div className={styles.portals} style={addTooltipPosition.style}>
             <div id="tooltip-content" className={styles[addTooltipPosition.class]}>
@@ -42,17 +45,19 @@ export default class Tooltip extends PureComponent<propTypes> {
             </div>
           </div>
         )}
-      </Portal>
+      </Fragment>
     );
   };
 
   render() {
-    const { children, position } = this.props;
+    const { children } = this.props;
+    console.log(this.transmitter.current);
+
+
     /* eslint-disable */
     return (
       <Fragment>
         <span
-          position={position}
           className={styles.tooltip}
           onMouseEnter={this.handleShow}
           onMouseLeave={this.handleHide}

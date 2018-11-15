@@ -6,6 +6,7 @@ export const tooltipPosition = (ref, position) => {
   const {
     top, left, right, bottom, width, height,
   } = ref.getBoundingClientRect();
+
   const bottomSpace = document.body.clientHeight - top - window.scrollY;
   const sideSpace = document.body.clientWidth - left + window.scrollX;
   const leftSpace = left + width / 2 + window.scrollX;
