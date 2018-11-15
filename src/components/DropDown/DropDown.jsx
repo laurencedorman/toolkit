@@ -17,13 +17,11 @@ const DropDown = ({
       cursor: 'pointer',
       '&:hover': { backgroundColor: colors.greyMed },
     }),
-
-    container: style => (console.log(style),{
+    container: style => ({
       ...style,
       position: 'relative',
       width: 'auto',
     }),
-
     control: style => ({
       ...style,
       borderRadius: 3,
@@ -48,7 +46,6 @@ const DropDown = ({
       ...style,
       color: colors.squidInk,
     }),
-    indicatorSeparator: () => ({}),
     placeholder: style => ({
       ...style,
       color: colors.squidInk,
@@ -59,6 +56,7 @@ const DropDown = ({
       cursor: 'pointer',
       '&:hover': { color: '#0397a7' },
     }),
+    indicatorSeparator: () => ({}),
   };
 
   return (
