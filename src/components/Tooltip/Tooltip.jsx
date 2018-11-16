@@ -34,11 +34,11 @@ export default class Tooltip extends PureComponent<propTypes> {
       <Portal>
         <Transition
           native
-          config={config.wobbly}
+          config={config.default}
           items={display}
-          from={{ o: 0.01, s: 0.6, y: '-20px' }}
+          from={{ o: 0.01, s: 0.4, y: '-30px' }}
           enter={{ o: 1, s: 1, y: '0px' }}
-          leave={{ o: 0.01, s: 0.6, y: '20px' }}
+          leave={{ o: 0.01, s: 0.4, y: '-30px' }}
         >
           {display => display
             && (
@@ -60,7 +60,15 @@ export default class Tooltip extends PureComponent<propTypes> {
                         )
                       }}
                     >
-                      {renderArrow()}
+                      <div className={styles.svg}>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 18.39 7.96"
+                             width="16"
+                             height="16"
+                        >
+                          <path d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z" />
+                        </svg>
+                      </div>
                       <span className={styles.span}>
                          {content}
                       </span>
@@ -105,13 +113,3 @@ export default class Tooltip extends PureComponent<propTypes> {
   }
 };
 
-const renderArrow = () =>
-  <animated.div className={styles.svg}>
-    <svg xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 18.39 7.96"
-         width="16"
-         height="16"
-    >
-      <path d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z" />
-    </svg>
-  </animated.div>;
