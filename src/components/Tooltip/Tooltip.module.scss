@@ -1,21 +1,20 @@
-@import '~styles/import.scss';
+@import 'styles/import.scss';
 
 $marginArrow: -10px;
 
-.portals {
+.tooltip {
   position: absolute;
   width: auto;
 
   & > div {
     position: relative;
-    min-width: 160px;
+    //min-width: 100px;
     padding: calc(#{$space} / 2);
     background-color: $squidInk;
     border-radius: $radius;
     color: $white;
     text-align: center;
     font-size: 0.75rem;
-    transition: opacity 300ms ease;
     animation: tooltipIn 300ms ease;
 
     &.top, &.bottom {transform: translateX(-50%)}
@@ -24,6 +23,9 @@ $marginArrow: -10px;
       transform: translateY(50%);
     }
   }
+
+  &.entering { animation: tooltipIn $timeout ease both }
+  &.exiting { animation: tooltipOut $timeout ease both }
 }
 
 .svg {
@@ -71,7 +73,7 @@ $marginArrow: -10px;
   }
 }
 
-.tooltip {
+.transmitter {
   display: inline-flex;
   position: relative;
   font-size: inherit;
