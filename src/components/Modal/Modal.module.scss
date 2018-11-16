@@ -33,23 +33,3 @@
   cursor: default;
   z-index: z($levels, max);
 }
-
-@keyframes contentIn {
-  from {
-    opacity: 0.01;
-    transform: scale(.6) translateY(-200px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes contentOut {
-  to {
-    opacity: 0.01;
-    transform: scale(.6) translateY(200px);
-  }
-}
-
-
