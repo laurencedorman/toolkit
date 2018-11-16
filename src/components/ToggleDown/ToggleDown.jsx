@@ -1,47 +1,36 @@
 // @flow
 import React from 'react';
-import { Transition } from 'react-transition-group';
-
+import { Spring, animated } from 'react-spring';
 import styles from './ToggleDown.module.scss';
 
 /**
  * @visibleName ToggleDown
  */
-/* eslint-disable */
 const ToggleDown = ({
- on, toggle, children, transitionTime,
+  on, toggle, children,
 }: propTypes) => (
-  <Transition
-    in={on}
-    mountOnEnter
-    unmountOnExit
-    timeout={400}
-
+  <Spring
+    force
+    from={{ height: 0 }}
+    to={{ height: on ? 'auto' : 0 }}
   >
-    {state => (
-      /* eslint-disable */
-      <div
+    {style => (
+      <animated.div
+        on={on}
         onClick={toggle}
-        className={`${styles.toggleDown} ${styles[state]}`}
-        role="Dialog"
+        className={styles.toggleDown}
+        style={style}
       >
         {children}
-      </div>
-      /* eslint-disable */
+      </animated.div>
     )}
-  </Transition>
+  </Spring>
 );
-/* eslint-disable */
 
 type propTypes = {
   on: boolean,
   toggle: () => void,
-  transitionTime?: number,
   children: string | Node,
-};
-
-ToggleDown.defaultProps = {
-  transitionTime: 300,
 };
 
 export default ToggleDown;
