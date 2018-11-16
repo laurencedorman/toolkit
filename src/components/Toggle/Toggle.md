@@ -12,3 +12,15 @@ Toggle:
   )}
 </Toggle>
 ```
+
+
+Toggle Force In / Out:
+```js
+<Toggle>
+  {({ on, toggleIn, toggleOut }) => (
+    <div onMouseEnter={toggleIn} onMouseLeave={toggleOut}>
+      <h1>{on ? 'I\'m hovered' : 'Hover me'}</h1>
+    </div>
+  )}
+</Toggle>
+```
