@@ -1,27 +1,29 @@
 // @flow
 import React from 'react';
-import { Spring, animated } from 'react-spring';
+import { Spring, animated, config } from 'react-spring';
 import styles from './ToggleDown.module.scss';
 
 /**
  * @visibleName ToggleDown
  */
 const ToggleDown = ({
-  on, toggle, children,
+  on, children,
 }: propTypes) => (
   <Spring
     force
+    config={{ ...config.default, precision: 1 }}
     from={{ height: 0 }}
     to={{ height: on ? 'auto' : 0 }}
   >
     {style => (
       <animated.div
         on={on}
-        onClick={toggle}
         className={styles.toggleDown}
         style={style}
       >
-        {children}
+        <div>
+          {children}
+        </div>
       </animated.div>
     )}
   </Spring>
@@ -29,7 +31,6 @@ const ToggleDown = ({
 
 type propTypes = {
   on: boolean,
-  toggle: () => void,
   children: string | Node,
 };
 
