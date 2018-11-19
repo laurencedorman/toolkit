@@ -11,7 +11,6 @@ const ToggleDown = ({
 }: propTypes) => (
   <Spring
     force
-    items={on}
     config={{ ...config.default, precision: 1 }}
     from={{ maxHeight: 0 }}
     to={{ maxHeight: on ? 500 : 0 }}
