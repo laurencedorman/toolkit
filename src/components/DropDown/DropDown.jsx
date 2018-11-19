@@ -27,13 +27,16 @@ const DropDown = ({
       borderRadius: 3,
       boxShadow: 'none',
       borderColor: colors.greyDark,
-      backgroundColor: colors.greyMed,
-      '&:hover': { borderColor: 'transparent' },
+      backgroundColor: colors.balataGreen,
+      '&:hover': {
+        backgroundColor: colors.articCitric,
+        borderColor: 'transparent',
+      },
     }),
     input: style => ({
       ...style,
       padding: 0,
-      color: colors.squidInk,
+      color: colors.white,
     }),
     valueContainer: style => ({
       ...style,
@@ -44,17 +47,17 @@ const DropDown = ({
     }),
     singleValue: style => ({
       ...style,
-      color: colors.squidInk,
+      color: colors.white,
     }),
     placeholder: style => ({
       ...style,
-      color: colors.squidInk,
+      color: colors.white,
     }),
     dropdownIndicator: style => ({
       ...style,
-      color: colors.squidInk,
+      color: colors.white,
       cursor: 'pointer',
-      '&:hover': { color: '#0397a7' },
+      '&:hover': { color: colors.blueMood },
     }),
     indicatorSeparator: () => ({}),
   };
@@ -71,7 +74,6 @@ const DropDown = ({
           onFocus={onFocus}
           options={options}
           placeholder={placeholder}
-          isClearable
         />
       </div>
     </div>

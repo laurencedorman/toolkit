@@ -8,7 +8,7 @@ Select :
       ]
     };
     
-    <div> 
+    <div style={{width: 250}}> 
         <DropDown
           placeholder="DropDown"
           name="name"
