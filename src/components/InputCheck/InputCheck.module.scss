@@ -2,6 +2,9 @@
 
 .inputCheck {
   position: relative;
+  &:not(:last-child) {
+    margin-right: calc(#{$space} * 2);
+  }
 
   input[type="checkbox"], input[type="radio"] {
     position: absolute;
@@ -17,11 +20,11 @@
       &::before, &::after {
         content: '';
         position: absolute;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.5em;
+        height: 1.5em;
         top: 0; left: 0;
         box-sizing: border-box;
-        transition: all .15s linear
+        transition: transform .15s linear
       }
 
       &::before {
@@ -72,13 +75,16 @@
   input[type="radio"] {
     + label {
       &::before, &::after {
-        border-radius: 100%
+        border-radius: 100%;
+        padding: 4px;
       }
     }
+    &:checked + label::before {
+      box-shadow: 0 0 0 2px $white inset;
+      z-index: z($levels, max);
+    }
     &:checked + label::after {
-      width: 1.125rem;
-      height: 1.125rem;
-      top: 0.1875rem; left: 0.1875rem;
+      top: 0; left: 0; bottom: 0; right: 0;
       border-radius: 100%;
       background: $balataGreen;
       opacity: 1;

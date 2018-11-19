@@ -4,6 +4,9 @@ import styles from './Icon.module.scss';
 
 import iconAssets from '../../assets/setIcons';
 
+/**
+ * @visibleName Icon
+ */
 const IconComponent = ({
   onClick, className, name, size, fill,
 }: propTypes) => (

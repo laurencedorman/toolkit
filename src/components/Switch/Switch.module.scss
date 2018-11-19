@@ -1,5 +1,7 @@
 @import 'styles/import.scss';
 
+$fastTimeout: 150ms;
+
 .switch {
   position: absolute;
   border: 0;
@@ -15,8 +17,9 @@
   background-color: $greyDarker;
   border-radius: 30px;
   cursor: pointer;
+  transition: background $fastTimeout ease-in-out;
 
-  &::after, &.active::after { transition: all $timeout ease-in-out }
+  &::after, &.active::after { transition: transform $fastTimeout ease-in-out }
 
   &::after {
     content: '';
@@ -35,7 +38,7 @@
 
     &::after {
       content: '';
-      transform: translateX(18px)
+      transform: translateX(15px)
     }
   }
 }

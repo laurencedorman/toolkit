@@ -26,107 +26,107 @@ const span = {
 </div>
  
 <div style={style}>
-<Icon name="24h" />
+<IconComponent name="24h" />
 <span style={span}>24h</span>
 </div>
 
 <div style={style}> 
-<Icon name="award" />
+<IconComponent name="award" />
 <span style={span}>award</span>
 </div>
 
 <div style={style}> 
- <Icon name="camera" />
+ <IconComponent name="camera" />
 <span style={span}>camera</span>
 </div>
 
 <div style={style}> 
-<Icon name="clock" />
+<IconComponent name="clock" />
 <span style={span}>clock</span>
 </div>
 
 <div style={style}> 
- <Icon name="document" />
+ <IconComponent name="document" />
 <span style={span}>document</span>
 </div>
 
 <div style={style}> 
- <Icon name="drill" />
+ <IconComponent name="drill" />
 <span style={span}>drill</span>
 </div>
 
 <div style={style}> 
- <Icon name="edit" />
+ <IconComponent name="edit" />
 <span style={span}>edit</span>
 </div>
 
 <div style={style}>
-  <Icon name="eye" />
+  <IconComponent name="eye" />
   <span style={span}>eye</span>
 </div>
 
 <div style={style}>
-  <Icon name="help-circle" />
+  <IconComponent name="help-circle" />
   <span style={span}>help-circle</span>
 </div>
 
 <div style={style}>
-  <Icon name="message-circle" />
+  <IconComponent name="message-circle" />
   <span style={span}>message-circle</span>
 </div>
 
 <div style={style}>
-  <Icon name="credit-card" />
+  <IconComponent name="credit-card" />
   <span style={span}>credit-card</span>
 </div>
 
 <div style={style}>
-  <Icon name="free-delivery" />
+  <IconComponent name="free-delivery" />
   <span style={span}>free-delivery</span>
 </div>
 
 <div style={style}>
-  <Icon name="heart" />
+  <IconComponent name="heart" />
   <span style={span}>heart</span>
 </div>
 
 <div style={style}>
-  <Icon name="heart-full" />
+  <IconComponent name="heart-full" />
   <span style={span}>heart-full</span>
 </div>
 
 <div style={style}>
-  <Icon name="lock" />
+  <IconComponent name="lock" />
   <span style={span}>lock</span>
 </div>
 
 <div style={style}>
-  <Icon name="mail" />
+  <IconComponent name="mail" />
   <span style={span}>mail</span>
 </div>
 
 <div style={style}>
-  <Icon name="map-pin" />
+  <IconComponent name="map-pin" />
   <span style={span}>map-pin</span>
 </div>
 
 <div style={style}>
-  <Icon name="phone" />
+  <IconComponent name="phone" />
   <span style={span}>phone</span>
 </div>
 
 <div style={style}>
-  <Icon name="star-empty" />
+  <IconComponent name="star-empty" />
   <span style={span}>star-empty</span>
 </div>
 
 <div style={style}>
-  <Icon name="star-full" />
+  <IconComponent name="star-full" />
   <span style={span}>star-full</span>
 </div>
 
 <div style={style}>
-  <Icon name="trash" />
+  <IconComponent name="trash" />
   <span style={span}>trash</span>
 </div>
 
@@ -135,52 +135,52 @@ const span = {
 </div>
 
 <div style={style}>
-  <Icon name="account" />
+  <IconComponent name="account" />
   <span style={span}>account</span>
 </div>
 
 <div style={style}>
-  <Icon name="basket" />
+  <IconComponent name="basket" />
   <span style={span}>basket</span>
 </div>
 
 <div style={style}>
-  <Icon name="burger-menu" />
+  <IconComponent name="burger-menu" />
   <span style={span}>burger-menu</span>
 </div>
 
 <div style={style}>
-  <Icon name="chevron-left" />
+  <IconComponent name="chevron-left" />
   <span style={span}>chevron-left</span>
 </div>
 
 <div style={style}>
-  <Icon name="chevron-right" />
+  <IconComponent name="chevron-right" />
   <span style={span}>chevron-right</span>
 </div>
 
 <div style={style}>
-  <Icon name="close-circle" />
+  <IconComponent name="close-circle" />
   <span style={span}>close-circle</span>
 </div>
 
 <div style={style}>
-  <Icon name="extra" />
+  <IconComponent name="extra" />
   <span style={span}>extra</span>
 </div>
 
 <div style={style}>
-  <Icon name="product" />
+  <IconComponent name="product" />
   <span style={span}>product</span>
 </div>
 
 <div style={style}>
-  <Icon name="promo" />
+  <IconComponent name="promo" />
   <span style={span}>promo</span>
 </div>
 
 <div style={style}>
-  <Icon name="search" />
+  <IconComponent name="search" />
   <span style={span}>search</span>
 </div>
 
@@ -189,23 +189,23 @@ const span = {
 </div>
 
 <div style={style}>
-  <Icon name="alert-circle" />
+  <IconComponent name="alert-circle" />
   <span style={span}>alert-circle</span>
 </div>
 <div style={style}>
-  <Icon name="information-circle" />
+  <IconComponent name="information-circle" />
   <span style={span}>information-circle</span>
 </div>
 <div style={style}>
-  <Icon name="message" />
+  <IconComponent name="message" />
   <span style={span}>message</span>
 </div>
 <div style={style}>
-  <Icon name="trucks" />
+  <IconComponent name="trucks" />
   <span style={span}>trucks</span>
 </div>
 <div style={style}>
-  <Icon name="vote" />
+  <IconComponent name="vote" />
   <span style={span}>vote</span>
 </div>
 
@@ -214,27 +214,27 @@ const span = {
 </div>
 
 <div style={style}>
-  <Icon name="construction" />
+  <IconComponent name="construction" />
   <span style={span}>construction</span>
 </div>
 <div style={style}>
-  <Icon name="electricite" />
+  <IconComponent name="electricite" />
   <span style={span}>electricite</span>
 </div>
 <div style={style}>
-  <Icon name="jardinage" />
+  <IconComponent name="jardinage" />
   <span style={span}>jardinage</span>
 </div>
 <div style={style}>
-  <Icon name="outillage" />
+  <IconComponent name="outillage" />
   <span style={span}>outillage</span>
 </div>
 <div style={style}>
-  <Icon name="peinture" />
+  <IconComponent name="peinture" />
   <span style={span}>peinture</span>
 </div>
 <div style={style}>
-  <Icon name="plomberie" />
+  <IconComponent name="plomberie" />
   <span style={span}>plomberie</span>
 </div>
 
@@ -243,19 +243,19 @@ const span = {
 </div>
 
 <div style={style}>
-  <Icon name="historical-search" />
+  <IconComponent name="historical-search" />
   <span style={span}>historical-search</span>
 </div>
 <div style={style}>
-  <Icon name="link" />
+  <IconComponent name="link" />
   <span style={span}>link</span>
 </div>
 <div style={style}>
-  <Icon name="tag-promo" />
+  <IconComponent name="tag-promo" />
   <span style={span}>tag-promo</span>
 </div>
 <div style={style}>
-    <Icon name="trending" />
+    <IconComponent name="trending" />
     <span style={span}>trending</span>
 </div>
 
@@ -264,27 +264,27 @@ const span = {
 </div>
 
 <div style={style}>
-<Icon name="facebook" />
+<IconComponent name="facebook" />
 <span style={span}>facebook</span>
 </div>
 
 <div style={style}>
-<Icon name="instagram" />
+<IconComponent name="instagram" />
 <span style={span}>instagram</span>
 </div>
 
 <div style={style}>
-<Icon name="pinterest" />
+<IconComponent name="pinterest" />
 <span style={span}>pinterest</span>
 </div>
 
 <div style={style}>
-<Icon name="twitter" />
+<IconComponent name="twitter" />
 <span style={span}>twitter</span>
 </div>
 
 <div style={style}>
-<Icon name="youtube" />
+<IconComponent name="youtube" />
 <span style={span}>youtube</span>
 </div>
 
