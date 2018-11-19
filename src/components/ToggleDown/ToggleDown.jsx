@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Spring, animated, config } from 'react-spring';
 import styles from './ToggleDown.module.scss';
 
@@ -11,7 +11,7 @@ type propTypes = {
   children: string | Node,
 };
 
-class ToggleDown extends Component<propTypes> {
+class ToggleDown extends PureComponent<propTypes> {
   constructor(props) {
     super(props);
     this.toggleDown = React.createRef();
