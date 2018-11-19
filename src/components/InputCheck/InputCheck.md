@@ -18,10 +18,10 @@ Input radio:
 initialState = {selected: 'valueRadioOne'};
 onChange = e => setState({ selected: e.target.value });
 
-<div style={{ display: 'flex', justifyContent: 'space-around', width: 400 }}>
+<div style={{ display: 'flex' }}>
     <InputCheck
       type="radio"
-      label="Choice One"
+      label="Choice Onetheroadagain"
       value="valueRadioOne"
       name="exempleTwo"
       checked={state.selected === "valueRadioOne"}

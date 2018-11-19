@@ -5,9 +5,9 @@ Toggle:
   {({ on, toggle }) => (
     <div>
       <Button onClick={toggle}>
-        {on ? 'hide' : 'show'} 
+        {on ? 'Toggle On' : 'Toggle Off'} 
       </Button>
-      {on && <h1>Title Toggle</h1>}
+      {on && <div style={{paddingTop: 16}}><h1>Title Toggle</h1></div>}
     </div>
   )}
 </Toggle>
