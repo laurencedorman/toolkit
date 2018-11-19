@@ -8,7 +8,7 @@ import styles from './DropDown.module.scss';
  * @visibleName DropDown
  */
 const DropDown = ({
-  options, onChange, onInputChange, onBlur, onFocus, name, placeholder,
+  options, onChange, onInputChange, onBlur, onFocus, name, placeholder, defaultValue,
 }:propTypes) => {
   const customStyles = {
     option: (style, state) => ({
@@ -73,6 +73,7 @@ const DropDown = ({
           onBlur={onBlur}
           onFocus={onFocus}
           options={options}
+          defaultValue={defaultValue}
           placeholder={placeholder}
         />
       </div>
@@ -88,6 +89,7 @@ type propTypes = {
   onBlur?: () => void,
   theme?: string,
   placeholder?: string,
+  defaultValue?: string,
 };
 
 DropDown.defaultProps = {
@@ -97,6 +99,7 @@ DropDown.defaultProps = {
   onBlur: null,
   theme: 'default',
   placeholder: '',
+  defaultValue: '',
 };
 
 
