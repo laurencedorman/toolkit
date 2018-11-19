@@ -11,19 +11,19 @@ const ToggleDown = ({
 }: propTypes) => (
   <Spring
     force
+    items={on}
     config={{ ...config.default, precision: 1 }}
-    from={{ height: 0 }}
-    to={{ height: on ? 'auto' : 0 }}
+    from={{ maxHeight: 0 }}
+    to={{ maxHeight: on ? 500 : 0 }}
   >
     {style => (
       <animated.div
-        on={on}
         className={styles.toggleDown}
         style={style}
       >
-        <div>
+        <animated.div style={style}>
           {children}
-        </div>
+        </animated.div>
       </animated.div>
     )}
   </Spring>
