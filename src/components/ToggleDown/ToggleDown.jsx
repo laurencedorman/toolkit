@@ -54,9 +54,9 @@ class ToggleDown extends PureComponent<propTypes> {
             className={styles.toggleDown}
             style={style}
           >
-            <animated.div ref={this.toggleDown}>
+            <div ref={this.toggleDown}>
               {children}
-            </animated.div>
+            </div>
           </animated.div>
         )}
       </Spring>
