@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import InputCheck from './index';
+import InputCheck from './InputCheck';
 import styles from './InputCheck.module.scss';
 
 /**

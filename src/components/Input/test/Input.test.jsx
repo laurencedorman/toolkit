@@ -25,7 +25,23 @@ describe('Input', () => {
     expect(wrapper.find('label').text()).toEqual('label');
   });
 
+  it('should render specific className', () => {
+    wrapper.setProps({ value: 'value', valid: true });
+  });
+
+  it('should render specific className', () => {
+    wrapper.setProps({ reverse: true, icon: true });
+  });
+
+  it('should render an icon', () => {
+    wrapper.setProps({ valid: true, reverse: true });
+  });
+
   it('should render an helper span', () => {
     expect(wrapper.find('span').text()).toEqual('helper');
+  });
+
+  it('should render an error span', () => {
+    wrapper.setProps({ error: true });
   });
 });

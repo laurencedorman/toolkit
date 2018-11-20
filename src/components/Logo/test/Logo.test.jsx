@@ -13,6 +13,10 @@ describe('Logo', () => {
     expect(wrapper.length).toEqual(1);
   });
 
+  it('should render mini logo', () => {
+    wrapper.setProps({ mini: true });
+  });
+
   it('should have special class for theme if props is define', () => {
     wrapper.setProps({ theme: 'colorWhite' });
     expect(wrapper.hasClass('colorWhite')).toEqual(true);
