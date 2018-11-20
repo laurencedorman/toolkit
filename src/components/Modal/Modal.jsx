@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import { Transition } from 'react-transition-group';
-import Icon from '../Icon';
-import Portal from '../Portal';
+import { Icon, Portal } from 'components';
 import styles from './Modal.module.scss';
 
 /**

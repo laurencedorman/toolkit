@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import { Icon } from 'components';
 import styles from './Hint.module.scss';
-import Icon from '../Icon';
 
 const Hint = ({
   theme, textAlert, icon, iconWidth,

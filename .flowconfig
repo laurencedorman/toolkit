@@ -12,5 +12,7 @@
 [options]
 module.file_ext=.scss
 module.name_mapper.extension='scss' -> 'empty/object'
+module.name_mapper='^components' -> '<PROJECT_ROOT>/src/components'
+module.system.node.resolve_dirname='<PROJECT_ROOT>/src/'
 
 [strict]

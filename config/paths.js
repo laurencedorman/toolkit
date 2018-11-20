@@ -38,4 +38,5 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   styles: resolveApp('src/styles'),
+  components: resolveApp('src/components'),
 };
