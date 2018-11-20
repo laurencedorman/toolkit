@@ -10,7 +10,7 @@ type propTypes = {
 }
 
 export default class Portal extends Component<propTypes> {
-  static defaultProps = { portalRoot: 'portalRoot' }
+  static defaultProps = { portalRoot: 'portalRoot' };
 
   constructor(props) {
     super(props);
@@ -19,15 +19,12 @@ export default class Portal extends Component<propTypes> {
   }
 
   componentDidMount() {
-    if (this.root) {
-      this.root.appendChild(this.el);
-    }
+    if (!this.root) return;
+    this.root.appendChild(this.el);
   }
 
   componentWillUnmount() {
-    if (this.root) {
-      this.root.removeChild(this.el);
-    }
+    this.root.removeChild(this.el);
   }
 
   render() {
