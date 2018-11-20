@@ -26,6 +26,7 @@
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
+    "babel-plugin-module-resolver": "3.1.1",
     "babel-plugin-named-asset-import": "0.2.2",
     "babel-preset-flow": "6.23.0",
     "babel-preset-minify": "0.5.0",
@@ -221,7 +222,13 @@
       "@babel/preset-flow"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties",
+      ["module-resolver", {
+        "root": ["./src"],
+        "alias": {
+          "components": "./src/components"
+        }
+      }]
     ]
   }
 }
