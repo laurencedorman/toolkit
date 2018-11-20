@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Hint from '../Hint';
+import { Hint } from 'components';
 
 describe('Hint', () => {
   const wrapper = shallow(<Hint />);
