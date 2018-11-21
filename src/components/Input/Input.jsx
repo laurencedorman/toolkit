@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import Icon from '../Icon';
+import { Icon } from 'components';
 import styles from './Input.module.scss';
 
 /**
