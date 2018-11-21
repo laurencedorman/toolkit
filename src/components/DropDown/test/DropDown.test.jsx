@@ -10,7 +10,6 @@ describe('DropDown', () => {
   };
 
   const wrapper = shallow(<DropDown {...props} styles={customStyles} />);
-  console.log(customStyles);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);
