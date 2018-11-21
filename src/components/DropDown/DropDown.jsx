@@ -9,76 +9,72 @@ import styles from './DropDown.module.scss';
  */
 const DropDown = ({
   options, onChange, onInputChange, onBlur, onFocus, name, placeholder, defaultValue,
-}:propTypes) => {
-  const customStyles = {
-    option: (style, state) => ({
-      ...style,
-      backgroundColor: state.isSelected && colors.squidInk,
-      cursor: 'pointer',
-      '&:hover': { backgroundColor: colors.greyMed },
-    }),
-    container: style => ({
-      ...style,
-      position: 'relative',
-      width: 'auto',
-    }),
-    control: style => ({
-      ...style,
-      borderRadius: 3,
-      boxShadow: 'none',
-      borderColor: colors.greyDark,
-      backgroundColor: colors.balataGreen,
-      '&:hover': {
-        backgroundColor: colors.articCitric,
-        borderColor: 'transparent',
-      },
-    }),
-    input: style => ({
-      ...style,
-      padding: 0,
-      color: colors.white,
-    }),
-    valueContainer: style => ({
-      ...style,
-      flexFlow: 'row wrap',
-      justifyContent: 'flex-start',
-      minHeight: 64,
-      padding: '8px 16px',
-    }),
-    singleValue: style => ({
-      ...style,
-      color: colors.white,
-    }),
-    placeholder: style => ({
-      ...style,
-      color: colors.white,
-    }),
-    dropdownIndicator: style => ({
-      ...style,
-      color: colors.white,
-      cursor: 'pointer',
-      '&:hover': { color: colors.blueMood },
-    }),
-    indicatorSeparator: () => ({}),
-  };
+}:propTypes) => (
+  <div className={styles.container}>
+    <CreatableSelect
+      styles={customStyles}
+      name={name}
+      onChange={onChange}
+      onInputChange={onInputChange}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      options={options}
+      defaultValue={defaultValue}
+      placeholder={placeholder}
+    />
+  </div>
+);
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <CreatableSelect
-          styles={customStyles}
-          name={name}
-          onChange={onChange}
-          onInputChange={onInputChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          options={options}
-          defaultValue={defaultValue}
-          placeholder={placeholder}
-        />
-      </div>
-    </div>
-  );
+export const customStyles = {
+  option: (style, state) => ({
+    ...style,
+    backgroundColor: state.isSelected && colors.squidInk,
+    cursor: 'pointer',
+    '&:hover': { backgroundColor: colors.greyMed },
+  }),
+  container: style => ({
+    ...style,
+    position: 'relative',
+    width: 'auto',
+  }),
+  control: style => ({
+    ...style,
+    backgroundColor: colors.balataGreen,
+    boxShadow: 'none',
+    borderRadius: 3,
+    borderColor: colors.greyDark,
+    '&:hover': {
+      backgroundColor: colors.articCitric,
+      borderColor: 'transparent',
+    },
+  }),
+  input: style => ({
+    ...style,
+    padding: 0,
+    color: colors.white,
+  }),
+  valueContainer: style => ({
+    ...style,
+    flexFlow: 'row wrap',
+    justifyContent: 'flex-start',
+    minHeight: 64,
+    padding: '8px 16px',
+  }),
+  singleValue: style => ({
+    ...style,
+    color: colors.white,
+  }),
+  placeholder: style => ({
+    ...style,
+    color: colors.white,
+  }),
+  dropdownIndicator: style => ({
+    ...style,
+    color: colors.white,
+    cursor: 'pointer',
+    '&:hover': { color: colors.blueMood },
+  }),
+  indicatorSeparator: () => ({}),
 };
 
 type propTypes = {
@@ -90,6 +86,7 @@ type propTypes = {
   theme?: string,
   placeholder?: string,
   defaultValue?: string,
+  customStyles: () => void,
 };
 
 DropDown.defaultProps = {
