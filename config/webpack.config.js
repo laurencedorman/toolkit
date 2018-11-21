@@ -1,40 +1,31 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
 const webpack = require('webpack');
-const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const paths = require('./paths');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
-const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-module.exports = function(webpackEnv) {
+module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-      isEnvDevelopment && require.resolve('style-loader'),
+      require.resolve('style-loader'),
       {
         loader: require.resolve('css-loader'),
         options: cssOptions,
@@ -128,11 +119,6 @@ module.exports = function(webpackEnv) {
           },
         }),
       ],
-      splitChunks: {
-        chunks: 'all',
-        name: false,
-      },
-      runtimeChunk: true,
     },
     resolve: {
       modules: ['node_modules'],
