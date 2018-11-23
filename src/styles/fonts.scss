@@ -35,13 +35,14 @@ h1, h2, h3, h4, .title, .subTitle {
 p:not(:last-child) { margin-bottom: 1.3em }
 
 .subTitle, .text, .link, .label,
-p, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
+p, span, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
   font-weight: 400;
   letter-spacing: -0.003em;
-  > span, a {
+  > span, > a {
+    margin-bottom: 0;
     font-size: inherit;
     font-weight: inherit;
-    color: inherit
+    color: inherit;
   }
 }
 

@@ -16,6 +16,10 @@ export default class Toggle extends Component<propTypes> {
 
   toggle = () => this.setState(prevState => ({ on: !prevState.on }));
 
+  toggleIn = () => this.setState({ on: true });
+
+  toggleOut = () => this.setState({ on: false });
+
   render() {
     const { children } = this.props;
     const { on } = this.state;
@@ -23,6 +27,8 @@ export default class Toggle extends Component<propTypes> {
     return children({
       on,
       toggle: this.toggle,
+      toggleIn: this.toggleIn,
+      toggleOut: this.toggleOut,
     });
   }
 }
