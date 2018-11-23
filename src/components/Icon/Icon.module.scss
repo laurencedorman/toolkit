@@ -1,9 +1,10 @@
 
 .container {
-  flex-grow: 0;
+  display: flex;
 }
 
 .svg {
+  flex-grow: 0;
   display: inline-flex;
   vertical-align: middle;
 }
