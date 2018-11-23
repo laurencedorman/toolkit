@@ -26,7 +26,6 @@ initialState = {value: ''};
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />
-
 ```
 
 Input with error :
