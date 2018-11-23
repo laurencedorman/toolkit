@@ -10,6 +10,7 @@ import styles from './Select.module.scss';
 const Select = ({
   options,
   placeholder,
+  value,
   onChange,
   onBlur,
   onFocus,
@@ -19,55 +20,11 @@ const Select = ({
   isMulti,
   defaultValue,
   name,
+  ...props
 }:propTypes) => {
   const select = cn(styles.select, {
     [styles.hasError]: error,
   });
-
-  const customStyles = {
-    option: (style, state) => ({
-      ...style,
-      backgroundColor: state.isSelected && '#0c193a',
-      cursor: 'pointer',
-      '&:hover': {
-        backgroundColor: '#e8e8e8',
-      },
-    }),
-    control: style => ({
-      ...style,
-      borderRadius: 3,
-      boxShadow: 'none',
-      borderColor: '#e8e8e8',
-      '&:hover': {
-        borderColor: '#e8e8e8',
-      },
-    }),
-    input: () => ({
-      padding: 0,
-      borderWidth: 1,
-      boxSizing: 'border-box',
-    }),
-    valueContainer: () => ({
-      display: 'flex',
-      flexFlow: 'row wrap',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      maxWidth: 'calc(100% - 115px)',
-      minHeight: 46,
-      padding: '8px 16px',
-    }),
-    indicatorSeparator: style => ({
-      ...style,
-    }),
-    multiValueRemove: style => ({
-      ...style,
-      '&:hover': {
-        backgroundColor: '#0c193a',
-        color: '#fff',
-        cursor: 'pointer',
-      },
-    }),
-  };
 
   return (
     <div className={styles.container}>
@@ -78,6 +35,7 @@ const Select = ({
           /* eslint-disable */
         }
         <ReactSelect
+          {...props}
           className={select}
           styles={customStyles}
           name={name}
@@ -86,6 +44,7 @@ const Select = ({
           onFocus={onFocus}
           defaultValue={defaultValue}
           options={options}
+          inputValue={value}
           isMulti={isMulti}
           matchPos="start"
           placeholder={placeholder}
@@ -95,6 +54,51 @@ const Select = ({
       {error && <span className={styles.error}>{error}</span>}
     </div>
   );
+};
+
+const customStyles = {
+  option: (style, state) => ({
+    ...style,
+    backgroundColor: state.isSelected && '#0c193a',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#e8e8e8',
+    },
+  }),
+  control: style => ({
+    ...style,
+    borderRadius: 3,
+    boxShadow: 'none',
+    borderColor: '#e8e8e8',
+    '&:hover': {
+      borderColor: '#e8e8e8',
+    },
+  }),
+  input: () => ({
+    padding: 0,
+    borderWidth: 1,
+    boxSizing: 'border-box',
+  }),
+  valueContainer: () => ({
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    maxWidth: 'calc(100% - 115px)',
+    minHeight: 46,
+    padding: '8px 16px',
+  }),
+  indicatorSeparator: style => ({
+    ...style,
+  }),
+  multiValueRemove: style => ({
+    ...style,
+    '&:hover': {
+      backgroundColor: '#0c193a',
+      color: '#fff',
+      cursor: 'pointer',
+    },
+  }),
 };
 
 type propTypes = {
