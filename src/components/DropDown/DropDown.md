@@ -1,6 +1,7 @@
 Select :
 
     initialState = {
+      value: 'ocean',
       options: [
         { value: 'ocean', label: 'Ocean' },
         { value: 'mountain', label: 'Mountain' },

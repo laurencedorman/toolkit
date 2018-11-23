@@ -8,14 +8,25 @@ import styles from './DropDown.module.scss';
  * @visibleName DropDown
  */
 const DropDown = ({
-  options, onChange, onInputChange, onBlur, onFocus, name, placeholder, defaultValue,
+  options,
+  onChange,
+  onInputChange,
+  onBlur,
+  onFocus,
+  name,
+  placeholder,
+  defaultValue,
+  value,
+  onCreateOption,
 }:propTypes) => (
   <div className={styles.container}>
     <CreatableSelect
       styles={customStyles}
       name={name}
+      inputValue={value}
       onChange={onChange}
       onInputChange={onInputChange}
+      onCreateOption={onCreateOption}
       onBlur={onBlur}
       onFocus={onFocus}
       options={options}
@@ -79,8 +90,10 @@ export const customStyles = {
 
 type propTypes = {
   options: Array<{label: string} | {value: string}>,
+  value?: string,
   onChange?: () => void,
   onInputChange?: () => void,
+  onCreateOption?: () => void,
   onFocus?: () => void,
   onBlur?: () => void,
   theme?: string,
@@ -90,8 +103,10 @@ type propTypes = {
 };
 
 DropDown.defaultProps = {
+  value: '',
   onChange: null,
   onInputChange: null,
+  onCreateOption: null,
   onFocus: null,
   onBlur: null,
   theme: 'default',
