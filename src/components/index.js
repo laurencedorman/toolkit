@@ -11,6 +11,7 @@ export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 export { default as Portal } from './Portal';
 export { default as Select } from './Select';
+export { default as Sidebar } from './Sidebar';
 export { default as Switch } from './Switch';
 export { default as Tag } from './Tag';
 export { default as Textarea } from './Textarea';
