@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> update
 @import 'styles/import.scss';
 
 $tinySpace: calc(#{$space} / 4);
@@ -31,6 +27,7 @@ $tinySpace: calc(#{$space} / 4);
     position: relative;
     display: block;
     width: 100%;
+    min-height: calc(#{$space} * 4);
     background-color: $white;
 
     &.hasError {

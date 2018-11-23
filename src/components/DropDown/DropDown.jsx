@@ -1,12 +1,16 @@
 // @flow
 import React from 'react';
 import CreatableSelect from 'react-select/lib/Creatable';
+import { components } from 'react-select';
+
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
 
 /**
  * @visibleName DropDown
  */
+const Placeholder = props => <components.Placeholder {...props} />;
+
 const DropDown = ({
   options,
   onChange,
@@ -18,9 +22,12 @@ const DropDown = ({
   defaultValue,
   value,
   onCreateOption,
+  children,
+  ...props
 }:propTypes) => (
   <div className={styles.container}>
     <CreatableSelect
+      {...props}
       styles={customStyles}
       name={name}
       inputValue={value}
@@ -31,8 +38,11 @@ const DropDown = ({
       onFocus={onFocus}
       options={options}
       defaultValue={defaultValue}
+      component={{ Placeholder }}
       placeholder={placeholder}
-    />
+    >
+      {children && children}
+    </CreatableSelect>
   </div>
 );
 
@@ -53,7 +63,7 @@ export const customStyles = {
     backgroundColor: colors.balataGreen,
     boxShadow: 'none',
     borderRadius: 3,
-    borderColor: colors.greyDark,
+    borderColor: 'transparent',
     '&:hover': {
       backgroundColor: colors.articCitric,
       borderColor: 'transparent',
@@ -97,9 +107,10 @@ type propTypes = {
   onFocus?: () => void,
   onBlur?: () => void,
   theme?: string,
-  placeholder?: string,
+  placeholder?: string | Node,
   defaultValue?: string,
   customStyles: () => void,
+  children?: Node,
 };
 
 DropDown.defaultProps = {
@@ -112,7 +123,7 @@ DropDown.defaultProps = {
   theme: 'default',
   placeholder: '',
   defaultValue: '',
+  children: null,
 };
-
 
 export default DropDown;
