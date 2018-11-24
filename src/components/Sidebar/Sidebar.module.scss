@@ -1,6 +1,28 @@
+@import 'styles/import.scss';
+
 .sidebar{
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 100vh;
+  padding: $space;
   background-color: #999999;
+  z-index: z($layers, fullScreen);
+
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.right, &.left { transition: transform .25s cubic-bezier(0.4, 0.0, 1, 1) }
+
+  &.on {
+    transform: translateX(0);
+    transition: transform .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+  }
 }
+
