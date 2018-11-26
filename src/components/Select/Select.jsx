@@ -37,6 +37,7 @@ const Select = ({
         <ReactSelect
           {...props}
           className={select}
+          styles={customStyles}
           name={name}
           onChange={onChange}
           onBlur={onBlur}
@@ -55,7 +56,50 @@ const Select = ({
   );
 };
 
-
+const customStyles = {
+  option: (style, state) => ({
+    ...style,
+    backgroundColor: state.isSelected && '#0c193a',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#e8e8e8',
+    },
+  }),
+  control: style => ({
+    ...style,
+    borderRadius: 3,
+    boxShadow: 'none',
+    borderColor: '#e8e8e8',
+    '&:hover': {
+      borderColor: '#e8e8e8',
+    },
+  }),
+  input: () => ({
+    padding: 0,
+    borderWidth: 1,
+    boxSizing: 'border-box',
+  }),
+  valueContainer: () => ({
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    maxWidth: 'calc(100% - 115px)',
+    minHeight: 46,
+    padding: '8px 16px',
+  }),
+  indicatorSeparator: style => ({
+    ...style,
+  }),
+  multiValueRemove: style => ({
+    ...style,
+    '&:hover': {
+      backgroundColor: '#0c193a',
+      color: '#fff',
+      cursor: 'pointer',
+    },
+  }),
+};
 
 type propTypes = {
   label?: string,
