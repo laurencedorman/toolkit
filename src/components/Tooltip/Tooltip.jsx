@@ -3,6 +3,7 @@ import React, { Fragment, PureComponent } from 'react';
 import {
   Transition, animated, interpolate, config,
 } from 'react-spring';
+import cn from 'classnames';
 
 import { Portal, Toggle } from 'components';
 import { tooltipPosition } from './TooltipPosition';
@@ -15,10 +16,14 @@ type propTypes = {
   children: string | Node | () => void,
   content: string | Node,
   position?: 'top' | 'right' | 'bottom' | 'left',
+  className?: string,
 };
 
 export default class Tooltip extends PureComponent<propTypes> {
-  static defaultProps = { position: 'top' };
+  static defaultProps = {
+    position: 'top',
+    className: '',
+  };
 
   constructor(props) {
     super(props);
@@ -87,7 +92,12 @@ export default class Tooltip extends PureComponent<propTypes> {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
+
+    const classNames = cn(
+      styles.transmitter,
+      className,
+    );
 
     /* eslint-disable */
     return (
@@ -95,7 +105,7 @@ export default class Tooltip extends PureComponent<propTypes> {
         {({ on, toggleIn, toggleOut }) => (
           <Fragment>
             <span
-              className={styles.transmitter}
+              className={classNames}
               onMouseEnter={toggleIn}
               onMouseLeave={toggleOut}
               onFocus={toggleIn}
