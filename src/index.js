@@ -16,4 +16,5 @@ export {
   Toggle,
   ToggleDown,
   Textarea,
+  Tooltip,
 } from './components';

@@ -11,6 +11,7 @@ export { default as Portal } from './Portal';
 export { default as Select } from './Select';
 export { default as Switch } from './Switch';
 export { default as Tag } from './Tag';
+export { default as Textarea } from './Textarea';
 export { default as Toggle } from './Toggle';
 export { default as ToggleDown } from './ToggleDown';
-export { default as Textarea } from './Textarea';
+export { default as Tooltip } from './Tooltip';
