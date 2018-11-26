@@ -65,18 +65,14 @@ module.exports = function (webpackEnv) {
       ? shouldUseSourceMap
         ? 'source-map'
         : false
-      : isEnvDevelopment && 'cheap-module-source-map',
+      : 'cheap-module-source-map',
     entry: [
-      isEnvDevelopment &&
-        require.resolve('react-dev-utils/webpackHotDevClient'),
+      require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appIndexJs,
     ].filter(Boolean),
     output: {
-      path: isEnvProduction ? paths.appBuild : undefined,
-      pathinfo: isEnvDevelopment,
-      filename: isEnvProduction
-        ? 'index.js'
-        : isEnvDevelopment && 'static/js/bundle.js',
+      path: paths.appBuild,
+      filename: 'index.js',
       library: '',
       libraryTarget: 'commonjs',
     },
@@ -243,10 +239,9 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       new ModuleNotFoundPlugin(paths.appPath),
-      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
-      isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      isEnvDevelopment &&
-        new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+      new webpack.HotModuleReplacementPlugin(),
+      new CaseSensitivePathsPlugin(),
+      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     node: {
