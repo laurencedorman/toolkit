@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {
   Transition, animated, interpolate, config,
 } from 'react-spring';
+import cn from 'classnames';
 
 import { Icon, Portal } from 'components';
 import styles from './Modal.module.scss';
@@ -14,9 +15,12 @@ type propTypes = {
   on: boolean,
   toggle: () => void,
   children: string | Node,
+  className?: string,
 };
 /* eslint-disable */
 export default class Modal extends Component<propTypes>{
+  static defaultProps = { className: '' };
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKey, false);
   }
@@ -42,7 +46,12 @@ export default class Modal extends Component<propTypes>{
   };
 
   render() {
-    const { on, toggle, children } = this.props;
+    const { on, toggle, children, className } = this.props;
+
+    const classNames = cn(
+      styles.content,
+      className,
+    );
 
     return (
       <Portal>
@@ -66,7 +75,7 @@ export default class Modal extends Component<propTypes>{
                   }}
                 >
                   <animated.div
-                    className={styles.content}
+                    className={classNames}
                     onClick={e => e.stopPropagation()}
                     role="Contentinfo"
                     style={{

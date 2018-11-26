@@ -67,7 +67,7 @@ $iconSpace: 40px;
   }
 
   input:focus + label, &.hasValue input + label {
-    transform: translate(1px, -1.3rem);
+    transform: translate(5px, -1.3rem);
     font-size: .75rem;
   }
 

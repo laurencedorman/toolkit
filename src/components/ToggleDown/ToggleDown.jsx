@@ -1,6 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import { Spring, animated, config } from 'react-spring';
+import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
 
 /**
@@ -9,9 +10,12 @@ import styles from './ToggleDown.module.scss';
 type propTypes = {
   on: boolean,
   children: string | Node,
+  className?: string,
 };
 
 class ToggleDown extends PureComponent<propTypes> {
+  static defaultProps = { className: '' };
+
   constructor(props) {
     super(props);
     this.toggleDown = React.createRef();
@@ -39,8 +43,13 @@ class ToggleDown extends PureComponent<propTypes> {
   };
 
   render() {
-    const { on, children } = this.props;
+    const { on, children, className } = this.props;
     const { height } = this.state;
+
+    const classNames = cn(
+      styles.toggleDown,
+      className,
+    );
 
     return (
       <Spring
@@ -51,7 +60,7 @@ class ToggleDown extends PureComponent<propTypes> {
       >
         {style => (
           <animated.div
-            className={styles.toggleDown}
+            className={classNames}
             style={style}
           >
             <div ref={this.toggleDown}>
