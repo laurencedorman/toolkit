@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import {
   Transition, animated, interpolate, config,
 } from 'react-spring';
-import Icon from '../Icon';
-import Portal from '../Portal';
+
+import { Icon, Portal } from 'components';
 import styles from './Modal.module.scss';
 
 /**
@@ -93,4 +93,4 @@ export default class Modal extends Component<propTypes>{
     )
   }
 }
-/* eslint-disable */
+/* eslint-enable */

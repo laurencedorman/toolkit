@@ -32,7 +32,7 @@ const Select = ({
         {
           /* eslint-disable */
           label && <label>{label}</label>
-          /* eslint-disable */
+          /* eslint-enable */
         }
         <ReactSelect
           {...props}

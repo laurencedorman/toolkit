@@ -3,8 +3,10 @@ import React, { Fragment, PureComponent } from 'react';
 import {
   Transition, animated, interpolate, config,
 } from 'react-spring';
-import Portal from '../Portal';
+
+import { Portal, Toggle } from 'components';
 import { tooltipPosition } from './TooltipPosition';
+
 import styles from './Tooltip.module.scss';
 
 let addTooltipPosition;
@@ -81,7 +83,7 @@ export default class Tooltip extends PureComponent<propTypes> {
         </Transition>
       </Portal>
     );
-    /* eslint-disable */
+    /* eslint-enable */
   };
 
   render() {
@@ -109,7 +111,6 @@ export default class Tooltip extends PureComponent<propTypes> {
         )}
       </Toggle>
     );
-    /* eslint-disable */
+    /* eslint-enable */
   }
-};
-
+}
