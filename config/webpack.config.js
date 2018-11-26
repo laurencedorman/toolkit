@@ -11,6 +11,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const paths = require('./paths');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
@@ -67,19 +68,23 @@ module.exports = function (webpackEnv) {
         : false
       : isEnvDevelopment && 'cheap-module-source-map',
     entry: [
+      isEnvDevelopment &&
       require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appIndexJs,
     ].filter(Boolean),
     output: {
-      path: paths.appBuild,
-      pathinfo: false,
-      filename: 'index.js',
+      path: isEnvProduction ? paths.appBuild : undefined,
+      pathinfo: isEnvDevelopment,
+      filename: isEnvProduction
+        ? 'index.js'
+        : isEnvDevelopment && 'static/js/bundle.js',
       library: '',
       libraryTarget: 'commonjs',
     },
     optimization: {
-      minimize: true,
+      minimize: isEnvProduction,
       minimizer: [
+        new UglifyJsPlugin(),
         new TerserPlugin({
           terserOptions: {
             parse: {
@@ -211,7 +216,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader',
+                'sass-loader'
               ),
               sideEffects: true,
             },
@@ -242,7 +247,8 @@ module.exports = function (webpackEnv) {
       new ModuleNotFoundPlugin(paths.appPath),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      isEnvDevelopment && new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+      isEnvDevelopment &&
+      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     node: {
