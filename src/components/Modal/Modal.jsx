@@ -93,4 +93,4 @@ export default class Modal extends Component<propTypes>{
     )
   }
 }
-/* eslint-disable */
+/* eslint-enable */
