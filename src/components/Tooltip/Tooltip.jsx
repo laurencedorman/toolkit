@@ -83,7 +83,7 @@ export default class Tooltip extends PureComponent<propTypes> {
         </Transition>
       </Portal>
     );
-    /* eslint-disable */
+    /* eslint-enable */
   };
 
   render() {
