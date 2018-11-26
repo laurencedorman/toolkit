@@ -5,17 +5,18 @@
   top: 0;
   height: 100vh;
   padding: $space;
-  background-color: #999999;
-  z-index: z($layers, fullScreen);
+  background-color: $white;
 
   &.left {
     left: 0;
     transform: translateX(-100%);
+    box-shadow: 3px 0 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   &.right {
     right: 0;
     transform: translateX(100%);
+    box-shadow: -3px 0 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   &.right, &.left { transition: transform .25s cubic-bezier(0.4, 0.0, 1, 1) }

@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { Portal } from 'components';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = ({
@@ -16,15 +17,15 @@ const Sidebar = ({
   );
 
   return (
-    <div
-      className={classNames}
-      position={position}
-      style={{
-        width: `${width}`,
-      }}
-    >
-      {children}
-    </div>
+    <Portal>
+      <div
+        className={classNames}
+        position={position}
+        style={{ width: `${width}` }}
+      >
+        {children}
+      </div>
+    </Portal>
   );
 };
 
