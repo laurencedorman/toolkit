@@ -9,12 +9,13 @@ import styles from './Button.module.scss';
  * @visibleName Button
  */
 const Button = ({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa,
+  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className,
 }: propTypes) => {
-  const className = cn(
+  const classNames = cn(
     styles.button,
     styles[size],
     styles[theme],
+    className,
     {
       [styles.icon]: icon,
       [styles.reverse]: reverse,
@@ -28,7 +29,7 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
       type={type}
-      className={className}
+      className={classNames}
       data-qa={dataQa}
     >
       {icon
@@ -49,6 +50,7 @@ type propTypes = {
   disabled?: boolean,
   onClick?: () => void,
   dataQa?: string,
+  className?: string,
 };
 
 Button.defaultProps = {
@@ -61,6 +63,7 @@ Button.defaultProps = {
   disabled: false,
   onClick: null,
   dataQa: '',
+  className: '',
 };
 
 export default Button;

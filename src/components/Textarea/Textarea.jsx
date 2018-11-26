@@ -1,26 +1,34 @@
 // @flow
 import React from 'react';
+import cn from 'classnames';
 import styles from './Textarea.module.scss';
 
 /**
  * @visibleName Textarea
  */
 const Textarea = ({
-  placeholder, name, value, cols, rows, required, disabled, form, onChange,
-}: propTypes) => (
-  <textarea
-    className={styles.textarea}
-    placeholder={placeholder}
-    name={name}
-    value={value}
-    cols={cols}
-    rows={rows}
-    required={required}
-    disabled={disabled}
-    form={form}
-    onChange={onChange}
-  />
-);
+  placeholder, name, value, cols, rows, required, disabled, form, onChange, className,
+}: propTypes) => {
+  const classNames = cn(
+    styles.textarea,
+    className,
+  );
+
+  return (
+    <textarea
+      className={classNames}
+      placeholder={placeholder}
+      name={name}
+      value={value}
+      cols={cols}
+      rows={rows}
+      required={required}
+      disabled={disabled}
+      form={form}
+      onChange={onChange}
+    />
+  );
+};
 
 type propTypes = {
   placeholder?: string,
@@ -32,6 +40,7 @@ type propTypes = {
   disabled?: boolean,
   form?: string,
   onChange: () => void,
+  className?: string,
 };
 
 Textarea.defaultProps = {
@@ -42,6 +51,7 @@ Textarea.defaultProps = {
   required: false,
   disabled: false,
   form: '',
+  className: '',
 };
 
 export default Textarea;

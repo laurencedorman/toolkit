@@ -1,39 +1,47 @@
 // @flow
 import React from 'react';
-import styles from './Icon.module.scss';
+import cn from 'classnames';
 
 import iconAssets from '../../assets/setIcons';
+import styles from './Icon.module.scss';
 
 /**
  * @visibleName Icon
  */
 const IconComponent = ({
   onClick, className, name, size, fill,
-}: propTypes) => (
-  <div
-    className={`${styles.container} ${String(className)}`}
-    onClick={onClick}
-    onKeyPress={onClick}
-    tabIndex="-1"
-    role="button"
-  >
-    {Object.prototype.hasOwnProperty.call(iconAssets, name)
+}: propTypes) => {
+  const classNames = cn(
+    styles.container,
+    className,
+  );
+
+  return (
+    <div
+      className={classNames}
+      onClick={onClick}
+      onKeyPress={onClick}
+      tabIndex="-1"
+      role="button"
+    >
+      {Object.prototype.hasOwnProperty.call(iconAssets, name)
       && (
-      <svg
-        className={styles.svg}
-        width={`${String(size)}px`}
-        height={`${String(size)}px`}
-        viewBox={iconAssets[name].viewBox}
-        aria-describedby={name}
-        fill={fill}
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-      >
-        <path d={iconAssets[name].d} />
-      </svg>
+        <svg
+          className={styles.svg}
+          width={`${String(size)}px`}
+          height={`${String(size)}px`}
+          viewBox={iconAssets[name].viewBox}
+          aria-describedby={name}
+          fill={fill}
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+        >
+          <path d={iconAssets[name].d} />
+        </svg>
       )}
-  </div>
-);
+    </div>
+  );
+};
 
 type propTypes = {
   onClick?: () => void,
