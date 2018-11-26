@@ -65,19 +65,20 @@ module.exports = function (webpackEnv) {
       ? shouldUseSourceMap
         ? 'source-map'
         : false
-      : 'cheap-module-source-map',
+      : isEnvDevelopment && 'cheap-module-source-map',
     entry: [
       require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appIndexJs,
     ].filter(Boolean),
     output: {
       path: paths.appBuild,
+      pathinfo: false,
       filename: 'index.js',
       library: '',
       libraryTarget: 'commonjs',
     },
     optimization: {
-      minimize: isEnvProduction,
+      minimize: true,
       minimizer: [
         new TerserPlugin({
           terserOptions: {
@@ -210,7 +211,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
               sideEffects: true,
             },
@@ -239,9 +240,9 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       new ModuleNotFoundPlugin(paths.appPath),
-      new webpack.HotModuleReplacementPlugin(),
-      new CaseSensitivePathsPlugin(),
-      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+      isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
+      isEnvDevelopment && new CaseSensitivePathsPlugin(),
+      isEnvDevelopment && new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     node: {
