@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
+import cn from 'classnames';
+import styles from './Portal.module.scss';
 
 /**
  * @visibleName Portal
@@ -20,6 +22,8 @@ export default class Portal extends Component<propTypes> {
 
   componentDidMount() {
     if (!this.root) return;
+    const portalClass = cn(styles.portalChild);
+    this.el.setAttribute('class', portalClass);
     this.root.appendChild(this.el);
   }
 
