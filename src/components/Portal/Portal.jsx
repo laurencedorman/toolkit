@@ -23,6 +23,7 @@ export default class Portal extends Component<propTypes> {
   componentDidMount() {
     if (!this.root) return;
     const portalClass = cn(styles.portalChild);
+
     this.el.setAttribute('class', portalClass);
     this.root.appendChild(this.el);
   }

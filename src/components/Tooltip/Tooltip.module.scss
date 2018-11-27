@@ -3,7 +3,7 @@
 $marginArrow: -10px;
 
 .tooltip {
-  position: absolute;
+  position: fixed;
   width: auto;
 
   & > div {

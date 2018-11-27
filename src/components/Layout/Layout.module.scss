@@ -1,0 +1,19 @@
+@import 'styles/import.scss';
+
+.layout {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: $space;
+  background-color: $white;
+
+  &.row { flex-flow: row wrap }
+  &.column { flex-flow: column wrap }
+
+  &.guide {
+    padding: 0 $space;
+
+    &.row { align-items: flex-end }
+    &.row > * { margin-right: $space }
+  }
+}

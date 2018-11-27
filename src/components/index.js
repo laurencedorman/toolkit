@@ -5,6 +5,7 @@ export { default as Hint } from './Hint';
 export { default as Icon } from './Icon';
 export { default as Input } from './Input';
 export { default as InputCheck, InputCheckGroup } from './InputCheck';
+export { default as Layout } from './Layout';
 export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 export { default as Portal } from './Portal';
