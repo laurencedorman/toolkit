@@ -1,9 +1,11 @@
 @import 'styles/import.scss';
 
+$bigSpace: 2em;
+
 .inputCheck {
   position: relative;
   &:not(:last-child) {
-    margin-right: calc(#{$space} * 2);
+    margin-right: $bigSpace;
   }
 
   input[type="checkbox"], input[type="radio"] {
@@ -108,7 +110,7 @@
   display: flex;
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: calc(#{$space} * 2);
+    margin-bottom: $bigSpace;
   }
 
   label { margin-bottom: 0 }
@@ -123,7 +125,7 @@
   &.horizontal{
     flex-flow: row wrap;
     & > div:not(:last-child) {
-      margin-right: calc(#{$space}*2)
+      margin-right: $bigSpace
     }
   }
 

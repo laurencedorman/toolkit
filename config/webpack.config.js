@@ -1,6 +1,8 @@
 'use strict';
 
+/* eslint-disable global-require */
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -36,11 +38,14 @@ module.exports = function (webpackEnv) {
           ident: 'postcss',
           plugins: () => [
             require('postcss-flexbugs-fixes'),
-            require('postcss-preset-env')({
-              autoprefixer: {
-                flexbox: 'no-2009',
-              },
-              stage: 3,
+            autoprefixer({
+              browsers: [
+                '>1%',
+                'last 4 versions',
+                'Firefox ESR',
+                'not ie < 9',
+              ],
+              flexbox: 'no-2009',
             }),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
@@ -68,7 +73,7 @@ module.exports = function (webpackEnv) {
       : isEnvDevelopment && 'cheap-module-source-map',
     entry: [
       isEnvDevelopment &&
-      require.resolve('react-dev-utils/webpackHotDevClient'),
+        require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appIndexJs,
     ].filter(Boolean),
     output: {
@@ -256,3 +261,4 @@ module.exports = function (webpackEnv) {
     performance: false,
   };
 };
+/* eslint-enable global-require */

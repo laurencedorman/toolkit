@@ -41,11 +41,11 @@ export default class Tooltip extends PureComponent<propTypes> {
       <Portal>
         <Transition
           native
-          config={{ tension: 200, friction: 20, mass: 0.2 }}
+          config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
-          from={{ o: 0.01, s: 0.4, y: '-30px' }}
+          from={{ o: 0.01, s: 0.8, y: '-30px' }}
           enter={{ o: 1, s: 1, y: '0px' }}
-          leave={{ o: 0.01, s: 0.4, y: '-30px' }}
+          leave={{ o: 0.01, s: 0.8, y: '-30px' }}
         >
           {display => display
             && (

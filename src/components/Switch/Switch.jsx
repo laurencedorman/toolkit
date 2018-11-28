@@ -19,9 +19,8 @@ const Switch = ({
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
     <div className={styles.container}>
-      <label htmlFor={id} className={styles.title}>
-        {label}
-      </label>
+      {label
+        && <label htmlFor={id} className={styles.title}>{label}</label>}
       <input
         className={classNames}
         type="checkbox"

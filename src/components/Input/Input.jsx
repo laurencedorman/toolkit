@@ -27,8 +27,8 @@ const Input = ({
   reverse,
 }: propTypes) => {
   const contentClass = cn(styles.content, {
-    [styles.hasValue]: value,
-    [styles.hasSuccess]: !!value && !!valid,
+    [styles.hasValue]: value !== '',
+    [styles.hasSuccess]: valid && value !== '',
     [styles.reverse]: reverse && icon,
   });
 
@@ -42,7 +42,7 @@ const Input = ({
 
   /* eslint-disable no-nested-ternary */
   const handleIcon = () => (
-    (!!value && !!valid && !reverse)
+    (valid && value !== '' && !reverse)
       ? <Icon name="check" size="32" className={styles.icon} />
       : icon
         ? <Icon name={icon} size="16" className={styles.icon} />
