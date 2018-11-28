@@ -8,6 +8,7 @@
   border: $border;
   border-radius: $radius;
   font-size: 0.875rem;
+  &:not(:last-child) { margin-bottom: $space }
 
   &.default {
     color: $white;
