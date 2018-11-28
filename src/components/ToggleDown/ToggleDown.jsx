@@ -56,7 +56,7 @@ class ToggleDown extends PureComponent<propTypes> {
         force
         config={{ ...config.default, precision: 1 }}
         from={{ height: 0 }}
-        to={{ height: on ? height : 0 }}
+        to={{ height: on ? height + 16 : 0 }}
       >
         {style => (
           <animated.div

@@ -97,6 +97,9 @@
   position: relative;
   display: flex;
   width: 100%;
+  &:not(:last-child) {
+    margin-bottom: $space;
+  }
 
   label { margin-bottom: 0 }
 

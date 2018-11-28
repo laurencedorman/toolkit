@@ -17,7 +17,9 @@ const InputCheckGroup = ({
   onChange,
 }: PropTypes) => (
   <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction}>
-    {inputGroupTitle && <span>{inputGroupTitle}</span>}
+    {inputGroupTitle
+      && <span>{inputGroupTitle}</span>}
+
     {options.map(option => (
       <InputCheck
         type={type}

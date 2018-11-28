@@ -2,6 +2,11 @@
 
 $smallSpace: .75rem;
 
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .button {
   position: relative;
   display: flex;
@@ -47,6 +52,12 @@ $smallSpace: .75rem;
     background-color: $greyDarker !important;
     border-color: $greyDarker !important;
     cursor: not-allowed;
+  }
+
+  //ALIGNMENT
+  &.right {
+    justify-self: flex-end;
+    margin-left: auto;
   }
 
   //SIZE SPACE

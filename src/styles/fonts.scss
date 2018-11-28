@@ -49,12 +49,13 @@ p, span, a, ul, li, ol, figure, pre, table, span, label, fieldset, input {
 .smallText, small { font-size: 0.833rem }
 
 a, .link {
-  color: $articCitric;
+  color: $balataGreen;
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
     transition: all 0.3s ease-in-out;
   }
-  &:active { color: $balataGreen }
+  &:active { color: $blueMood }
   &:visited { color: $purpleRain }
   &:disabled { color: $greyDark }
 }

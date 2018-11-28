@@ -9,7 +9,7 @@ import styles from './Button.module.scss';
  * @visibleName Button
  */
 const Button = ({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className,
+  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className, right,
 }: propTypes) => {
   const classNames = cn(
     styles.button,
@@ -20,22 +20,25 @@ const Button = ({
       [styles.icon]: icon,
       [styles.reverse]: reverse,
       [styles.onlyIcon]: !children,
+      [styles.right]: right,
     },
   );
 
   /* eslint-disable react/button-has-type */
   return (
-    <button
-      disabled={disabled}
-      onClick={onClick}
-      type={type}
-      className={classNames}
-      data-qa={dataQa}
-    >
-      {icon
+    <div className={styles.container}>
+      <button
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        className={classNames}
+        data-qa={dataQa}
+      >
+        {icon
         && <Icon name={icon} size="16" />}
-      {children && children}
-    </button>
+        {children && children}
+      </button>
+    </div>
   );
   /* eslint-enable react/button-has-type */
 };
@@ -51,6 +54,7 @@ type propTypes = {
   onClick?: () => void,
   dataQa?: string,
   className?: string,
+  right?: boolean,
 };
 
 Button.defaultProps = {
@@ -64,6 +68,7 @@ Button.defaultProps = {
   onClick: null,
   dataQa: '',
   className: '',
+  right: false,
 };
 
 export default Button;
