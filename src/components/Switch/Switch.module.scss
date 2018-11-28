@@ -4,15 +4,17 @@ $fastTimeout: 150ms;
 
 .container {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  align-items: center;
   &:not(:last-child) {
     margin-bottom: calc(#{$space} * 2);
   }
 }
 
 .title {
-  margin-bottom: $space;
+  margin-left: calc(#{$space} / 2);
   font-weight: 400;
+  cursor: pointer;
 }
 
 .switch {

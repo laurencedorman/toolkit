@@ -19,8 +19,6 @@ const Switch = ({
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
     <div className={styles.container}>
-      {label
-        && <label htmlFor={id} className={styles.title}>{label}</label>}
       <input
         className={classNames}
         type="checkbox"
@@ -38,6 +36,8 @@ const Switch = ({
         htmlFor={id}
         className={labelClass}
       />
+      {label
+      && <label htmlFor={id} className={styles.title}>{label}</label>}
     </div>
   );
   /* eslint-enable jsx-a11y/label-has-associated-control */

@@ -18,7 +18,7 @@ Switch with label:
 initialState = { checked: false };
 
 <Switch
-  label="label title"
+  label="switch label title"
   id="ids"
   name="withTitle"
   value="id"
