@@ -6,9 +6,9 @@ $fastTimeout: 150ms;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  &:not(:last-child) {
-    margin-bottom: calc(#{$space} * 2);
-  }
+  &:not(:last-child) { margin-bottom: calc(#{$space} * 2) }
+
+  &.reset { margin-bottom: 0 }
 }
 
 .title {

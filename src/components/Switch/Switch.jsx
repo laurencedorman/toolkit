@@ -4,23 +4,26 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
-  name, id, checked, onChange, className, dataQa, label,
+  name, id, checked, onChange, className, dataQa, label, reset,
 }: propTypes) => {
+  const container = cn(
+    styles.container,
+    className,
+    {
+      [styles.reset]: reset,
+    },
+  );
+  
   const labelClass = cn(styles.label, {
     [styles.active]: checked,
   });
 
-  const classNames = cn(
-    styles.switch,
-    className,
-  );
-
   /* eslint-disable jsx-a11y/label-has-for */
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
-    <div className={styles.container}>
+    <div className={container}>
       <input
-        className={classNames}
+        className={styles.switch}
         type="checkbox"
         id={id}
         name={name}
@@ -31,6 +34,7 @@ const Switch = ({
         data-qa={dataQa}
         aria-checked={checked}
         aria-describedby={id}
+        reset={reset}
       />
       <label
         htmlFor={id}
@@ -52,12 +56,14 @@ type propTypes = {
   className?: string,
   dataQa?: string,
   label?: string,
+  reset?: boolean,
 };
 
 Switch.defaultProps = {
   className: '',
   dataQa: '',
   label: '',
+  reset: false,
 };
 
 export default Switch;

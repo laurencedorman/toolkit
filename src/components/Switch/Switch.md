@@ -22,6 +22,7 @@ initialState = { checked: false };
   id="ids"
   name="withTitle"
   value="id"
+  reset
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
 />
