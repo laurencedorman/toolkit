@@ -2,6 +2,19 @@
 
 $fastTimeout: 150ms;
 
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  &:not(:last-child) {
+    margin-bottom: calc(#{$space} * 2);
+  }
+}
+
+.title {
+  margin-bottom: $space;
+  font-weight: 400;
+}
+
 .switch {
   position: absolute;
   border: 0;

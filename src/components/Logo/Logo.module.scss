@@ -1,7 +1,8 @@
-@import 'styles/colors.scss';
+@import 'styles/import.scss';
 
 .logo {
   display: block;
+  margin-bottom: $space;
 
   &.color, &.colorWhite {
     .hexagone { fill: url(#linearGradient-1) }

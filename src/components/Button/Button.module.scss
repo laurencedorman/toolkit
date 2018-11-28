@@ -5,6 +5,7 @@ $smallSpace: .75rem;
 .container {
   display: flex;
   flex-flow: row wrap;
+  margin-bottom: $space;
 }
 
 .button {

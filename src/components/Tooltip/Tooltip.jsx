@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment, PureComponent } from 'react';
 import {
-  Transition, animated, interpolate, config,
+  Transition, animated, interpolate,
 } from 'react-spring';
 import cn from 'classnames';
 
@@ -41,7 +41,7 @@ export default class Tooltip extends PureComponent<propTypes> {
       <Portal>
         <Transition
           native
-          config={config.default}
+          config={{ tension: 200, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0.01, s: 0.4, y: '-30px' }}
           enter={{ o: 1, s: 1, y: '0px' }}

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
-  name, id, checked, onChange, className, dataQa,
+  name, id, checked, onChange, className, dataQa, label,
 }: propTypes) => {
   const labelClass = cn(styles.label, {
     [styles.active]: checked,
@@ -18,11 +18,10 @@ const Switch = ({
   /* eslint-disable jsx-a11y/label-has-for */
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
-    <div>
-      <label
-        htmlFor={id}
-        className={labelClass}
-      />
+    <div className={styles.container}>
+      <label htmlFor={id} className={styles.title}>
+        {label}
+      </label>
       <input
         className={classNames}
         type="checkbox"
@@ -33,6 +32,12 @@ const Switch = ({
         checked={checked}
         onChange={onChange}
         data-qa={dataQa}
+        aria-checked={checked}
+        aria-describedby={id}
+      />
+      <label
+        htmlFor={id}
+        className={labelClass}
       />
     </div>
   );
@@ -47,11 +52,13 @@ type propTypes = {
   onChange: SyntheticInputEvent<HTMLInputElement> => void,
   className?: string,
   dataQa?: string,
+  label?: string,
 };
 
 Switch.defaultProps = {
   className: '',
   dataQa: '',
+  label: '',
 };
 
 export default Switch;

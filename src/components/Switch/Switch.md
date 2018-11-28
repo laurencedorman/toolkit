@@ -11,3 +11,18 @@ initialState = { checked: false };
   onChange={() => setState({ checked: !state.checked })}
 />
 ```
+
+Switch with label:
+
+```js
+initialState = { checked: false };
+
+<Switch
+  label="label title"
+  id="ids"
+  name="withTitle"
+  value="id"
+  checked={state.checked}
+  onChange={() => setState({ checked: !state.checked })}
+/>
+```
