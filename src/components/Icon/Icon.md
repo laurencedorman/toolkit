@@ -21,7 +21,11 @@ const span = {
 };
 
 <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'flex-start'}}>
-<div style={{width: '100%'}}>
+<h2>Icon</h2>
+<p>Add some icon with simple use. Set the name with props <b>name=""</b> and that's it. You can resize icon with props <b>size=""</b>. Icon was made with SVG.</p>
+<p>This library will be update.</p>
+
+<div style={{width: '100%', marginTop: '30px'}}>
   <h4>INTERFACE</h4> 
 </div>
  

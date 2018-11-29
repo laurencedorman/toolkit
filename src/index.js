@@ -7,6 +7,7 @@ export {
   Input,
   InputCheck,
   InputCheckGroup,
+  Layout,
   Logo,
   Modal,
   Portal,
