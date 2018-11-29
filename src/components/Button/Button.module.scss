@@ -1,10 +1,10 @@
 @import 'styles/import.scss';
 
-$smallSpace: .75rem;
+$smallSpace: .75em;
 
 .button {
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -14,6 +14,7 @@ $smallSpace: .75rem;
   font-size: 1rem;
   cursor: pointer;
   transition: all .15s ease;
+  touch-action: manipulation;
 
   &.default, &.primary {
     color: $white;

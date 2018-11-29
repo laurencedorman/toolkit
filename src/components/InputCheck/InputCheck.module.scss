@@ -1,9 +1,11 @@
 @import 'styles/import.scss';
 
+$bigSpace: 2em;
+
 .inputCheck {
   position: relative;
   &:not(:last-child) {
-    margin-right: calc(#{$space} * 2);
+    margin-right: $bigSpace;
   }
 
   input[type="checkbox"], input[type="radio"] {
@@ -64,7 +66,7 @@
       }
     }
     &:checked + label::after {
-      content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' fill='#ffffff' viewBox='-5 -7 30 30'><path d='M.24,8.8a.77.77,0,0,1,0-1.12L1.36,6.56a.77.77,0,0,1,1.12,0l.08.08L7,11.36a.39.39,0,0,0,.56,0L18.24.24h.08a.77.77,0,0,1,1.12,0l1.12,1.12a.77.77,0,0,1,0,1.12h0L7.76,15.76a.77.77,0,0,1-1.12,0L.4,9Z'/></svg>");
+      content: '';
       display: block;
       background: $balataGreen;
       opacity: 1;
@@ -91,12 +93,25 @@
       transform: scale(1)
     }
   }
+
+  .icon {
+    position: absolute;
+    top: 0.08em; left: 0.10715em;
+    z-index: z($sub-levels, max);
+    svg {
+      fill: $white;
+      stroke: $white;
+    }
+  }
 }
 
 .CheckGroup {
   position: relative;
   display: flex;
   width: 100%;
+  &:not(:last-child) {
+    margin-bottom: $bigSpace;
+  }
 
   label { margin-bottom: 0 }
 
@@ -110,7 +125,7 @@
   &.horizontal{
     flex-flow: row wrap;
     & > div:not(:last-child) {
-      margin-right: calc(#{$space}*2)
+      margin-right: $bigSpace
     }
   }
 

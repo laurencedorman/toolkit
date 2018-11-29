@@ -1,7 +1,7 @@
 Logo color:
 ```js
 <div style={{ padding: 20 }} width="100%" height="100%">
-  <Logo theme="color" />
+  <Logo />
 </div>
 ```
 

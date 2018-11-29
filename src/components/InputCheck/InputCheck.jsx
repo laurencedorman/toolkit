@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Icon } from 'components';
 import styles from './InputCheck.module.scss';
 
 const InputCheck = ({
@@ -16,7 +17,12 @@ const InputCheck = ({
       disabled={disabled}
       onChange={onChange}
     />
-    <label htmlFor={value}>{label}</label>
+    <label htmlFor={value}>
+      {label}
+      {checked && type === 'checkbox'
+        ? <Icon name="check" className={styles.icon} size="18" />
+        : null}
+    </label>
   </div>
   /* eslint-enable jsx-a11y/label-has-for */
 );

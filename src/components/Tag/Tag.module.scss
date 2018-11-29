@@ -12,6 +12,7 @@
   transition: all $timeout ease;
   cursor: pointer;
   white-space: nowrap;
+  &:not(:last-child) { margin-right: $space }
 
   &:hover { background-color: $greyMed }
 

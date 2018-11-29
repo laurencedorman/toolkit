@@ -8,6 +8,7 @@
   align-items: center;
   background-color: rgba($manoBlack, .5);
   cursor: pointer;
+  z-index: z($layers, modal);
 
   .icon {
     position: absolute;
@@ -24,7 +25,7 @@
   flex-flow: column wrap;
   min-width: 320px;
   max-width: 50%;
-  padding: calc(#{$space} * 3);
+  padding: calc(#{$space} * 2);
   background: $white;
   border-radius: $radius;
   border: $border transparent;
@@ -32,4 +33,10 @@
   text-align: left;
   cursor: default;
   z-index: z($levels, max);
+
+  button {
+    &:not(:last-child) {
+      margin-right: $space;
+    }
+  }
 }

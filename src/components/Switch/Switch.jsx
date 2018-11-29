@@ -4,27 +4,26 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
-  name, id, checked, onChange, className, dataQa,
+  name, id, checked, onChange, className, dataQa, label, reset,
 }: propTypes) => {
+  const container = cn(
+    styles.container,
+    className,
+    {
+      [styles.reset]: reset,
+    },
+  );
+  
   const labelClass = cn(styles.label, {
     [styles.active]: checked,
   });
 
-  const classNames = cn(
-    styles.switch,
-    className,
-  );
-
   /* eslint-disable jsx-a11y/label-has-for */
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
-    <div>
-      <label
-        htmlFor={id}
-        className={labelClass}
-      />
+    <div className={container}>
       <input
-        className={classNames}
+        className={styles.switch}
         type="checkbox"
         id={id}
         name={name}
@@ -33,7 +32,16 @@ const Switch = ({
         checked={checked}
         onChange={onChange}
         data-qa={dataQa}
+        aria-checked={checked}
+        aria-describedby={id}
+        reset={reset}
       />
+      <label
+        htmlFor={id}
+        className={labelClass}
+      />
+      {label
+      && <label htmlFor={id} className={styles.title}>{label}</label>}
     </div>
   );
   /* eslint-enable jsx-a11y/label-has-associated-control */
@@ -47,11 +55,15 @@ type propTypes = {
   onChange: SyntheticInputEvent<HTMLInputElement> => void,
   className?: string,
   dataQa?: string,
+  label?: string,
+  reset?: boolean,
 };
 
 Switch.defaultProps = {
   className: '',
   dataQa: '',
+  label: '',
+  reset: false,
 };
 
 export default Switch;

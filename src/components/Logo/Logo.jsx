@@ -54,12 +54,13 @@ const Logo = ({ theme, mini, className }: propTypes) => {
 };
 
 type propTypes = {
-  theme: 'color' | 'colorWhite' | 'black' | 'white',
+  theme?: 'color' | 'colorWhite' | 'black' | 'white',
   mini: boolean,
   className?: string,
 };
 
 Logo.defaultProps = {
+  theme: 'color',
   className: '',
 };
 

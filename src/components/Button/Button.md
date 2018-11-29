@@ -4,6 +4,11 @@ Default Button:
 <Button>Button</Button>  
 ```
 
+Right Button:
+```js
+<Button right>Button</Button>  
+```
+
 Primary Button:
 ```js
 <Button theme="primary">Button</Button>  

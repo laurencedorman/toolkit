@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import cn from 'classnames';
 import InputCheck from './InputCheck';
 import styles from './InputCheck.module.scss';
 
@@ -15,23 +16,33 @@ const InputCheckGroup = ({
   selectedOption,
   disabled,
   onChange,
-}: PropTypes) => (
-  <div className={`${styles.CheckGroup} ${styles[direction]}`} direction={direction}>
-    {inputGroupTitle && <span>{inputGroupTitle}</span>}
-    {options.map(option => (
-      <InputCheck
-        type={type}
-        key={option.value}
-        name={groupName}
-        label={option.label}
-        value={option.value}
-        checked={selectedOption.indexOf(option.value) > -1}
-        disabled={disabled}
-        onChange={onChange}
-      />
-    ))}
-  </div>
-);
+  className,
+}: PropTypes) => {
+  const classNames = cn(
+    styles.CheckGroup,
+    styles[direction],
+    className,
+  );
+  return (
+    <div className={classNames} direction={direction}>
+      {inputGroupTitle
+        && <span>{inputGroupTitle}</span>}
+
+      {options.map(option => (
+        <InputCheck
+          type={type}
+          key={option.value}
+          name={groupName}
+          label={option.label}
+          value={option.value}
+          checked={selectedOption.indexOf(option.value) > -1}
+          disabled={disabled}
+          onChange={onChange}
+        />
+      ))}
+    </div>
+  );
+};
 
 type PropTypes = {
   inputGroupTitle?: string,
@@ -42,6 +53,7 @@ type PropTypes = {
   selectedOption?: string | Array<string>,
   disabled?: boolean,
   onChange?: (Event) => void,
+  className?: string,
 };
 
 InputCheckGroup.defaultProps = {
@@ -50,6 +62,7 @@ InputCheckGroup.defaultProps = {
   selectedOption: '',
   disabled: false,
   onChange: null,
+  className: '',
 };
 
 export default InputCheckGroup;

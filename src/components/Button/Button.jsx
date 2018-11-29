@@ -33,7 +33,7 @@ const Button = ({
       data-qa={dataQa}
     >
       {icon
-        && <Icon name={icon} size="16" />}
+      && <Icon name={icon} size="16" />}
       {children && children}
     </button>
   );

@@ -22,6 +22,7 @@ initialState = {
   inputGroupTitle="this is Radio Group :"
   type="radio"
   options={state.options}
+  id="michoi"
   groupName="radioGroupHorizontal"
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
@@ -48,7 +49,6 @@ initialState = {
   ]
 };
 
-
 <InputCheckGroup
   inputGroupTitle="this is Radio Group :"
   type="radio"
@@ -58,6 +58,7 @@ initialState = {
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
 />
+
 ```
 
 Input checkbox Group Vertical: 
@@ -80,7 +81,6 @@ initialState = {
   ]
 };
 
-
 <InputCheckGroup
   inputGroupTitle="this is Checkbox Group :"
   type="checkbox" 
@@ -96,5 +96,6 @@ initialState = {
       setState({ selected: state.selected.filter(option => option !== e.currentTarget.value) })
   }}
 />
+
 ```
 

@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { Spring, animated, config } from 'react-spring';
+import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
 
@@ -25,9 +25,9 @@ class ToggleDown extends PureComponent<propTypes> {
   componentDidMount() {
     if (!this.toggleDown) return;
 
-    this.setState({
-      height: this.toggleDown.current.offsetHeight,
-    });
+    setTimeout(() => {
+      this.setState({ height: this.toggleDown.current.offsetHeight });
+    }, 1000);
 
     window.addEventListener('resize', this.handleResize);
   }
@@ -54,7 +54,7 @@ class ToggleDown extends PureComponent<propTypes> {
     return (
       <Spring
         force
-        config={{ ...config.default, precision: 1 }}
+        config={{ tension: 250, friction: 20, mass: 0.2 }}
         from={{ height: 0 }}
         to={{ height: on ? height : 0 }}
       >
