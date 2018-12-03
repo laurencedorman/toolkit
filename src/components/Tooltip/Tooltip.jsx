@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment, PureComponent } from 'react';
 import {
-  Transition, animated, interpolate,
+  Transition, animated,
 } from 'react-spring';
 import cn from 'classnames';
 
@@ -30,12 +30,19 @@ export default class Tooltip extends PureComponent<propTypes> {
     this.transmitter = React.createRef();
   }
 
-  renderTooltip = (display) => {
-    const { content, position } = this.props;
+  handleMouseEnter = (e, toggleIn) => {
+    const { position } = this.props;
 
     if (this.transmitter.current) {
       addTooltipPosition = tooltipPosition(this.transmitter.current, position);
     }
+
+    toggleIn();
+  };
+
+  renderTooltip = (display) => {
+    const { content } = this.props;
+
     /* eslint-disable */
     return (
       <Portal>
@@ -43,13 +50,13 @@ export default class Tooltip extends PureComponent<propTypes> {
           native
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
-          from={{ o: 0.01, s: 0.8, y: '-30px' }}
-          enter={{ o: 1, s: 1, y: '0px' }}
-          leave={{ o: 0.01, s: 0.8, y: '-30px' }}
+          from={{ o: 0, s: 0.6 }}
+          enter={{ o: 1, s: 1 }}
+          leave={{ o: 0, s: 0.6 }}
         >
           {display => display
             && (
-              ({ o, s, y}) => (
+              ({ o, s }) => (
                 <div
                   className={styles.tooltip}
                   style={addTooltipPosition.style}
@@ -61,10 +68,7 @@ export default class Tooltip extends PureComponent<propTypes> {
                     <animated.div
                       style={{
                         opacity: o.interpolate(o => o),
-                        transform: interpolate(
-                          [s, y],
-                          (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`
-                        )
+                        transform: s.interpolate(s => `scale(${s})`),
                       }}
                     >
                       <div className={styles.svg}>
@@ -106,7 +110,7 @@ export default class Tooltip extends PureComponent<propTypes> {
           <Fragment>
             <span
               className={classNames}
-              onMouseEnter={toggleIn}
+              onMouseEnter={e => this.handleMouseEnter(e, toggleIn)}
               onMouseLeave={toggleOut}
               onFocus={toggleIn}
               onBlur={toggleOut}

@@ -5,6 +5,7 @@ $marginArrow: -10px;
 .tooltip {
   position: fixed;
   width: auto;
+  z-index: z($layers, tooltip);
 
   & > div {
     position: relative;
@@ -17,6 +18,8 @@ $marginArrow: -10px;
       border-radius: $radius;
       color: $white;
       text-align: center;
+      transform: scale(1.01);
+      will-change: unset;
     }
 
     &.top, &.bottom {transform: translateX(-50%)}
@@ -30,7 +33,7 @@ $marginArrow: -10px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-backface-visibility: hidden;
-    transform: translateZ(0) scale(1.0, 1.0);
+    font-size: .9rem;
   }
 }
 
@@ -86,4 +89,10 @@ $marginArrow: -10px;
   font-weight: inherit;
   cursor: pointer;
   text-decoration: underline;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+  }
 }
