@@ -48,8 +48,6 @@ export default class Tooltip extends PureComponent<propTypes> {
       <Portal>
         <Transition
           native
-          unique
-          reset
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0, s: 0.6 }}
