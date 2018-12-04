@@ -48,6 +48,8 @@ export default class Tooltip extends PureComponent<propTypes> {
       <Portal>
         <Transition
           native
+          unique
+          reset
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0, s: 0.6 }}
@@ -112,8 +114,6 @@ export default class Tooltip extends PureComponent<propTypes> {
               className={classNames}
               onMouseEnter={e => this.handleMouseEnter(e, toggleIn)}
               onMouseLeave={toggleOut}
-              onFocus={e => this.handleMouseEnter(e, toggleIn)}
-              onBlur={toggleOut}
               ref={this.transmitter}
               role="button"
               aria-describedby="tooltip-content"
