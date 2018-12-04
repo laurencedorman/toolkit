@@ -84,11 +84,9 @@ $marginArrow: -10px;
 
 .transmitter {
   display: inline-flex;
-  position: relative;
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
-  text-decoration: underline;
 
   &:after {
     content: '';
