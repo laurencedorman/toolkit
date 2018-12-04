@@ -18,7 +18,6 @@ $marginArrow: -10px;
       border-radius: $radius;
       color: $white;
       text-align: center;
-      transform: scale(1.01);
       will-change: unset;
     }
 
@@ -83,14 +82,9 @@ $marginArrow: -10px;
 }
 
 .transmitter {
+  position: relative;
   display: inline-flex;
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-  }
 }
