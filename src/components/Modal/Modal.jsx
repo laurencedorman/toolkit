@@ -59,9 +59,9 @@ export default class Modal extends Component<propTypes>{
           native
           config={config.stiff}
           items={on}
-          from={{ o: 0.01, s: 0.6, y: '-200px' }}
+          from={{ o: 0, s: 0.6, y: '-200px' }}
           enter={{ o: 1, s: 1, y: '0px' }}
-          leave={{ o: 0.01, s: 0.6, y: '200px' }}
+          leave={{ o: 0, s: 0.6, y: '200px' }}
         >
           {on => on
             && (

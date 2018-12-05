@@ -49,7 +49,6 @@ export default class Tooltip extends PureComponent<propTypes> {
         <Transition
           native
           unique
-          key={display}
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0, s: 0.6 }}
@@ -59,11 +58,14 @@ export default class Tooltip extends PureComponent<propTypes> {
           {display => display
             && (
               ({ o, s }) => (
-                <div
+                <animated.div
                   className={styles.tooltip}
-                  style={addTooltipPosition.style}
+                  style={{
+                    opacity: o.interpolate(o => o),
+                    ...addTooltipPosition.style,
+                  }}
                 >
-                  <animated.div
+                  <div
                     id="tooltip-content"
                     className={styles[addTooltipPosition.class]}
                   >
@@ -86,8 +88,8 @@ export default class Tooltip extends PureComponent<propTypes> {
                          {content}
                       </span>
                     </animated.div>
-                  </animated.div>
-                </div>
+                  </div>
+                </animated.div>
               )
             )
           }
