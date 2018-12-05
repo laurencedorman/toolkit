@@ -62,10 +62,7 @@ export default class Tooltip extends PureComponent<propTypes> {
                   className={styles.tooltip}
                   style={addTooltipPosition.style}
                 >
-                  <div
-                    id="tooltip-content"
-                    className={styles[addTooltipPosition.class]}
-                  >
+                  <div className={styles[addTooltipPosition.class]}>
                     <animated.div
                       style={{
                         opacity: o.interpolate(o => o),
@@ -89,7 +86,7 @@ export default class Tooltip extends PureComponent<propTypes> {
                 </div>
               )
             )
-            : null
+            : () => null
           }
         </Transition>
       </Portal>
@@ -116,7 +113,6 @@ export default class Tooltip extends PureComponent<propTypes> {
               onMouseLeave={toggleOut}
               ref={this.transmitter}
               role="button"
-              aria-describedby="tooltip-content"
             >
               {children}
             </span>
