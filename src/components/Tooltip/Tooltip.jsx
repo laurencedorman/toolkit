@@ -56,14 +56,11 @@ export default class Tooltip extends PureComponent<propTypes> {
           leave={{ o: 0, s: 0.6 }}
         >
           {display => display
-            && (
+            ? (
               ({ o, s }) => (
-                <animated.div
+                <div
                   className={styles.tooltip}
-                  style={{
-                    opacity: o.interpolate(o => o),
-                    ...addTooltipPosition.style,
-                  }}
+                  style={addTooltipPosition.style}
                 >
                   <div
                     id="tooltip-content"
@@ -89,9 +86,10 @@ export default class Tooltip extends PureComponent<propTypes> {
                       </span>
                     </animated.div>
                   </div>
-                </animated.div>
+                </div>
               )
             )
+            : null
           }
         </Transition>
       </Portal>
