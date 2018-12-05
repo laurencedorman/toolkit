@@ -49,7 +49,6 @@ export default class Tooltip extends PureComponent<propTypes> {
         <Transition
           native
           unique
-          key={display}
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0, s: 0.6 }}
@@ -57,16 +56,13 @@ export default class Tooltip extends PureComponent<propTypes> {
           leave={{ o: 0, s: 0.6 }}
         >
           {display => display
-            && (
+            ? (
               ({ o, s }) => (
                 <div
                   className={styles.tooltip}
                   style={addTooltipPosition.style}
                 >
-                  <animated.div
-                    id="tooltip-content"
-                    className={styles[addTooltipPosition.class]}
-                  >
+                  <div className={styles[addTooltipPosition.class]}>
                     <animated.div
                       style={{
                         opacity: o.interpolate(o => o),
@@ -86,10 +82,11 @@ export default class Tooltip extends PureComponent<propTypes> {
                          {content}
                       </span>
                     </animated.div>
-                  </animated.div>
+                  </div>
                 </div>
               )
             )
+            : () => null
           }
         </Transition>
       </Portal>
@@ -116,7 +113,6 @@ export default class Tooltip extends PureComponent<propTypes> {
               onMouseLeave={toggleOut}
               ref={this.transmitter}
               role="button"
-              aria-describedby="tooltip-content"
             >
               {children}
             </span>
