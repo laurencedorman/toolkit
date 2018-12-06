@@ -15,7 +15,7 @@ version 0.1.0
 Add library in package.json on dependencies:
 
 ```
-mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/mano-toolkit.git
+mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git
 yarn install
 ```
 
