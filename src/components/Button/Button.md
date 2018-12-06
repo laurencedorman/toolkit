@@ -2,7 +2,7 @@ Default Button:
 
 disabled Button:
 ```js
-<Layout styleGuidist>
+<Layout styleGuidist direction="row">
   <Button>Button</Button>
   <Button theme="primary">Button</Button>
   <Button theme="secondary">Button</Button>
@@ -13,7 +13,7 @@ disabled Button:
 
 Button Size:
 ```js
-<Layout styleGuidist>
+<Layout styleGuidist direction="row">
     <Button size="big">big button</Button>
     <Button>default button</Button> 
     <Button size="small">small button</Button>  
@@ -23,7 +23,7 @@ Button Size:
 
 Icon Button:
 ```js
-<Layout styleGuidist>
+<Layout styleGuidist direction="row">
     <Button size="big" icon="edit">Button</Button>
     <Button icon="edit">Button</Button>  
     <Button size="small" icon="edit">Button</Button>  
@@ -33,7 +33,7 @@ Icon Button:
 
 Icon Reverse Button:
 ```js
-<Layout styleGuidist>
+<Layout styleGuidist direction="row">
     <Button theme="primary" size="big" icon="edit" reverse>Button</Button>
     <Button theme="primary" icon="edit" reverse>Button</Button>  
     <Button theme="primary"size="small" icon="edit" reverse>Button</Button>  
@@ -43,7 +43,7 @@ Icon Reverse Button:
 
 Icon only Button:
 ```js
-<Layout styleGuidist>
+<Layout styleGuidist direction="row">
     <Button size="big" icon="edit" reverse />
     <Button icon="edit" reverse />
     <Button size="small" icon="edit" reverse />
