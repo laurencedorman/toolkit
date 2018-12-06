@@ -13,7 +13,7 @@ const Switch = ({
       [styles.reset]: reset,
     },
   );
-  
+
   const labelClass = cn(styles.label, {
     [styles.active]: checked,
   });
@@ -34,7 +34,7 @@ const Switch = ({
         data-qa={dataQa}
         aria-checked={checked}
         aria-describedby={id}
-        reset={reset}
+        reset={reset ? 1 : 0}
       />
       <label
         htmlFor={id}

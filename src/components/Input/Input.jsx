@@ -66,7 +66,7 @@ const Input = ({
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          valid={valid}
+          valid={valid ? 1 : 0}
           hidden={hidden}
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
