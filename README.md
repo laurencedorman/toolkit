@@ -16,8 +16,8 @@ Add library in package.json on dependencies:
 
 ```
 mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git
-yarn install
 ```
+and make `yarn install`
 
 ##Utilisation
 
