@@ -96,7 +96,7 @@
     "start": "styleguidist server",
     "lint": "eslint ./src --ext .js --ext .jsx",
     "build": "node scripts/build.js",
-    "prepare": "npm run build",
+    "prepare": "yarn build",
     "test": "jest --coverage",
     "styleguide": "styleguidist build"
   },
