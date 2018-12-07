@@ -95,10 +95,13 @@
   "scripts": {
     "start": "styleguidist server",
     "lint": "eslint ./src --ext .js --ext .jsx",
-    "build": "node scripts/build.js",
-    "prepare": "yarn build",
+    "build:lib": "node scripts/build.js",
+    "prepare": "yarn build:lib",
     "test": "jest --coverage",
-    "styleguide": "styleguidist build"
+    "styleguide": "styleguidist build",
+    "build:demo": "yarn styleguide",
+    "build:prod": "yarn styleguide",
+    "build:preprod": "yarn styleguide"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
