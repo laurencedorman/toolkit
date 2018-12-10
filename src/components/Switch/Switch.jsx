@@ -4,7 +4,7 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
-  name, id, checked, onChange, className, dataQa, label, reset,
+  name, id, checked, onChange, className, dataQa, label, reset, itemId,
 }: propTypes) => {
   const container = cn(
     styles.container,
@@ -28,7 +28,7 @@ const Switch = ({
         id={id}
         name={name}
         value={id}
-        data-itemid={id}
+        data-itemid={itemId}
         checked={checked}
         onChange={onChange}
         data-qa={dataQa}
@@ -50,6 +50,7 @@ const Switch = ({
 
 type propTypes = {
   id: string,
+  itemId?: string,
   name: string,
   checked: boolean,
   onChange: SyntheticInputEvent<HTMLInputElement> => void,
@@ -60,6 +61,7 @@ type propTypes = {
 };
 
 Switch.defaultProps = {
+  itemId: '',
   className: '',
   dataQa: '',
   label: '',
