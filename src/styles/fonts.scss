@@ -6,6 +6,7 @@
 html { font-size: 0.875rem }
 
 body {
+  min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
   color: $squidInk;
   line-height: 1.45;

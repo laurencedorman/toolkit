@@ -216,7 +216,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
               sideEffects: true,
             },
@@ -229,7 +229,7 @@ module.exports = function (webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
             },
             {
