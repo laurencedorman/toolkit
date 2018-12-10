@@ -243,12 +243,53 @@ module.exports = function (webpackEnv) {
         },
       ],
     },
+    externals: [
+      {
+        'react-dom': {
+          root: 'ReactDOM',
+          commonjs2: 'react-dom',
+          commonjs: 'react-dom',
+          amd: 'react-dom',
+        },
+      },
+      {
+        'react-select': {
+          root: 'ReactSelect',
+          commonjs2: 'react-select',
+          commonjs: 'react-select',
+          amd: 'react-select',
+        },
+      },
+      {
+        'react-select': {
+          root: 'CreatableSelect',
+          commonjs2: 'react-select/lib/Creatable',
+          commonjs: 'react-select/lib/Creatable',
+          amd: 'react-select/lib/Creatable',
+        },
+      },
+      {
+        react: {
+          root: 'React',
+          commonjs2: 'react',
+          commonjs: 'react',
+          amd: 'react',
+        },
+      },
+      {
+        react: {
+          root: 'React',
+          commonjs2: 'react',
+          commonjs: 'react',
+          amd: 'react',
+        },
+      },
+    ],
     plugins: [
       new ModuleNotFoundPlugin(paths.appPath),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      isEnvDevelopment &&
-      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+      isEnvDevelopment && new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     node: {
