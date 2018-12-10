@@ -82,8 +82,8 @@ module.exports = function (webpackEnv) {
       filename: isEnvProduction
         ? 'index.js'
         : isEnvDevelopment && 'static/js/bundle.js',
-      library: '',
-      libraryTarget: 'commonjs',
+      library: 'mano-toolkit',
+      libraryTarget: 'umd',
     },
     optimization: {
       minimize: isEnvProduction,
