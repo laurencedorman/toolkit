@@ -33,7 +33,7 @@ $iconSpace: 40px;
     display: block;
     position: absolute;
     margin-left: $space;
-    color: $greyDarker;
+    color: $greyMedDarker;
     transform: translate(0);
     transition: transform .15s ease;
     &.required::after {

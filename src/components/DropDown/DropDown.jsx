@@ -78,7 +78,7 @@ export const customStyles = {
     ...style,
     flexFlow: 'row wrap',
     justifyContent: 'flex-start',
-    minHeight: 64,
+    minHeight: 54,
     padding: '8px 16px',
   }),
   singleValue: style => ({

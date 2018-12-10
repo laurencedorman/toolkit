@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactSelect from 'react-select';
 import cn from 'classnames';
+
+import colors from '../../styles/colors';
 import styles from './Select.module.scss';
 
 /**
@@ -60,7 +62,9 @@ const customStyles = {
   option: (style, state) => ({
     ...style,
     backgroundColor: state.isSelected && '#0c193a',
+    borderColor: colors.greyDark,
     cursor: 'pointer',
+    zIndex: 9999,
     '&:hover': {
       backgroundColor: '#e8e8e8',
     },
@@ -69,9 +73,9 @@ const customStyles = {
     ...style,
     borderRadius: 3,
     boxShadow: 'none',
-    borderColor: '#e8e8e8',
+    borderColor: colors.greyDark,
     '&:hover': {
-      borderColor: '#e8e8e8',
+      borderColor: colors.greyDark,
     },
   }),
   input: () => ({
@@ -85,7 +89,7 @@ const customStyles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     maxWidth: 'calc(100% - 115px)',
-    minHeight: 46,
+    minHeight: 38,
     padding: '8px 16px',
   }),
   indicatorSeparator: style => ({

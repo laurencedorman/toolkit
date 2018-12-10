@@ -82,8 +82,8 @@ module.exports = function (webpackEnv) {
       filename: isEnvProduction
         ? 'index.js'
         : isEnvDevelopment && 'static/js/bundle.js',
-      library: '',
-      libraryTarget: 'commonjs',
+      library: 'mano-toolkit',
+      libraryTarget: 'umd',
     },
     optimization: {
       minimize: isEnvProduction,
@@ -216,7 +216,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
               sideEffects: true,
             },
@@ -229,7 +229,7 @@ module.exports = function (webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
             },
             {
@@ -243,12 +243,45 @@ module.exports = function (webpackEnv) {
         },
       ],
     },
+    externals: [
+      {
+        'react-dom': {
+          root: 'ReactDOM',
+          commonjs2: 'react-dom',
+          commonjs: 'react-dom',
+          amd: 'react-dom',
+        },
+      },
+      {
+        'react-select': {
+          root: 'ReactSelect',
+          commonjs2: 'react-select',
+          commonjs: 'react-select',
+          amd: 'react-select',
+        },
+      },
+      {
+        'react-select': {
+          root: 'CreatableSelect',
+          commonjs2: 'react-select/lib/Creatable',
+          commonjs: 'react-select/lib/Creatable',
+          amd: 'react-select/lib/Creatable',
+        },
+      },
+      {
+        react: {
+          root: 'React',
+          commonjs2: 'react',
+          commonjs: 'react',
+          amd: 'react',
+        },
+      },
+    ],
     plugins: [
       new ModuleNotFoundPlugin(paths.appPath),
       isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
       isEnvDevelopment && new CaseSensitivePathsPlugin(),
-      isEnvDevelopment &&
-      new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+      isEnvDevelopment && new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     node: {
