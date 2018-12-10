@@ -14,8 +14,8 @@ export {
   Select,
   Switch,
   Tag,
+  Textarea,
   Toggle,
   ToggleDown,
-  Textarea,
   Tooltip,
 } from './components';

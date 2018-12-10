@@ -276,14 +276,6 @@ module.exports = function (webpackEnv) {
           amd: 'react',
         },
       },
-      {
-        react: {
-          root: 'React',
-          commonjs2: 'react',
-          commonjs: 'react',
-          amd: 'react',
-        },
-      },
     ],
     plugins: [
       new ModuleNotFoundPlugin(paths.appPath),
