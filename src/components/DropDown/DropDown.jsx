@@ -9,17 +9,21 @@ import styles from './DropDown.module.scss';
  * @visibleName DropDown
  */
 type propTypes = {
-  title: string,
+  title: string | Node,
   options: Array,
   right?: boolean,
   on: boolean,
   toggle: () => void,
   itemClick: () => void,
+  className?: string,
 };
 
 /* eslint-disable */
 export default class DropDown extends PureComponent<propTypes> {
-  static defaultProps = { right: false };
+  static defaultProps = {
+    right: false,
+    className: '',
+  };
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKey);
@@ -64,11 +68,11 @@ export default class DropDown extends PureComponent<propTypes> {
         <ul className={styles.list} onClick={toggle}>
           {options.map(option => (
             <li
-              key={option}
-              data-value={option}
+              key={option.title}
+              data-value={option.title}
               onClick={itemClick}
             >
-              {option}
+              {option.title}
             </li>
           ))}
         </ul>
@@ -77,7 +81,12 @@ export default class DropDown extends PureComponent<propTypes> {
   };
 
   render() {
-    const { title, on, toggle } = this.props;
+    const { title, on, toggle, className } = this.props;
+
+    const wrapper = cn(
+      styles.wrapper,
+      className,
+    );
 
     const iconButton = cn(
       styles.iconButton,
@@ -85,11 +94,19 @@ export default class DropDown extends PureComponent<propTypes> {
     );
 
     return (
-      <div className={styles.wrapper}>
-        {on && <div className={styles.closeTarget} onClick={toggle} /> }
-        <Button onClick={toggle} className={styles.button}>
+      <div className={wrapper}>
+        {on
+          && <div className={styles.closeTarget} onClick={toggle} /> }
+        <Button
+          onClick={toggle}
+          className={styles.button}
+        >
           {title}
-          <Icon name="chevron-left" size="10" className={iconButton} />
+          <Icon
+            name="chevron-left"
+            size="10"
+            className={iconButton}
+          />
         </Button>
         {this.renderOptions(on, toggle)}
       </div>

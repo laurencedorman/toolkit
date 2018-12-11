@@ -3,7 +3,20 @@ Custom basic dropDown :
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
-  option: ['Jean-Louis De La Noche', 'Bob in da mix', 'Jack o Joe']
+  option: [
+    { 
+      id: '',
+      title: 'Jean-Louis',
+    },
+    { 
+      id: '',
+      title: 'Jean-Mi',
+    },
+    { 
+      id: '',
+      title: 'Jean-Jack',
+    },
+  ],
 };
 
 
@@ -12,7 +25,6 @@ initialState = {
    <DropDown
      on={on}
      toggle={toggle}
-     title="DropDown"
      options={state.option}
      title={state.currentValue !== '' ? state.currentValue : state.defaultValue}
      itemClick={e => setState({ currentValue: e.currentTarget.dataset.value })}
