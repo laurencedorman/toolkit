@@ -1,129 +1,99 @@
 // @flow
-import React from 'react';
-import CreatableSelect from 'react-select/lib/Creatable';
-import { components } from 'react-select';
+import React, { PureComponent } from 'react';
+import cn from 'classnames';
+import { Button, Icon } from 'components';
 
-import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
 
 /**
  * @visibleName DropDown
  */
-const Placeholder = props => <components.Placeholder {...props} />;
-
-const DropDown = ({
-  options,
-  onChange,
-  onInputChange,
-  onBlur,
-  onFocus,
-  name,
-  placeholder,
-  defaultValue,
-  value,
-  onCreateOption,
-  children,
-  ...props
-}:propTypes) => (
-  <div className={styles.container}>
-    <CreatableSelect
-      {...props}
-      styles={customStyles}
-      name={name}
-      inputValue={value}
-      onChange={onChange}
-      onInputChange={onInputChange}
-      onCreateOption={onCreateOption}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      options={options}
-      defaultValue={defaultValue}
-      component={{ Placeholder }}
-      placeholder={placeholder}
-    >
-      {children && children}
-    </CreatableSelect>
-  </div>
-);
-
-export const customStyles = {
-  option: (style, state) => ({
-    ...style,
-    backgroundColor: state.isSelected && colors.squidInk,
-    cursor: 'pointer',
-    '&:hover': { backgroundColor: colors.greyMed },
-  }),
-  container: style => ({
-    ...style,
-    position: 'relative',
-    width: 'auto',
-  }),
-  control: style => ({
-    ...style,
-    backgroundColor: colors.balataGreen,
-    boxShadow: 'none',
-    borderRadius: 3,
-    borderColor: 'transparent',
-    '&:hover': {
-      backgroundColor: colors.articCitric,
-      borderColor: 'transparent',
-    },
-  }),
-  input: style => ({
-    ...style,
-    padding: 0,
-    color: colors.white,
-  }),
-  valueContainer: style => ({
-    ...style,
-    flexFlow: 'row wrap',
-    justifyContent: 'flex-start',
-    minHeight: 54,
-    padding: '8px 16px',
-  }),
-  singleValue: style => ({
-    ...style,
-    color: colors.white,
-  }),
-  placeholder: style => ({
-    ...style,
-    color: colors.white,
-  }),
-  dropdownIndicator: style => ({
-    ...style,
-    color: colors.white,
-    cursor: 'pointer',
-    '&:hover': { color: colors.blueMood },
-  }),
-  indicatorSeparator: () => ({}),
-};
-
 type propTypes = {
-  options: Array<{label: string} | {value: string}>,
-  value?: string,
-  onChange?: () => void,
-  onInputChange?: () => void,
-  onCreateOption?: () => void,
-  onFocus?: () => void,
-  onBlur?: () => void,
-  theme?: string,
-  placeholder?: string | Node,
-  defaultValue?: string,
-  customStyles: () => void,
-  children?: Node,
+  title: string,
+  options: Array,
+  right?: boolean,
+  on: boolean,
+  toggle: () => void,
+  itemClick: () => void,
 };
 
-DropDown.defaultProps = {
-  value: '',
-  onChange: null,
-  onInputChange: null,
-  onCreateOption: null,
-  onFocus: null,
-  onBlur: null,
-  theme: 'default',
-  placeholder: '',
-  defaultValue: '',
-  children: null,
-};
+/* eslint-disable */
+export default class DropDown extends PureComponent<propTypes> {
+  static defaultProps = { right: false };
 
-export default DropDown;
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKey);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKey);
+  }
+
+  handleKey = (e) => {
+    const { on, toggle } = this.props;
+
+    const keys = {
+      Escape: () => {
+        e.preventDefault();
+        !on
+          ? e.stopPropagation()
+          : toggle();
+      },
+    };
+
+    keys[e.key]
+      && keys[e.key]();
+  };
+
+  renderOptions = (on, toggle) => {
+    const { options, itemClick, right } = this.props;
+
+    const container = cn(
+      styles.container,
+      {
+        [styles.show]: on,
+        [styles.right]: right,
+      },
+    );
+
+    return (
+      <div
+        className={container}
+        right={right ? 1 : 0}
+      >
+        <ul className={styles.list} onClick={toggle}>
+          {options.map(option => (
+            <li
+              key={option}
+              data-value={option}
+              onClick={itemClick}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  render() {
+    const { title, on, toggle } = this.props;
+
+    const iconButton = cn(
+      styles.iconButton,
+      { [styles.rotate]: on },
+    );
+
+    return (
+      <div className={styles.wrapper}>
+        {on && <div className={styles.closeTarget} onClick={toggle} /> }
+        <Button onClick={toggle} className={styles.button}>
+          {title}
+          <Icon name="chevron-left" size="10" className={iconButton} />
+        </Button>
+        {this.renderOptions(on, toggle)}
+      </div>
+    );
+  }
+}
+/* eslint-enable */

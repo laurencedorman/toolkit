@@ -4,6 +4,13 @@ $space: 1em;
 $radius: 3px;
 $border: 1px solid;
 $timeout: 250ms;
+$delay: 75ms;
+
+$in: cubic-bezier(0.0, 0.0, 0.2, 1);
+$out: cubic-bezier(0.4, 0.0, 1, 1);
+
+$nav: 80px;
+$sidenav: 240px;
 
 $layers: (
   modal        : 9000,

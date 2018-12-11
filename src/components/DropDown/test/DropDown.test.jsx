@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DropDown, { customStyles } from '../DropDown';
+import DropDown from '../DropDown';
 
 describe('DropDown', () => {
   const props = {
@@ -9,21 +9,13 @@ describe('DropDown', () => {
     ],
   };
 
-  const wrapper = shallow(<DropDown {...props} styles={customStyles} />);
+  const wrapper = shallow(<DropDown {...props} />);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);
   });
 
   it('should render one children', () => {
-    expect(wrapper.children().length).toEqual(1);
-  });
-
-  it('should render container object style', () => {
-    expect(customStyles.container.length).toEqual(1);
-  });
-
-  it('should render control object style', () => {
-    expect(customStyles.control).toHaveLength(1);
+    expect(wrapper.children().length).toEqual(2);
   });
 });

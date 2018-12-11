@@ -29,7 +29,7 @@ export default class Modal extends Component<propTypes>{
     document.removeEventListener('keydown', this.handleKey, false);
   }
 
-  handleKey = e => {
+  handleKey = (e) => {
     const { on, toggle } = this.props;
 
     const keys = {
@@ -42,7 +42,7 @@ export default class Modal extends Component<propTypes>{
     };
 
     keys[e.key]
-      && keys[e.key]()
+      && keys[e.key]();
   };
 
   render() {
