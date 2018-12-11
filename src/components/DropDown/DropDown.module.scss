@@ -6,15 +6,18 @@
 
   .button {
     white-space: nowrap;
+    background-color: transparent!important;
   }
 
   .iconButton {
     margin: 1px 0 0 $space;
     transition: transform $timeout $in;
+    &.rotate { transform: rotate(90deg) }
+  }
 
-    &.rotate {
-      transform: rotate(90deg);
-    }
+  .animated {
+    background-color: $balataGreen;
+    border-radius: $radius;
   }
 }
 

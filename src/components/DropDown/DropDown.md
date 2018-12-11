@@ -5,15 +5,15 @@ initialState = {
   currentValue: '',
   option: [
     { 
-      id: '',
-      title: 'Jean-Louis',
+      id: '0',
+      title: 'Jean-Louisssssssssssssssssss',
     },
     { 
-      id: '',
+      id: '1',
       title: 'Jean-Mi',
     },
     { 
-      id: '',
+      id: '2',
       title: 'Jean-Jack',
     },
   ],
