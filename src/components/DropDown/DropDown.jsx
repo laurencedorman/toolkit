@@ -42,7 +42,6 @@ export default class DropDown extends PureComponent<propTypes> {
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKey);
-    this.handleWidth();
   }
 
   componentDidUpdate(props, state) {
@@ -54,16 +53,6 @@ export default class DropDown extends PureComponent<propTypes> {
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKey);
   }
-
-  handleWidth = (e, toggle) => {
-    if (e) {
-      this.setState({
-        buttonWidth: this.button.current.offsetWidth,
-        itemWidth: this.item.current.offsetWidth + 31,
-      });
-      toggle();
-    }
-  };
 
   handleKey = (e) => {
     const { on, toggle } = this.props;
@@ -78,13 +67,21 @@ export default class DropDown extends PureComponent<propTypes> {
     };
 
     keys[e.key]
-      && keys[e.key]();
+    && keys[e.key]();
   };
 
-  setRef = (ref) => this.items.push(ref);
+  handleWidth = (e, toggle) => {
+    if (e) {
+      this.setState({
+        buttonWidth: this.button.current.offsetWidth,
+        itemWidth: this.item.current.offsetWidth + 31,
+      });
+      toggle();
+    }
+  };
 
   renderOptions = (on, toggle) => {
-    const { options, itemClick, right } = this.props;
+    const { options, itemClick, right, className } = this.props;
 
     const container = cn(
       styles.container,
@@ -94,17 +91,25 @@ export default class DropDown extends PureComponent<propTypes> {
       },
     );
 
-    const Items = options.map(item => (
-      <li
-        key={item.title}
-        data-value={item.title}
-        onClick={itemClick}
-        onMouseEnter={e => console.log(e.currentTarget.dataset.value)}
-        ref={this.item}
-      >
-        {item.title}
-      </li>
-    ));
+    const itemOption = item => cn(
+      className,
+      {[styles.disabled]: item.disabled}
+    );
+
+    const Items = options.map(item => {
+      return (
+        <li
+          key={item.title}
+          className={itemOption(item)}
+          data-value={item.title}
+          disabled={item.disabled}
+          onClick={!item.disabled ? itemClick : null}
+          ref={this.item}
+        >
+          {item.title}
+        </li>
+      )
+    });
 
     return (
       <div
@@ -134,6 +139,9 @@ export default class DropDown extends PureComponent<propTypes> {
       styles.iconButton,
       { [styles.rotate]: on },
     );
+
+    // console.log('button: ', buttonWidth);
+    // console.log('item: ', itemWidth);
 
     return (
       <div className={wrapper}>
