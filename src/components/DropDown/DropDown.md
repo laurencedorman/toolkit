@@ -3,7 +3,6 @@ Custom basic dropDown :
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
-
   option: [
     { 
       id: '0',

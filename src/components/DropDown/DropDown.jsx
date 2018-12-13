@@ -1,8 +1,9 @@
 // @flow
 import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
+import { SizeMe } from 'react-sizeme';
 import cn from 'classnames';
-import { Button, Icon } from 'components';
+import { Button } from 'components';
 
 import styles from './DropDown.module.scss';
 
@@ -18,7 +19,6 @@ type propTypes = {
   itemClick: () => void,
   className?: string,
   disabled?: boolean,
-  icon?: boolean,
 };
 
 /* eslint-disable */
@@ -26,28 +26,11 @@ export default class DropDown extends PureComponent<propTypes> {
   static defaultProps = {
     right: false,
     disabled: false,
-    icon: true,
     className: '',
   };
 
-  constructor(props) {
-    super(props);
-    this.button = React.createRef();
-    this.item = React.createRef();
-    this.state = {
-      buttonWidth: '',
-      itemWidth: '',
-    };
-  }
-
   componentDidMount() {
     document.addEventListener('keydown', this.handleKey);
-  }
-
-  componentDidUpdate(props, state) {
-    if (state.buttonWidth !== state.itemWidth) {
-      this.handleWidth();
-    }
   }
 
   componentWillUnmount() {
@@ -70,16 +53,6 @@ export default class DropDown extends PureComponent<propTypes> {
     && keys[e.key]();
   };
 
-  handleWidth = (e, toggle) => {
-    if (e) {
-      this.setState({
-        buttonWidth: this.button.current.offsetWidth,
-        itemWidth: this.item.current.offsetWidth + 31,
-      });
-      toggle();
-    }
-  };
-
   renderOptions = (on, toggle) => {
     const { options, itemClick, right, className } = this.props;
 
@@ -96,88 +69,69 @@ export default class DropDown extends PureComponent<propTypes> {
       {[styles.disabled]: item.disabled}
     );
 
-    const Items = options.map(item => {
-      return (
-        <li
-          key={item.title}
-          className={itemOption(item)}
-          data-value={item.title}
-          disabled={item.disabled}
-          onClick={!item.disabled ? itemClick : null}
-          ref={this.item}
-        >
-          {item.title}
-        </li>
-      )
-    });
-
     return (
       <div
         className={container}
         right={right ? 1 : 0}
       >
-        <ul
-          className={styles.list}
-          onClick={toggle}
-        >
-          {Items}
+        <ul className={styles.list}>
+          {options.map(item => (
+            <li
+              key={item.title}
+              className={itemOption(item)}
+              data-id={item.id}
+              data-value={item.title}
+              disabled={item.disabled}
+              onClick={!item.disabled ? itemClick : null}
+            >
+              <span onClick={!item.disabled ? toggle : null}>
+                {item.title}
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     );
   };
 
   render() {
-    const { title, on, toggle, className, disabled, icon } = this.props;
-    const { buttonWidth, itemWidth } = this.state;
+    const { title, on, toggle, className, disabled } = this.props;
 
     const wrapper = cn(
       styles.wrapper,
       className,
     );
 
-    const iconButton = cn(
-      styles.iconButton,
-      { [styles.rotate]: on },
-    );
-
-    // console.log('button: ', buttonWidth);
-    // console.log('item: ', itemWidth);
-
     return (
       <div className={wrapper}>
         {on
-          && <div className={styles.closeTarget} onClick={toggle} /> }
-        <Spring
-          native
-          reset
-          config={{ tension: 250, friction: 20, mass: 0.2, precision: 1 }}
-          from={{ w: buttonWidth }}
-          to={{ w: itemWidth }}
-        >
-          {({ w }) => (
-            <animated.div
-              className={styles.animated}
-              style={{
-                maxWidth: w.interpolate(w => w)
-              }}
+          && <div className={styles.closeTarget} onClick={toggle} />}
+        <SizeMe>
+          {({ size }) => (
+            <Spring
+              force
+              native
+              config={{ tension: 250, friction: 20, mass: 0.2 }}
+              from={{ w: size.width }}
+              to={{ w: 'auto' }}
             >
-              <Button
-                onClick={e => this.handleWidth(e, toggle)}
-                className={styles.button}
-                disabled={disabled}
-                ref={this.button}
-              >
-                {title}
-                {icon
-                  && <Icon
-                  name="chevron-left"
-                  size="10"
-                  className={iconButton}
-                />}
-              </Button>
-            </animated.div>
+              {({ w }) => (
+                <animated.div
+                  className={styles.animated}
+                  style={{ width: w.interpolate(w => w) }}
+                >
+                  <Button
+                    onClick={toggle}
+                    className={styles.button}
+                    disabled={disabled}
+                  >
+                    {title}
+                  </Button>
+                </animated.div>
+              )}
+            </Spring>
           )}
-        </Spring>
+        </SizeMe>
         {this.renderOptions(on, toggle)}
       </div>
     );

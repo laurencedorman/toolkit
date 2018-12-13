@@ -9,6 +9,7 @@
   "dependencies": {
     "classnames": "2.2.6",
     "react-select": "2.1.2",
+    "react-sizeme": "^2.5.2",
     "react-spring": "6.1.8"
   },
   "peerDependencies": {

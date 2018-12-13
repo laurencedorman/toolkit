@@ -9,12 +9,6 @@
     background-color: transparent!important;
   }
 
-  .iconButton {
-    margin: 1px 0 0 $space;
-    transition: transform $timeout $in;
-    &.rotate { transform: rotate(90deg) }
-  }
-
   .animated {
     background-color: $balataGreen;
     border-radius: $radius;
@@ -41,7 +35,7 @@
 
   &.show {
     min-height: 53px;
-    max-height: 161px;
+    max-height: 197px;
     visibility: visible;
   }
 
@@ -66,13 +60,13 @@
     }
 
     &.disabled {
-      background-color: $greyDarker;
+      background-color: $greyDark;
+      color: $white;
       cursor: not-allowed;
-      &:hover {
-        background-color: $greyDarker;
-        color: $squidInk;
-      }
+      &:hover { background-color: $greyDark }
     }
+
+    span { display: flex }
   }
 }
 
