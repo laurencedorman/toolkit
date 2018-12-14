@@ -22,7 +22,7 @@ type propTypes = {
   icon?: boolean,
 };
 
-/* eslint-disable */
+
 export default class DropDown extends PureComponent<propTypes> {
   static defaultProps = {
     right: false,
@@ -31,32 +31,10 @@ export default class DropDown extends PureComponent<propTypes> {
     className: '',
   };
 
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKey);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKey);
-  }
-
-  handleKey = (e) => {
-    const { on, toggle } = this.props;
-
-    const keys = {
-      Escape: () => {
-        e.preventDefault();
-        !on
-          ? e.stopPropagation()
-          : toggle();
-      },
-    };
-
-    keys[e.key]
-    && keys[e.key]();
-  };
-
   renderOptions = (on, toggle) => {
-    const { options, itemClick, right, className } = this.props;
+    const {
+      options, itemClick, right, className,
+    } = this.props;
 
     const container = cn(
       styles.container,
@@ -68,9 +46,9 @@ export default class DropDown extends PureComponent<propTypes> {
 
     const itemOption = item => cn(
       className,
-      {[styles.disabled]: item.disabled}
+      { [styles.disabled]: item.disabled },
     );
-
+    /* eslint-disable */
     return (
       <div
         className={container}
@@ -97,7 +75,9 @@ export default class DropDown extends PureComponent<propTypes> {
   };
 
   render() {
-    const { title, on, toggle, className, disabled, icon } = this.props;
+    const {
+      title, on, toggle, className, disabled, icon,
+    } = this.props;
 
     const wrapper = cn(
       styles.wrapper,
@@ -134,11 +114,14 @@ export default class DropDown extends PureComponent<propTypes> {
                   >
                     {title}
                     {icon
-                      && <Icon
-                      name="chevron-left"
-                      size="10"
-                      className={iconButton}
-                    />}
+                      && (
+                        <Icon
+                          name="chevron-left"
+                          size="10"
+                          className={iconButton}
+                        />
+                      )
+                    }
                   </Button>
                 </animated.div>
               )}
