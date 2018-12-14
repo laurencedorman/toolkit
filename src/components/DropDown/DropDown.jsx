@@ -3,8 +3,10 @@ import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
 import { SizeMe } from 'react-sizeme';
 import cn from 'classnames';
+
 import { Button, Icon } from 'components';
 
+import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
 
 /**
@@ -20,6 +22,7 @@ type propTypes = {
   className?: string,
   disabled?: boolean,
   icon?: boolean,
+  backgroundColor?: string,
 };
 
 
@@ -28,6 +31,7 @@ export default class DropDown extends PureComponent<propTypes> {
     right: false,
     disabled: false,
     icon: true,
+    backgroundColor: colors.balataGreen,
     className: '',
   };
 
@@ -76,7 +80,7 @@ export default class DropDown extends PureComponent<propTypes> {
 
   render() {
     const {
-      title, on, toggle, className, disabled, icon,
+      title, on, toggle, className, disabled, icon, backgroundColor,
     } = this.props;
 
     const wrapper = cn(
@@ -105,7 +109,10 @@ export default class DropDown extends PureComponent<propTypes> {
               {({ w }) => (
                 <animated.div
                   className={styles.animated}
-                  style={{ width: w.interpolate(w => w) }}
+                  style={{
+                    width: w.interpolate(w => w),
+                    backgroundColor: backgroundColor,
+                  }}
                 >
                   <Button
                     onClick={toggle}
