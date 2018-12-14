@@ -100,9 +100,9 @@
     "prepare": "yarn build:lib",
     "test": "jest --coverage",
     "styleguide": "styleguidist build",
-    "build:demo": "yarn styleguide",
-    "build:prod": "yarn styleguide",
-    "build:preprod": "yarn styleguide"
+    "build:demo": "styleguidist build",
+    "build:prod": "styleguidist build",
+    "build:preprod": "styleguidist build"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
