@@ -1,7 +1,10 @@
 // @flow
-import React from 'react';
-import CreatableSelect from 'react-select/lib/Creatable';
-import { components } from 'react-select';
+import React, { PureComponent } from 'react';
+import { Spring, animated } from 'react-spring';
+import { SizeMe } from 'react-sizeme';
+import cn from 'classnames';
+
+import { Button, Icon } from 'components';
 
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
@@ -9,121 +12,132 @@ import styles from './DropDown.module.scss';
 /**
  * @visibleName DropDown
  */
-const Placeholder = props => <components.Placeholder {...props} />;
-
-const DropDown = ({
-  options,
-  onChange,
-  onInputChange,
-  onBlur,
-  onFocus,
-  name,
-  placeholder,
-  defaultValue,
-  value,
-  onCreateOption,
-  children,
-  ...props
-}:propTypes) => (
-  <div className={styles.container}>
-    <CreatableSelect
-      {...props}
-      styles={customStyles}
-      name={name}
-      inputValue={value}
-      onChange={onChange}
-      onInputChange={onInputChange}
-      onCreateOption={onCreateOption}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      options={options}
-      defaultValue={defaultValue}
-      component={{ Placeholder }}
-      placeholder={placeholder}
-    >
-      {children && children}
-    </CreatableSelect>
-  </div>
-);
-
-export const customStyles = {
-  option: (style, state) => ({
-    ...style,
-    backgroundColor: state.isSelected && colors.squidInk,
-    cursor: 'pointer',
-    '&:hover': { backgroundColor: colors.greyMed },
-  }),
-  container: style => ({
-    ...style,
-    position: 'relative',
-    width: 'auto',
-  }),
-  control: style => ({
-    ...style,
-    backgroundColor: colors.balataGreen,
-    boxShadow: 'none',
-    borderRadius: 3,
-    borderColor: 'transparent',
-    '&:hover': {
-      backgroundColor: colors.articCitric,
-      borderColor: 'transparent',
-    },
-  }),
-  input: style => ({
-    ...style,
-    padding: 0,
-    color: colors.white,
-  }),
-  valueContainer: style => ({
-    ...style,
-    flexFlow: 'row wrap',
-    justifyContent: 'flex-start',
-    minHeight: 54,
-    padding: '8px 16px',
-  }),
-  singleValue: style => ({
-    ...style,
-    color: colors.white,
-  }),
-  placeholder: style => ({
-    ...style,
-    color: colors.white,
-  }),
-  dropdownIndicator: style => ({
-    ...style,
-    color: colors.white,
-    cursor: 'pointer',
-    '&:hover': { color: colors.blueMood },
-  }),
-  indicatorSeparator: () => ({}),
-};
-
 type propTypes = {
-  options: Array<{label: string} | {value: string}>,
-  value?: string,
-  onChange?: () => void,
-  onInputChange?: () => void,
-  onCreateOption?: () => void,
-  onFocus?: () => void,
-  onBlur?: () => void,
-  theme?: string,
-  placeholder?: string | Node,
-  defaultValue?: string,
-  customStyles: () => void,
-  children?: Node,
+  title: string | Node,
+  options: Array,
+  right?: boolean,
+  on: boolean,
+  toggle: () => void,
+  itemClick: () => void,
+  className?: string,
+  disabled?: boolean,
+  icon?: boolean,
+  backgroundColor?: string,
 };
 
-DropDown.defaultProps = {
-  value: '',
-  onChange: null,
-  onInputChange: null,
-  onCreateOption: null,
-  onFocus: null,
-  onBlur: null,
-  theme: 'default',
-  placeholder: '',
-  defaultValue: '',
-  children: null,
-};
 
-export default DropDown;
+export default class DropDown extends PureComponent<propTypes> {
+  static defaultProps = {
+    right: false,
+    disabled: false,
+    icon: true,
+    backgroundColor: colors.balataGreen,
+    className: '',
+  };
+
+  renderOptions = (on, toggle) => {
+    const {
+      options, itemClick, right, className,
+    } = this.props;
+
+    const container = cn(
+      styles.container,
+      {
+        [styles.show]: on,
+        [styles.right]: right,
+      },
+    );
+
+    const itemOption = item => cn(
+      className,
+      { [styles.disabled]: item.disabled },
+    );
+    /* eslint-disable */
+    return (
+      <div
+        className={container}
+        right={right ? 1 : 0}
+      >
+        <ul className={styles.list}>
+          {options.map(item => (
+            <li
+              key={item.title}
+              className={itemOption(item)}
+              data-id={item.id}
+              data-value={item.title}
+              disabled={item.disabled}
+              onClick={!item.disabled ? itemClick : null}
+            >
+              <span onClick={!item.disabled ? toggle : null}>
+                {item.title}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  render() {
+    const {
+      title, on, toggle, className, disabled, icon, backgroundColor,
+    } = this.props;
+
+    const wrapper = cn(
+      styles.wrapper,
+      className,
+    );
+
+    const iconButton = cn(
+      styles.iconButton,
+      { [styles.rotate]: on },
+    );
+
+    return (
+      <div className={wrapper}>
+        {on
+          && <div className={styles.closeTarget} onClick={toggle} />}
+        <SizeMe>
+          {({ size }) => (
+            <Spring
+              force
+              native
+              config={{ tension: 290, friction: 20, mass: 0.2 }}
+              from={{ w: size.width }}
+              to={{ w: 'auto' }}
+            >
+              {({ w }) => (
+                <animated.div
+                  className={styles.animated}
+                  style={{
+                    width: w.interpolate(w => w),
+                    backgroundColor: backgroundColor,
+                  }}
+                >
+                  <Button
+                    onClick={toggle}
+                    className={styles.button}
+                    disabled={disabled}
+                  >
+                    {title}
+                    {icon
+                      && (
+                        <Icon
+                          name="chevron-left"
+                          size="10"
+                          className={iconButton}
+                        />
+                      )
+                    }
+                  </Button>
+                </animated.div>
+              )}
+            </Spring>
+          )}
+        </SizeMe>
+        {this.renderOptions(on, toggle)}
+      </div>
+    );
+  }
+}
+/* eslint-enable */

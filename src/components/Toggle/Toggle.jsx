@@ -14,6 +14,29 @@ export default class Toggle extends Component<propTypes> {
     this.state = { on: false };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKey);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKey);
+  }
+
+  handleKey = (e) => {
+    const { on } = this.state;
+    /* eslint-disable */
+    const keys = {
+      Escape: () => {
+        e.preventDefault();
+        !on
+          ? e.stopPropagation()
+          : this.toggle();
+      },
+    };
+    /* eslint-enable */
+    if (keys[e.key]) keys[e.key]();
+  };
+
   toggle = () => this.setState(prevState => ({ on: !prevState.on }));
 
   toggleIn = () => this.setState({ on: true });
@@ -26,9 +49,9 @@ export default class Toggle extends Component<propTypes> {
 
     return children({
       on,
-      toggle: this.toggle,
-      toggleIn: this.toggleIn,
-      toggleOut: this.toggleOut,
+      toggle: e => this.toggle(e),
+      toggleIn: e => this.toggleIn(e),
+      toggleOut: e => this.toggleOut(e),
     });
   }
 }

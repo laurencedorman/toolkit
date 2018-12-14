@@ -8,9 +8,9 @@ import styles from './Button.module.scss';
 /**
  * @visibleName Button
  */
-const Button = ({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className,
-}: propTypes) => {
+const Button = React.forwardRef(({
+  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className, style,
+}, ref:propTypes) => {
   const classNames = cn(
     styles.button,
     styles[size],
@@ -31,6 +31,8 @@ const Button = ({
       type={type}
       className={classNames}
       data-qa={dataQa}
+      ref={ref}
+      style={style}
     >
       {icon
       && <Icon name={icon} size="16" />}
@@ -38,7 +40,7 @@ const Button = ({
     </button>
   );
   /* eslint-enable react/button-has-type */
-};
+});
 
 type propTypes = {
   children?: string | Node,
@@ -51,6 +53,7 @@ type propTypes = {
   onClick?: () => void,
   dataQa?: string,
   className?: string,
+  ref?: () => void,
 };
 
 Button.defaultProps = {
@@ -64,6 +67,7 @@ Button.defaultProps = {
   onClick: null,
   dataQa: '',
   className: '',
+  ref: null,
 };
 
 export default Button;

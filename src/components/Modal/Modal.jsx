@@ -21,30 +21,6 @@ type propTypes = {
 export default class Modal extends Component<propTypes>{
   static defaultProps = { className: '' };
 
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKey, false);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKey, false);
-  }
-
-  handleKey = e => {
-    const { on, toggle } = this.props;
-
-    const keys = {
-      Escape: () => {
-        e.preventDefault();
-        !on
-          ? e.stopPropagation()
-          : toggle();
-      },
-    };
-
-    keys[e.key]
-      && keys[e.key]()
-  };
-
   render() {
     const { on, toggle, children, className } = this.props;
 
