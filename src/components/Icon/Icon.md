@@ -212,6 +212,14 @@ const span = {
   <IconComponent name="vote" />
   <span style={span}>vote</span>
 </div>
+<div style={style}> 
+  <IconComponent name="wheel" />
+  <span style={span}>wheel</span>
+</div>
+<div style={style}> 
+  <IconComponent name="dotMenu" />
+  <span style={span}>dotMenu</span>
+</div>
 
 <div style={{width: '100%', marginTop: '1rem'}}>
   <h4>CATEGORIE</h4> 
