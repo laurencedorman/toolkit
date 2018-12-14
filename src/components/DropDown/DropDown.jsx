@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
 import { SizeMe } from 'react-sizeme';
 import cn from 'classnames';
-import { Button } from 'components';
+import { Button, Icon } from 'components';
 
 import styles from './DropDown.module.scss';
 
@@ -19,6 +19,7 @@ type propTypes = {
   itemClick: () => void,
   className?: string,
   disabled?: boolean,
+  icon?: boolean,
 };
 
 /* eslint-disable */
@@ -26,6 +27,7 @@ export default class DropDown extends PureComponent<propTypes> {
   static defaultProps = {
     right: false,
     disabled: false,
+    icon: true,
     className: '',
   };
 
@@ -95,11 +97,16 @@ export default class DropDown extends PureComponent<propTypes> {
   };
 
   render() {
-    const { title, on, toggle, className, disabled } = this.props;
+    const { title, on, toggle, className, disabled, icon } = this.props;
 
     const wrapper = cn(
       styles.wrapper,
       className,
+    );
+
+    const iconButton = cn(
+      styles.iconButton,
+      { [styles.rotate]: on },
     );
 
     return (
@@ -111,7 +118,7 @@ export default class DropDown extends PureComponent<propTypes> {
             <Spring
               force
               native
-              config={{ tension: 250, friction: 20, mass: 0.2 }}
+              config={{ tension: 290, friction: 20, mass: 0.2 }}
               from={{ w: size.width }}
               to={{ w: 'auto' }}
             >
@@ -126,6 +133,12 @@ export default class DropDown extends PureComponent<propTypes> {
                     disabled={disabled}
                   >
                     {title}
+                    {icon
+                      && <Icon
+                      name="chevron-left"
+                      size="10"
+                      className={iconButton}
+                    />}
                   </Button>
                 </animated.div>
               )}
