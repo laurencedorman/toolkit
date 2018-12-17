@@ -2,6 +2,7 @@ module.exports = {
   webpackConfig: require('./config/webpack.config.dev.js'),
   title: 'Mano-Toolkit',
   components: 'src/components/**/*.jsx',
+  styleguideDir: 'dist',
   template: {
     head: {
       links: [{
