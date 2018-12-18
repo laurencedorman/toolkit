@@ -28,27 +28,27 @@ $fastTimeout: 150ms;
 }
 
 .label {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   position: relative;
   width: 3em;
   height: 1.9em;
   background-color: $greyDarker;
   border-radius: 30px;
   cursor: pointer;
-  transition: background $fastTimeout ease-in-out;
+  transition: background $fastTimeout $in;
 
-  &::after, &.active::after { transition: transform $fastTimeout ease-in-out }
+  &::after, &.active::after { transition: transform $fastTimeout $in }
 
   &::after {
     content: '';
     position: absolute;
-    width: 1.64em;
-    height: 1.64em;
-    top: .1em; left: .125em;
+    width: 1.625em;
+    height: 1.625em;
+    left: .125em;
     background-color: $white;
     border-radius: 100%;
-    box-shadow: 0 1px 1px 1px rgba(0,0,0,.35);
-    // z-index: z($sub-levels, middle)
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.20);
   }
 
   &.active {
