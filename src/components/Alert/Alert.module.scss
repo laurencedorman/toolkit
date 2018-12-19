@@ -1,0 +1,8 @@
+@import 'styles/import.scss';
+
+.alert {
+  position: fixed;
+  top: $space; right: $space;
+  width: 400px;
+  z-index: z($layers, modal);
+}
