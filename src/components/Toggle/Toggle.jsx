@@ -6,9 +6,12 @@ import { Component } from 'react';
  */
 type propTypes = {
   children: Node,
+  timer?: number,
 }
 
 export default class Toggle extends Component<propTypes> {
+  static defaultProps = { timer: undefined };
+
   constructor(props) {
     super(props);
     this.state = { on: false };
@@ -42,6 +45,18 @@ export default class Toggle extends Component<propTypes> {
   toggleIn = () => this.setState({ on: true });
 
   toggleOut = () => this.setState({ on: false });
+
+  timerToggleOut = () => {
+    const { timer } = this.props;
+    const { on } = this.state;
+
+    if (on) {
+      setTimeout(() => {
+        this.setState({ on: false });
+      }, timer);
+    }
+  };
+
 
   render() {
     const { children } = this.props;

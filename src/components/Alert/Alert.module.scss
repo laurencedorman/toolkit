@@ -4,5 +4,6 @@
   position: fixed;
   top: $space; right: $space;
   width: 400px;
+  cursor: pointer;
   z-index: z($layers, modal);
 }

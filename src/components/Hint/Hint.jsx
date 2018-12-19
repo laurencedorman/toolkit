@@ -27,7 +27,7 @@ const Hint = ({
 
 type PropTypes = {
   theme?: Array<'default', 'light', 'danger', 'menthe'>,
-  textAlert: string,
+  textAlert: string | () => void,
   icon?: string,
   iconWidth?: number,
   className?: string,

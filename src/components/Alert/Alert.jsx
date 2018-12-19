@@ -5,14 +5,14 @@ import {
 } from 'react-spring';
 import cn from 'classnames';
 
-import { Button, Hint, Portal } from 'components';
+import { Hint, Portal } from 'components';
 import styles from './Alert.module.scss';
 
 /**
  * @visibleName Alert
  */
 const Alert = ({
-  on, className, toggle, ...rest
+  on, className, toggle, theme, textAlert, icon, iconWidth,
 }:propTypes) => {
   const classNames = cn(
     styles.alert,
@@ -36,12 +36,17 @@ const Alert = ({
                 className={classNames}
                 role="Contentinfo"
                 style={style}
+                onClick={toggle}
               >
                 {React.cloneElement(
                   <Hint />,
-                  { ...rest },
+                  {
+                    theme,
+                    textAlert,
+                    icon,
+                    iconWidth,
+                  },
                 )}
-                <Button onClick={toggle} />
               </animated.div>
             )
           )
@@ -55,6 +60,18 @@ const Alert = ({
 type propTypes = {
   on: boolean,
   toggle: () => void,
+  theme?: Array<'default', 'light', 'danger', 'menthe'>,
+  textAlert: string | () => void,
+  icon?: string,
+  iconWidth?: number,
+  className?: string,
+};
+
+Alert.defaultProps = {
+  theme: 'default',
+  icon: 'alert-circle',
+  iconWidth: 32,
+  className: '',
 };
 
 export default Alert;
