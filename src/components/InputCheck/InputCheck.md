@@ -1,4 +1,18 @@
 
+Input Checkbox without label: 
+```js
+initialState = { checked: false };
+
+<InputCheck
+  type="checkbox"
+  value="noLabel"
+  name="exempleWithoutLabel"
+  checked={state.checked}
+  onChange={() => setState({ checked: !state.checked })}
+/>
+```
+
+
 Input Checkbox: 
 ```js
 initialState = { checked: false };

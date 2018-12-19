@@ -3,7 +3,10 @@
 $bigSpace: 2em;
 
 .inputCheck {
+  display: inline-flex;
   position: relative;
+  align-items: center;
+
   &:not(:last-child) {
     margin-right: $bigSpace;
   }
@@ -103,6 +106,8 @@ $bigSpace: 2em;
       stroke: $white;
     }
   }
+
+  &.noLabel label { height: 21px }
 }
 
 .CheckGroup {
