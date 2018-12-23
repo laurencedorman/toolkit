@@ -164,6 +164,11 @@ const span = {
 </div>
 
 <div style={style}>
+  <IconComponent name="close" />
+  <span style={span}>close</span>
+</div>
+
+<div style={style}>
   <IconComponent name="close-circle" />
   <span style={span}>close-circle</span>
 </div>

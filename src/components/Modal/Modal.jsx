@@ -62,12 +62,12 @@ export default class Modal extends Component<propTypes>{
                     }}
                   >
                     <Icon
-                      name="close-circle"
-                      size="26"
+                      name="close"
+                      size="16"
                       onClick={toggle}
                       className={styles.icon}
                     />
-                    <div>{children}</div>
+                    {children}
                   </animated.div>
                 </animated.div>
               )

@@ -15,7 +15,7 @@
     top: .75rem; right: .75rem;
     cursor: pointer;
     transition: hover .15s ease;
-    &:hover { fill: $hover }
+    &:hover svg { fill: $hover }
   }
 }
 
@@ -25,13 +25,14 @@
   flex-flow: column wrap;
   min-width: 320px;
   max-width: 50%;
-  padding: calc(#{$space} * 2);
+  max-height: 90vh;
   background: $white;
   border-radius: $radius;
   border: $border transparent;
   box-sizing: border-box;
   text-align: left;
   cursor: default;
+  overflow-y: auto;
   z-index: z($levels, max);
 
   button {
