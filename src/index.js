@@ -18,4 +18,5 @@ export {
   Toggle,
   ToggleDown,
   Tooltip,
+  Wrapper,
 } from './components';
