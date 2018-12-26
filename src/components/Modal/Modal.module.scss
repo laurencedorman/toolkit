@@ -15,16 +15,16 @@
     right: .75rem;
     cursor: pointer;
     transition: hover .15s ease;
-    cursor: pointer;
     z-index: z($levels, max);
     &:hover svg { fill: $hover }
   }
 
   .header {
-    justify-content: center;
+    h4 { margin-bottom: 0 }
     & .icon { top: .75em }
 
     &.hasContent {
+      padding-right: 2.2em;
       border-bottom: 1px solid $greyMed;
 
       & .icon { top: initial }

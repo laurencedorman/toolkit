@@ -31,6 +31,16 @@ export default class Modal extends Component<propTypes>{
     noFooter: false,
   };
 
+  renderHeader = (header) => {
+    switch(typeof header) {
+      case 'string':
+        return <h4>{header}</h4>;
+      case 'function':
+        return header();
+      default: return null;
+    }
+  };
+
   render() {
     const {
       on, toggle, children, className, header, buttonTitle, noFooter,
@@ -80,13 +90,13 @@ export default class Modal extends Component<propTypes>{
                     }}
                   >
                     <Wrapper className={headerStyle}>
+                      {this.renderHeader(header)}
                       <Icon
                         name="close"
-                        size="16"
+                        size="12"
                         onClick={toggle}
                         className={styles.icon}
                       />
-                      {header}
                     </Wrapper>
                     {children}
                     {!noFooter
