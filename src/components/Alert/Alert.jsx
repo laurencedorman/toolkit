@@ -41,8 +41,6 @@ const Alert = ({
         from={{ transform: `translateX(${setTranslate}px)` }}
         enter={{ transform: 'translateX(0)' }}
         leave={{ transform: `translateX(${setTranslate}px)` }}
-        timer={timeout}
-        position={position}
       >
         {on => on
           /* eslint-enable */
@@ -53,6 +51,8 @@ const Alert = ({
                 role="Contentinfo"
                 style={style}
                 onClick={toggle}
+                timer={timeout}
+                position={position}
               >
                 {React.cloneElement(
                   <Hint />,
