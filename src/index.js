@@ -2,6 +2,7 @@ export {
   Button,
   Card,
   DropDown,
+  GetMeasure,
   Hint,
   Icon,
   Input,

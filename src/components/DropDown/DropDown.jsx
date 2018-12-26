@@ -68,7 +68,7 @@ export default class DropDown extends PureComponent<propTypes> {
               disabled={item.disabled}
               onClick={!item.disabled ? itemClick : null}
             >
-              <span onClick={!item.disabled ? toggle : null}>
+              <span onClick={!item.disabled ? toggle : null} key={item.title}>
                 {item.title}
               </span>
             </li>
