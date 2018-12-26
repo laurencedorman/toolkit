@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 
 type propTypes = { children: Node }
 
