@@ -12,10 +12,28 @@
 
   .icon {
     position: absolute;
-    top: .75rem; right: .75rem;
+    right: .75rem;
     cursor: pointer;
     transition: hover .15s ease;
+    cursor: pointer;
+    z-index: z($levels, max);
     &:hover svg { fill: $hover }
+  }
+
+  .header {
+    justify-content: center;
+    & .icon { top: .75em }
+
+    &.hasContent {
+      border-bottom: 1px solid $greyMed;
+
+      & .icon { top: initial }
+    }
+  }
+
+  .footer {
+    justify-content: flex-end;
+    border-top: 1px solid $greyMed;
   }
 }
 
@@ -35,9 +53,5 @@
   overflow-y: auto;
   z-index: z($levels, max);
 
-  button {
-    &:not(:last-child) {
-      margin-right: $space;
-    }
-  }
+  &.noFooter { padding-bottom: 2em }
 }

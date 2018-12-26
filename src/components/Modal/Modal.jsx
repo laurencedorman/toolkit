@@ -5,7 +5,9 @@ import {
 } from 'react-spring';
 import cn from 'classnames';
 
-import { Icon, Portal } from 'components';
+import {
+  Button, Icon, Portal, Wrapper,
+} from 'components';
 import styles from './Modal.module.scss';
 
 /**
@@ -16,17 +18,33 @@ type propTypes = {
   toggle: () => void,
   children: string | Node,
   className?: string,
+  header?: string | () => void,
+  buttonTitle?: string,
+  noFooter?: boolean,
 };
 /* eslint-disable */
 export default class Modal extends Component<propTypes>{
-  static defaultProps = { className: '' };
+  static defaultProps = {
+    className: '',
+    header: null,
+    buttonTitle: 'close',
+    noFooter: false,
+  };
 
   render() {
-    const { on, toggle, children, className } = this.props;
+    const {
+      on, toggle, children, className, header, buttonTitle, noFooter,
+    } = this.props;
 
     const classNames = cn(
       styles.content,
       className,
+      { [styles.noFooter]: noFooter },
+    );
+
+    const headerStyle = cn(
+      styles.header,
+      { [styles.hasContent]: header !== null },
     );
 
     return (
@@ -41,13 +59,13 @@ export default class Modal extends Component<propTypes>{
         >
           {on => on
             && (
-              ({ o, s, y}) => (
+              ({ o, s, y }) => (
                 <animated.div
                   onClick={toggle}
                   className={styles.modal}
                   role="Dialog"
                   style={{
-                    opacity: o.interpolate(o => o)
+                    opacity: o.interpolate(o => o),
                   }}
                 >
                   <animated.div
@@ -57,17 +75,31 @@ export default class Modal extends Component<propTypes>{
                     style={{
                       transform: interpolate(
                         [s, y],
-                        (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`
-                      )
+                        (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`,
+                      ),
                     }}
                   >
-                    <Icon
-                      name="close"
-                      size="16"
-                      onClick={toggle}
-                      className={styles.icon}
-                    />
+                    <Wrapper className={headerStyle}>
+                      <Icon
+                        name="close"
+                        size="16"
+                        onClick={toggle}
+                        className={styles.icon}
+                      />
+                      {header}
+                    </Wrapper>
                     {children}
+                    {!noFooter
+                      && (
+                        <Wrapper className={styles.footer} direction="row">
+                          <Button
+                            title={buttonTitle}
+                            onClick={toggle}
+                            theme="secondary"
+                          />
+                        </Wrapper>
+                      )
+                    }
                   </animated.div>
                 </animated.div>
               )
@@ -75,7 +107,7 @@ export default class Modal extends Component<propTypes>{
           }
         </Transition>
       </Portal>
-    )
+    );
   }
 }
 /* eslint-enable */
