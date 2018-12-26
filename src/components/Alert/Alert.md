@@ -1,9 +1,13 @@
 Alert:
 
 ```js
+const style = {
+  alignItem: 'center',
+};
+
 <Layout direction="column" styleGuidist>
   <h2>Alert</h2>
-  <h4>Display an alert with Hint Component.</h4><br/>
+  <h4>Display an alert with Hint Component.</h4>
   
   <Card>
   <p><b>Alert</b> component used <b>Toggle</b> component like in exemple to easy display. Read <b>Toggle</b> section to have more informations.

@@ -36,7 +36,13 @@ h1, h2, h3, h4, .title, .subTitle {
   font-weight: 600
 }
 
-p, ul { margin-bottom: 1em }
+p:not(:last-child),
+ul:not(:last-child) { margin-bottom: 1em }
+
+p:first-child,
+ul:first-child { margin-top: 1em }
+
+div > *:first-child { margin-top: 0 }
 
 li {
   line-height: 1.85;
