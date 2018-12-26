@@ -2,8 +2,12 @@
 
 .alert {
   position: fixed;
-  top: $space; right: $space;
-  width: 400px;
+  width: 300px;
   cursor: pointer;
   z-index: z($layers, modal);
+
+  &.right { right: $space }
+  &.left { left: $space }
+  &.top { top: $space }
+  &.bottom { bottom: $space }
 }

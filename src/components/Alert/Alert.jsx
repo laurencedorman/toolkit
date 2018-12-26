@@ -12,12 +12,25 @@ import styles from './Alert.module.scss';
  * @visibleName Alert
  */
 const Alert = ({
-  on, className, toggle, theme, textAlert, icon, iconWidth,
+  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position,
 }:propTypes) => {
   const classNames = cn(
     styles.alert,
     className,
+    {
+      [styles.right]: position === 'topRight' || position === 'bottomRight',
+      [styles.left]: position === 'topLeft' || position === 'bottomLeft',
+      [styles.top]: position === 'topRight' || position === 'topLeft',
+      [styles.bottom]: position === 'bottomRight' || position === 'bottomLeft',
+    },
   );
+
+  const setTranslate = translate(position);
+
+  if (timeout !== undefined && on) {
+    timer(toggle, timeout);
+  }
+
   /* eslint-disable */
   return (
     <Portal>
@@ -25,11 +38,14 @@ const Alert = ({
         native
         items={on}
         config={config.stiff}
-        from={{ transform: 'translateX(420px)' }}
-        enter={{ transform: 'translateX(0px)' }}
-        leave={{ transform: 'translateX(420px)' }}
+        from={{ transform: `translateX(${setTranslate}px)` }}
+        enter={{ transform: 'translateX(0)' }}
+        leave={{ transform: `translateX(${setTranslate}px)` }}
+        timer={timeout}
+        position={position}
       >
         {on => on
+          /* eslint-enable */
           && (
             style => (
               <animated.div
@@ -55,16 +71,29 @@ const Alert = ({
     </Portal>
   );
 };
-/* eslint-enable */
+
+const translate = (value) => {
+  switch (value) {
+    case 'topRight':
+    case 'bottomRight': return 320;
+    case 'topLeft':
+    case 'bottomLeft': return -320;
+    default: return 320;
+  }
+};
+
+const timer = (toggle, timeout) => setTimeout(() => (toggle()), timeout);
 
 type propTypes = {
   on: boolean,
   toggle: () => void,
-  theme?: Array<'default', 'light', 'danger', 'menthe'>,
+  theme?: 'default' | 'light' | 'danger' | 'menthe',
   textAlert: string | () => void,
   icon?: string,
   iconWidth?: number,
   className?: string,
+  timeout?: number,
+  position?: 'topLeft' | 'bottomLeft' | 'topRight' | 'bottomRight',
 };
 
 Alert.defaultProps = {
@@ -72,6 +101,8 @@ Alert.defaultProps = {
   icon: 'alert-circle',
   iconWidth: 32,
   className: '',
+  timeout: undefined,
+  position: 'topRight',
 };
 
 export default Alert;
