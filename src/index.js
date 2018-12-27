@@ -13,6 +13,7 @@ export {
   Modal,
   Portal,
   Select,
+  Sidebar,
   Switch,
   Tag,
   Textarea,
