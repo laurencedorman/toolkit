@@ -35,7 +35,7 @@ const Button = React.forwardRef(({
       style={style}
     >
       {icon
-      && <Icon name={icon} size="16" />}
+        && <Icon name={icon} size="16" />}
       {children && children}
       {title && title}
     </button>
@@ -54,7 +54,7 @@ type propTypes = {
   onClick?: () => void,
   dataQa?: string,
   className?: string,
-  title?: string,
+  title?: string | () => void,
   ref?: () => void,
 };
 

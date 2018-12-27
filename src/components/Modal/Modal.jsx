@@ -32,15 +32,13 @@ export default class Modal extends Component<propTypes>{
     noFooter: false,
   };
 
-  renderHeader = (header) => {
-    switch(typeof header) {
-      case 'string':
-        return <h4>{header}</h4>;
-      case 'function':
-        return header();
-      default: return null;
-    }
-  };
+  renderHeader = header => (
+    typeof header === 'string'
+      ? <h4>{header}</h4>
+      : typeof header === 'function'
+        ? header()
+        : null
+  );
 
   render() {
     const {
@@ -101,15 +99,13 @@ export default class Modal extends Component<propTypes>{
                     </Wrapper>
                     {children}
                     {!noFooter
-                      && (
-                        <Wrapper className={styles.footer} direction="row">
-                          <Button
-                            title={buttonTitle}
-                            onClick={toggle}
-                            theme="secondary"
-                          />
-                        </Wrapper>
-                      )
+                      && <Wrapper className={styles.footer} direction="row">
+                        <Button
+                          title={buttonTitle}
+                          onClick={toggle}
+                          theme="secondary"
+                        />
+                      </Wrapper>
                     }
                   </animated.div>
                 </animated.div>
