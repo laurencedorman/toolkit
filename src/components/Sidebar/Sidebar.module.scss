@@ -6,6 +6,7 @@
   height: 100vh;
   padding: $space;
   background-color: $white;
+  z-index: z($layers, sidebar);
 
   &.left {
     left: 0;
@@ -19,11 +20,11 @@
     box-shadow: -3px 0 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
-  &.right, &.left { transition: transform .25s cubic-bezier(0.4, 0.0, 1, 1) }
+  &.right, &.left { transition: transform $timeout cubic-bezier(0.4, 0.0, 1, 1) }
 
   &.on {
     transform: translateX(0);
-    transition: transform .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition: transform $timeout cubic-bezier(0.0, 0.0, 0.2, 1);
   }
 }
 
