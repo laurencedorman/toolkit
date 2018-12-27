@@ -1,10 +1,9 @@
 // @flow
 import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
-import { SizeMe } from 'react-sizeme';
 import cn from 'classnames';
 
-import { Button, Icon } from 'components';
+import { Button, GetMeasure, Icon } from 'components';
 
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
@@ -97,7 +96,7 @@ export default class DropDown extends PureComponent<propTypes> {
       <div className={wrapper}>
         {on
           && <div className={styles.closeTarget} onClick={toggle} />}
-        <SizeMe>
+        <GetMeasure>
           {({ size }) => (
             <Spring
               force
@@ -134,7 +133,7 @@ export default class DropDown extends PureComponent<propTypes> {
               )}
             </Spring>
           )}
-        </SizeMe>
+        </GetMeasure>
         {this.renderOptions(on, toggle)}
       </div>
     );

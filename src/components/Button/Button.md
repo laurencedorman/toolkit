@@ -2,10 +2,10 @@ Default Button:
 
 ```js
 <Layout styleGuidist direction="row">
-  <Button>Button</Button>
-  <Button theme="primary">Button</Button>
-  <Button theme="secondary">Button</Button>
-  <Button disabled>Button</Button> 
+  <Button>default Button</Button>
+  <Button theme="primary"> primary Button</Button>
+  <Button theme="secondary">secondary Button</Button>
+  <Button disabled>disabled Button</Button> 
 </Layout>
 
 ```

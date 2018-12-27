@@ -20,14 +20,14 @@
 
 .container {
   position: absolute;
-  left: 0; top: 56px;
-  min-width: 100%;
+  top: 48px; left: 0;
   max-height: 0;
   border: $border $borderColor;
   border-radius: $radius;
   background-color: $white;
   box-sizing: border-box;
-  transition: max-height $timeout $in;
+  transition: max-height $timeout $in,
+              visibility 0ms $in $timeout;
   overflow-x: hidden;
   overflow-y: auto;
   visibility: hidden;
@@ -40,11 +40,7 @@
     min-height: 53px;
     max-height: 197px;
     visibility: visible;
-  }
-
-  &.right {
-    left: initial;
-    right: 0;
+    transition: max-height $timeout $in,
   }
 
   .list {
