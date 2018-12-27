@@ -62,4 +62,8 @@
   z-index: z($levels, max);
 
   &.noFooter { padding-bottom: 2em }
+  &.iframe {
+    width: 90vw;
+    height: 90vh
+  }
 }

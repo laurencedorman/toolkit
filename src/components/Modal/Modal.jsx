@@ -21,6 +21,7 @@ type propTypes = {
   header?: string | () => void,
   buttonTitle?: string,
   noFooter?: boolean,
+  hasIframe?: boolean,
 };
 
 /* eslint-disable */
@@ -30,6 +31,7 @@ export default class Modal extends Component<propTypes>{
     header: null,
     buttonTitle: 'close',
     noFooter: false,
+    hasIframe: false,
   };
 
   renderHeader = header => (
@@ -42,13 +44,16 @@ export default class Modal extends Component<propTypes>{
 
   render() {
     const {
-      on, toggle, children, className, header, buttonTitle, noFooter,
+      on, toggle, children, className, header, buttonTitle, noFooter, hasIframe,
     } = this.props;
 
     const classNames = cn(
       styles.content,
       className,
-      { [styles.noFooter]: noFooter },
+      {
+        [styles.noFooter]: noFooter,
+        [styles.iframe]: hasIframe,
+      },
     );
 
     const headerStyle = cn(

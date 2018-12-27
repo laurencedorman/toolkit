@@ -4,6 +4,10 @@ Modal:
  * Use Toggle Component to display Modal easily.
  * Display Header as a string or render function or nothing.
  * Display Footer with close button or nothing.
+ * Display iframe.
+
+Tips: 
+ * If you need to display an iframe in Modal, set props "hasIframe" at true to fix width.
 
 
 ```js
@@ -92,4 +96,26 @@ const renderComp = () => (
     </Toggle>
 </Layout>
 ```
+
+```js
+<Layout direction="column" styleGuidist>
+  <h4>Modal with iframe content</h4>
+ <Toggle>
+     {({ on, toggle }) => (
+      <div>
+       <Button onClick={toggle}>Modal</Button>
+       <Modal on={on} toggle={toggle} header="Modal title as a string props" hasIframe>
+       <Iframe
+         id="manomano"
+         title="manomano"
+         source="https://www.manomano.fr/"
+       />  
+       </Modal>
+      </div>
+     )}
+    </Toggle>
+</Layout>
+```
+
+
 
