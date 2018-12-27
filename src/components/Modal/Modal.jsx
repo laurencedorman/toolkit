@@ -97,7 +97,9 @@ export default class Modal extends Component<propTypes>{
                         className={styles.icon}
                       />
                     </Wrapper>
-                    {children}
+                    <Wrapper className={styles.body}>
+                      {children}
+                    </Wrapper>
                     {!noFooter
                       && <Wrapper className={styles.footer} direction="row">
                         <Button
