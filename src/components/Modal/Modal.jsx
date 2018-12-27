@@ -22,6 +22,7 @@ type propTypes = {
   buttonTitle?: string,
   noFooter?: boolean,
 };
+
 /* eslint-disable */
 export default class Modal extends Component<propTypes>{
   static defaultProps = {
