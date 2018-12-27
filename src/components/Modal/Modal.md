@@ -69,7 +69,7 @@ const renderComp = () => (
 
 ```js
 <Layout direction="column" styleGuidist>
-  <h4>Modal with big body content and without Footer</h4>
+  <h4>Modal with big body content</h4>
  <Toggle>
      {({ on, toggle }) => (
       <div>
