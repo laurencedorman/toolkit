@@ -5,6 +5,7 @@ export {
   GetMeasure,
   Hint,
   Icon,
+  Iframe,
   Input,
   InputCheck,
   InputCheckGroup,

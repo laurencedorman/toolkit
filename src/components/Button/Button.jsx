@@ -9,7 +9,7 @@ import styles from './Button.module.scss';
  * @visibleName Button
  */
 const Button = React.forwardRef(({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className, style,
+  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className, style, title,
 }, ref:propTypes) => {
   const classNames = cn(
     styles.button,
@@ -35,8 +35,9 @@ const Button = React.forwardRef(({
       style={style}
     >
       {icon
-      && <Icon name={icon} size="16" />}
+        && <Icon name={icon} size="16" />}
       {children && children}
+      {title && title}
     </button>
   );
   /* eslint-enable react/button-has-type */
@@ -53,6 +54,7 @@ type propTypes = {
   onClick?: () => void,
   dataQa?: string,
   className?: string,
+  title?: string | () => void,
   ref?: () => void,
 };
 
@@ -67,6 +69,7 @@ Button.defaultProps = {
   onClick: null,
   dataQa: '',
   className: '',
+  title: undefined,
   ref: null,
 };
 

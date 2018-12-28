@@ -5,7 +5,9 @@ import {
 } from 'react-spring';
 import cn from 'classnames';
 
-import { Icon, Portal } from 'components';
+import {
+  Button, Icon, Portal, Wrapper,
+} from 'components';
 import styles from './Modal.module.scss';
 
 /**
@@ -16,17 +18,47 @@ type propTypes = {
   toggle: () => void,
   children: string | Node,
   className?: string,
+  header?: string | () => void,
+  buttonTitle?: string,
+  noFooter?: boolean,
+  hasIframe?: boolean,
 };
+
 /* eslint-disable */
 export default class Modal extends Component<propTypes>{
-  static defaultProps = { className: '' };
+  static defaultProps = {
+    className: '',
+    header: null,
+    buttonTitle: 'close',
+    noFooter: false,
+    hasIframe: false,
+  };
+
+  renderHeader = header => (
+    typeof header === 'string'
+      ? <h4>{header}</h4>
+      : typeof header === 'function'
+        ? header()
+        : null
+  );
 
   render() {
-    const { on, toggle, children, className } = this.props;
+    const {
+      on, toggle, children, className, header, buttonTitle, noFooter, hasIframe,
+    } = this.props;
 
     const classNames = cn(
       styles.content,
       className,
+      {
+        [styles.noFooter]: noFooter,
+        [styles.iframe]: hasIframe,
+      },
+    );
+
+    const headerStyle = cn(
+      styles.header,
+      { [styles.hasContent]: header !== null },
     );
 
     return (
@@ -41,13 +73,13 @@ export default class Modal extends Component<propTypes>{
         >
           {on => on
             && (
-              ({ o, s, y}) => (
+              ({ o, s, y }) => (
                 <animated.div
                   onClick={toggle}
                   className={styles.modal}
                   role="Dialog"
                   style={{
-                    opacity: o.interpolate(o => o)
+                    opacity: o.interpolate(o => o),
                   }}
                 >
                   <animated.div
@@ -57,17 +89,31 @@ export default class Modal extends Component<propTypes>{
                     style={{
                       transform: interpolate(
                         [s, y],
-                        (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`
-                      )
+                        (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`,
+                      ),
                     }}
                   >
-                    <Icon
-                      name="close-circle"
-                      size="26"
-                      onClick={toggle}
-                      className={styles.icon}
-                    />
-                    <div>{children}</div>
+                    <Wrapper className={headerStyle}>
+                      {this.renderHeader(header)}
+                      <Icon
+                        name="close"
+                        size="12"
+                        onClick={toggle}
+                        className={styles.icon}
+                      />
+                    </Wrapper>
+                    <Wrapper className={styles.body}>
+                      {children}
+                    </Wrapper>
+                    {!noFooter
+                      && <Wrapper className={styles.footer} direction="row">
+                        <Button
+                          title={buttonTitle}
+                          onClick={toggle}
+                          theme="secondary"
+                        />
+                      </Wrapper>
+                    }
                   </animated.div>
                 </animated.div>
               )
@@ -75,7 +121,7 @@ export default class Modal extends Component<propTypes>{
           }
         </Transition>
       </Portal>
-    )
+    );
   }
 }
 /* eslint-enable */

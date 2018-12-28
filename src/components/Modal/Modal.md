@@ -1,23 +1,121 @@
-modal:
+Modal:
+
+ * Modal use Portal Component, check configuration in Portal section.
+ * Use Toggle Component to display Modal easily.
+ * Display Header as a string or render function or nothing.
+ * Display Footer with close button or nothing.
+ * Display iframe.
+
+Tips: 
+ * If you need to display an iframe in Modal, set props "hasIframe" at true to fix width.
+
 
 ```js
 <Layout direction="column" styleGuidist>
-  <h2>Modal</h2>
-  <p><b>Modal</b> component need to be wrap with <b>Toggle</b> component like in exemple. Read <b>Toggle</b> section to have more informations.</p>
-  <p><b>Modal</b> use <b>Portal</b> component who need some adding to work. Read Portal section to get more informations.</p>
-
+  <h4>Modal with Header as string and default footer</h4>
  <Toggle>
   {({ on, toggle }) => (
    <div>
     <Button onClick={toggle}>Modal</Button>
-    <Modal on={on} toggle={toggle}>
-      <h3>Check the DOM! I'm a Modal in Portal</h3>
-      <p>Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. </p>
+    <Modal on={on} toggle={toggle} header="Modal title as a string props">
+      <Wrapper>
+       <p>body render with children</p>
+      </Wrapper>
     </Modal>
    </div>
   )}
  </Toggle>
 </Layout>
-
 ```
+
+```js
+const renderComp = () => (
+  <Card>
+  <h4>I'm a component</h4>
+  <p>You can use render function to pass component or custom render as header</p>
+  </Card>
+);
+
+<Layout direction="column" styleGuidist>
+ <h4>Modal with Header as a render function and default footer</h4>
+ <Toggle>
+  {({ on, toggle }) => (
+   <div>
+    <Button onClick={toggle}>Modal</Button>
+    <Modal on={on} toggle={toggle} header={renderComp}>
+      <Wrapper>
+        <p>body render with children</p>
+     </Wrapper>
+    </Modal>
+   </div>
+  )}
+ </Toggle>
+</Layout>
+```
+
+```js
+<Layout direction="column" styleGuidist>
+  <h4>Modal without Header and Footer</h4>
+ <Toggle>
+     {({ on, toggle }) => (
+      <div>
+       <Button onClick={toggle}>Modal</Button>
+       <Modal on={on} toggle={toggle} noFooter>
+         <Wrapper>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+          </Wrapper>
+       </Modal>
+      </div>
+     )}
+    </Toggle>
+</Layout>
+```
+
+```js
+<Layout direction="column" styleGuidist>
+  <h4>Modal with big body content</h4>
+ <Toggle>
+     {({ on, toggle }) => (
+      <div>
+       <Button onClick={toggle}>Modal</Button>
+       <Modal on={on} toggle={toggle} header="Modal title as a string props">
+         <Wrapper>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+            <p>Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto ornare tellivizzle. Phasellus yo erizzle. Fo shizzle mah nizzle fo rizzle, mah home g-dizzle volutpat accumsan break yo neck, yall. Sure diam daahng dawg, adipiscing vitae, gravida izzle, interdum you son of a bizzle, ante. pizzle bibendum maurizzle. in elit izzle augue porta break it down. Nam sed augue. Crazy sagittis. Shit eu lacus quis boofron posuere get down get down. Black own yo' tellizzle stuff felis crunk mollizzle. Integer odio. Fo shizzle scelerisque. Black magna eros, sheezy ass, porttitizzle dawg, imperdizzle egestas, fo shizzle my nizzle. Integer commodo break yo neck, yall lectizzle. Etiam sollicitudizzle for sure sizzle. Bow wow wow mi eros, convallis izzle, pellentesque yippiyo, ultricizzle crackalackin, nibh. Fusce erizzle crunk, facilisizzle eu, sollicitudizzle shiznit, shizznit ma nizzle, lectizzle. Fusce mauris dang, get down get down shit, adipiscing ut, shiznit sizzle amizzle, dope.</p>
+          </Wrapper>
+       </Modal>
+      </div>
+     )}
+    </Toggle>
+</Layout>
+```
+
+```js
+<Layout direction="column" styleGuidist>
+  <h4>Modal with iframe content</h4>
+ <Toggle>
+     {({ on, toggle }) => (
+      <div>
+       <Button onClick={toggle}>Modal</Button>
+       <Modal on={on} toggle={toggle} header="Modal title as a string props" hasIframe>
+       <Iframe
+         id="manomano"
+         title="manomano"
+         source="https://www.manomano.fr/"
+       />  
+       </Modal>
+      </div>
+     )}
+    </Toggle>
+</Layout>
+```
+
+
 
