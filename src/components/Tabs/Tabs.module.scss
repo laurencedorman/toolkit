@@ -1,0 +1,30 @@
+@import 'styles/import.scss';
+
+.tabs {
+
+  .tabList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .tabContent {
+    border-top: $border;
+    & > div {
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+.tabItem {
+  display: inline-flex;
+  padding: $space;
+  cursor: pointer;
+  transition: color $fastTimeout $in;
+
+  &:hover { color: $hover }
+
+  &.active { color: $blueMood }
+}

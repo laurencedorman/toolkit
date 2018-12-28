@@ -16,6 +16,7 @@ export { default as Select } from './Select';
 export { default as Sidebar } from './Sidebar';
 export { default as Switch } from './Switch';
 export { default as Table } from './Table';
+export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';
 export { default as Textarea } from './Textarea';
 export { default as Toggle } from './Toggle';
