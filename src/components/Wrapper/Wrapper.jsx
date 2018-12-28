@@ -17,27 +17,16 @@ const Wrapper = ({
     },
   );
 
-  return React.cloneElement(
-    renderType(type, children),
+  return React.createElement(
+    type,
     {
       className: classNames,
       type,
       direction,
     },
-
+    children,
   );
 };
-
-/* eslint-disable */
-const renderType = (type, children) => (
-  type === 'div'
-    ? <div>{children}</div>
-    : type === 'header'
-      ? <header>{children}</header>
-      : <footer>{children}</footer>
-);
-/* eslint-enable */
-
 
 type propTypes = {
   children: string | Node | () => void,
