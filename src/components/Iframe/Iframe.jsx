@@ -2,13 +2,13 @@
 import React from 'react';
 import styles from './Iframe.module.scss';
 
-const Iframe = ({ id, source, title }:propTypes) => (
+const Iframe = ({ id, src, title }:propTypes) => (
   <div className={styles.container}>
     <iframe
       id={id}
       title={title}
       className={styles.iframe}
-      src={source}
+      src={src}
       frameBorder="0"
     />
   </div>
@@ -16,7 +16,7 @@ const Iframe = ({ id, source, title }:propTypes) => (
 
 type propTypes = {
   id: string,
-  source: string,
+  src: string,
   title: string,
 }
 
