@@ -42,19 +42,20 @@ export default class Tabs extends Component<propTypes> {
 
     return (
       <Wrapper className={classNames}>
-        <ol className={styles.tabList}>
+        <Wrapper className={styles.tabList} direction="row">
           {children.map((child) => {
-            const { label } = child.props;
+            const { label, to } = child.props;
             return (
               <Tab
-                activeTab={activeTab}
                 key={label}
+                activeTab={activeTab}
                 label={label}
                 onClick={this.onClickTabItem}
+                to={to}
               />
             );
           })}
-        </ol>
+        </Wrapper>
 
         <GetMeasure>
           {({ size }) => (
@@ -66,11 +67,15 @@ export default class Tabs extends Component<propTypes> {
               to={{ height: 'auto' }}
             >
               {style => (
-                <animated.div style={style}>
-                  <Wrapper className={styles.tabContent}>
-                    {children.map((child) => {
+                <animated.div
+                  className={styles.tabContent}
+                  style={style}
+                >
+                  {children.map((child) => {
                       if (child.props.label !== activeTab) return undefined;
+
                       const isOn = child.props.label === activeTab;
+
                       return (
                         <Transition
                           native
@@ -78,6 +83,7 @@ export default class Tabs extends Component<propTypes> {
                           from={{ o: 0 }}
                           enter={{ o: 1 }}
                           leave={{ o: 0 }}
+                          key={child.props.label}
                         >
                           {isOn => isOn
                             && (
@@ -94,7 +100,6 @@ export default class Tabs extends Component<propTypes> {
                         </Transition>
                       );
                     })}
-                  </Wrapper>
                 </animated.div>
               )}
             </Spring>

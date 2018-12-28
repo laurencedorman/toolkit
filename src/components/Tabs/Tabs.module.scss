@@ -1,16 +1,20 @@
 @import 'styles/import.scss';
 
 .tabs {
-
   .tabList {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     width: 100%;
+    padding: 0;
   }
 
   .tabContent {
-    border-top: $border;
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: $space;
+    border-top: 1px solid $borderColor;
     & > div {
       position: relative;
       width: 100%;
@@ -21,10 +25,15 @@
 .tabItem {
   display: inline-flex;
   padding: $space;
+  background-color: $squidInk;
+  color: $white;
   cursor: pointer;
   transition: color $fastTimeout $in;
 
-  &:hover { color: $hover }
+  &:first-child { border-radius: $radius 0 0 0 }
+  &:last-child { border-radius: 0 $radius 0 0 }
 
-  &.active { color: $blueMood }
+  &:hover { background-color: $hover }
+
+  &.active { background-color: $blueMood }
 }

@@ -6,8 +6,6 @@
   align-items: flex-start;
   padding: $space;
   background-color: $white;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   &.row { flex-flow: row wrap }
   &.column { flex-flow: column wrap }
