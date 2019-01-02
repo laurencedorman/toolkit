@@ -17,18 +17,18 @@ const Input = ({
   disabled,
   required,
   helper,
-  valid,
   onChange,
   onFocus,
   onBlur,
   error,
+  messageError,
   hidden,
   icon,
   reverse,
 }: propTypes) => {
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
-    [styles.hasSuccess]: valid && value !== '',
+    [styles.hasSuccess]: !error && value !== '',
     [styles.reverse]: reverse && icon,
   });
 
@@ -42,8 +42,8 @@ const Input = ({
 
   /* eslint-disable no-nested-ternary */
   const handleIcon = () => (
-    (valid && value !== '' && !reverse)
-      ? <Icon name="check" size="32" className={styles.icon} />
+    (!error && value !== '' && !reverse)
+      ? <Icon name="check" size="22" className={styles.icon} />
       : icon
         ? <Icon name={icon} size="16" className={styles.icon} />
         : null
@@ -66,14 +66,13 @@ const Input = ({
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          valid={valid ? 1 : 0}
           hidden={hidden}
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
         { handleIcon() }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
-      {error && <span className={styles.error}>{error}</span>}
+      {error && <span className={styles.error}>{messageError}</span>}
     </div>
   /* eslint-enable jsx-a11y/label-has-for */
   );
@@ -89,8 +88,8 @@ type propTypes = {
   placeholder?: string,
   required?: boolean,
   disabled?: boolean,
-  valid?: boolean,
   error?: boolean,
+  messageError?: string,
   helper?: string,
   hidden?: boolean,
   onChange?: () => void,
@@ -106,8 +105,8 @@ Input.defaultProps = {
   required: false,
   disabled: false,
   helper: '',
-  valid: false,
   error: false,
+  messageError: '',
   hidden: false,
   onChange: null,
   onFocus: null,
