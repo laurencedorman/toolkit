@@ -1,8 +1,7 @@
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
-import { CreateElement } from 'components';
 import styles from './Tabs.module.scss';
 
 type propTypes = {
@@ -39,7 +38,6 @@ export default class Tab extends PureComponent<propTypes> {
 
     const classNames = cn(
       className,
-      styles.tabItem,
       { [styles.active]: activeTab === label },
     );
 
@@ -53,10 +51,10 @@ export default class Tab extends PureComponent<propTypes> {
       'aria-selected' : activeTab === label,
     };
 
-    return CreateElement(
+    return React.createElement(
       this.handleTag(),
+      { ... properties },
       label,
-      properties
     );
   }
 }

@@ -23,17 +23,20 @@
 }
 
 .tabItem {
+  position: relative;
   display: inline-flex;
-  padding: $space;
-  background-color: $squidInk;
-  color: $white;
   cursor: pointer;
-  transition: color $fastTimeout $in;
 
-  &:first-child { border-radius: $radius 0 0 0 }
-  &:last-child { border-radius: 0 $radius 0 0 }
+  & > span, & > a {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    padding: $space;
+    text-decoration: none;
 
-  &:hover { background-color: $hover }
+    &:hover { text-decoration: none }
 
-  &.active { background-color: $blueMood }
+    &.active { color: $blueMood }
+  }
 }

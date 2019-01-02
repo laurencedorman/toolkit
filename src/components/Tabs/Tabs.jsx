@@ -42,20 +42,22 @@ export default class Tabs extends Component<propTypes> {
 
     return (
       <Wrapper className={classNames}>
-        <Wrapper className={styles.tabList} direction="row">
+        <ul className={styles.tabList}>
           {children.map((child) => {
             const { label, to } = child.props;
             return (
-              <Tab
-                key={label}
-                activeTab={activeTab}
-                label={label}
-                onClick={this.onClickTabItem}
-                to={to}
-              />
+              <li className={styles.tabItem}>
+                <Tab
+                  key={label}
+                  activeTab={activeTab}
+                  label={label}
+                  onClick={this.onClickTabItem}
+                  to={to}
+                />
+              </li>
             );
           })}
-        </Wrapper>
+        </ul>
 
         <GetMeasure>
           {({ size }) => (
