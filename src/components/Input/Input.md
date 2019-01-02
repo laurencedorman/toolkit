@@ -1,4 +1,10 @@
 Input basic :
+
+ * Input is a controlled input.
+ * Check error or valid format with props error as boolean.
+ * Pass error message with props messageError.
+ * Pass helper message with props helper.
+
 ```js
 initialState = {value: ''};
 
@@ -39,7 +45,8 @@ initialState = {value: ''};
   name="withError"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-  error="error was found"
+  error
+  messageError="error was found"
 />
 ```
 
@@ -69,7 +76,8 @@ initialState = {value: ''};
     helper="An helper to display some informations!"
     value={state.value}
     onChange={e => setState({ value: e.target.value })}
-    error="error was found"
+    error
+    messageError="error was found"
 />
 ```
 
@@ -112,7 +120,6 @@ initialState = {value: 'Value is valid !'};
   name="Validated"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-  valid
 />
 ```
 
