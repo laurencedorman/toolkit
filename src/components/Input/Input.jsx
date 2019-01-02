@@ -25,6 +25,8 @@ const Input = ({
   hidden,
   icon,
   reverse,
+  min,
+  max,
 }: propTypes) => {
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
@@ -67,6 +69,8 @@ const Input = ({
           onFocus={onFocus}
           onBlur={onBlur}
           hidden={hidden}
+          min={min}
+          max={max}
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
         { handleIcon() }
@@ -97,6 +101,8 @@ type propTypes = {
   onBlur?: () => void,
   icon?: string,
   reverse?: boolean,
+  min?: number,
+  max?: number,
 };
 
 Input.defaultProps = {
@@ -113,6 +119,8 @@ Input.defaultProps = {
   onBlur: null,
   icon: '',
   reverse: false,
+  min: null,
+  max: null,
 };
 
 export default Input;
