@@ -16,4 +16,8 @@ describe('Button', () => {
   it('should render a children if props is true', () => {
     wrapper.setProps({ children: true });
   });
+
+  it('should render a children if props is true', () => {
+    wrapper.setProps({ title: true });
+  });
 });

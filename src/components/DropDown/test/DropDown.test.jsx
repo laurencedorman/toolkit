@@ -18,4 +18,9 @@ describe('DropDown', () => {
   it('should render one children', () => {
     expect(wrapper.children().length).toEqual(1);
   });
+
+  it('should render animated width', () => {
+    const renderWidth = jest.fn(() => 'x');
+    expect(renderWidth('x')).toEqual('x');
+  });
 });

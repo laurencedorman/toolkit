@@ -29,7 +29,7 @@ const InputCheckGroup = ({
       {inputGroupTitle
       && <span>{inputGroupTitle}</span>}
 
-      {options.map((option) => {
+      {options && options.map((option) => {
         const value = option.value ? option.value : option.label;
         return (
           <InputCheck

@@ -38,7 +38,7 @@ describe('Input', () => {
   });
 
   it('should render an indicator', () => {
-    wrapper.setProps({ indicator: true });
+    wrapper.setProps({ indicator: true, icon: false });
   });
 
   it('should render an helper span', () => {
