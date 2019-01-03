@@ -10,23 +10,26 @@ type propTypes = {
   children: Array<Node>,
 }
 
-/* eslint-disable */
+/* eslint no-shadow:  */
 export default class Tabs extends Component<propTypes> {
   static defaultProps = { className: '' };
 
   constructor(props) {
     super(props);
-    this.state = {
-      activeTab: props.children[0].props.label || props.children,
-    };
+    this.state = { activeTab: undefined };
   }
 
   componentDidMount() {
     const { children } = this.props;
-    children.map(child => (
-      child.props.defaultActive
+
+    if (children) {
+      this.onClickTabItem(children[0].props.label);
+
+      children.map(child => (
+        child.props.defaultActive
         && this.onClickTabItem(child.props.label)
-    ));
+      ));
+    }
   }
 
   onClickTabItem = tab => this.setState({ activeTab: tab });
@@ -43,20 +46,24 @@ export default class Tabs extends Component<propTypes> {
     return (
       <Wrapper className={classNames}>
         <ul className={styles.tabList}>
-          {children.map((child) => {
-            const { label, to } = child.props;
-            return (
-              <li className={styles.tabItem}>
-                <Tab
+          {children
+            && children.map((child) => {
+              const { label, to } = child.props;
+              return (
+                <li
+                  className={styles.tabItem}
                   key={label}
-                  activeTab={activeTab}
-                  label={label}
-                  onClick={this.onClickTabItem}
-                  to={to}
-                />
-              </li>
-            );
-          })}
+                >
+                  <Tab
+                    activeTab={activeTab}
+                    label={label}
+                    onClick={this.onClickTabItem}
+                    to={to}
+                  />
+                </li>
+              );
+            })
+          }
         </ul>
 
         <GetMeasure>
@@ -73,7 +80,8 @@ export default class Tabs extends Component<propTypes> {
                   className={styles.tabContent}
                   style={style}
                 >
-                  {children.map((child) => {
+                  {children
+                    && children.map((child) => {
                       if (child.props.label !== activeTab) return undefined;
 
                       const isOn = child.props.label === activeTab;
@@ -111,4 +119,4 @@ export default class Tabs extends Component<propTypes> {
     );
   }
 }
-/* eslint-enable */
+/* eslint shadow:  */
