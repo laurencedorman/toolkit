@@ -72,7 +72,7 @@ const Alert = ({
   );
 };
 
-const translate = (value) => {
+export const translate = (value) => {
   switch (value) {
     case 'topRight':
     case 'bottomRight': return 320;

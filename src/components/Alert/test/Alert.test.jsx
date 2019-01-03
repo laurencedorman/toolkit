@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Alert from '../Alert';
+import { animated } from 'react-spring';
+import Alert, { translate } from '../Alert';
+
 
 describe('Alert', () => {
-  const wrapper = shallow(<Alert />);
+  const toggle = jest.fn();
+  const TestAnimated = animated;
+
+  const wrapper = shallow(<Alert on={false} toggle={toggle} textAlert="test" />);
+
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
@@ -11,6 +17,10 @@ describe('Alert', () => {
 
   it('should render alert if props on is true', () => {
     wrapper.setProps({ on: true });
+  });
+
+  it('should render timeout close function if props timeout is declared', () => {
+    wrapper.setProps({ timeout: 300 });
   });
 
   it('should set position on bottom right if position is changed', () => {
@@ -23,5 +33,13 @@ describe('Alert', () => {
 
   it('should set position on bottom left if position is changed', () => {
     wrapper.setProps({ position: 'bottomLeft' });
+  });
+
+  it('instantiates', () => {
+    expect(TestAnimated).toBeTruthy();
+  });
+
+  test('translate', () => {
+    expect(translate('default')).toBe(320);
   });
 });
