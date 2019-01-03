@@ -8,4 +8,6 @@
   background-color: $white;
   border: 1px solid $borderColor;
   border-radius: $radius;
+
+  &:last-of-type { margin-bottom: 0 }
 }

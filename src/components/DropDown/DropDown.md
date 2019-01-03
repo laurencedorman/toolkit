@@ -1,6 +1,10 @@
+Custom light dropDown :
 
+  * Remove arrow indicator with props icon (true by default).
+  * Change background color with props backgroundColor.
+  * Add disabled property on object to disabled some item option.
+  * Add props 'right' at true to changed alignement container options.
 
-Custom basic dropDown :
 ```js
 initialState = {
   defaultValue: 'Default Value',
@@ -8,41 +12,35 @@ initialState = {
   option: [
     { 
       id: '0',
-      title: 'Jean-Louis Albert de la nocheeee',
+      title: 'option title 1',
       disabled: false,
     },
     { 
       id: '1',
-      title: 'Jean-Michel Albert de la noche de la magnananana',
+      title: 'option title 2 with extend title',
       disabled: false,
     },
     { 
       id: '2',
-      title: 'Jean-Jack',
+      title: 'option title 3',
       disabled: false,
     },
     { 
       id: '3',
-      title: 'Jean-Daniel',
+      title: 'option title 4 with disabled set at true',
       disabled: true,
     },
     { 
       id: '4',
-      title: 'Jean-Hervé',
+      title: 'option title 5',
       disabled: false,
     },
   ],
 };
 
 <Layout direction="column" styleGuidist>
-  <h2>DropDown</h2><br />
-  <p>Custom light DropDown with Button Design</p>
-  <ul>
-    <li>- Remove arrow indicator with props icon (true by default) </li>
-    <li>- Change background color with props backgroundColor</li>
-    <li>- Add disabled property on object to disabled some item option </li>
-    <li>- Add props 'right' at true to changed alignement container options</li>
-  </ul><br />
+  <h4>DropDown</h4>
+
     <Toggle>
      {({on, toggle}) => (
        <DropDown
