@@ -1,4 +1,5 @@
 export {
+  Alert,
   Button,
   Card,
   DropDown,

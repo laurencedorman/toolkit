@@ -1,0 +1,13 @@
+@import 'styles/import.scss';
+
+.alert {
+  position: fixed;
+  width: 300px;
+  cursor: pointer;
+  z-index: z($layers, modal);
+
+  &.right { right: $space }
+  &.left { left: $space }
+  &.top { top: $space }
+  &.bottom { bottom: $space }
+}

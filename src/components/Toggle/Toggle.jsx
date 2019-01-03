@@ -4,9 +4,7 @@ import { Component } from 'react';
 /**
  * @visibleName Toggle
  */
-type propTypes = {
-  children: Node,
-}
+type propTypes = { children: Node }
 
 export default class Toggle extends Component<propTypes> {
   constructor(props) {
