@@ -25,7 +25,7 @@ const Layout = ({
 type propTypes = {
   children: string | Node,
   className?: string,
-  direction?: string,
+  direction?: 'row' | 'column',
   styleGuidist?: boolean,
 };
 

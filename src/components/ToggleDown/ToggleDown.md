@@ -1,12 +1,11 @@
 
 Toggle Down:
+
+  * Toggle Down set hide/show content with smooth animation.
+  * Toggle Down component need to be wrap with <b>Toggle</b> component like in exemple. Read <b>Toggle</b> section to get more informations.
+
 ```js
 <Layout direction="column" styleGuidist>
-  <h2>Toggle Down</h2>
-  <p>Toggle Down set hide/show content with smooth animation.</p>
-  <p>Toggle Down component need to be wrap with <b>Toggle</b> component like in exemple. Read <b>Toggle</b> section to get more informations.</p>
-  
-
  <Toggle>
  {({ on, toggle }) => (
    <div>
