@@ -1,7 +1,7 @@
 Iframe example:
 
  * An iframe need to be wrap with a div with width and height defined.
- * Wrapper need to have overflow hidden.
+ * Please set Wrapper with overflow hidden.
 
 
 ```js
@@ -14,9 +14,9 @@ const style = {
 
 <div style={style}>
 <Iframe
-  id="supermano"
-  title="supermano"
-  src="https://www.supermano.fr/"
+  id="w3c"
+  title="w3c"
+  src="https://www.w3.org/"
 />  
 </div>
 

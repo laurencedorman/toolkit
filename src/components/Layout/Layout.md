@@ -1,13 +1,12 @@
 Layout:
 
+ * Simple container with Flex display.
+ * Set props <b>direction</b> to choose flex-direction <b>[row | column]</b>
+ * No style, just padding.
+
 ```js
 <Layout direction="column" styleGuidist>
-  <h2>Layout content</h2>
-  <ul>
-    <li>Simple container with Flex display</li>
-    <li><b>flexFlow</b> props to choose your direction <b>[row | column]</b></li>
-    <li>No style, just padding</li>
-    <li>styleGuidist boolean props to wrap component in Markdown</li>
-  </ul>
+  <h3>Layout content title</h3>
+  <p>content</p>
 </Layout>
 ```

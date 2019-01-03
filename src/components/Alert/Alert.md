@@ -13,11 +13,6 @@ Tips:
  * Force toggleOut on toggle props to avoid conflict between close click event and close timeout function
 
 ```js
-const style = {
-  alignItem: 'center',
-};
-
-<Layout direction="column" styleGuidist>  
  <Toggle>
   {({ on, toggle, toggleOut }) => (
    <div>
@@ -33,8 +28,11 @@ const style = {
    </div>
   )}
  </Toggle>
-  <br />
- <Toggle>
+
+```
+
+```js
+<Toggle>
    {({ on, toggle, toggleOut }) => (
     <div>
       <h4>Alert theme "default" position "bottomRight"</h4>
@@ -48,9 +46,11 @@ const style = {
      />
     </div>
    )}
-  </Toggle>
-  <br />
-  <Toggle>
+</Toggle>
+```
+
+```js
+<Toggle>
     {({ on, toggle, toggleOut }) => (
      <div>
      <h4>Alert theme "light" position "topLeft"</h4>
@@ -65,24 +65,24 @@ const style = {
       />
      </div>
     )}
-   </Toggle>
-    <br />
-   <Toggle>
-     {({ on, toggle, toggleOut }) => (
-      <div>
-       <h4>Alert theme "menthe" position "bottomLeft"</h4>
-       <Button onClick={toggle}>Click</Button>
-       <Alert
-         on={on}
-         toggle={toggleOut}
-         theme="menthe"
-         textAlert="Nunc yo arcu. Donec ante. We gonna chung placerizzle mauris at lectus. Morbi fo shizzle tortizzle. Crizzle yo mamma tortor nizzle mi consectetizzle sure. Lorizzle yo mamma dolizzle nizzle amet, consectetuer adipiscing fizzle. Ma nizzle fizzle arcu, things uhuh ... yih!, eleifend izzle, mollizzle in, est. Aliquizzle erat volutpizzle."
-         timeout={3000}
-         position="bottomLeft"
-       />
-      </div>
-     )}
-    </Toggle>
-</Layout>
+</Toggle>
 ```
 
+```js
+<Toggle>
+ {({ on, toggle, toggleOut }) => (
+  <div>
+   <h4>Alert theme "menthe" position "bottomLeft"</h4>
+   <Button onClick={toggle}>Click</Button>
+   <Alert
+     on={on}
+     toggle={toggleOut}
+     theme="menthe"
+     textAlert="Nunc yo arcu. Donec ante. We gonna chung placerizzle mauris at lectus. Morbi fo shizzle tortizzle. Crizzle yo mamma tortor nizzle mi consectetizzle sure. Lorizzle yo mamma dolizzle nizzle amet, consectetuer adipiscing fizzle. Ma nizzle fizzle arcu, things uhuh ... yih!, eleifend izzle, mollizzle in, est. Aliquizzle erat volutpizzle."
+     timeout={3000}
+     position="bottomLeft"
+   />
+  </div>
+ )}
+</Toggle>
+```

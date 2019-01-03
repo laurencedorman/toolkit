@@ -1,4 +1,10 @@
 Icon:
+
+  * Set the name with props <b>name</b>.
+  * You can resize icon with props <b>size</b>.
+  * Icon was in SVG.
+  * Ask you're MR if you need new icon.
+
 ```js
 const style = {
   display: 'flex',
@@ -21,11 +27,7 @@ const span = {
 };
 
 <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'flex-start'}}>
-<h2>Icon</h2>
-<p>Add some icon with simple use. Set the name with props <b>name=""</b> and that's it. You can resize icon with props <b>size=""</b>. Icon was made with SVG.</p>
-<p>This library will be update.</p>
-
-<div style={{width: '100%', marginTop: '30px'}}>
+<div style={{width: '100%'}}>
   <h4>INTERFACE</h4> 
 </div>
  
