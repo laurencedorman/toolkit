@@ -3,13 +3,13 @@
 
 * { margin: 0; padding: 0 }
 
-html { font-size: 0.875rem }
+html { font-size: 0.875rem !important }
 
 body {
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
   color: $squidInk;
-  line-height: 1.45;
+  line-height: 1.45 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
