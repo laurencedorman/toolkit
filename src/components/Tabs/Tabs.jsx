@@ -32,7 +32,7 @@ export default class Tabs extends Component<propTypes> {
     }
   }
 
-  onClickTabItem = tab => this.setState({ activeTab: tab });
+  onClickTabItem = labelTab => this.setState({ activeTab: labelTab });
 
   render() {
     const { children, className } = this.props;
