@@ -225,6 +225,10 @@ const span = {
   <IconComponent name="dotMenu" />
   <span style={span}>dotMenu</span>
 </div>
+<div style={style}> 
+  <IconComponent name="download" />
+  <span style={span}>download</span>
+</div>
 
 <div style={{width: '100%', marginTop: '1rem'}}>
   <h4>CATEGORIE</h4> 
