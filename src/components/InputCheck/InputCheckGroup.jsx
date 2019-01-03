@@ -12,7 +12,7 @@ const InputCheckGroup = ({
   direction,
   options,
   type,
-  groupName,
+  name,
   selectedOption,
   disabled,
   onChange,
@@ -23,23 +23,27 @@ const InputCheckGroup = ({
     styles[direction],
     className,
   );
+
   return (
     <div className={classNames} direction={direction}>
       {inputGroupTitle
-        && <span>{inputGroupTitle}</span>}
+      && <span>{inputGroupTitle}</span>}
 
-      {options.map(option => (
-        <InputCheck
-          type={type}
-          key={option.value}
-          name={groupName}
-          label={option.label}
-          value={option.value}
-          checked={selectedOption.indexOf(option.value) > -1}
-          disabled={disabled}
-          onChange={onChange}
-        />
-      ))}
+      {options.map((option) => {
+        const value = option.value ? option.value : option.label;
+        return (
+          <InputCheck
+            type={type}
+            key={option.value}
+            name={name}
+            label={option.label}
+            value={value}
+            checked={selectedOption.indexOf(value) > -1}
+            disabled={disabled}
+            onChange={onChange}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -49,7 +53,7 @@ type PropTypes = {
   direction?: 'horizontal' | 'vertical',
   options: Array<{label: string} | {value: string}>,
   type: 'radio' | 'checkbox',
-  groupName: string,
+  name: string,
   selectedOption?: string | Array<string>,
   disabled?: boolean,
   onChange?: (Event) => void,

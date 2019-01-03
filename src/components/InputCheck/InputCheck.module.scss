@@ -99,7 +99,11 @@ $bigSpace: 2em;
 
   .icon {
     position: absolute;
-    top: 0.08em; left: 0.10715em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: 0; left: 0;
+    width: 21px; height: 21px;
     z-index: z($sub-levels, max);
     svg {
       fill: $white;
