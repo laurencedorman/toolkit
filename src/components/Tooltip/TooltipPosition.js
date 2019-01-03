@@ -1,49 +1,51 @@
 const space = 16;
-const tooltipWidth = 176;
 const requiredSpace = 100;
+
 
 export const tooltipPosition = (ref, position) => {
   const {
     top, left, right, bottom, width, height,
   } = ref.getBoundingClientRect();
 
-  const bottomSpace = document.body.clientHeight - top - window.scrollY;
-  const sideSpace = document.body.clientWidth - left + window.scrollX;
   const leftSpace = left + width / 2 + window.scrollX;
 
   switch (true) {
-    case (window.innerHeight - bottom < requiredSpace && position === 'bottom') || position === 'top':
+    case (window.innerHeight - bottom < requiredSpace) && position === 'bottom':
+    case position === 'top' && top > requiredSpace:
       return {
         class: 'top',
         style: {
-          bottom: bottomSpace + space,
+          bottom: window.innerHeight - top + space,
           left: leftSpace,
         },
       };
 
-    case window.innerWidth - right < requiredSpace || position === 'left':
+    case window.innerWidth - right < requiredSpace:
+    case position === 'left' && left > requiredSpace:
       return {
         class: 'left',
         style: {
-          bottom: bottomSpace - space,
-          right: sideSpace + space,
+          top: top + (height / 2),
+          right: document.body.clientWidth - left + window.scrollX + space,
         },
       };
 
-    case left < requiredSpace || position === 'right':
+    case left < requiredSpace:
+    case position === 'right' && left > requiredSpace:
       return {
         class: 'right',
         style: {
-          bottom: bottomSpace - space,
-          right: sideSpace - tooltipWidth - width - space,
+          top: top + (height / 2),
+          left: right + space,
         },
       };
 
-    case top < requiredSpace || position === 'bottom':
+    case top < requiredSpace:
+    case position === 'bottom':
       return {
         class: 'bottom',
         style: {
-          bottom: document.body.clientHeight - bottom - height - (space * 2) - window.scrollY,
+          top: bottom + (space * 2),
           left: leftSpace,
         },
       };
@@ -51,9 +53,9 @@ export const tooltipPosition = (ref, position) => {
     default:
       return {
         class: 'top',
-        top: {
-          bottom: bottomSpace + space,
-          left: left + width / 2 + window.scrollX,
+        style: {
+          bottom: window.innerHeight - top + space,
+          left: leftSpace,
         },
       };
   }
