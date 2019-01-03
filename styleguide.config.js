@@ -1,6 +1,6 @@
 module.exports = {
   webpackConfig: require('./config/webpack.config.dev.js'),
-  title: 'Mano-Toolkit',
+  title: ' ',
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
   template: {
@@ -43,6 +43,7 @@ module.exports = {
   styles: {
     Logo: {
       logo: {
+        background: 'url("../src/assets/manomano_blanc.png") no-repeat',
         height: '100px',
         backgroundSize: 'contain',
       },

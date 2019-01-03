@@ -138,6 +138,21 @@ initialState = {value: ''};
 />
 ```
 
+Input with indicator :
+```js
+initialState = {value: ''};
+
+<Input
+  label="Input with icon"
+  type="text"
+  id="Icon"
+  name="Icon"
+  indicator="Indicator"
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+/>
+```
+
 Input with icon left :
 ```js
 initialState = {value: ''};

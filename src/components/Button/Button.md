@@ -1,6 +1,5 @@
 Default Button:
 
-disabled Button:
 ```js
 <Layout styleGuidist direction="row">
   <Button>Button</Button>
