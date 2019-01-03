@@ -6,7 +6,7 @@ import styles from './Wrapper.module.scss';
  * @visibleName Wrapper/Header/Footer
  */
 const Wrapper = ({
-  children, className, direction, type,
+  children, className, direction, type, style,
 }:propTypes) => {
   const classNames = cn(
     className,
@@ -23,6 +23,7 @@ const Wrapper = ({
       className: classNames,
       type,
       direction,
+      style,
     },
     children,
   );
@@ -32,12 +33,14 @@ type propTypes = {
   children: string | Node | () => void,
   className?: string,
   direction?: string,
-  type?: 'div' | 'header' | 'footer',
+  style?: Object,
+  type?: 'div' | 'header' | 'footer' | 'section',
 };
 
 Wrapper.defaultProps = {
   className: '',
   direction: 'column',
+  style: {},
   type: 'div',
 };
 
