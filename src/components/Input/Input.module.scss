@@ -13,7 +13,7 @@ $iconSpace: 40px;
   .helper, .error {
     display: block;
     width: 100%;
-    margin: 0;
+    margin: .25em 0 0 0;
     color: $greyDarker;
     font-size: 0.75rem;
     text-align: left
@@ -61,9 +61,9 @@ $iconSpace: 40px;
     box-sizing: border-box;
     font: 1rem/1.618 'Open Sans';
 
-    &.hasError {
-      border-color: $cocoCorail
-    }
+    &.hasError { border-color: $cocoCorail }
+
+    &.hasIndicator { padding-right: calc(30% + 2em) }
   }
 
   input:focus + label, &.hasValue input + label {
@@ -76,13 +76,19 @@ $iconSpace: 40px;
     cursor: not-allowed
   }
 
-  .icon {
+  .icon, .indicator {
     position: absolute;
     display: flex;
     align-items: center;
     height: 100%;
     top: 0; right: $space;
+    color: $greyDarker;
     svg { fill: $greyDarker }
+  }
+
+  .indicator {
+    max-width: 30%;
+    word-break: break-all;
   }
 
   &.hasSuccess {

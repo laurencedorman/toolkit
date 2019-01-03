@@ -26,7 +26,7 @@ describe('Input', () => {
   });
 
   it('should render specific className', () => {
-    wrapper.setProps({ value: 'value', valid: true });
+    wrapper.setProps({ value: 'value' });
   });
 
   it('should render specific className', () => {
@@ -34,11 +34,15 @@ describe('Input', () => {
   });
 
   it('should render an icon', () => {
-    wrapper.setProps({ valid: true, reverse: true });
+    wrapper.setProps({ icon: true });
+  });
+
+  it('should render an indicator', () => {
+    wrapper.setProps({ indicator: true });
   });
 
   it('should render an helper span', () => {
-    expect(wrapper.find('span').text()).toEqual('helper');
+    wrapper.setProps({ helper: 'helper' });
   });
 
   it('should render an error span', () => {

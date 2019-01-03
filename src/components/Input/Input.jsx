@@ -27,6 +27,7 @@ const Input = ({
   reverse,
   min,
   max,
+  indicator,
 }: propTypes) => {
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
@@ -40,6 +41,7 @@ const Input = ({
 
   const inputStyle = cn({
     [styles.hasError]: error,
+    [styles.hasIndicator]: indicator,
   });
 
   /* eslint-disable no-nested-ternary */
@@ -49,6 +51,11 @@ const Input = ({
       : icon
         ? <Icon name={icon} size="16" className={styles.icon} />
         : null
+  );
+
+  const handleIndicator = () => (
+    (indicator && !icon)
+      && <span className={styles.indicator}>{indicator}</span>
   );
   /* eslint-enable no-nested-ternary */
 
@@ -74,6 +81,7 @@ const Input = ({
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
         { handleIcon() }
+        { handleIndicator() }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
@@ -103,6 +111,7 @@ type propTypes = {
   reverse?: boolean,
   min?: number,
   max?: number,
+  indicator?: string
 };
 
 Input.defaultProps = {
@@ -121,6 +130,7 @@ Input.defaultProps = {
   reverse: false,
   min: null,
   max: null,
+  indicator: null,
 };
 
 export default Input;
