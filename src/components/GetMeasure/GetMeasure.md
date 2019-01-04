@@ -20,7 +20,5 @@ GetMeasure:
       </div>
     )}
   </GetMeasure>
-
 </Layout>
-
 ```
