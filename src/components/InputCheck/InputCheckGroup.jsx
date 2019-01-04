@@ -34,7 +34,7 @@ const InputCheckGroup = ({
         return (
           <InputCheck
             type={type}
-            key={option.value}
+            key={value}
             name={name}
             label={option.label}
             value={value}
