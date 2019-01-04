@@ -55,4 +55,44 @@ initialState = {
 </Layout>
 ```
 
+```js
+initialState = {
+  defaultValue: 'Default Value',
+  currentValue: '',
+  option: [
+    { 
+      id: '5',
+      title: 'option title 5',
+      disabled: false,
+    },
+    { 
+      id: '6',
+      title: 'option title 6 with extend title',
+      disabled: false,
+    },
+    { 
+      id: '7',
+      title: 'option title 7',
+      disabled: false,
+    },
+  ],
+};
+
+<Layout direction="column" styleGuidist>
+    <Toggle>
+     {({on, toggle}) => (
+       <DropDown
+         on={on}
+         right
+         toggle={toggle}
+         options={state.option}
+         title={state.currentValue !== '' ? state.currentValue : state.defaultValue}
+         itemClick={e => setState({currentValue: e.currentTarget.dataset.value})}
+       />
+     )}
+    </Toggle>
+</Layout>
+```
+
+
 

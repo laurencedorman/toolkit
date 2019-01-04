@@ -16,6 +16,8 @@ $smallSpace: .75em;
   transition: all .15s ease;
   touch-action: manipulation;
 
+  &:focus { outline: none }
+
   &.default, &.primary {
     color: $white;
     svg { fill: $white }
