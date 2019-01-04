@@ -59,20 +59,23 @@ export default class DropDown extends PureComponent<propTypes> {
         right={right ? 1 : 0}
       >
         <ul className={styles.list}>
-          {options.map(item => (
-            <li
-              key={item.id.toString()}
-              className={itemOption(item)}
-              data-id={item.id}
-              data-value={item.title}
-              disabled={item.disabled}
-              onClick={!item.disabled ? itemClick : null}
-            >
-            <span onClick={!item.disabled ? toggle : null} key={item.id.toString()}>
-              {item.title}
-            </span>
-            </li>
-          ))}
+          {options.map((item, index) => {
+            const key = item.id ? item.id.toString() : index;
+            return (
+              <li
+                key={key}
+                className={itemOption(item)}
+                data-id={item.id}
+                data-value={item.title}
+                disabled={item.disabled}
+                onClick={!item.disabled ? itemClick : null}
+              >
+              <span onClick={!item.disabled ? toggle : null} key={key}>
+                {item.title}
+              </span>
+              </li>
+            )
+          })}
         </ul>
       </div>
     );
