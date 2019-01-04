@@ -59,8 +59,8 @@ export default class DropDown extends PureComponent<propTypes> {
         right={right ? 1 : 0}
       >
         <ul className={styles.list}>
-          {options.map(item => {
-            const key = item.title ? item.title : item.id;
+          {options.map((item, index) => {
+            const key = item.id ? item.id.toString() : index;
             return (
               <li
                 key={key}
