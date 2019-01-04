@@ -51,6 +51,7 @@ export default class DropDown extends PureComponent<propTypes> {
       className,
       { [styles.disabled]: item.disabled },
     );
+
     /* eslint-disable */
     return (
       <div
@@ -58,20 +59,23 @@ export default class DropDown extends PureComponent<propTypes> {
         right={right ? 1 : 0}
       >
         <ul className={styles.list}>
-          {options.map((item, index) => (
-            <li
-              key={index}
-              className={itemOption(item)}
-              data-id={item.id}
-              data-value={item.title}
-              disabled={item.disabled}
-              onClick={!item.disabled ? itemClick : null}
-            >
-              <span onClick={!item.disabled ? toggle : null} key={item.title}>
+          {options.map(item => {
+            const key = item.title ? item.title : item.id;
+            return (
+              <li
+                key={key}
+                className={itemOption(item)}
+                data-id={item.id}
+                data-value={item.title}
+                disabled={item.disabled}
+                onClick={!item.disabled ? itemClick : null}
+              >
+              <span onClick={!item.disabled ? toggle : null} key={key}>
                 {item.title}
               </span>
-            </li>
-          ))}
+              </li>
+            )
+          })}
         </ul>
       </div>
     );
