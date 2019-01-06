@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
 type propTypes = { children: Node }
@@ -26,10 +26,9 @@ export default class GetMeasure extends Component<propTypes> {
     const { children } = this.props;
     const { size } = this.state;
 
-    return (
-      <div ref={(el) => { this.el = el; }}>
-        {children({ size })}
-      </div>
-    );
+    return children({
+      size,
+      ref: (el) => { this.el = el; },
+    });
   }
 }
