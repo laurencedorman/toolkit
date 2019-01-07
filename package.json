@@ -9,13 +9,15 @@
   "dependencies": {
     "classnames": "2.2.6",
     "react-select": "2.1.2",
-    "react-spring": "6.1.8"
+    "react-spring": "6.1.8",
+    "react-table": "6.8.6"
   },
   "peerDependencies": {
     "react": "16.4.2",
     "react-dom": "16.5.2",
     "react-select": "2.1.2",
-    "react-spring": "6.1.8"
+    "react-spring": "6.1.8",
+    "react-table": "6.8.6"
   },
   "devDependencies": {
     "@babel/core": "7.0.1",

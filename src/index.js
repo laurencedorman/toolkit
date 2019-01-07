@@ -17,6 +17,7 @@ export {
   Select,
   Sidebar,
   Switch,
+  Table,
   Tag,
   Textarea,
   Toggle,

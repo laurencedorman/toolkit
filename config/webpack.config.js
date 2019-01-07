@@ -269,6 +269,14 @@ module.exports = function (webpackEnv) {
         },
       },
       {
+        'react-table': {
+          root: 'react-table',
+          commonjs2: 'react-table',
+          commonjs: 'react-table',
+          amd: 'react-table',
+        },
+      },
+      {
         react: {
           root: 'React',
           commonjs2: 'react',
