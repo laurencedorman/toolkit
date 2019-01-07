@@ -43,11 +43,14 @@
     transition: max-height $timeout $in,
   }
 
+  &.right, &.sideLeft, &.sideRight { left: initial }
+
   &.right {
-    left: initial;
     right: 0;
     li { text-align: right }
   }
+
+  &.sideLeft, &.sideRight { bottom: 0 }
 
   .list {
     display: flex;
