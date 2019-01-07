@@ -98,8 +98,8 @@ export default class DropDown extends PureComponent<propTypes> {
     typeof title === 'string'
       ? title
       : typeof title === 'function'
-      ? header()
-      : null
+        ? title()
+        : null
   );
 
   render() {
