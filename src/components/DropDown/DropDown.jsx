@@ -58,7 +58,7 @@ export default class DropDown extends PureComponent<propTypes> {
     );
 
     const setPosition = {
-      top: size.bottom,
+      top: size.bottom - window.scrollY,
       left: !right && `${size.left}px`,
       right: right && `${window.innerWidth - size.right}px`,
     };
@@ -113,33 +113,36 @@ export default class DropDown extends PureComponent<propTypes> {
 
     return (
       <GetMeasure>
-        {({ size, ref }) => (
-          <div className={wrapper}>
-          {on
-            && <div className={styles.closeTarget} onClick={toggle} />}
-            <Spring
-              force
-              native
-              config={{ tension: 290, friction: 20, mass: 0.2 }}
-              from={{ w: size.width }}
-              to={{ w: 'auto' }}
-            >
-              {({ w }) => (
-                <animated.div
-                  className={styles.animated}
-                  style={{
-                    width: w.interpolate(w => w),
-                    backgroundColor,
-                  }}
-                >
-                  <Button
-                    ref={ref}
-                    onClick={toggle}
-                    className={styles.button}
-                    disabled={disabled}
+        {({ size, ref }) => {
+          console.log(size);
+          console.log(window.scrollY);
+          return (
+            <div className={wrapper}>
+              {on
+              && <div className={styles.closeTarget} onClick={toggle} />}
+              <Spring
+                force
+                native
+                config={{ tension: 290, friction: 20, mass: 0.2 }}
+                from={{ w: size.width }}
+                to={{ w: 'auto' }}
+              >
+                {({ w }) => (
+                  <animated.div
+                    className={styles.animated}
+                    style={{
+                      width: w.interpolate(w => w),
+                      backgroundColor,
+                    }}
                   >
-                    {title}
-                    {icon
+                    <Button
+                      ref={ref}
+                      onClick={toggle}
+                      className={styles.button}
+                      disabled={disabled}
+                    >
+                      {title}
+                      {icon
                       && (
                         <Icon
                           name="chevron-left"
@@ -147,14 +150,15 @@ export default class DropDown extends PureComponent<propTypes> {
                           className={iconButton}
                         />
                       )
-                    }
-                  </Button>
-                </animated.div>
-              )}
-            </Spring>
-            {this.renderOptions(on, toggle, size)}
-          </div>
-        )}
+                      }
+                    </Button>
+                  </animated.div>
+                )}
+              </Spring>
+              {this.renderOptions(on, toggle, size)}
+            </div>
+          )
+        }}
       </GetMeasure>
     );
   }
