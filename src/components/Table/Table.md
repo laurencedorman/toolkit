@@ -1,4 +1,6 @@
-Table example:
+Table:
+
+ * Table used React-table library.
 
 ```js
 <Table

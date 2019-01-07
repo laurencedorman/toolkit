@@ -9,8 +9,8 @@ const Table = ({
   className, columns, data, defaultPageSize, loading,
 }: propTypes) => {
   const classNames = cn(
-    defaultStyles,
     styles.table,
+    defaultStyles,
     className,
     '-striped',
     '-highlight',
