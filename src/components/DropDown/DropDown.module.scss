@@ -51,6 +51,7 @@
   }
 
   li {
+    position: relative;
     padding: $halfSpace $space;
     white-space: nowrap;
     cursor: pointer;
@@ -68,7 +69,14 @@
       &:hover { background-color: $greyDark }
     }
 
-    span { display: inline-flex }
+    span {
+      display: inline-flex;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+    }
   }
 }
 
