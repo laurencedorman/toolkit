@@ -19,9 +19,9 @@
 }
 
 .container {
-  position: absolute;
-  top: 48px; left: 0;
+  position: fixed;
   max-height: 0;
+  margin-top: $halfSpace !important;
   border: $border $borderColor;
   border-radius: $radius;
   background-color: $white;
@@ -36,11 +36,6 @@
               0 5px 5px -3px rgba(0, 0, 0, .2);
   z-index: z($layers, nav);
 
-  &.right {
-    left: initial;
-    right: 0;
-  }
-
   &.show {
     min-height: 53px;
     max-height: 197px;
@@ -48,17 +43,21 @@
     transition: max-height $timeout $in,
   }
 
+  &.right li { text-align: right }
+
   .list {
     display: flex;
     flex-flow: column wrap;
   }
 
   li {
+    position: relative;
     padding: $halfSpace $space;
     white-space: nowrap;
     cursor: pointer;
     transition: background-color $timeout $in;
-    &:hover {
+
+    &:hover, &.active {
       background-color: $squidInk;
       color: $white;
     }
@@ -70,7 +69,14 @@
       &:hover { background-color: $greyDark }
     }
 
-    span { display: flex }
+    span {
+      display: inline-flex;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+    }
   }
 }
 

@@ -12,27 +12,27 @@ initialState = {
   option: [
     { 
       id: '0',
-      title: 'option title 1',
+      value: 'option title 1',
       disabled: false,
     },
     { 
       id: '1',
-      title: 'option title 2 with extend title',
+      value: 'option title 2 with extend title',
       disabled: false,
     },
     { 
       id: '2',
-      title: 'option title 3',
+      value: 'option title 3',
       disabled: false,
     },
     { 
       id: '3',
-      title: 'option title 4 with disabled set at true',
+      value: 'option title 4 with disabled set at true',
       disabled: true,
     },
-    { 
+    {   
       id: '4',
-      title: 'option title 5',
+      value: 'option title 5',
       disabled: false,
     },
   ],
@@ -47,8 +47,9 @@ initialState = {
          on={on}
          toggle={toggle}
          options={state.option}
+         active={state.currentValue}
          title={state.currentValue !== '' ? state.currentValue : state.defaultValue}
-         itemClick={e => setState({currentValue: e.currentTarget.dataset.value})}
+         onClick={e => setState({currentValue: e.currentTarget.dataset.value})}
        />
      )}
     </Toggle>
@@ -62,32 +63,34 @@ initialState = {
   option: [
     { 
       id: '5',
-      title: 'option title 5',
+      value: 'option title 5',
       disabled: false,
     },
     { 
       id: '6',
-      title: 'option title 6 with extend title',
+      value: 'option title 6 with extend title',
       disabled: false,
     },
     { 
       id: '7',
-      title: 'option title 7',
+      value: 'option title 7',
       disabled: false,
     },
   ],
 };
-
+  
 <Layout direction="column" styleGuidist>
     <Toggle>
      {({on, toggle}) => (
        <DropDown
          on={on}
-         right
          toggle={toggle}
          options={state.option}
-         title={state.currentValue !== '' ? state.currentValue : state.defaultValue}
-         itemClick={e => setState({currentValue: e.currentTarget.dataset.value})}
+         right
+         icon={false}
+         title="title"
+         active={state.currentValue}
+         onClick={e => setState({currentValue: e.currentTarget.dataset.value})}
        />
      )}
     </Toggle>

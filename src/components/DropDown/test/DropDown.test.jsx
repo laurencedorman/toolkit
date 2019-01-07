@@ -16,6 +16,6 @@ describe('DropDown', () => {
   });
 
   it('should render one children', () => {
-    expect(wrapper.children().length).toEqual(2);
+    expect(wrapper.children().length).toEqual(1);
   });
 });

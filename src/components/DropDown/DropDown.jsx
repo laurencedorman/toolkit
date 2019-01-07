@@ -3,7 +3,9 @@ import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 
-import { Button, GetMeasure, Icon } from 'components';
+import {
+  Button, GetMeasure, Icon, Portal,
+} from 'components';
 
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
@@ -17,26 +19,28 @@ type propTypes = {
   right?: boolean,
   on: boolean,
   toggle: () => void,
-  itemClick: () => void,
+  onClick: () => void,
   className?: string,
   disabled?: boolean,
+  active?: string,
   icon?: boolean,
   backgroundColor?: string,
 };
 
-
+/* eslint-disable */
 export default class DropDown extends PureComponent<propTypes> {
   static defaultProps = {
     right: false,
     disabled: false,
+    active: null,
     icon: true,
     backgroundColor: colors.balataGreen,
     className: '',
   };
 
-  renderOptions = (on, toggle) => {
+  renderOptions = (on, toggle, size) => {
     const {
-      options, itemClick, right, className,
+      options, right, className, onClick, active,
     } = this.props;
 
     const container = cn(
@@ -50,34 +54,45 @@ export default class DropDown extends PureComponent<propTypes> {
     const itemOption = item => cn(
       className,
       { [styles.disabled]: item.disabled },
+      { [styles.active]: (item.value || item.id) === active },
     );
 
-    /* eslint-disable */
+    const setPosition = {
+      top: size.bottom,
+      left: !right && `${size.left}px`,
+      right: right && `${window.innerWidth - size.right}px`,
+    };
+
     return (
-      <div
-        className={container}
-        right={right ? 1 : 0}
-      >
-        <ul className={styles.list}>
-          {options.map((item, index) => {
-            const key = item.id ? item.id.toString() : index;
-            return (
-              <li
-                key={key}
-                className={itemOption(item)}
-                data-id={item.id}
-                data-value={item.title}
-                disabled={item.disabled}
-                onClick={!item.disabled ? itemClick : null}
-              >
-              <span onClick={!item.disabled ? toggle : null} key={key}>
-                {item.title}
-              </span>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+      <Portal>
+        <div
+          className={container}
+          style={setPosition}
+        >
+          <ul className={styles.list}>
+            {options.map((item, index) => {
+              const key = item.id ? item.id.toString() : index;
+              return (
+                <li
+                  key={key}
+                  className={itemOption(item)}
+                  data-id={item.id}
+                  data-value={item.value}
+                  disabled={item.disabled}
+                  onClick={!item.disabled ? onClick : null}
+                >
+                  <span
+                    onClick={!item.disabled ? toggle : null}
+                    key={key}
+                  >
+                    {item.value && item.value}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </Portal>
     );
   };
 
@@ -97,11 +112,11 @@ export default class DropDown extends PureComponent<propTypes> {
     );
 
     return (
-      <div className={wrapper}>
-        {on
-          && <div className={styles.closeTarget} onClick={toggle} />}
-        <GetMeasure>
-          {({ size }) => (
+      <GetMeasure>
+        {({ size, ref }) => (
+          <div className={wrapper}>
+          {on
+            && <div className={styles.closeTarget} onClick={toggle} />}
             <Spring
               force
               native
@@ -114,10 +129,11 @@ export default class DropDown extends PureComponent<propTypes> {
                   className={styles.animated}
                   style={{
                     width: w.interpolate(w => w),
-                    backgroundColor: backgroundColor,
+                    backgroundColor,
                   }}
                 >
                   <Button
+                    ref={ref}
                     onClick={toggle}
                     className={styles.button}
                     disabled={disabled}
@@ -136,10 +152,10 @@ export default class DropDown extends PureComponent<propTypes> {
                 </animated.div>
               )}
             </Spring>
-          )}
-        </GetMeasure>
-        {this.renderOptions(on, toggle)}
-      </div>
+            {this.renderOptions(on, toggle, size)}
+          </div>
+        )}
+      </GetMeasure>
     );
   }
 }
