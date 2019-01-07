@@ -19,9 +19,9 @@
 }
 
 .container {
-  position: fixed;
+  position: absolute;
   max-height: 0;
-  margin-top: $halfSpace !important;
+  left: 0;
   border: $border $borderColor;
   border-radius: $radius;
   background-color: $white;
@@ -43,7 +43,11 @@
     transition: max-height $timeout $in,
   }
 
-  &.right li { text-align: right }
+  &.right {
+    left: initial;
+    right: 0;
+    li { text-align: right }
+  }
 
   .list {
     display: flex;

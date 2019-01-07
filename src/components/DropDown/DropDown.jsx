@@ -4,7 +4,7 @@ import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 
 import {
-  Button, GetMeasure, Icon, Portal,
+  Button, GetMeasure, Icon,
 } from 'components';
 
 import colors from '../../styles/colors';
@@ -14,7 +14,7 @@ import styles from './DropDown.module.scss';
  * @visibleName DropDown
  */
 type propTypes = {
-  title: string | Node,
+  title: string | Node | () => void,
   options: Array,
   right?: boolean,
   on: boolean,
@@ -25,6 +25,7 @@ type propTypes = {
   active?: string,
   icon?: boolean,
   backgroundColor?: string,
+  iconType?: 'string',
 };
 
 /* eslint-disable */
@@ -36,6 +37,7 @@ export default class DropDown extends PureComponent<propTypes> {
     icon: true,
     backgroundColor: colors.balataGreen,
     className: '',
+    iconType: 'chevron-left',
   };
 
   renderOptions = (on, toggle, size) => {
@@ -58,47 +60,51 @@ export default class DropDown extends PureComponent<propTypes> {
     );
 
     const setPosition = {
-      top: `${size.bottom - window.scrollY}px`,
-      left: !right && `${size.left}px`,
-      right: right && `${window.innerWidth - size.right}px`,
+      top: `${size.height + 8}px`,
     };
 
     return (
-      <Portal>
-        <div
-          className={container}
-          style={setPosition}
-        >
-          <ul className={styles.list}>
-            {options.map((item, index) => {
-              const key = item.id ? item.id.toString() : index;
-              return (
-                <li
+      <div
+        className={container}
+        style={setPosition}
+      >
+        <ul className={styles.list}>
+          {options.map((item, index) => {
+            const key = item.id ? item.id.toString() : index;
+            return (
+              <li
+                key={key}
+                className={itemOption(item)}
+                data-id={item.id}
+                data-value={item.value}
+                disabled={item.disabled}
+                onClick={!item.disabled ? onClick : null}
+              >
+                <span
+                  onClick={!item.disabled ? toggle : null}
                   key={key}
-                  className={itemOption(item)}
-                  data-id={item.id}
-                  data-value={item.value}
-                  disabled={item.disabled}
-                  onClick={!item.disabled ? onClick : null}
                 >
-                  <span
-                    onClick={!item.disabled ? toggle : null}
-                    key={key}
-                  >
-                    {item.value && item.value}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </Portal>
+                  {item.value}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   };
 
+  renderTitle = title => (
+    typeof title === 'string'
+      ? title
+      : typeof title === 'function'
+      ? header()
+      : null
+  );
+
   render() {
     const {
-      title, on, toggle, className, disabled, icon, backgroundColor,
+      title, on, toggle, className, disabled, icon, backgroundColor, iconType,
     } = this.props;
 
     const wrapper = cn(
@@ -138,15 +144,15 @@ export default class DropDown extends PureComponent<propTypes> {
                     className={styles.button}
                     disabled={disabled}
                   >
-                    {title}
+                    {this.renderTitle(title)}
                     {icon
-                    && (
-                      <Icon
-                        name="chevron-left"
-                        size="10"
-                        className={iconButton}
-                      />
-                    )
+                      && (
+                        <Icon
+                          name={iconType}
+                          size="10"
+                          className={iconButton}
+                        />
+                      )
                     }
                   </Button>
                 </animated.div>
