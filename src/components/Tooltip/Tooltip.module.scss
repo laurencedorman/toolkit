@@ -14,25 +14,23 @@ $marginArrow: -10px;
       position: relative;
       max-width: 180px;
       padding: calc(#{$space} / 2) $space;
-      background-color: $squidInk;
       border-radius: $radius;
       color: $white;
       text-align: center;
       will-change: unset;
     }
 
-    &.top, &.bottom {transform: translateX(-50%)}
-    &.left, &.right {
-      width: 160px;
-      transform: translateY(50%);
-    }
+    &.top, &.bottom { transform: translateX(-50%) }
+    &.left, &.right { transform: translateY(-50%) }
   }
 
-  .span {
+  .content {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-backface-visibility: hidden;
     font-size: .9rem;
+    white-space: normal;
+    word-break: break-word;
   }
 }
 
@@ -43,10 +41,7 @@ $marginArrow: -10px;
   top: 0; left: 0;
   z-index: -1;
 
-  svg {
-    position: absolute;
-    fill: $squidInk
-  }
+  svg { position: absolute }
 
   .top &, .bottom & { justify-content: center }
   .left &, .right & { align-items: center }
@@ -87,4 +82,9 @@ $marginArrow: -10px;
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
+
+  &.extend {
+    width: 100%;
+    justify-content: center;
+  }
 }

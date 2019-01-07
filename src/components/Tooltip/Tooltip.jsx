@@ -14,15 +14,17 @@ let addTooltipPosition;
 
 type propTypes = {
   children: string | Node | () => void,
-  content: string | Node,
+  content: string | Node | () => void,
   position?: 'top' | 'right' | 'bottom' | 'left',
   className?: string,
+  bgColor?: string,
 };
 
 export default class Tooltip extends PureComponent<propTypes> {
   static defaultProps = {
     position: 'top',
     className: '',
+    bgColor: '#0c193a',
   };
 
   constructor(props) {
@@ -40,8 +42,18 @@ export default class Tooltip extends PureComponent<propTypes> {
     toggleIn();
   };
 
+  /* eslint-disable no-nested-ternary */
+  renderContent = content => (
+    typeof content === 'string'
+      ? <span>{content}</span>
+      : typeof content === 'function'
+        ? content()
+        : null
+  );
+  /* eslint-enable no-nested-ternary */
+
   renderTooltip = (display) => {
-    const { content } = this.props;
+    const { content, bgColor } = this.props;
 
     /* eslint-disable */
     return (
@@ -67,6 +79,7 @@ export default class Tooltip extends PureComponent<propTypes> {
                       style={{
                         opacity: o.interpolate(o => o),
                         transform: s.interpolate(s => `scale(${s})`),
+                        backgroundColor: bgColor,
                       }}
                     >
                       <div className={styles.svg}>
@@ -75,12 +88,12 @@ export default class Tooltip extends PureComponent<propTypes> {
                              width="16"
                              height="16"
                         >
-                          <path d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z" />
+                          <path d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z" fill={bgColor} />
                         </svg>
                       </div>
-                      <span className={styles.span}>
-                         {content}
-                      </span>
+                      <div className={styles.content}>
+                        {this.renderContent(content)}
+                      </div>
                     </animated.div>
                   </div>
                 </div>
@@ -91,7 +104,6 @@ export default class Tooltip extends PureComponent<propTypes> {
         </Transition>
       </Portal>
     );
-    /* eslint-enable */
   };
 
   render() {
@@ -102,7 +114,6 @@ export default class Tooltip extends PureComponent<propTypes> {
       className,
     );
 
-    /* eslint-disable */
     return (
       <Toggle>
         {({ on, toggleIn, toggleOut }) => (
@@ -114,9 +125,9 @@ export default class Tooltip extends PureComponent<propTypes> {
               ref={this.transmitter}
               role="button"
             >
-              {children}
-            </span>
-            {this.renderTooltip(on)}
+            {children}
+          </span>
+          {this.renderTooltip(on)}
           </Fragment>
         )}
       </Toggle>
