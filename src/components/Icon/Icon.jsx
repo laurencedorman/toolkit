@@ -48,7 +48,7 @@ type propTypes = {
   className?: string,
   name: string,
   size?: number,
-  fill?: string,
+  fill?: string | () => void,
 };
 
 IconComponent.defaultProps = {
