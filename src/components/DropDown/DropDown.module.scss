@@ -17,6 +17,11 @@
     transition: transform $timeout $in;
     &.rotate { transform: rotate(90deg) }
   }
+
+  &.dark svg {
+    fill: $squidInk !important;
+    &:hover { fill: $balataGreen !important }
+  }
 }
 
 .container {

@@ -165,7 +165,7 @@ initialState = {
   ],
 };
 
-renderTitle = () => <IconComponent name="dotMenu" size="18" />;
+renderTitle = () => <IconComponent name="help-circle" size="32" />;
 
 <Layout direction="column" styleGuidist>
     <h4>DropDown with sideRight options</h4>
@@ -175,8 +175,10 @@ renderTitle = () => <IconComponent name="dotMenu" size="18" />;
          on={on}
          toggle={toggle}
          options={state.option}
-         sideRight
          icon={false}
+         sideRight
+         backgroundColor="transparent"
+         dark
          active={state.currentValue}
          title={renderTitle}
          onClick={e => setState({currentValue: e.currentTarget.dataset.value})}
