@@ -27,7 +27,7 @@
   border-radius: $radius;
   background-color: $white;
   box-sizing: border-box;
-  transition: max-height $timeout $in,
+  transition: max-height $timeout cubic-bezier(0.4, 0.0, 1, 1),
               visibility 0ms $in $timeout;
   overflow-x: hidden;
   overflow-y: auto;
@@ -36,12 +36,14 @@
               0 3px 14px 2px rgba(0, 0, 0, .12),
               0 5px 5px -3px rgba(0, 0, 0, .2);
   z-index: z($layers, nav);
+  will-change: max-height;
 
   &.show {
-    min-height: 53px;
     max-height: 250px;
     visibility: visible;
-    transition: max-height $timeout $in,
+    transition: visibility 0ms $in,
+                max-height $timeout cubic-bezier(0.0, 0.0, 0.2, 1) .1ms;
+    will-change: max-height;
   }
 
   &.right, &.sideLeft, &.sideRight { left: initial }
