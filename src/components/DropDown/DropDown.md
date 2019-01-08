@@ -80,6 +80,7 @@ initialState = {
 };
   
 <Layout direction="column" styleGuidist>
+    <h4>DropDown with right options</h4>
     <Toggle>
      {({on, toggle}) => (
        <DropDown
@@ -97,5 +98,92 @@ initialState = {
 </Layout>
 ```
 
+```js
+initialState = {
+  defaultValue: 'Default Value',
+  currentValue: '',
+  option: [
+    { 
+      id: '8',
+      value: 'option title 8',
+      disabled: false,
+    },
+    { 
+      id: '9',
+      value: 'option title 9 with extend title',
+      disabled: false,
+    },
+    { 
+      id: '10',
+      value: 'option title 10',
+      disabled: false,
+    },
+  ],
+};
+
+renderTitle = () => <IconComponent name="dotMenu" size="18" />;
+
+<Layout direction="column" styleGuidist>
+    <h4>DropDown with sideLeft options</h4>
+    <Toggle>
+     {({on, toggle}) => (
+       <DropDown
+         on={on}
+         toggle={toggle}
+         options={state.option}
+         sideLeft
+         icon={false}
+         active={state.currentValue}
+         title={renderTitle}
+         onClick={e => setState({currentValue: e.currentTarget.dataset.value})}
+       />
+     )}
+    </Toggle>
+</Layout>
+```
+
+```js
+initialState = {
+  defaultValue: 'Default Value',
+  currentValue: '',
+  option: [
+    { 
+      id: '11',
+      value: 'option title 11',
+      disabled: false,
+    },
+    { 
+      id: '12',
+      value: 'option title 12 with extend title',
+      disabled: false,
+    },
+    { 
+      id: '13',
+      value: 'option title 13',
+      disabled: false,
+    },
+  ],
+};
+
+renderTitle = () => <IconComponent name="dotMenu" size="18" />;
+
+<Layout direction="column" styleGuidist>
+    <h4>DropDown with sideRight options</h4>
+    <Toggle>
+     {({on, toggle}) => (
+       <DropDown
+         on={on}
+         toggle={toggle}
+         options={state.option}
+         sideRight
+         icon={false}
+         active={state.currentValue}
+         title={renderTitle}
+         onClick={e => setState({currentValue: e.currentTarget.dataset.value})}
+       />
+     )}
+    </Toggle>
+</Layout>
+```
 
 
