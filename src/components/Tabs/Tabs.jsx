@@ -67,7 +67,7 @@ export default class Tabs extends Component<propTypes> {
         </ul>
 
         <GetMeasure>
-          {({ size }) => (
+          {({ size, ref }) => (
             <Spring
               force
               native
@@ -76,11 +76,9 @@ export default class Tabs extends Component<propTypes> {
               to={{ height: 'auto' }}
             >
               {style => (
-                <animated.div
-                  className={styles.tabContent}
-                  style={style}
-                >
-                  {children
+                <animated.div style={style}>
+                  <div ref={ref} className={styles.tabContent}>
+                    {children
                     && children.map((child) => {
                       if (child.props.label !== activeTab) return undefined;
 
@@ -110,6 +108,7 @@ export default class Tabs extends Component<propTypes> {
                         </Transition>
                       );
                     })}
+                  </div>
                 </animated.div>
               )}
             </Spring>
