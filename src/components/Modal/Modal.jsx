@@ -15,7 +15,7 @@ import styles from './Modal.module.scss';
  */
 type propTypes = {
   on: boolean,
-  toggle: () => void,
+  toggle?: () => void,
   children: string | Node,
   className?: string,
   header?: string | () => void,
@@ -32,6 +32,7 @@ export default class Modal extends Component<propTypes>{
     buttonTitle: 'close',
     noFooter: false,
     hasIframe: false,
+    toggle: null,
   };
 
   renderHeader = header => (
