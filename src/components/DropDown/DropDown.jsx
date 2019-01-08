@@ -18,7 +18,7 @@ type propTypes = {
   options: Array,
   right?: boolean,
   on: boolean,
-  toggle: () => void,
+  toggle?: () => void,
   onClick: () => void,
   className?: string,
   disabled?: boolean,
@@ -40,6 +40,7 @@ export default class DropDown extends PureComponent<propTypes> {
     className: '',
     sideLeft: false,
     sideRight: false,
+    toggle: null,
   };
 
   renderOptions = (on, toggle, size) => {

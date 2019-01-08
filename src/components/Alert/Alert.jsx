@@ -86,7 +86,7 @@ const timer = (toggle, timeout) => setTimeout(() => (toggle()), timeout);
 
 type propTypes = {
   on: boolean,
-  toggle: () => void,
+  toggle?: () => void,
   theme?: 'default' | 'light' | 'danger' | 'menthe',
   textAlert: string | () => void,
   icon?: string,
@@ -103,6 +103,7 @@ Alert.defaultProps = {
   className: '',
   timeout: undefined,
   position: 'topRight',
+  toggle: null,
 };
 
 export default Alert;
