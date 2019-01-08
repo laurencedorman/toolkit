@@ -9,7 +9,7 @@ import styles from './InputCheck.module.scss';
  */
 
 const InputCheck = ({
-  type, value, name, disabled, checked, onChange, label, className,
+  type, value, name, disabled, checked, onChange, label, className, itemId, dataQa,
 }: PropTypes) => {
   const classNames = cn(
     styles.inputCheck,
@@ -28,6 +28,9 @@ const InputCheck = ({
         checked={checked}
         disabled={disabled}
         onChange={onChange}
+        data-itemid={itemId}
+        data-qa={dataQa}
+        aria-describedby={label}
       />
       <label htmlFor={value}>
         {label && label}
@@ -49,6 +52,8 @@ type PropTypes = {
   onChange?: (Event) => void,
   label?: string,
   className?: string,
+  dataQa?: string,
+  itemId?: string,
 };
 
 InputCheck.defaultProps = {
@@ -57,6 +62,8 @@ InputCheck.defaultProps = {
   onChange: null,
   label: '',
   className: '',
+  dataQa: '',
+  itemId: '',
 };
 
 export default InputCheck;
