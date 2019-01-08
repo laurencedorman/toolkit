@@ -9,6 +9,7 @@
   .button {
     white-space: nowrap;
     background-color: transparent!important;
+    &:disabled { background-color: $greyDarker !important }
   }
 
   .iconButton {
@@ -38,7 +39,7 @@
 
   &.show {
     min-height: 53px;
-    max-height: 197px;
+    max-height: 250px;
     visibility: visible;
     transition: max-height $timeout $in,
   }

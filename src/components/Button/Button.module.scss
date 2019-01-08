@@ -49,7 +49,7 @@ $smallSpace: .75em;
   &:disabled, &:disabled:hover {
     background-color: $greyDarker !important;
     border-color: $greyDarker !important;
-    cursor: not-allowed;
+    // cursor: not-allowed;
   }
 
   //SIZE SPACE
