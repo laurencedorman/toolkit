@@ -121,7 +121,7 @@ initialState = {
   ],
 };
 
-renderTitle = () => <IconComponent name="dotMenu" size="18" />;
+renderTitle = () => <IconComponent name="dotMenu" size="18" fill="#fff" />;
 
 <Layout direction="column" styleGuidist>
     <h4>DropDown with sideLeft options</h4>
@@ -165,7 +165,7 @@ initialState = {
   ],
 };
 
-renderTitle = () => <IconComponent name="help-circle" size="32" />;
+renderTitle = () => <IconComponent name="help-circle" size="32" fill="#000" />;
 
 <Layout direction="column" styleGuidist>
     <h4>DropDown with sideRight options</h4>

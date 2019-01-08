@@ -3,13 +3,26 @@ import React from 'react';
 import cn from 'classnames';
 
 import { Icon } from 'components';
+import colors from '../../styles/colors';
 import styles from './Button.module.scss';
 
 /**
  * @visibleName Button
  */
 const Button = React.forwardRef(({
-  children, size, theme, disabled, type, icon, reverse, onClick, dataQa, className, style, title,
+  children,
+  size,
+  theme,
+  disabled,
+  type,
+  icon,
+  reverse,
+  onClick,
+  dataQa,
+  className,
+  style,
+  title,
+  fill,
 }, ref:propTypes) => {
   const classNames = cn(
     styles.button,
@@ -23,6 +36,16 @@ const Button = React.forwardRef(({
     },
   );
 
+  /* eslint-disable no-nested-ternary */
+  const setFill = () => (
+    theme === 'default' || theme === 'primary'
+      ? `${colors.white}`
+      : theme === 'secondary'
+        ? `${colors.manoBlack}`
+        : fill
+  );
+  /* eslint-enable no-nested-ternary */
+
   /* eslint-disable react/button-has-type */
   return (
     <button
@@ -35,7 +58,7 @@ const Button = React.forwardRef(({
       style={style}
     >
       {icon
-        && <Icon name={icon} size="16" />}
+        && <Icon name={icon} size="16" fill={setFill()} />}
       {children && children}
       {title && title}
     </button>
@@ -45,7 +68,7 @@ const Button = React.forwardRef(({
 
 type propTypes = {
   children?: string | Node,
-  theme?: 'default' | 'primary' | 'secondary',
+  theme?: 'default' | 'primary' | 'secondary' | 'reset',
   size?: 'big' | 'default' | 'small' | 'xsmall',
   type?: 'submit' | 'reset' | 'button' | 'menu',
   icon?: string,
@@ -56,6 +79,7 @@ type propTypes = {
   className?: string,
   title?: string | () => void,
   ref?: () => void,
+  fill?: string,
 };
 
 Button.defaultProps = {
@@ -71,6 +95,7 @@ Button.defaultProps = {
   className: '',
   title: undefined,
   ref: null,
+  fill: colors.white,
 };
 
 export default Button;

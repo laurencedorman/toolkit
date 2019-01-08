@@ -27,7 +27,7 @@ type propTypes = {
   backgroundColor?: string,
   sideLeft?: boolean,
   sideRight?: boolean,
-  dark?: boolean,
+  fill?: string,
 };
 
 /* eslint-disable */
@@ -41,8 +41,8 @@ export default class DropDown extends PureComponent<propTypes> {
     className: '',
     sideLeft: false,
     sideRight: false,
-    dark: false,
     toggle: null,
+    fill: colors.white,
   };
 
   renderOptions = (on, toggle, size) => {
@@ -113,13 +113,12 @@ export default class DropDown extends PureComponent<propTypes> {
 
   render() {
     const {
-      title, on, toggle, className, disabled, icon, backgroundColor, dark,
+      title, on, toggle, className, disabled, icon, backgroundColor, fill,
     } = this.props;
 
     const wrapper = cn(
       styles.wrapper,
       className,
-      { [styles.dark ]: dark }
     );
 
     const iconButton = cn(
@@ -161,6 +160,7 @@ export default class DropDown extends PureComponent<propTypes> {
                           name="chevron-left"
                           size="10"
                           className={iconButton}
+                          fill={fill}
                         />
                       )
                     }

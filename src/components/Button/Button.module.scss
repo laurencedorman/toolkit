@@ -18,10 +18,7 @@ $smallSpace: .75em;
 
   &:focus { outline: none }
 
-  &.default, &.primary {
-    color: $white;
-    svg { fill: $white }
-  }
+  &.default, &.primary { color: $white }
 
   &.default {
     background-color: $balataGreen;
@@ -43,13 +40,11 @@ $smallSpace: .75em;
       background-color: $greyDarker;
       border-color: $greyDarker;
     }
-    svg { fill: $manoBlack }
   }
 
   &:disabled, &:disabled:hover {
     background-color: $greyDarker !important;
     border-color: $greyDarker !important;
-    // cursor: not-allowed;
   }
 
   //SIZE SPACE
