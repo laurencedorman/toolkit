@@ -1,0 +1,62 @@
+@import 'styles/import.scss';
+
+.rt-th, .rt-td, .-pagination { padding: $space !important }
+.rt-th, .rt-td { border-right: none !important }
+.rt-thead, .-pagination { box-shadow: none !important }
+
+.table {
+  font-size: .85rem !important;
+  border-radius: $radius;
+
+  .rt-thead {
+    background-color: $greyMed;
+    text-align: left;
+    border-radius: $radius $radius 0 0;
+
+    .rt-th {
+      color: $squidInk !important;
+      text-align: left;
+      font-weight: 600;
+    }
+  }
+
+  .rt-tbody {
+    .rt-tr-group:not(:last-child) { border-bottom: 1px solid $borderColor !important }
+
+    .-odd { background-color: $greyLight !important }
+  }
+
+  .-pagination {
+    border-top: 1px solid $borderColor !important;
+
+    .-btn {
+      background-color: $balataGreen !important;
+      color: $white !important;
+
+      &:hover { background-color: $articCitric !important }
+
+      &:disabled, &:disabled:hover {
+        background-color: $greyDarker !important;
+        border-color: $greyDarker !important;
+        cursor: not-allowed;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      .-center {
+        position: relative;
+        .-pageJump, span, select, input { height: 100% !important }
+        input { border: 1px solid $borderColor !important }
+      }
+    }
+
+
+    .select-wrap {
+      select {
+        border: 1px solid $borderColor !important;
+        padding: $halfSpace !important;
+        border-radius: $radius !important;
+      }
+    }
+  }
+}

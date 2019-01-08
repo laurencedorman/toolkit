@@ -3,15 +3,15 @@ import React from 'react';
 import ReactTable from 'react-table';
 import cn from 'classnames';
 import defaultStyles from 'react-table/react-table.css';
-import styles from './Table.module.scss';
+import './Table.scss';
 
 const Table = ({
   className, columns, data, defaultPageSize, loading,
 }: propTypes) => {
   const classNames = cn(
     defaultStyles,
-    styles.table,
     className,
+    'table',
     '-striped',
     '-highlight',
   );
@@ -32,7 +32,7 @@ type propTypes = {
   columns: Array,
   data?: Array,
   defaultPageSize?: number,
-  loading?: bool,
+  loading?: boolean,
 }
 
 Table.defaultProps = {
