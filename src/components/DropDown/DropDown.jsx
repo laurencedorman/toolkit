@@ -141,12 +141,8 @@ export default class DropDown extends PureComponent<propTypes> {
                 <animated.div
                   className={styles.animated}
                   style={{
-                    backgroundColor,
                     width: w.interpolate(w => w),
-<<<<<<< HEAD
                     backgroundColor,
-=======
->>>>>>> Up coverage test
                   }}
                 >
                   <Button
