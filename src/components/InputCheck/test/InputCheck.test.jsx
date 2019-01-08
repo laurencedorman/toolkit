@@ -25,7 +25,7 @@ describe('InputCheck', () => {
   });
 
   it('should be checked at true', () => {
-    wrapper.setProps({ checked: true });
+    wrapper.setProps({ checked: true, type: 'checkbox' });
     expect(wrapper.find('input').prop('checked')).toEqual(true);
   });
 });

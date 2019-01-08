@@ -17,4 +17,12 @@ describe('Switch', () => {
   it('should render a input', () => {
     expect(wrapper.find('input').length).toEqual(1);
   });
+
+  it('should render different margin with props reset', () => {
+    wrapper.setProps({ reset: true });
+  });
+
+  it('should render label', () => {
+    wrapper.setProps({ label: true });
+  });
 });

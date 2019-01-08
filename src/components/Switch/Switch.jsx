@@ -21,7 +21,10 @@ const Switch = ({
   /* eslint-disable jsx-a11y/label-has-for */
   /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
-    <div className={container}>
+    <div
+      className={container}
+      reset={reset ? 1 : 0}
+    >
       <input
         className={styles.switch}
         type="checkbox"
@@ -34,7 +37,6 @@ const Switch = ({
         data-qa={dataQa}
         aria-checked={checked}
         aria-describedby={id}
-        reset={reset ? 1 : 0}
       />
       <label
         htmlFor={id}

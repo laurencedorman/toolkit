@@ -4,7 +4,7 @@ import InputCheckGroup from '../InputCheckGroup';
 import InputCheck from '../InputCheck';
 
 describe('InputCheckGroup', () => {
-  const state = {
+  let props = {
     selected: 'mp3',
     options: [
       {
@@ -22,12 +22,12 @@ describe('InputCheckGroup', () => {
     ],
   };
 
-  const wrapper = shallow(
+  let wrapper = shallow(
     <InputCheckGroup
       type="radio"
       inputGroupTitle="test Group :"
       groupName="name"
-      options={state.options}
+      options={props.options}
     />,
   );
 
@@ -37,5 +37,25 @@ describe('InputCheckGroup', () => {
 
   it('should render input child', () => {
     expect(wrapper.find(InputCheck).length).toEqual(3);
+  });
+
+  it('should render value if value exist', () => {
+    props = {
+      selected: 'mp3',
+      options: [
+        { label: 'Vinyle' },
+        { label: 'CD' },
+        { label: 'Mp3' },
+      ],
+    };
+
+    wrapper = shallow(
+      <InputCheckGroup
+        type="radio"
+        inputGroupTitle="test Group :"
+        groupName="name"
+        options={props.options}
+      />,
+    );
   });
 });
