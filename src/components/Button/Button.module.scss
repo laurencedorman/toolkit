@@ -42,6 +42,13 @@ $smallSpace: .75em;
     }
   }
 
+  &.reset {
+    background-color: transparent;
+    border: none;
+    color: $squidInk;
+    &:hover { background-color: $greyDark }
+  }
+
   &:disabled, &:disabled:hover {
     background-color: $greyDarker !important;
     border-color: $greyDarker !important;
@@ -68,7 +75,5 @@ $smallSpace: .75em;
     }
   }
 
-  &.onlyIcon {
-    svg{ margin: 0 }
-  }
+  &.onlyIcon svg { margin: 0 }
 }
