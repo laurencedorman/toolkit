@@ -1,6 +1,11 @@
+const path = require('path');
+
 module.exports = {
   webpackConfig: require('./config/webpack.config.dev.js'),
   title: ' ',
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, './src/styleguidist/Wrapper'),
+  },
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
   template: {

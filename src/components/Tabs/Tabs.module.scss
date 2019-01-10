@@ -1,0 +1,62 @@
+@import 'styles/import.scss';
+
+.tabs {
+  .tabList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tabContent {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: $space;
+    & > div {
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+
+.tabItem {
+  position: relative;
+  display: inline-flex;
+  border-bottom: 4px solid $squidInk;
+  cursor: pointer;
+
+  & > span, & > a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: $halfSpace $space;
+    text-align: center;
+    color: $squidInk;
+    text-decoration: none;
+    transition: color $fastTimeout $in;
+
+    &:first-letter { text-transform: uppercase }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 4px;
+      left: 0; bottom: -4px;
+      background-color: $blueMood;
+      transition: width $timeout $out;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $blueMood;
+    }
+
+    &.active:after { width: 100% }
+  }
+}
