@@ -5,6 +5,7 @@ Default Button:
   <Button>default Button</Button>
   <Button theme="primary"> primary Button</Button>
   <Button theme="secondary">secondary Button</Button>
+  <Button theme="reset">reset style Button</Button> 
   <Button disabled>disabled Button</Button> 
 </Layout>
 
@@ -43,9 +44,10 @@ Icon Reverse Button:
 Icon only Button:
 ```js
 <Layout styleGuidist direction="row">
-    <Button size="big" icon="edit" reverse />
-    <Button icon="edit" reverse />
-    <Button size="small" icon="edit" reverse />
-    <Button size="xsmall" icon="edit" reverse />  
+    <Button size="big" icon="edit" />
+    <Button icon="edit" />
+    <Button icon="edit" theme="reset" fill="#424242" />
+    <Button size="small" icon="edit" />
+    <Button size="xsmall" icon="edit" />  
 </Layout>
 ```
