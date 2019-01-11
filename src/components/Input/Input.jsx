@@ -27,6 +27,7 @@ const Input = ({
   reverse,
   min,
   max,
+  step,
   indicator,
 }: propTypes) => {
   const contentClass = cn(styles.content, {
@@ -78,6 +79,7 @@ const Input = ({
           hidden={hidden}
           min={min}
           max={max}
+          step={step}
         />
         <label htmlFor={id} className={labelStyle}>{label}</label>
         { handleIcon() }
@@ -111,6 +113,7 @@ type propTypes = {
   reverse?: boolean,
   min?: number,
   max?: number,
+  step?: number | 'any',
   indicator?: string
 };
 
@@ -130,6 +133,7 @@ Input.defaultProps = {
   reverse: false,
   min: null,
   max: null,
+  step: null,
   indicator: null,
 };
 
