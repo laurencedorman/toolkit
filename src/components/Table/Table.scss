@@ -17,6 +17,18 @@
       color: $squidInk !important;
       text-align: left;
       font-weight: 600;
+
+      input {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .-filters {
+    background-color: transparent;
+
+    .rt-tr {
+      border-bottom: solid 1px $borderColor;
     }
   }
 
