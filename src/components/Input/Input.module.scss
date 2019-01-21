@@ -105,4 +105,10 @@ $iconSpace: 40px;
   }
 }
 
-
+.inputLight {
+  input {
+    height: initial !important;
+    padding: 8px !important;
+    font-size: .85rem !important;
+  }
+}

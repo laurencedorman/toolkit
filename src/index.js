@@ -10,6 +10,7 @@ export {
   Input,
   InputCheck,
   InputCheckGroup,
+  InputLight,
   Layout,
   Logo,
   Modal,
