@@ -33,6 +33,10 @@
   }
 
   .rt-tbody {
+    .rt-tr {
+      align-items: center;
+    }
+
     .rt-tr-group:not(:last-child) { border-bottom: 1px solid $borderColor !important }
 
     .-odd { background-color: $greyLight !important }
