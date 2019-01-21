@@ -8,6 +8,7 @@ import styles from './Input.module.scss';
  * @visibleName Input
  */
 const Input = ({
+  className,
   label,
   type,
   id,
@@ -29,10 +30,16 @@ const Input = ({
   max,
   step,
   indicator,
+  reset,
 }: propTypes) => {
+  const container = cn(
+    styles.container,
+    className,
+  );
+
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
-    [styles.hasSuccess]: !error && value !== '',
+    [styles.hasSuccess]: !error && value !== '' && !reset,
     [styles.reverse]: reverse && icon,
   });
 
@@ -47,7 +54,7 @@ const Input = ({
 
   /* eslint-disable no-nested-ternary */
   const handleIcon = () => (
-    (!error && value !== '' && !reverse)
+    (!error && value !== '' && !reverse && !reset)
       ? <Icon name="check" size="22" className={styles.icon} />
       : icon
         ? <Icon name={icon} size="16" className={styles.icon} />
@@ -62,7 +69,7 @@ const Input = ({
 
   /* eslint-disable jsx-a11y/label-has-for */
   return (
-    <div className={styles.container}>
+    <div className={container}>
       <div className={contentClass}>
         <input
           className={inputStyle}
@@ -81,7 +88,8 @@ const Input = ({
           max={max}
           step={step}
         />
-        <label htmlFor={id} className={labelStyle}>{label}</label>
+        {label
+          && <label htmlFor={id} className={labelStyle}>{label}</label>}
         { handleIcon() }
         { handleIndicator() }
       </div>
@@ -94,6 +102,7 @@ const Input = ({
 
 
 type propTypes = {
+  className?: string,
   label: string,
   type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'search' | 'hidden',
   id: string,
@@ -118,6 +127,7 @@ type propTypes = {
 };
 
 Input.defaultProps = {
+  className: '',
   value: '',
   placeholder: '',
   required: false,

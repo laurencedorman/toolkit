@@ -4,6 +4,25 @@ Input basic :
  * Check error or valid format with props error as boolean.
  * Pass error message with props messageError.
  * Pass helper message with props helper.
+ * Pass reset props at true to disabled icon and have a pure input light
+
+
+Input Light without icon and label
+
+```js
+initialState = {value: ''};
+
+<Input
+  type="text"
+  id="inputLight"
+  name="inputLight"
+  value={state.value}
+  reset
+  onChange={e => setState({ value: e.target.value })}
+/>
+```
+
+Input basic
 
 ```js
 initialState = {value: ''};
@@ -167,4 +186,19 @@ initialState = {value: ''};
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />
+```
+
+Input Light with small padding, small font-size and no icon :
+
+```js
+initialState = {value: ''};
+
+<InputLight
+  type="text"
+  id="inputLight"
+  name="inputLight"
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+/>
+
 ```
