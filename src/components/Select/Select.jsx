@@ -26,7 +26,7 @@ const Select = ({
   ...props
 }:propTypes) => {
   const select = cn(styles.select, {
-    [styles.hasError]: error,
+    hasError: error,
   });
 
   return (
@@ -71,13 +71,19 @@ const customStyles = {
       backgroundColor: '#e8e8e8',
     },
   }),
-  control: style => ({
+  control: (style, state) => ({
     ...style,
     borderRadius: 3,
     boxShadow: 'none',
-    borderColor: colors.greyDark,
+    borderColor:
+      state.selectProps.className !== 'Select_select__1Qsyt hasError'
+        ? colors.greyDark
+        : colors.cocoCorail,
     '&:hover': {
-      borderColor: colors.greyDark,
+      borderColor:
+        state.selectProps.className !== 'Select_select__1Qsyt hasError'
+          ? colors.greyDark
+          : colors.cocoCorail,
     },
   }),
   input: () => ({
