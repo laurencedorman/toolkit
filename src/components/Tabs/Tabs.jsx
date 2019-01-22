@@ -27,7 +27,7 @@ export default class Tabs extends Component<propTypes> {
 
       children.map(child => (
         child.props.defaultActive
-        && this.onClickTabItem(child.props.label)
+          && this.onClickTabItem(child.props.label)
       ));
     }
   }
