@@ -22,6 +22,7 @@ const Select = ({
   isMulti,
   defaultValue,
   name,
+  disabled,
   ...props
 }:propTypes) => {
   const select = cn(styles.select, {
@@ -50,6 +51,7 @@ const Select = ({
           isMulti={isMulti}
           matchPos="start"
           placeholder={placeholder}
+          isDisabled={disabled}
         />
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
@@ -106,6 +108,7 @@ const customStyles = {
 };
 
 type propTypes = {
+  disabled?: boolean,
   label?: string,
   placeholder?: string,
   defaultValue?: string,
@@ -119,6 +122,7 @@ type propTypes = {
 };
 
 Select.defaultProps = {
+  disabled: false,
   label: '',
   placeholder: '',
   defaultValue: '',
