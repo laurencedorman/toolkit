@@ -91,11 +91,12 @@ const customStyles = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     maxWidth: 'calc(100% - 115px)',
-    minHeight: 38,
+    minHeight: 56,
     padding: '8px 16px',
   }),
   indicatorSeparator: style => ({
     ...style,
+    alignSelf: 'center',
   }),
   multiValueRemove: style => ({
     ...style,
