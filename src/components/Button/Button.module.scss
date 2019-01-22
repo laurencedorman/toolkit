@@ -27,15 +27,15 @@ $smallSpace: .75em;
   }
 
   &.primary, &.primary:active {
-    background-color: $squidInk;
-    &:hover { background-color: $bellaNotte }
+    background-color: $bellaNotte;
+    &:hover { background-color: #2952B1 }
   }
 
   &.secondary {
-    color: $manoBlack;
+    color: $greyMedDarker;
     background-color: $white;
-    border-color: $greyMedDarker;
-    &:hover { background-color: $greyDark }
+    border-color: $greyDark;
+    &:hover { background-color: $greyMed }
     &:active {
       background-color: $greyDarker;
       border-color: $greyDarker;
