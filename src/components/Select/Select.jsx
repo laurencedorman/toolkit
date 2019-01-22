@@ -80,7 +80,10 @@ const customStyles = {
         ? colors.greyDark
         : colors.cocoCorail,
     '&:hover': {
-      borderColor: colors.greyDark,
+      borderColor:
+        state.selectProps.className !== 'Select_select__1Qsyt hasError'
+          ? colors.greyDark
+          : colors.cocoCorail,
     },
   }),
   input: () => ({
