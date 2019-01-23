@@ -78,7 +78,6 @@ type propTypes = {
   dataQa?: string,
   className?: string,
   title?: string | () => void,
-  ref?: () => void,
   fill?: string,
 };
 
@@ -94,7 +93,6 @@ Button.defaultProps = {
   dataQa: '',
   className: '',
   title: undefined,
-  ref: null,
   fill: colors.white,
 };
 
