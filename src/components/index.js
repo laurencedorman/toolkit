@@ -9,6 +9,7 @@ export { default as Iframe } from './Iframe';
 export { default as Input, InputLight } from './Input';
 export { default as InputCheck, InputCheckGroup } from './InputCheck';
 export { default as Layout } from './Layout';
+export { default as Loader } from './Loader';
 export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 export { default as Portal } from './Portal';
