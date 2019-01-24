@@ -11,6 +11,7 @@ export {
   InputCheck,
   InputCheckGroup,
   InputLight,
+  Loader,
   Layout,
   Logo,
   Modal,
