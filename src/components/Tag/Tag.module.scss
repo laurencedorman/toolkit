@@ -6,19 +6,37 @@
   align-items: center;
   padding: 0 $space;
   background-color: $white;
-  border: $border $borderColor;
-  border-radius: 17px;
+  border: $border transparent;
+  border-radius: 16px;
   text-align: center;
-  transition: all $timeout ease;
+  transition: background-color $timeout ease;
   cursor: pointer;
   white-space: nowrap;
   &:not(:last-child) { margin-right: $space }
 
-  &:hover { background-color: $greyMed }
-
   &:active { background-color: $manoBlack }
 
-  &:active, &.disabled { color: $white }
+  &.primary, &.secondary, &.tertiary, &:active, &.disabled { color: $white }
+
+  &.default {
+    border-color: $borderColor;
+    &:hover { background-color: $greyMed }
+  }
+
+  &.primary {
+    background-color: $balataGreen;
+    &:hover { background-color: $articCitric }
+    &:active { background-color: $squidInk }
+  }
+
+  &.secondary, &.secondary:active {
+    background-color: $bellaNotte;
+    &:hover { background-color: #2952B1 }
+  }
+
+  &.tertiary, &.tertiary:active {
+    background-color: $vaALaPlaya;
+  }
 
   &.disabled {
     background-color: $greyDark;
