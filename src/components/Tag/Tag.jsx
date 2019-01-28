@@ -3,27 +3,33 @@ import React, { type Node } from 'react';
 import cn from 'classnames';
 import styles from './Tag.module.scss';
 
-const Tag = ({ className, children, disabled }: propTypes) => {
-  const tagClass = cn(styles.tag, {
+const Tag = ({
+  className, theme, children, disabled,
+}: propTypes) => {
+  const tagClass = cn(
     className,
-    [styles.disabled]: disabled,
-  });
+    styles.tag,
+    styles[theme],
+    { [styles.disabled]: disabled },
+  );
 
   return (
-    <small className={tagClass}>
+    <span className={tagClass}>
       {children}
-    </small>
+    </span>
   );
 };
 
 type propTypes = {
   className?: string,
+  theme?: 'default' | 'primary' | 'secondary' | 'reset',
   children: string | Node,
   disabled: boolean,
 };
 
 Tag.defaultProps = {
   className: '',
+  theme: 'default',
 };
 
 export default Tag;
