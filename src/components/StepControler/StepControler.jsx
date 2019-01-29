@@ -1,8 +1,13 @@
 import { Component } from 'react';
 
-type propTypes = { children: Node };
+type propTypes = {
+  children: Node,
+  getActiveStep?: number,
+};
 
 export default class StepControler extends Component<propTypes> {
+  static defaultProps = { getActiveStep: undefined };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +16,13 @@ export default class StepControler extends Component<propTypes> {
       direction: 'up',
     };
   }
+
+  componentDidMount() {
+    const { getActiveStep } = this.props;
+    if (getActiveStep) this.setActiveStep(getActiveStep);
+  }
+
+  setActiveStep = activeStep => this.setState({ activeStep });
 
   setTotalStep = totalStep => this.setState({ totalStep });
 
