@@ -25,6 +25,9 @@ Stepper with controler extension :
   * Set direction to change effect direction when state is decrement
 
 ```js
+const isDone = (activeStep, step) => activeStep > step; 
+
+
 <StepControler>
   {({ prevStep, nextStep, activeStep, setTotalStep, direction }) => (
     <div>
@@ -85,8 +88,12 @@ Stepper with controler extension and step initilization  :
 
       <div step="4" label="Four">
         <h4>step 4 container</h4>
-        <p>This is step Three container</p>
+        <p>This is step Four container</p>
       </div>
+       <div step="5" label="Five">
+          <h4>step 5 container</h4>
+          <p>This is step Five container</p>
+        </div>
     </Stepper>
 
     <div>
