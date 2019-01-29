@@ -35,7 +35,6 @@ initialState = {value: ''};
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />
-
 ```
 
 Input with helper :
@@ -45,7 +44,7 @@ initialState = {value: ''};
 <Input
   label="Input text with helper"
   type="text"
-  id="id"
+  id="idHelper"
   name="name"
   helper="An helper to display some informations!"
   value={state.value}
@@ -164,7 +163,7 @@ initialState = {value: ''};
 <Input
   label="Input with icon"
   type="text"
-  id="Icon"
+  id="IconOther"
   name="Icon"
   indicator="Indicator"
   value={state.value}
@@ -186,19 +185,4 @@ initialState = {value: ''};
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />
-```
-
-Input Light with small padding, small font-size and no icon :
-
-```js
-initialState = {value: ''};
-
-<InputLight
-  type="text"
-  id="inputLight"
-  name="inputLight"
-  value={state.value}
-  onChange={e => setState({ value: e.target.value })}
-/>
-
 ```

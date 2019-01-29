@@ -1,0 +1,72 @@
+@import 'styles/import.scss';
+
+.container,
+.step {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  flex-flow: column wrap;
+  padding: 0 calc(#{$space} * 2);
+  .label { text-align: center }
+}
+
+.stepIndicatorContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: $space;
+
+  .content {
+    position: relative;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .line {
+    position: absolute;
+    width: calc(100% - 64px);
+    height: 1px;
+    top: calc(32px / 2);
+    left: calc(#{$space} * 2);
+    background-color: $greyDark;
+  }
+}
+
+.step {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  background-color: $greyDark;
+  border-radius: 100%;
+  transition: background-color $timeout $in;
+
+  &.active {
+    background-color: $squidInk;
+    color: $white;
+  }
+
+  &.done {
+    background-color: $kaktus;
+    color: $kaktus;
+  }
+
+  .icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0; left: 0; bottom: 0; right: 0;
+  }
+}
+
+.label { font-size: .85rem }
