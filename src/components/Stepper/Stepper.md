@@ -59,3 +59,41 @@ Stepper with controler extension :
   )}
 </StepControler>
 ```
+
+Stepper with controler extension and step initilization  :
+
+```js
+<StepControler getActiveStep={2}>
+  {({ prevStep, nextStep, activeStep, setTotalStep, direction }) => (
+    <div>
+
+    <Stepper activeStep={activeStep} getLength={setTotalStep} direction={direction}>
+      <div step="1" label="One">
+        <h4>step 1 container</h4>
+        <p>This is step One container</p>
+      </div>
+
+      <div step="2" label="Two">
+        <h4>step 2 container</h4>
+        <p>This is step Two container</p>
+      </div>
+
+      <div step="3" label="Three">
+        <h4>step 3 container</h4>
+        <p>This is step Three container</p>
+      </div>
+
+      <div step="4" label="Four">
+        <h4>step 4 container</h4>
+        <p>This is step Three container</p>
+      </div>
+    </Stepper>
+
+    <div>
+      <Button  style={{marginRight: 16 }} onClick={prevStep}>Prev</Button>
+      <Button onClick={nextStep}>Next</Button>
+    </div>
+    </div>
+  )}
+</StepControler>
+```
