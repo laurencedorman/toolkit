@@ -166,6 +166,16 @@ const span = {
 </div>
 
 <div style={style}>
+  <IconComponent name="chevron-up" />
+  <span style={span}>chevron-up</span>
+</div>
+
+<div style={style}>
+  <IconComponent name="chevron-down" />
+  <span style={span}>chevron-down</span>
+</div>
+
+<div style={style}>
   <IconComponent name="close" />
   <span style={span}>close</span>
 </div>
