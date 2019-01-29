@@ -23,7 +23,7 @@ const StepIndicator = ({ children, className, activeStep }: propTypes) => {
               step={step}
               label={label}
               active={activeStep === index}
-              done={done}
+              done={activeStep > index || done}
             />
           );
         })}
