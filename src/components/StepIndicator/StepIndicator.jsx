@@ -5,7 +5,9 @@ import { Step } from 'components';
 import styles from './StepIndicator.module.scss';
 
 
-const StepIndicator = ({ children, className, activeStep }: propTypes) => {
+const StepIndicator = ({
+  children, className, activeStep, lastStep,
+}: propTypes) => {
   const classNames = cn(
     styles.stepIndicatorContainer,
     className,
@@ -17,13 +19,14 @@ const StepIndicator = ({ children, className, activeStep }: propTypes) => {
         <div className={styles.line} />
         {React.Children.map(children, (child, index) => {
           const { step, label, done } = child.props;
+
           return (
             <Step
               key={step.toString()}
               step={step}
               label={label}
               active={activeStep === index}
-              done={activeStep > index || done}
+              done={activeStep > index || lastStep || done}
             />
           );
         })}

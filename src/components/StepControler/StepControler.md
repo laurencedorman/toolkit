@@ -1,7 +1,16 @@
-StepperControl :
+StepperControl with RenderChild pattern :
+  
+State to Props | Type | Description
+-------------- | ---- | -----------
+prevStep | func | Decrement (-1)
+nextStep |func | Increment (+1)
+setTotalStep | func | Set total children of controled target
+activeStep | number | index od active step
+direction | string | 'up' or 'down
+lastStep | boolean | true when last step is active
+totalStep | number | return total step (use setTotalStep before to set number)
 
-  * RenderProps method.
-  * SetTotalStep is method to inject total child who need to control to stop increment.
+
 
 ```js
 <StepControler>
