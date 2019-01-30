@@ -51,13 +51,13 @@
   transition: background-color $timeout $in;
 
   &.active {
-    background-color: $squidInk;
+    background-color: $bellaNotte;
     color: $white;
   }
 
   &.done {
-    background-color: $kaktus;
-    color: $kaktus;
+    background-color: $bellaNotte;
+    color: transparent;
   }
 
   .icon {
