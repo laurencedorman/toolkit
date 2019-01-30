@@ -22,7 +22,6 @@ Toggle Force In / Out:
  * It's exactly the same that first exemple. The difference are that <b>ToggleIn</b> and <b>ToggleOut</b> force the state to swith the boolean. It usefull on hover for exemple.
 
 ```js
-<Layout direction="column" styleGuidist>
  <Toggle>
    {({ on, toggleIn, toggleOut }) => (
      <div onMouseEnter={toggleIn} onMouseLeave={toggleOut}>
@@ -32,5 +31,4 @@ Toggle Force In / Out:
      </div>
    )}
  </Toggle>
-</Layout>
 ```

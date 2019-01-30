@@ -35,7 +35,8 @@ $iconSpace: 40px;
     margin-left: $space;
     color: $greyMedDarker;
     transform: translate(0);
-    transition: transform .15s ease;
+    transition: transform .15s linear;
+    will-change: transform;
     &.required::after {
       content: "*";
       display: inline-block;

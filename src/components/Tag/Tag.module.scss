@@ -10,7 +10,7 @@
   border-radius: 16px;
   text-align: center;
   transition: background-color $timeout ease;
-  cursor: pointer;
+  cursor: default;
   white-space: nowrap;
   &:not(:last-child) { margin-right: $space }
 
@@ -18,25 +18,16 @@
 
   &.primary, &.secondary, &.tertiary, &:active, &.disabled { color: $white }
 
-  &.default {
-    border-color: $borderColor;
-    &:hover { background-color: $greyMed }
-  }
+  &.default { border-color: $borderColor }
 
   &.primary {
     background-color: $balataGreen;
-    &:hover { background-color: $articCitric }
     &:active { background-color: $squidInk }
   }
 
-  &.secondary, &.secondary:active {
-    background-color: $bellaNotte;
-    &:hover { background-color: #2952B1 }
-  }
+  &.secondary, &.secondary:active { background-color: $bellaNotte }
 
-  &.tertiary, &.tertiary:active {
-    background-color: $vaALaPlaya;
-  }
+  &.tertiary, &.tertiary:active { background-color: $vaALaPlaya }
 
   &.disabled {
     background-color: $greyDark;

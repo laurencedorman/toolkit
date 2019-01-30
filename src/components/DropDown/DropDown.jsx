@@ -157,7 +157,7 @@ export default class DropDown extends PureComponent<propTypes> {
                     {icon
                       && (
                         <Icon
-                          name="chevron-left"
+                          name="chevron-right"
                           size="10"
                           className={iconButton}
                           fill={fill}
