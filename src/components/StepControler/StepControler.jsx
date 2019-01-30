@@ -14,6 +14,7 @@ export default class StepControler extends Component<propTypes> {
       activeStep: 0,
       totalStep: undefined,
       direction: 'up',
+      lastStep: false,
     };
   }
 
@@ -27,11 +28,14 @@ export default class StepControler extends Component<propTypes> {
   setTotalStep = totalStep => this.setState({ totalStep });
 
   prevStep = () => {
+    const { totalStep } = this.state;
+
     this.setState(prevState => ({
       direction: 'down',
       activeStep: prevState.activeStep === 0
         ? 0
         : prevState.activeStep - 1,
+      lastStep: prevState.activeStep !== totalStep - 1 && false,
     }));
   };
 
@@ -43,12 +47,15 @@ export default class StepControler extends Component<propTypes> {
       activeStep: prevState.activeStep === totalStep - 1
         ? totalStep - 1
         : prevState.activeStep + 1,
+      lastStep: prevState.activeStep === totalStep - 1 && true,
     }));
   };
 
   render() {
     const { children } = this.props;
-    const { activeStep, direction } = this.state;
+    const {
+      activeStep, direction, lastStep, totalStep,
+    } = this.state;
 
     return children({
       prevStep: this.prevStep,
@@ -56,6 +63,8 @@ export default class StepControler extends Component<propTypes> {
       setTotalStep: this.setTotalStep,
       activeStep,
       direction,
+      lastStep,
+      totalStep,
     });
   }
 }
