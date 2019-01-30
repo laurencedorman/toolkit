@@ -9,6 +9,7 @@ module.exports = {
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
   template: {
+    favicon: 'https://assets-cdn.github.com/favicon.ico',
     head: {
       links: [{
         rel: 'stylesheet',
@@ -59,4 +60,40 @@ module.exports = {
       },
     },
   },
+  sections: [
+    {
+      name: 'Start',
+      content: 'src/styleguidist/Start.md',
+    },
+    {
+      name: 'Introduction',
+      content: 'src/styleguidist/Introduction.md',
+    },
+    {
+      name: 'Manoolkit Utilities',
+      description: 'Some components to help',
+      components: [
+        'src/components/GetMeasure/*.jsx',
+        'src/components/Portal/*.jsx',
+        'src/components/StepControler/*.jsx',
+        'src/components/Toggle/*.jsx',
+        'src/components/ToggleDown/*.jsx',
+      ],
+      sectionDepth: 1,
+    },
+    {
+      name: 'Manoolkit Components',
+      description: 'Toolkit Library with new graphic chart',
+      components: 'src/components/**/*.jsx',
+      sectionDepth: 1,
+      ignore: [
+        'src/components/GetMeasure/*.jsx',
+        'src/components/Portal/*.jsx',
+        'src/components/StepControler/*.jsx',
+        'src/components/Toggle/*.jsx',
+        'src/components/ToggleDown/*.jsx',
+        'src/components/Input/InputLight.jsx',
+      ],
+    },
+  ],
 };
