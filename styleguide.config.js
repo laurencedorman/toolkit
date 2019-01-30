@@ -9,7 +9,7 @@ module.exports = {
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
   template: {
-    favicon: 'https://assets-cdn.github.com/favicon.ico',
+    favicon: './src/assets/favicon.png',
     head: {
       links: [{
         rel: 'stylesheet',
