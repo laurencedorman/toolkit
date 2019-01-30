@@ -29,58 +29,57 @@ const click = (next, toggle, lastStep) => {
   next();
 };
 
-
- <Toggle>
+<Toggle>
   {({ on, toggle }) => (
-<StepControler>
-  {({ prevStep, nextStep, activeStep, setTotalStep, direction, lastStep, totalStep }) => (
-    <div>
-    <Stepper activeStep={activeStep} getLength={setTotalStep} direction={direction}>
-      <div step="1" label="One">
-        <h4>step 1 container</h4>
-        <p>This is step One container</p>
-      </div>
+    <StepControler>
+      {({ prevStep, nextStep, activeStep, setTotalStep, direction, lastStep, totalStep }) => (
+        <div>
+          <Stepper activeStep={activeStep} getLength={setTotalStep} direction={direction}>
+            <div step="1" label="One">
+              <h4>step 1 container</h4>
+              <p>This is step One container</p>
+            </div>
 
-      <div step="2" label="Two">
-        <h4>step 2 container</h4>
-        <p>This is step Two container</p>
-      </div>
+            <div step="2" label="Two">
+              <h4>step 2 container</h4>
+              <p>This is step Two container</p>
+            </div>
 
-      <div step="3" label="Three">
-        <h4>step 3 container</h4>
-        <p>This is step Three container</p>
-      </div>
+            <div step="3" label="Three">
+              <h4>step 3 container</h4>
+              <p>This is step Three container</p>
+            </div>
 
-      <div step="4" label="Four" done={lastStep}>
-        <h4>step 4 container</h4>
-        <p>This is step Three container</p>
-      </div>
-    </Stepper>
+            <div step="4" label="Four" done={lastStep}>
+              <h4>step 4 container</h4>
+              <p>This is step Three container</p>
+            </div>
+          </Stepper>
 
-    <div>
-      <Button 
-        style={{marginRight: 16 }}
-        disabled={activeStep === 0}
-        onClick={prevStep}
-      >
-          Prev
-      </Button>
-      <Button
-        onClick={() => click(nextStep, toggle, activeStep === totalStep - 1)}
-        disabled={lastStep}
-      >
-        {activeStep !== totalStep - 1 ? 'Next' : lastStep ? 'Done' :  'Send'}
-      </Button>
-    </div>
-      <Modal on={on} toggle={toggle}>
-        <Wrapper>
-         <p>Successfull</p>
-        </Wrapper>
-      </Modal> 
-    </div>
+          <div>
+            <Button 
+              style={{marginRight: 16 }}
+              disabled={activeStep === 0}
+              onClick={prevStep}
+            >
+              Prev
+            </Button>
+            <Button
+              onClick={() => click(nextStep, toggle, activeStep === totalStep - 1)}
+              disabled={lastStep}
+            >
+              {activeStep !== totalStep - 1 ? 'Next' : lastStep ? 'Done' :  'Send'}
+            </Button>
+          </div>
+          <Modal on={on} toggle={toggle}>
+            <Wrapper>
+              <p>Successfull</p>
+            </Wrapper>
+          </Modal> 
+        </div>
+      )}
+    </StepControler>
   )}
-</StepControler>
- )}
 </Toggle>
 ```
 
