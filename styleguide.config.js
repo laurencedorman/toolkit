@@ -9,7 +9,7 @@ module.exports = {
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
   template: {
-    favicon: './src/assets/favicon.png',
+    favicon: './src/assets/favicons.png',
     head: {
       links: [{
         rel: 'stylesheet',
