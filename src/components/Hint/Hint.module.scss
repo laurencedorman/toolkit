@@ -33,9 +33,9 @@
 
   &.menthe {
     color: $squidInk;
-    background-color: $menthealeau;
-    border-color: $menthealeau;
-    svg { fill: $squidInk }
+    background-color: lighten($kaktus, 30%);
+    border-color: $kaktus;
+    svg { fill: $kaktus }
   }
 
   .img {

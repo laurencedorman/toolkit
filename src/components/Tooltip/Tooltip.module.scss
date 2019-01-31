@@ -15,7 +15,7 @@ $marginArrow: -10px;
       max-width: 180px;
       padding: calc(#{$space} / 2) $space;
       border-radius: $radius;
-      color: $white;
+      color: $white !important;
       text-align: center;
       will-change: unset;
     }
