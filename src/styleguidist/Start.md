@@ -1,10 +1,12 @@
-Toolkit version 0.1.0
-----------------
+-------------------------------
+
+### Manoolkit Components and Utilities
+#####  version 0.1.0
 
 -------------------------------
 
-
-### Requirements
+<br/>
+### Minimum Requirements
 
 | React | React-DOM | Node |
 | ----- | --------- | ---- |
