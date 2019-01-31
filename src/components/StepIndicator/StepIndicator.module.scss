@@ -33,10 +33,10 @@
 
   .line {
     position: absolute;
-    width: calc(100% - 64px);
+    width: calc(100% - 80px);
     height: 1px;
     top: calc(32px / 2);
-    left: calc(#{$space} * 2);
+    left: 2.4em;
     background-color: $greyDark;
   }
 }
