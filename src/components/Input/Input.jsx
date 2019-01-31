@@ -52,21 +52,6 @@ const Input = ({
     [styles.hasIndicator]: indicator,
   });
 
-  /* eslint-disable no-nested-ternary */
-  const handleIcon = () => (
-    (!error && value !== '' && !reverse && !reset)
-      ? <Icon name="check" size="22" className={styles.icon} />
-      : icon
-        ? <Icon name={icon} size="16" className={styles.icon} />
-        : null
-  );
-
-  const handleIndicator = () => (
-    (indicator && !icon)
-      && <span className={styles.indicator}>{indicator}</span>
-  );
-  /* eslint-enable no-nested-ternary */
-
   /* eslint-disable jsx-a11y/label-has-for */
   return (
     <div className={container}>
@@ -90,8 +75,8 @@ const Input = ({
         />
         {label
           && <label htmlFor={id} className={labelStyle}>{label}</label>}
-        { handleIcon() }
-        { handleIndicator() }
+        { handleIcon(error, value, reverse, reset, icon) }
+        { handleIndicator(indicator, icon) }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
@@ -146,5 +131,20 @@ Input.defaultProps = {
   step: null,
   indicator: null,
 };
+
+/* eslint-disable no-nested-ternary */
+const handleIcon = (error, value, reverse, reset, icon) => (
+  (!error && value !== '' && !reverse && !reset)
+    ? <Icon name="check" size="22" className={styles.icon} />
+    : icon
+      ? <Icon name={icon} size="16" className={styles.icon} />
+      : null
+);
+
+const handleIndicator = (indicator, icon) => (
+  (indicator && !icon)
+    && <span className={styles.indicator}>{indicator}</span>
+);
+/* eslint-enable no-nested-ternary */
 
 export default Input;
