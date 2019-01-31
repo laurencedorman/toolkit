@@ -36,7 +36,7 @@ const InputCheckGroup = ({
             name={name}
             label={option.label}
             value={value}
-            checked={selectedOption.indexOf(value) > -1}
+            checked={type === 'radio' ? selectedOption === value : selectedOption.indexOf(value) > -1}
             disabled={disabled}
             onChange={onChange}
           />,
