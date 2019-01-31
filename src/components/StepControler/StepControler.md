@@ -1,4 +1,6 @@
 StepperControl with RenderChild pattern :
+<br/>
+<br/>
   
 State to Props | Type | Description
 -------------- | ---- | -----------

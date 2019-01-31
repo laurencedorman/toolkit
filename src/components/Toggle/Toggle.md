@@ -1,8 +1,19 @@
-Toggle:
-
-  * Toggle is a wrapper that sends props to display some datas with conditions. When you wrap a component with Toggle, you have access to main props <b>ON</b> as boolean and <b>TOGGLE</b> as function to switch boolean.
-  * Toggle is a component that works with "render child". Syntaxe must be like in example to wrap what you need.
+Toggle controler with RenderChild pattern :
   
+<br />
+<br />
+
+  
+State to Props | Type | Description
+-------------- | ---- | -----------
+on | boolean | True or False...
+toggle |func | Action to set !== on
+toggleIn | func | Action to set on (force true)
+toggleOut | func | Action to set on (force false)
+
+<br />
+###### Info: ToggleOut func is bind to escape keyboard. 
+
 ```js
 <Toggle>
 {({ on, toggle }) => (
@@ -16,10 +27,7 @@ Toggle:
 </Toggle>
 ```
 
-
-Toggle Force In / Out:
-
- * It's exactly the same that first exemple. The difference are that <b>ToggleIn</b> and <b>ToggleOut</b> force the state to swith the boolean. It usefull on hover for exemple.
+Toggle force :
 
 ```js
  <Toggle>
