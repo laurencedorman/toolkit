@@ -10,7 +10,10 @@
 .bodyStepper {
   position: relative;
   width: 100%;
+  flex: 1 1 auto;
+  overflow-y: auto;
   flex-grow: 2;
+  padding: 0;
 }
 
 .container {
@@ -21,6 +24,5 @@
   display: flex;
   flex-flow: column wrap;
   padding: $space 0;
-  background-color: $white;
   will-change: transform;
 }

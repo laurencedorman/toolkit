@@ -10,6 +10,7 @@
 
 .container {
   flex-flow: column wrap;
+  flex: 0 0 auto;
   padding: 0 calc(#{$space} * 2);
   .label { text-align: center }
 }
