@@ -25,23 +25,21 @@ const InputCheckGroup = ({
   );
 
   return (
-    <div className={classNames} direction={direction}>
-      {inputGroupTitle
-      && <span>{inputGroupTitle}</span>}
-
+    <div className={classNames}>
+      {inputGroupTitle && <span>{inputGroupTitle}</span>}
       {options && options.map((option) => {
         const value = option.value ? option.value : option.label;
-        return (
+        return React.cloneElement(
           <InputCheck
             type={type}
             key={value}
             name={name}
             label={option.label}
             value={value}
-            checked={selectedOption.indexOf(value) > -1}
+            checked={type === 'radio' ? selectedOption === value : selectedOption.indexOf(value) > -1}
             disabled={disabled}
             onChange={onChange}
-          />
+          />,
         );
       })}
     </div>
