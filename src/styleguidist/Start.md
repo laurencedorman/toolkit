@@ -18,7 +18,7 @@
 
   + Go to your package.json and add in dependencies:
   
-  `"mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git"`
+  `"mano-toolkit": "git+ssh://git@git.manomano.tech:component-react/toolkit.manomano-lan.com.git"`
   
   + Next in your terminal execute:
   
@@ -29,3 +29,4 @@
 ### Utilisation
 
   `import { component } from 'mano-toolkit';`
+
