@@ -65,11 +65,15 @@ initialState = {
 Input checkbox Group Vertical: 
 ```js
 initialState = {
-  selected: ['osx', 'linux'],
+  selected: ['osx-xxx_x', 'linux'],
   options: [
     {
-      label: 'OSX',
+      label: 'Osx',
       value: 'osx',
+    },
+    {
+      label: 'Osx XXX',
+      value: 'osx-xxx_x',
     },
     {
       label: 'Windows',

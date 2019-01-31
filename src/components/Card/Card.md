@@ -6,4 +6,3 @@ Card example:
   <p>Card is a simple container with border and border-radius.</p>
 </Card>
 ```
-
