@@ -66,8 +66,6 @@ const bodyStepper = (children, activeStep, up) => {
   return (
     <Transition
       native
-      unique
-      reset
       config={{ tension: 230, friction: 20, mass: 0.2 }}
       items={activeStep}
       from={{ t: up ? 100 : -100 }}
