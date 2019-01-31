@@ -1,31 +1,29 @@
- #Manomano Toolkit
- ##React component library
+## Manoolkit
+#####  version 0.1.0
 
-version 0.1.0
+-------------------------------
 
- ##Requirements
 
- * React `version >= 16.4`
- * React-dom `version >= 16.4`
- * NodeJS `version > 8.9`
- * yarn `sudo npm i -g yarn`
+### Minimum Requirements
 
- ##Installation
+| React | React-DOM | Node |
+| ----- | --------- | ---- |
+| 16.4 | 16.4 | 8.9 |
 
-Add library in package.json on dependencies:
+<br /> 
 
-```
-mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git
-```
-and make `yarn install`
+### Installation
 
- ##Utilisation
+  + Go to your package.json and add in dependencies:
+  
+  `"mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git"`
+  
+  + Next in your terminal execute:
+  
+  `yarn install`
+  
+<br/>
 
-```
-import { component } from 'mano-toolkit'
-```
+### Utilisation
 
- ##Documentation
-
-Demonstration and documentation will be available at `master.toolkit.manomano-lan.com`
-
+  `import { component } from 'mano-toolkit';`

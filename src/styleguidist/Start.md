@@ -1,10 +1,12 @@
-Toolkit version 0.1.0
-----------------
+-------------------------------
+
+### Manoolkit Components and Utilities
+#####  version 0.1.0
 
 -------------------------------
 
-
-### Requirements
+<br/>
+### Minimum Requirements
 
 | React | React-DOM | Node |
 | ----- | --------- | ---- |
@@ -16,7 +18,7 @@ Toolkit version 0.1.0
 
   + Go to your package.json and add in dependencies:
   
-  `"mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git"`
+  `"mano-toolkit": "git+ssh://git@git.manomano.tech:component-react/toolkit.manomano-lan.com.git"`
   
   + Next in your terminal execute:
   
@@ -27,3 +29,4 @@ Toolkit version 0.1.0
 ### Utilisation
 
   `import { component } from 'mano-toolkit';`
+
