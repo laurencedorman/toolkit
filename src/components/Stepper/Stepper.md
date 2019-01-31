@@ -50,7 +50,7 @@ const click = (next, toggle, lastStep) => {
               <p>This is step Three container</p>
             </div>
 
-            <div step="4" label="Four" done={lastStep}>
+            <div step="4" label="Four" done={lastStep ? 1 : 0}>
               <h4>step 4 container</h4>
               <p>This is step Three container</p>
             </div>

@@ -26,7 +26,7 @@ const Step = ({
     <div className={styles.container}>
       <div className={classNames}>
         {step}
-        {done && <Icon name="check" fill="#fff" className={icon} size={18} />}
+        {done ? <Icon name="check" fill="#fff" className={icon} size={18} /> : null}
       </div>
       <span className={styles.label}>{label}</span>
     </div>
