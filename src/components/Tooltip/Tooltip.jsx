@@ -59,8 +59,10 @@ export default class Tooltip extends PureComponent<propTypes> {
     return (
       <Portal>
         <Transition
+          force
           native
           unique
+          reset
           config={{ tension: 250, friction: 20, mass: 0.2 }}
           items={display}
           from={{ o: 0, s: 0.6 }}
@@ -80,6 +82,7 @@ export default class Tooltip extends PureComponent<propTypes> {
                         opacity: o.interpolate(o => o),
                         transform: s.interpolate(s => `scale(${s})`),
                         backgroundColor: bgColor,
+                        color: '#fff',
                       }}
                     >
                       <div className={styles.svg}>
