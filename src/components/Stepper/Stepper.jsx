@@ -65,7 +65,6 @@ const bodyStepper = (children, activeStep, up) => {
 
   return (
     <Transition
-      force
       native
       unique
       reset
