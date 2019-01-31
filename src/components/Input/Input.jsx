@@ -72,6 +72,9 @@ const Input = ({
           min={min}
           max={max}
           step={step}
+          aria-required={required}
+          aria-label={label && label}
+          aria-hidden={type === 'hidden'}
         />
         {label
           && <label htmlFor={id} className={labelStyle}>{label}</label>}

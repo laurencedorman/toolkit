@@ -26,6 +26,8 @@ const Textarea = ({
       disabled={disabled}
       form={form}
       onChange={onChange}
+      aria-multiline="true"
+      aria-required={required}
     />
   );
 };
