@@ -22,6 +22,7 @@ const Input = ({
   helper,
   onChange,
   onFocus,
+  onKeyDown,
   onBlur,
   error,
   messageError,
@@ -72,6 +73,7 @@ const Input = ({
           disabled={disabled}
           onChange={onChange}
           onFocus={onFocus}
+          onKeyDown={onKeyDown}
           onBlur={onBlur}
           hidden={hidden}
           min={min}
@@ -94,8 +96,7 @@ const Input = ({
   );
 };
 
-
-type propTypes = {
+export type propTypes = {
   className?: string,
   label: string,
   type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'search' | 'hidden',
@@ -111,9 +112,10 @@ type propTypes = {
   messageError?: string,
   helper?: string,
   hidden?: boolean,
-  onChange?: () => void,
-  onFocus?: () => void,
-  onBlur?: () => void,
+  onChange?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  onFocus?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  onKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  onBlur?: (event: SyntheticEvent<HTMLInputElement>) => void,
   icon?: string,
   reverse?: boolean,
   min?: number,
@@ -137,6 +139,7 @@ Input.defaultProps = {
   hidden: false,
   onChange: null,
   onFocus: null,
+  onKeyDown: null,
   onBlur: null,
   icon: '',
   reverse: false,

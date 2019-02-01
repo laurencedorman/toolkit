@@ -1,0 +1,16 @@
+@import 'styles/import.scss';
+
+.prediction {
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  &.highlighted {
+    background-color: $greyMed;
+  }
+
+  mark {
+    background: none;
+    font-weight: 600;
+  }
+}
