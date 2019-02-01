@@ -20,6 +20,7 @@
       height: 100%;
       flex-flow: column wrap;
       padding: $space 0;
+      overflow: hidden;
       will-change: transform;
     }
   }
