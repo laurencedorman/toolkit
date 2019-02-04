@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import styles from './Tabs.module.scss';
@@ -10,7 +9,6 @@ type propTypes = {
   onClick: () => void,
   className?: string,
   defaultActive?: boolean,
-  to?: string,
 }
 
 /* eslint-disable */
@@ -18,7 +16,6 @@ export default class Tab extends PureComponent<propTypes> {
   static defaultProps = {
     className: '',
     defaultActive: false,
-    to: null,
   };
 
   onClick = () => {
@@ -26,14 +23,9 @@ export default class Tab extends PureComponent<propTypes> {
     onClick(label);
   };
 
-  handleTag = () => {
-    const { to } = this.props;
-    return to !== null ? Link : 'span'
-  };
-
   render() {
     const {
-      activeTab, label, className, defaultActive, to,
+      activeTab, label, className, defaultActive,
     } = this.props;
 
     const classNames = cn(
@@ -41,22 +33,23 @@ export default class Tab extends PureComponent<propTypes> {
       { [styles.active]: activeTab === label },
     );
 
-    const properties = {
-      className: classNames,
-      onClick: this.onClick,
-      to,
-      role: 'button',
-      title: label,
-      default: defaultActive ? 1 : 0,
-      'aria-selected' : activeTab === label,
-    };
-
-    return React.createElement(
-      this.handleTag(),
-      { ... properties },
-      label,
-    );
+    return (
+      <li
+        className={styles.tabItem}
+        key={label}
+      >
+        <span
+          className={classNames}
+          onClick={this.onClick}
+          title={label}
+          aria-selected={activeTab === label}
+          default={defaultActive ? 1 : 0}
+          role="button"
+        >
+          {label}
+        </span>
+      </li>
+    )
   }
 }
-
 /* eslint-enable */
