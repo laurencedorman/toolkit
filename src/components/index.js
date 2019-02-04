@@ -12,6 +12,7 @@ export { default as Layout } from './Layout';
 export { default as Loader } from './Loader';
 export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
+export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
 export { default as Select } from './Select';
 export { default as Sidebar } from './Sidebar';
