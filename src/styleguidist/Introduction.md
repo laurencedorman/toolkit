@@ -7,12 +7,14 @@ _____________
 
 
 
-In every sections you will find some demonstrations of components to show you some ways to uses there.
+In every sections you will find demonstrations of components to show you many ways to use them.
 <br/>
 
-The main goal is not to show how you should use them exactly but just to inspire you. Keep in your mind there are many others way to use every components and every case can have differents good solutions.
+Main goal is to inspire you, not to show you how to use them. Keep in your mind that there are many other ways to use every components and that each case can have differents solutions.
 
-Don't hesitate to ask me for any questions, new component or feature upgrade. You can participate and send me a Merge Request.
+Feel free to ask me if you have any questions, new component or feature upgrade. You can also participate and send me a Merge Request.
+
+Please check required configuration (Start's section) before report bug.
 
 Enjoy !
 
