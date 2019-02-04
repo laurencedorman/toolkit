@@ -15,6 +15,7 @@ export {
   Layout,
   Logo,
   Modal,
+  Overlay,
   Portal,
   Select,
   Sidebar,
