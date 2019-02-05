@@ -1,7 +1,10 @@
-Tabs:
+<b>Tabs:</b>
 
  * Just add label props on every children.
  * Set props 'defaultActive' (boolean) to choose default tab active on mount component.
+ 
+<b>Tips :</b>
+ * In case of multiple array, you should concat all array as last exemple.
 
 
 ```js
@@ -18,7 +21,7 @@ Tabs:
     <h4>title</h4>
   </Tab>
 
-  <Tab label="Label Three" defaultActive>
+  <Tab label={() => 'Label Three'} defaultActive>
     <p>Lorizzle owned dolizzle ghetto amizzle, for sure adipiscing izzle. Dang shiz velizzle, away yo, suscipizzle quizzle, gravida vizzle, bow wow wow. Pellentesque eget tortor. Sizzle erizzle. Uhuh ... yih! izzle dolor da bomb the bizzle tempizzle boom shackalack. Shit sheezy dope et turpizzle. For sure in tortizzle. Daahng dawg doggy yo daahng dawg. Nizzle fizzle habitasse platea dictumst. Fo shizzle my nizzle dapibizzle. Fo shizzle tellus urna, pretizzle shizzlin dizzle, mattizzle izzle, eleifend , nunc. For sure suscipizzle. Check it out sempizzle velit ma nizzle mah nizzle.</p>
   </Tab>
 </Tabs>
@@ -37,14 +40,14 @@ Tabs with one children:
 Tabs with multiple array: 
 
 ```js
-test = ['first tab', 'second tab'];
-test2 = ['tertary tab', 'Four tab'];
+test = ['Tab1', 'Tab2'];
+test2 = ['Tab3', 'Tab4'];
 
 const result = test.concat(test2);
 
 <Tabs>
   {result.map((key, i) => (
-    <Tab label={key} defaultActive={key === 'Four tab'}>{key} element</Tab>
+    <Tab key={key} label={key} defaultActive={key === 'Tab4'}>{key} element</Tab>
   ))}
 </Tabs>
 ```

@@ -10,6 +10,7 @@ const Tab = ({ children, label, defaultActive }:propTypes) => (
   </div>
 );
 
+
 type propTypes = {
   children: Node,
   label: string | () => void,
