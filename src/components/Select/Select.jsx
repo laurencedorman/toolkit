@@ -132,6 +132,7 @@ type propTypes = {
   onChange?: () => void,
   onFocus?: () => void,
   onBlur?: () => void,
+  theme?: 'light' | null,
 };
 
 Select.defaultProps = {
@@ -145,6 +146,7 @@ Select.defaultProps = {
   onChange: null,
   onFocus: null,
   onBlur: null,
+  theme: null,
 };
 
 
