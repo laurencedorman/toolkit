@@ -9,7 +9,7 @@ import styles from './InputCheck.module.scss';
  */
 
 const InputCheck = ({
-  type, value, name, disabled, checked, onChange, label, className, itemId, dataQa,
+  type, value, name, disabled, required, checked, onChange, label, className, itemId, dataQa,
 }: PropTypes) => {
   const classNames = cn(
     styles.inputCheck,
@@ -26,6 +26,7 @@ const InputCheck = ({
         value={value}
         name={name}
         checked={checked}
+        required={required}
         disabled={disabled}
         onChange={onChange}
         data-itemid={itemId}
@@ -48,6 +49,7 @@ type PropTypes = {
   value: string,
   name: string,
   checked?: boolean,
+  required?: boolean,
   disabled?: boolean,
   onChange?: (Event) => void,
   label?: string,
@@ -58,6 +60,7 @@ type PropTypes = {
 
 InputCheck.defaultProps = {
   checked: false,
+  required: false,
   disabled: false,
   onChange: null,
   label: '',
