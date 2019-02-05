@@ -23,11 +23,14 @@ const Select = ({
   defaultValue,
   name,
   disabled,
+  theme,
   ...props
 }:propTypes) => {
-  const select = cn(styles.select, {
-    hasError: error,
-  });
+  const select = cn(
+    styles.select,
+    styles[theme],
+    { hasError: error },
+  );
 
   return (
     <div className={styles.container}>
@@ -52,6 +55,7 @@ const Select = ({
           matchPos="start"
           placeholder={placeholder}
           isDisabled={disabled}
+          theme={theme}
         />
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
@@ -75,6 +79,8 @@ const customStyles = {
     ...style,
     borderRadius: 3,
     boxShadow: 'none',
+    maxHeight: state.selectProps.theme === 'light' ? 36 : 56,
+    minHeight: state.selectProps.theme === 'light' ? 36 : 56,
     borderColor:
       state.selectProps.className !== 'Select_select__1Qsyt hasError'
         ? colors.greyDark
@@ -91,14 +97,14 @@ const customStyles = {
     borderWidth: 1,
     boxSizing: 'border-box',
   }),
-  valueContainer: () => ({
+  valueContainer: (style, state) => ({
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'flex-start',
     alignItems: 'center',
     maxWidth: 'calc(100% - 115px)',
-    minHeight: 56,
-    padding: '8px 16px',
+    minHeight: state.selectProps.theme === 'light' ? 36 : 56,
+    padding: state.selectProps.theme === 'light' ? '8px' : '8px 16px',
   }),
   indicatorSeparator: style => ({
     ...style,
@@ -126,6 +132,7 @@ type propTypes = {
   onChange?: () => void,
   onFocus?: () => void,
   onBlur?: () => void,
+  theme?: 'light' | null,
 };
 
 Select.defaultProps = {
@@ -139,6 +146,7 @@ Select.defaultProps = {
   onChange: null,
   onFocus: null,
   onBlur: null,
+  theme: null,
 };
 
 

@@ -186,3 +186,16 @@ initialState = {value: ''};
   onChange={e => setState({ value: e.target.value })}
 />
 ```
+
+Input Light :
+```js
+initialState = {value: ''};
+
+<InputLight
+  type="text"
+  id="inputLight"
+  name="inputLight"
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+/>
+```
