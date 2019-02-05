@@ -27,9 +27,12 @@ $tinySpace: calc(#{$space} / 4);
     position: relative;
     display: block;
     width: 100%;
-    // min-height: calc(#{$space} * 4);
-    min-height: 56px;
     background-color: $white;
+
+    &.light {
+      height: 36px;
+      font-size: .85rem !important;
+    }
 
     &.hasError {
       border-color: $cocoCorail

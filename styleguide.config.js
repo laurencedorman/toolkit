@@ -94,7 +94,6 @@ module.exports = {
         'src/components/Tabs/TabLabel.jsx',
         'src/components/Toggle/*.jsx',
         'src/components/ToggleDown/*.jsx',
-        'src/components/Input/InputLight.jsx',
       ],
     },
   ],
