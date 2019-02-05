@@ -20,9 +20,7 @@ export default class Tab extends PureComponent<propTypes> {
   };
 
   render() {
-    const {
-      activeTab, label, className, defaultActive,
-    } = this.props;
+    const { activeTab, label, className } = this.props;
 
     const classNames = cn(
       className,
