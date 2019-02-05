@@ -1,47 +1,22 @@
+// @flow
 import React from 'react';
-import { animated, Transition } from 'react-spring';
+
+
+const Tab = ({ children, label, defaultActive }:propTypes) => (
+  <div
+    label={label}
+    defaultActive={defaultActive ? 1 : 0}
+  >
+    {children}
+  </div>
+);
 
 type propTypes = {
   children: Node,
-  activeTab: string,
+  label: string,
+  defaultActive?: boolean,
 }
 
-/* eslint-disable */
-const Tab = ({ children, activeTab }:propTypes) => {
-  if (React.Children.count(children) === 1) return children;
-
-  return React.Children.map(children, (child) => {
-    const { label, children } = child.props;
-
-    if (label !== activeTab) return undefined;
-
-    const isOn = label === activeTab;
-
-    return (
-      <Transition
-        native
-        items={isOn}
-        from={{ o: 0 }}
-        enter={{ o: 1 }}
-        leave={{ o: 0 }}
-        key={label}
-      >
-        {isOn => isOn
-          && (
-            ({ o }) => (
-              <animated.div
-                key={label}
-                style={{ opacity: o.interpolate(o => o) }}
-              >
-                {children}
-              </animated.div>
-            )
-          )
-        }
-      </Transition>
-    );
-  })
-};
-/* eslint-enable */
+Tab.defaultProps = { defaultActive: false };
 
 export default Tab;

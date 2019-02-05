@@ -8,15 +8,11 @@ type propTypes = {
   activeTab: string,
   onClick: () => void,
   className?: string,
-  defaultActive?: boolean,
 }
 
 /* eslint-disable */
 export default class Tab extends PureComponent<propTypes> {
-  static defaultProps = {
-    className: '',
-    defaultActive: false,
-  };
+  static defaultProps = { className: '' };
 
   onClick = () => {
     const { label, onClick } = this.props;
@@ -43,7 +39,6 @@ export default class Tab extends PureComponent<propTypes> {
           onClick={this.onClick}
           title={label}
           aria-selected={activeTab === label}
-          default={defaultActive ? 1 : 0}
           role="button"
         >
           {label}
