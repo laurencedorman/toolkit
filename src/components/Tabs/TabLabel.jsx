@@ -16,7 +16,7 @@ export default class Tab extends PureComponent<propTypes> {
 
   onClick = () => {
     const { label, onClick } = this.props;
-    onClick(label);
+    onClick(label)
   };
 
   render() {
@@ -36,7 +36,7 @@ export default class Tab extends PureComponent<propTypes> {
           aria-selected={activeTab === label}
           role="button"
         >
-          {label}
+          {typeof label === 'function' ? label() : label}
         </span>
       </li>
     )

@@ -6,7 +6,7 @@ import { animated, Transition } from 'react-spring';
 const TabBody = ({ children, activeTab }:propTypes) => {
   const setChildren = React.Children.toArray(children);
 
-  return React.Children.map(setChildren, (child, i) => {
+  return React.Children.map(setChildren, (child) => {
     const { label } = child.props;
 
     if (!Array.isArray(children)) return child.props.children;
