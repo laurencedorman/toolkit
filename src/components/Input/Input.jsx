@@ -17,6 +17,9 @@ const Input = ({
   placeholder,
   disabled,
   required,
+  minlength,
+  maxlength,
+  pattern,
   helper,
   onChange,
   onFocus,
@@ -64,6 +67,9 @@ const Input = ({
           value={value}
           placeholder={placeholder}
           required={required}
+          minLength={minlength}
+          maxLength={maxlength}
+          pattern={pattern}
           disabled={disabled}
           onChange={onChange}
           onFocus={onFocus}
@@ -98,6 +104,9 @@ type propTypes = {
   value?: string,
   placeholder?: string,
   required?: boolean,
+  minLength?: number,
+  maxLength?: number,
+  pattern?: string,
   disabled?: boolean,
   error?: boolean,
   messageError?: string,
@@ -119,6 +128,9 @@ Input.defaultProps = {
   value: '',
   placeholder: '',
   required: false,
+  minLength: null,
+  maxLength: null,
+  pattern: '',
   disabled: false,
   helper: '',
   error: false,
