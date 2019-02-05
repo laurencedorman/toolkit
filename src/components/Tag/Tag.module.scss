@@ -4,10 +4,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  height: 32px;
   padding: 0 $space;
   background-color: $white;
   border: $border transparent;
-  border-radius: 16px;
+  border-radius: 17px;
   text-align: center;
   transition: background-color $timeout ease;
   cursor: default;
@@ -16,18 +17,24 @@
 
   &:active { background-color: $manoBlack }
 
-  &.primary, &.secondary, &.tertiary, &:active, &.disabled { color: $white }
+  &.primary, &.secondary, &.tertiary, &:active, &.disabled, &.purplerain { color: $white }
 
   &.default { border-color: $borderColor }
 
-  &.primary {
+  &.primary, &.balata {
     background-color: $balataGreen;
     &:active { background-color: $squidInk }
   }
 
-  &.secondary, &.secondary:active { background-color: $bellaNotte }
+  &.secondary, &.secondary:active, &.bellanotte { background-color: $bellaNotte }
 
-  &.tertiary, &.tertiary:active { background-color: $vaALaPlaya }
+  &.tertiary, &.tertiary:active, &.playa { background-color: $vaALaPlaya }
+
+  &.artic { background-color: $articCitric }
+
+  &.hellblau { background-color: $hellblau }
+
+  &.purplerain { background-color: $purpleRain }
 
   &.disabled {
     background-color: $greyDark;

@@ -136,6 +136,21 @@ const span = {
   <span style={span}>trash</span>
 </div>
 
+<div style={style}>
+  <IconComponent name="launch" />
+  <span style={span}>launch</span>
+</div>
+
+<div style={style}>
+  <IconComponent name="play" />
+  <span style={span}>play</span>
+</div>
+
+<div style={style}>
+  <IconComponent name="stop" />
+  <span style={span}>stop</span>
+</div>
+
 <div style={{width: '100%', marginTop: '1rem'}}>
   <h4>NAVIGATION</h4> 
 </div>

@@ -22,7 +22,8 @@ const Tag = ({
 
 type propTypes = {
   className?: string,
-  theme?: 'default' | 'primary' | 'secondary' | 'reset',
+  theme?:
+    'default' | 'primary' | 'secondary' | 'reset' | 'balata' | 'bellanotte' | 'playa' | 'artic' | 'hellblau' | 'purplerain',
   children: string | Node,
   disabled: boolean,
 };
