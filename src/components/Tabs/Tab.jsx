@@ -1,55 +1,47 @@
-import React, { PureComponent } from 'react';
-import cn from 'classnames';
-
-import styles from './Tabs.module.scss';
+import React from 'react';
+import { animated, Transition } from 'react-spring';
 
 type propTypes = {
-  label: string,
+  children: Node,
   activeTab: string,
-  onClick: () => void,
-  className?: string,
-  defaultActive?: boolean,
 }
 
 /* eslint-disable */
-export default class Tab extends PureComponent<propTypes> {
-  static defaultProps = {
-    className: '',
-    defaultActive: false,
-  };
+const Tab = ({ children, activeTab }:propTypes) => {
+  if (React.Children.count(children) === 1) return children;
 
-  onClick = () => {
-    const { label, onClick } = this.props;
-    onClick(label);
-  };
+  return React.Children.map(children, (child) => {
+    const { label, children } = child.props;
 
-  render() {
-    const {
-      activeTab, label, className, defaultActive,
-    } = this.props;
+    if (label !== activeTab) return undefined;
 
-    const classNames = cn(
-      className,
-      { [styles.active]: activeTab === label },
-    );
+    const isOn = label === activeTab;
 
     return (
-      <li
-        className={styles.tabItem}
+      <Transition
+        native
+        items={isOn}
+        from={{ o: 0 }}
+        enter={{ o: 1 }}
+        leave={{ o: 0 }}
         key={label}
       >
-        <span
-          className={classNames}
-          onClick={this.onClick}
-          title={label}
-          aria-selected={activeTab === label}
-          default={defaultActive ? 1 : 0}
-          role="button"
-        >
-          {label}
-        </span>
-      </li>
-    )
-  }
-}
+        {isOn => isOn
+          && (
+            ({ o }) => (
+              <animated.div
+                key={label}
+                style={{ opacity: o.interpolate(o => o) }}
+              >
+                {children}
+              </animated.div>
+            )
+          )
+        }
+      </Transition>
+    );
+  })
+};
 /* eslint-enable */
+
+export default Tab;

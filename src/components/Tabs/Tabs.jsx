@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Transition, animated, Spring } from 'react-spring';
+import { animated, Spring } from 'react-spring';
 import cn from 'classnames';
-import { Wrapper, GetMeasure } from 'components';
-import Tab from './Tab';
+import {
+  Wrapper, GetMeasure, Tab, TabLabel,
+} from 'components';
 import styles from './Tabs.module.scss';
 
 type propTypes = {
@@ -31,6 +32,17 @@ export default class Tabs extends Component<propTypes> {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { children } = this.props;
+    if (React.Children.count(prevProps.children) !== React.Children.count(children)) {
+      React.Children.map(children, child => (
+        child.props.defaultActive
+          ? this.onClickTabItem(child.props.label)
+          : this.onClickTabItem(children[0].props.label)
+      ));
+    }
+  }
+
   onClickTabItem = labelTab => this.setState({ activeTab: labelTab });
 
   render() {
@@ -48,7 +60,7 @@ export default class Tabs extends Component<propTypes> {
           {React.Children.map(children, (child) => {
             const { label } = child.props;
             return React.cloneElement(
-              <Tab
+              <TabLabel
                 activeTab={activeTab}
                 label={label}
                 onClick={this.onClickTabItem}
@@ -69,7 +81,9 @@ export default class Tabs extends Component<propTypes> {
               {style => (
                 <animated.div style={style}>
                   <div ref={ref} className={styles.tabContent}>
-                    {bodyTabs(children, activeTab)}
+                    <Tab activeTab={activeTab}>
+                      {children}
+                    </Tab>
                   </div>
                 </animated.div>
               )}
@@ -81,39 +95,3 @@ export default class Tabs extends Component<propTypes> {
   }
 }
 /* eslint shadow:  */
-
-/* eslint-disable  */
-const bodyTabs = (children, activeTab) => {
-  if (React.Children.count(children) === 1) return children;
-
-  return React.Children.map(children, (child) => {
-    if (child.props.label !== activeTab) return undefined;
-
-    const isOn = child.props.label === activeTab;
-
-    return (
-      <Transition
-        native
-        items={isOn}
-        from={{ o: 0 }}
-        enter={{ o: 1 }}
-        leave={{ o: 0 }}
-        key={child.props.label}
-      >
-        {isOn => isOn
-          && (
-            ({ o }) => (
-              <animated.div
-                key={child.props.label}
-                style={{ opacity: o.interpolate(o => o) }}
-              >
-                {child.props.children}
-              </animated.div>
-            )
-          )
-        }
-      </Transition>
-    );
-  })
-};
-/* eslint-enable  */

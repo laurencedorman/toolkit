@@ -25,6 +25,8 @@ export {
   Stepper,
   Switch,
   Table,
+  Tab,
+  TabLabel,
   Tabs,
   Tag,
   Textarea,
