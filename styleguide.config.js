@@ -90,6 +90,7 @@ module.exports = {
         'src/components/GetMeasure/*.jsx',
         'src/components/Portal/*.jsx',
         'src/components/StepControler/*.jsx',
+        'src/components/Tabs/TabBody.jsx',
         'src/components/Toggle/*.jsx',
         'src/components/ToggleDown/*.jsx',
         'src/components/Input/InputLight.jsx',
