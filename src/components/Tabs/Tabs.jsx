@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { animated, Spring } from 'react-spring';
 import cn from 'classnames';
 import {
-  Wrapper, GetMeasure, Tab, TabLabel,
+  Wrapper, GetMeasure, TabBody, TabLabel,
 } from 'components';
 import styles from './Tabs.module.scss';
 
@@ -81,9 +81,9 @@ export default class Tabs extends Component<propTypes> {
               {style => (
                 <animated.div style={style}>
                   <div ref={ref} className={styles.tabContent}>
-                    <Tab activeTab={activeTab}>
+                    <TabBody activeTab={activeTab}>
                       {children}
-                    </Tab>
+                    </TabBody>
                   </div>
                 </animated.div>
               )}
