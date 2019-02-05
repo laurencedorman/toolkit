@@ -3,9 +3,8 @@ import React from 'react';
 
 const Tab = ({ children, label, defaultActive }:propTypes) => (
   <div
-    label={label}
+    label={label.toString()}
     defaultActive={defaultActive ? 1 : 0}
-    key={label}
   >
     {children}
   </div>
@@ -13,7 +12,7 @@ const Tab = ({ children, label, defaultActive }:propTypes) => (
 
 type propTypes = {
   children: Node,
-  label: string,
+  label: string | () => void,
   defaultActive?: boolean,
 }
 

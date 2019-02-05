@@ -2,13 +2,14 @@
 import React from 'react';
 import { animated, Transition } from 'react-spring';
 
-
 /* eslint-disable */
 const TabBody = ({ children, activeTab }:propTypes) => {
-  return React.Children.map(children, (child) => {
+  const setChildren = React.Children.toArray(children);
+
+  return React.Children.map(setChildren, (child, i) => {
     const { label } = child.props;
 
-    if (React.Children.count(children) === 1) return child.props.children;
+    if (!Array.isArray(children)) return child.props.children;
 
     if (label !== activeTab) return undefined;
 

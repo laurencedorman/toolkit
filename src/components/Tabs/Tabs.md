@@ -24,6 +24,8 @@ Tabs:
 </Tabs>
 ```
 
+Tabs with one children: 
+
 ```js
 <Tabs>
   <Tab label="Label Solo">
@@ -32,13 +34,17 @@ Tabs:
 </Tabs>
 ```
 
+Tabs with multiple array: 
 
 ```js
 test = ['first tab', 'second tab'];
+test2 = ['tertary tab', 'Four tab'];
+
+const result = test.concat(test2);
 
 <Tabs>
-  {test.map(key => (
-    <Tab label={key}>{key} element</Tab>
+  {result.map((key, i) => (
+    <Tab label={key} defaultActive={key === 'Four tab'}>{key} element</Tab>
   ))}
 </Tabs>
 ```
