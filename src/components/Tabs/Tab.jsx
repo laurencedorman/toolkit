@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 
-
 const Tab = ({ children, label, defaultActive }:propTypes) => (
   <div
     label={label}

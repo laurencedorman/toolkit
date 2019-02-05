@@ -26,6 +26,7 @@ export {
   Switch,
   Table,
   Tab,
+  TabBody,
   TabLabel,
   Tabs,
   Tag,

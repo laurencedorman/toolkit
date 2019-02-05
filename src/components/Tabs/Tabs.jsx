@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { animated, Spring, Transition } from 'react-spring';
+import { animated, Spring } from 'react-spring';
 import cn from 'classnames';
-import { Wrapper, GetMeasure, TabLabel } from 'components';
+import {
+  Wrapper, GetMeasure, TabBody, TabLabel,
+} from 'components';
 import styles from './Tabs.module.scss';
 
 type propTypes = {
@@ -79,9 +81,9 @@ export default class Tabs extends Component<propTypes> {
               {style => (
                 <animated.div style={style}>
                   <div ref={ref} className={styles.tabContent}>
-                    <TabContainer activeTab={activeTab}>
+                    <TabBody activeTab={activeTab}>
                       {children}
-                    </TabContainer>
+                    </TabBody>
                   </div>
                 </animated.div>
               )}
@@ -93,41 +95,3 @@ export default class Tabs extends Component<propTypes> {
   }
 }
 /* eslint shadow:  */
-
-/* eslint-disable */
-const TabContainer = ({ children, activeTab }) => {
-  if (React.Children.count(children) === 1) return children;
-
-  return React.Children.map(children, (child) => {
-    const { label, children } = child.props;
-
-    if (label !== activeTab) return undefined;
-
-    const isOn = label === activeTab;
-
-    return (
-      <Transition
-        native
-        items={isOn}
-        from={{ o: 0 }}
-        enter={{ o: 1 }}
-        leave={{ o: 0 }}
-        key={label}
-      >
-        {isOn => isOn
-          && (
-            ({ o }) => (
-              <animated.div
-                key={label}
-                style={{ opacity: o.interpolate(o => o) }}
-              >
-                {children}
-              </animated.div>
-            )
-          )
-        }
-      </Transition>
-    );
-  })
-};
-/* eslint-enable */
