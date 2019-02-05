@@ -5,6 +5,7 @@ const Tab = ({ children, label, defaultActive }:propTypes) => (
   <div
     label={label}
     defaultActive={defaultActive ? 1 : 0}
+    key={label}
   >
     {children}
   </div>

@@ -91,6 +91,7 @@ module.exports = {
         'src/components/Portal/*.jsx',
         'src/components/StepControler/*.jsx',
         'src/components/Tabs/TabBody.jsx',
+        'src/components/Tabs/TabLabel.jsx',
         'src/components/Toggle/*.jsx',
         'src/components/ToggleDown/*.jsx',
         'src/components/Input/InputLight.jsx',
