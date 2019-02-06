@@ -87,6 +87,9 @@ initialState = {
 };
 
 <InputCheckGroup
+  required
+  error
+  messageError="Display error message"
   inputGroupTitle="this is Checkbox Group :"
   type="checkbox" 
   direction="horizontal"

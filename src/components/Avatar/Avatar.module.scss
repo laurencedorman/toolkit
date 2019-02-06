@@ -1,0 +1,24 @@
+@import 'styles/import.scss';
+
+.avatar {
+  position: relative;
+  display: flex;
+
+  &.big {
+    width: 48px;
+    height: 48px;
+    clip-path: url(#maskAvatarBig);
+  }
+
+  &.small {
+    width: 32px;
+    height: 32px;
+    clip-path: url(#maskAvatarSmall);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
