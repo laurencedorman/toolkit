@@ -17,8 +17,8 @@ const Input = ({
   placeholder,
   disabled,
   required,
-  minlength,
-  maxlength,
+  minLength,
+  maxLength,
   pattern,
   helper,
   onChange,
@@ -67,8 +67,8 @@ const Input = ({
           value={value}
           placeholder={placeholder}
           required={required}
-          minLength={minlength}
-          maxLength={maxlength}
+          minLength={minLength}
+          maxLength={maxLength}
           pattern={pattern}
           disabled={disabled}
           onChange={onChange}
