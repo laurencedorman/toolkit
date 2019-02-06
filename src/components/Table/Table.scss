@@ -1,6 +1,6 @@
 @import 'styles/import.scss';
 
-.rt-th, .rt-td, .-pagination { padding: $space !important }
+.rt-td, .-pagination { padding: $space !important }
 .rt-th, .rt-td { border-right: none !important }
 .rt-thead, .-pagination { box-shadow: none !important }
 
@@ -8,15 +8,20 @@
   font-size: .85rem !important;
   border-radius: $radius;
 
-  .rt-thead {
+  .rt-tr { align-items: center }
+
+  .-header {
+    height: 32px;
     background-color: $greyMed;
     text-align: left;
     border-radius: $radius $radius 0 0;
 
     .rt-th {
+      height: 32px;
+      padding: 8px 8px;
       color: $squidInk !important;
       text-align: left;
-      font-weight: 600;
+      &:focus{ outline: none }
 
       input {
         max-width: 100%;
@@ -25,10 +30,19 @@
   }
 
   .-filters {
+    justify-content: center;
+    height: 46px;
     background-color: transparent;
+    border-bottom: solid 1px $borderColor !important;
 
     .rt-tr {
       border-bottom: solid 1px $borderColor;
+      box-sizing: border-box;
+    }
+
+    input, select {
+      height: 36px;
+      border-color: $borderColor;
     }
   }
 

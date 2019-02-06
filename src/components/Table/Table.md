@@ -11,8 +11,8 @@ Table:
   ]}
   columns={[
     { Header: 'First Name', accessor: 'firstName', filterable: true},
-    { Header: 'Last Name', accessor: 'lastName'},
-    { Header: 'Other', accessor: 'Other'}
+    { Header: 'Last Name', accessor: 'lastName', filterable: true},
+    { Header: 'Other', accessor: 'Other', filterable: true}
   ]}
   defaultPageSize={5}
 />

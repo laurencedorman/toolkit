@@ -32,7 +32,6 @@ export default class Tab extends PureComponent<propTypes> {
         <span
           className={classNames}
           onClick={this.onClick}
-          title={label}
           aria-selected={activeTab === label}
           role="button"
         >
