@@ -70,6 +70,10 @@ module.exports = {
       content: 'src/styleguidist/Introduction.md',
     },
     {
+      name: 'Manoolkit Colors',
+      content: 'src/styleguidist/Colors.md',
+    },
+    {
       name: 'Manoolkit Utilities',
       description: 'Some components to help',
       components: [
