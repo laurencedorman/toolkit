@@ -73,7 +73,7 @@ const bodyStepper = (children, activeStep, up) => {
       items={activeStep}
       from={{ t: up ? 100 : -100 }}
       enter={{ t: 0 }}
-      leave={{ t: up ? -40 : 100 }}
+      leave={{ t: up ? -100 : 100 }}
     >
       {activeStep => ({ t }) => (
         <animated.div
