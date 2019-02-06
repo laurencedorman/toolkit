@@ -1,5 +1,6 @@
 export {
   Alert,
+  Avatar,
   Button,
   Card,
   DropDown,

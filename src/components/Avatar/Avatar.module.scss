@@ -1,0 +1,29 @@
+@import 'styles/import.scss';
+
+.avatar {
+  position: relative;
+  display: flex;
+
+  &.big {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.big {
+    width: 32px;
+    height: 32px;
+  }
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: url(#maskAvatar);
+  }
+}
