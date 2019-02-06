@@ -18,6 +18,8 @@ const InputCheckGroup = ({
   disabled,
   onChange,
   className,
+  error,
+  messageError,
 }: PropTypes) => {
   const classNames = cn(
     styles.CheckGroup,
@@ -47,6 +49,7 @@ const InputCheckGroup = ({
           />,
         );
       })}
+      {error && <span className={styles.error}>{messageError}</span>}
     </div>
   );
 };
@@ -62,6 +65,8 @@ type PropTypes = {
   required?: boolean,
   onChange?: (Event) => void,
   className?: string,
+  error?: boolean,
+  messageError?: string,
 };
 
 InputCheckGroup.defaultProps = {
@@ -72,6 +77,8 @@ InputCheckGroup.defaultProps = {
   required: false,
   onChange: null,
   className: '',
+  error: false,
+  messageError: '',
 };
 
 export default InputCheckGroup;
