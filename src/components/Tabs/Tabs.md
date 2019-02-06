@@ -21,7 +21,7 @@
     <h4>title</h4>
   </Tab>
 
-  <Tab label={() => 'Label Three'} defaultActive>
+  <Tab label={() => <span>Label Three</span>} defaultActive>
     <p>Lorizzle owned dolizzle ghetto amizzle, for sure adipiscing izzle. Dang shiz velizzle, away yo, suscipizzle quizzle, gravida vizzle, bow wow wow. Pellentesque eget tortor. Sizzle erizzle. Uhuh ... yih! izzle dolor da bomb the bizzle tempizzle boom shackalack. Shit sheezy dope et turpizzle. For sure in tortizzle. Daahng dawg doggy yo daahng dawg. Nizzle fizzle habitasse platea dictumst. Fo shizzle my nizzle dapibizzle. Fo shizzle tellus urna, pretizzle shizzlin dizzle, mattizzle izzle, eleifend , nunc. For sure suscipizzle. Check it out sempizzle velit ma nizzle mah nizzle.</p>
   </Tab>
 </Tabs>
