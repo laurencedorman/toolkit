@@ -1,11 +1,37 @@
 @import 'styles/import.scss';
 
 $bigSpace: 2em;
+$tinySpace: calc(#{$space} / 4);
+
+.container {
+  position: relative;
+  width: 100%;
+  &:not(:last-child) { margin-bottom: $space }
+
+  .error {
+    display: block;
+    width: 100%;
+    margin: .25em 0 0 0;
+    color: $greyDarker;
+    font-size: 0.75rem;
+    text-align: left;
+    color: $cocoCorail
+  }
+}
 
 .inputCheck {
   display: inline-flex;
   position: relative;
   align-items: center;
+
+  &.required {
+    &::after {
+      content: "*";
+      display: inline-block;
+      color: $cocoCorail;
+      padding-left: $tinySpace
+    }
+  }
 
   &:not(:last-child) {
     margin-right: $bigSpace;
@@ -144,4 +170,3 @@ $bigSpace: 2em;
     margin-bottom: $space
   }
 }
-
