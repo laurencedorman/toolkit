@@ -14,6 +14,7 @@ const InputCheckGroup = ({
   type,
   name,
   selectedOption,
+  required,
   disabled,
   onChange,
   className,
@@ -24,9 +25,13 @@ const InputCheckGroup = ({
     className,
   );
 
+  const labelStyle = cn({
+    [styles.required]: required,
+  });
+
   return (
     <div className={classNames}>
-      {inputGroupTitle && <span>{inputGroupTitle}</span>}
+      {inputGroupTitle && <span className={labelStyle}>{inputGroupTitle}</span>}
       {options && options.map((option) => {
         const value = option.value ? option.value : option.label;
         return React.cloneElement(
@@ -54,6 +59,7 @@ type PropTypes = {
   name: string,
   selectedOption?: string | Array<string>,
   disabled?: boolean,
+  required?: boolean,
   onChange?: (Event) => void,
   className?: string,
 };
@@ -63,6 +69,7 @@ InputCheckGroup.defaultProps = {
   direction: 'horizontal',
   selectedOption: '',
   disabled: false,
+  required: false,
   onChange: null,
   className: '',
 };
