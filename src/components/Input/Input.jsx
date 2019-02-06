@@ -19,7 +19,6 @@ const Input = ({
   required,
   minLength,
   maxLength,
-  pattern,
   helper,
   onChange,
   onFocus,
@@ -69,7 +68,6 @@ const Input = ({
           required={required}
           minLength={minLength}
           maxLength={maxLength}
-          pattern={pattern}
           disabled={disabled}
           onChange={onChange}
           onFocus={onFocus}
@@ -106,7 +104,6 @@ type propTypes = {
   required?: boolean,
   minLength?: number,
   maxLength?: number,
-  pattern?: string,
   disabled?: boolean,
   error?: boolean,
   messageError?: string,
@@ -130,7 +127,6 @@ Input.defaultProps = {
   required: false,
   minLength: null,
   maxLength: null,
-  pattern: '',
   disabled: false,
   helper: '',
   error: false,
