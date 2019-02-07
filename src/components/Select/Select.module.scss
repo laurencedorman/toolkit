@@ -20,6 +20,13 @@ $tinySpace: calc(#{$space} / 4);
   }
 
   .error { color: $cocoCorail }
+
+  .required::after {
+    content: "*";
+    display: inline-block;
+    color: $cocoCorail;
+    padding-left: $tinySpace
+  }
 }
 
 .content {

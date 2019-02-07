@@ -9,6 +9,7 @@ initialState = {
 };
 
 <Select
+  required
   label="Label"
   name="name"
   options={state.options}
@@ -91,6 +92,7 @@ initialState = {
 };
 
 <Select
+  required
   label="Light Select"
   name="light"
   options={state.options}

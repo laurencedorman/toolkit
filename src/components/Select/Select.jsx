@@ -23,6 +23,7 @@ const Select = ({
   defaultValue,
   name,
   disabled,
+  required,
   theme,
   ...props
 }:propTypes) => {
@@ -32,12 +33,16 @@ const Select = ({
     { hasError: error },
   );
 
+  const labelStyle = cn({
+    [styles.required]: required,
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         {
           /* eslint-disable */
-          label && <label>{label}</label>
+          label && <label className={labelStyle}>{label}</label>
           /* eslint-enable */
         }
         <ReactSelect
@@ -122,6 +127,7 @@ const customStyles = {
 
 type propTypes = {
   disabled?: boolean,
+  required?: boolean,
   label?: string,
   placeholder?: string,
   defaultValue?: string,
@@ -137,6 +143,7 @@ type propTypes = {
 
 Select.defaultProps = {
   disabled: false,
+  required: false,
   label: '',
   placeholder: '',
   defaultValue: '',
