@@ -6,10 +6,7 @@ import styles from './Overlay.module.scss';
 /* eslint-disable */
 const Overlay = ({ onClick, on }: propTypes) => (
   <Transition
-    force
     native
-    unique
-    reset
     items={on}
     config={config.stiff}
     from={{ o: 0 }}
@@ -17,18 +14,16 @@ const Overlay = ({ onClick, on }: propTypes) => (
     leave={{ o: 0 }}
   >
     {on => on
-      && (
-        ({ o }) => (
-          <animated.div
-            className={styles.overlay}
-            onClick={onClick}
-            style={{
-              opacity: o.interpolate(o => o),
-              cursor: onClick && 'pointer',
-            }}
-          />
-        )
-      )
+      && (({ o }) => (
+        <animated.div
+          className={styles.overlay}
+          onClick={onClick}
+          style={{
+            opacity: o,
+            cursor: onClick && 'pointer',
+          }}
+        />
+      ))
     }
   </Transition>
 );
