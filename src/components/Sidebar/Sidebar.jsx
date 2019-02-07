@@ -21,7 +21,7 @@ const Sidebar = ({
       <div
         className={classNames}
         position={position}
-        style={{ width: `${width}` }}
+        style={{ width }}
       >
         {children}
       </div>

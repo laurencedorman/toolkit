@@ -6,10 +6,7 @@ import styles from './Overlay.module.scss';
 /* eslint-disable */
 const Overlay = ({ onClick, on }: propTypes) => (
   <Transition
-    force
     native
-    unique
-    reset
     items={on}
     config={config.stiff}
     from={{ o: 0 }}
