@@ -87,14 +87,14 @@ const customStyles = {
     maxHeight: state.selectProps.theme === 'light' ? 36 : 56,
     minHeight: state.selectProps.theme === 'light' ? 36 : 56,
     borderColor:
-      state.selectProps.className !== 'Select_select__1Qsyt hasError'
-        ? colors.greyDark
-        : colors.cocoCorail,
+      state.selectProps.className.includes('hasError')
+        ? colors.cocoCorail
+        : colors.greyDark,
     '&:hover': {
       borderColor:
-        state.selectProps.className !== 'Select_select__1Qsyt hasError'
-          ? colors.greyDark
-          : colors.cocoCorail,
+        state.selectProps.className.includes('hasError')
+          ? colors.cocoCorail
+          : colors.greyDark,
     },
   }),
   input: () => ({
@@ -133,7 +133,7 @@ type propTypes = {
   defaultValue?: string,
   options: Array<{label: string} | {value: string}>,
   helper?: string,
-  error?: boolean,
+  error?: string,
   isMulti?: boolean,
   onChange?: () => void,
   onFocus?: () => void,
@@ -148,7 +148,7 @@ Select.defaultProps = {
   placeholder: '',
   defaultValue: '',
   helper: '',
-  error: false,
+  error: '',
   isMulti: false,
   onChange: null,
   onFocus: null,
