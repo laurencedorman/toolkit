@@ -43,6 +43,10 @@ export default class Tabs extends Component<propTypes> {
     }
   }
 
+  componentWillUnmount() {
+    this.onClickTabItem(undefined);
+  }
+
   onClickTabItem = labelTab => this.setState({ activeTab: labelTab });
 
   render() {

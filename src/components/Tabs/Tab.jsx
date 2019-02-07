@@ -1,11 +1,8 @@
 // @flow
 import React from 'react';
 
-const Tab = ({ children, label, defaultActive }:propTypes) => (
-  <div
-    label={label.toString()}
-    defaultActive={defaultActive ? 1 : 0}
-  >
+const Tab = ({ children, label }:propTypes) => (
+  <div label={label.toString()}>
     {children}
   </div>
 );

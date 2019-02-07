@@ -23,6 +23,10 @@ export default class StepControler extends Component<propTypes> {
     if (getActiveStep) this.setActiveStep(getActiveStep);
   }
 
+  componentWillUnmount() {
+    this.setActiveStep(undefined);
+  }
+
   setActiveStep = activeStep => this.setState({ activeStep });
 
   setTotalStep = totalStep => this.setState({ totalStep });

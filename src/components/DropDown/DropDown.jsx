@@ -45,64 +45,6 @@ export default class DropDown extends PureComponent<propTypes> {
     fill: colors.white,
   };
 
-  renderOptions = (on, toggle, size) => {
-    const {
-      options, right, className, onClick, active, sideLeft, sideRight,
-    } = this.props;
-
-    const container = cn(
-      styles.container,
-      {
-        [styles.show]: on,
-        [styles.right]: right,
-        [styles.sideLeft]: sideLeft,
-        [styles.sideRight]: sideRight,
-      },
-    );
-
-    const itemOption = item => cn(
-      className,
-      { [styles.disabled]: item.disabled },
-      { [styles.active]: (item.value || item.id) === active },
-    );
-
-    const setPosition = {
-      top: !sideLeft && !sideRight && `${size.height + 8}px`,
-      right: sideLeft && !sideRight && `${size.width + 8}px`,
-      left: sideRight && `${size.width + 8}px`,
-    };
-
-    return (
-      <div
-        className={container}
-        style={setPosition}
-      >
-        <ul className={styles.list}>
-          {options.map((item, index) => {
-            const key = item.id ? item.id.toString() : index;
-            return (
-              <li
-                key={key}
-                className={itemOption(item)}
-                data-id={item.id}
-                data-value={item.value}
-                disabled={item.disabled}
-                onClick={!item.disabled ? onClick : null}
-              >
-                <span
-                  onClick={!item.disabled ? toggle : null}
-                  key={key}
-                >
-                  {item.value}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  };
-
   renderTitle = title => (
     typeof title === 'string'
       ? title
@@ -113,7 +55,20 @@ export default class DropDown extends PureComponent<propTypes> {
 
   render() {
     const {
-      title, on, toggle, className, disabled, icon, backgroundColor, fill,
+      title,
+      on,
+      toggle,
+      className,
+      disabled,
+      icon,
+      backgroundColor,
+      fill,
+      sideLeft,
+      sideRight,
+      options,
+      right,
+      active,
+      onClick,
     } = this.props;
 
     const wrapper = cn(
@@ -168,11 +123,67 @@ export default class DropDown extends PureComponent<propTypes> {
                 </animated.div>
               )}
             </Spring>
-            {this.renderOptions(on, toggle, size)}
+            {renderOptions(on, toggle, size, options, right, className, onClick, active, sideLeft, sideRight )}
           </div>
         )}
       </GetMeasure>
     );
   }
 }
+
+const renderOptions = (
+  on, toggle, size, options, right, className, onClick, active, sideLeft, sideRight,
+) => {
+  const container = cn(
+    styles.container,
+    {
+      [styles.show]: on,
+      [styles.right]: right,
+      [styles.sideLeft]: sideLeft,
+      [styles.sideRight]: sideRight,
+    },
+  );
+
+  const itemOption = item => cn(
+    className,
+    { [styles.disabled]: item.disabled },
+    { [styles.active]: (item.value || item.id) === active },
+  );
+
+  const setPosition = {
+    top: !sideLeft && !sideRight && `${size.height + 8}px`,
+    right: sideLeft && !sideRight && `${size.width + 8}px`,
+    left: sideRight && `${size.width + 8}px`,
+  };
+
+  return (
+    <div
+      className={container}
+      style={setPosition}
+    >
+      <ul className={styles.list}>
+        {options.map((item, index) => {
+          const key = item.id ? item.id.toString() : index;
+          return (
+            <li
+              key={key}
+              className={itemOption(item)}
+              data-id={item.id}
+              data-value={item.value}
+              disabled={item.disabled}
+              onClick={!item.disabled ? onClick : null}
+            >
+              <span
+                onClick={!item.disabled ? toggle : null}
+                key={key}
+              >
+                {item.value}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 /* eslint-enable */
