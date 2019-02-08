@@ -78,6 +78,7 @@ module.exports = {
       description: 'Some components to help',
       components: [
         'src/components/GetMeasure/*.jsx',
+        'src/components/HeightTransition/*.jsx',
         'src/components/Portal/*.jsx',
         'src/components/StepControler/*.jsx',
         'src/components/Toggle/*.jsx',
@@ -92,6 +93,7 @@ module.exports = {
       sectionDepth: 1,
       ignore: [
         'src/components/GetMeasure/*.jsx',
+        'src/components/HeightTransition/*.jsx',
         'src/components/Portal/*.jsx',
         'src/components/StepControler/*.jsx',
         'src/components/Tabs/TabBody.jsx',

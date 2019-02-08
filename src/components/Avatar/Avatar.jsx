@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import cn from 'classnames';
 import styles from './Avatar.module.scss';

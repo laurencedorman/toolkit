@@ -5,6 +5,7 @@ export {
   Card,
   DropDown,
   GetMeasure,
+  HeightTransition,
   Hint,
   Icon,
   Iframe,
