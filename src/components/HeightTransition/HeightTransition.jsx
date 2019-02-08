@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { animated, Spring } from 'react-spring';
 import styles from './HeightTransition.module.scss';

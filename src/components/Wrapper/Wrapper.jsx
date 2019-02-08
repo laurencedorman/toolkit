@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import cn from 'classnames';
 import styles from './Wrapper.module.scss';
@@ -9,12 +10,12 @@ const Wrapper = ({
   children, className, direction, type, style,
 }:propTypes) => {
   const classNames = cn(
-    className,
     styles.wrapper,
     {
       [styles.row]: direction === 'row',
       [styles.column]: direction === 'column',
     },
+    className,
   );
 
   return React.createElement(

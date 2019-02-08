@@ -1,3 +1,4 @@
+// @flow
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import cn from 'classnames';

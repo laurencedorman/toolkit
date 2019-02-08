@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { animated, Spring } from 'react-spring';
 import cn from 'classnames';
