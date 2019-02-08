@@ -16,7 +16,7 @@ const WithReduxFormSelect = (WrappedComponent) => {
     handleChange = (selectedOption) => {
       const { input, value } = this.props;
 
-      const getValue = selectedOption && selectedOption.value;
+      const getValue = selectedOption && value;
       this.setState({ value: getValue });
 
       input.onChange(value);
