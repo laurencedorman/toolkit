@@ -7,24 +7,31 @@ type propTypes = {
 }
 
 const WithReduxFormSelect = (WrappedComponent) => {
-  const Component = ({
-    meta,
-    input: {
-      value, name, onChange, onBlur, onFocus,
-    },
-    ...rest
-  }:propTypes) => (
-    <WrappedComponent
-      value={value}
-      name={name}
-      onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      error={meta.touched && meta.error}
-      messageError={meta.error}
-      {...rest}
-    />
-  );
+  class Component extends React.PureComponent<propTypes> {
+    handleChange = (selectedOption) => {
+      const { input: { onChange } } = this.props;
+      onChange(selectedOption);
+    };
+
+    render() {
+      const {
+        meta,
+        input: { value, name },
+        ...rest
+      } = this.props;
+
+      return (
+        <WrappedComponent
+          value={value}
+          name={name}
+          onChange={this.handleChange}
+          error={meta.touched && meta.error}
+          messageError={meta.error}
+          {...rest}
+        />
+      );
+    }
+  }
 
   return Component;
 };
