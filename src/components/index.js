@@ -4,6 +4,7 @@ export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as DropDown } from './DropDown';
 export { default as GetMeasure } from './GetMeasure';
+export { default as HeightTransition } from './HeightTransition';
 export { default as Hint } from './Hint';
 export { default as Icon } from './Icon';
 export { default as Iframe } from './Iframe';

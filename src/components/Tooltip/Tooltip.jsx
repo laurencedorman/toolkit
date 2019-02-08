@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Transition, animated,
 } from 'react-spring';
@@ -120,7 +120,7 @@ export default class Tooltip extends PureComponent<propTypes> {
     return (
       <Toggle>
         {({ on, toggleIn, toggleOut }) => (
-          <Fragment>
+          <>
             <span
               className={classNames}
               onMouseEnter={e => this.handleMouseEnter(e, toggleIn)}
@@ -131,7 +131,7 @@ export default class Tooltip extends PureComponent<propTypes> {
             {children}
           </span>
           {this.renderTooltip(on)}
-          </Fragment>
+          </>
         )}
       </Toggle>
     );
