@@ -16,7 +16,7 @@ export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 export { default as Overlay } from './Overlay';
 export { default as Portal } from './Portal';
-export { default as Select } from './Select';
+export { default as Select, WithReduxFormSelect } from './Select';
 export { default as Sidebar } from './Sidebar';
 export { default as StepIndicator, Step } from './StepIndicator';
 export { default as StepControler } from './StepControler';

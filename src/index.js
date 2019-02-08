@@ -36,5 +36,6 @@ export {
   Toggle,
   ToggleDown,
   Tooltip,
+  WithReduxFormSelect,
   Wrapper,
 } from './components';
