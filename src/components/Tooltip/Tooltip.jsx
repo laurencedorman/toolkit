@@ -18,6 +18,7 @@ type propTypes = {
   position?: 'top' | 'right' | 'bottom' | 'left',
   className?: string,
   bgColor?: string,
+  dataQa?: string,
 };
 
 export default class Tooltip extends PureComponent<propTypes> {
@@ -25,6 +26,7 @@ export default class Tooltip extends PureComponent<propTypes> {
     position: 'top',
     className: '',
     bgColor: '#0c193a',
+    dataQa: '',
   };
 
   constructor(props) {
@@ -34,11 +36,9 @@ export default class Tooltip extends PureComponent<propTypes> {
 
   handleMouseEnter = (e, toggleIn) => {
     const { position } = this.props;
-
     if (this.transmitter.current) {
       addTooltipPosition = tooltipPosition(this.transmitter.current, position);
     }
-
     toggleIn();
   };
 
@@ -110,7 +110,7 @@ export default class Tooltip extends PureComponent<propTypes> {
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, dataQa } = this.props;
 
     const classNames = cn(
       styles.transmitter,
@@ -127,6 +127,7 @@ export default class Tooltip extends PureComponent<propTypes> {
               onMouseLeave={toggleOut}
               ref={this.transmitter}
               role="button"
+              data-qa={dataQa}
             >
             {children}
           </span>

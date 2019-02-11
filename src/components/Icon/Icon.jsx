@@ -9,7 +9,7 @@ import styles from './Icon.module.scss';
  * @visibleName Icon
  */
 const IconComponent = ({
-  onClick, className, name, size, fill,
+  onClick, className, name, size, fill, dataQa,
 }: propTypes) => {
   const classNames = cn(
     styles.container,
@@ -23,6 +23,7 @@ const IconComponent = ({
       onKeyPress={onClick}
       tabIndex="-1"
       role="button"
+      data-qa={dataQa}
     >
       {Object.prototype.hasOwnProperty.call(iconAssets, name)
       && (
@@ -49,6 +50,7 @@ type propTypes = {
   name: string,
   size?: number,
   fill?: string | () => void,
+  dataQa?: string,
 };
 
 IconComponent.defaultProps = {
@@ -56,6 +58,7 @@ IconComponent.defaultProps = {
   className: '',
   size: 32,
   fill: '#0c193a',
+  dataQa: '',
 };
 
 export default IconComponent;

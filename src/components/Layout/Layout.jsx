@@ -3,11 +3,11 @@ import cn from 'classnames';
 import styles from './Layout.module.scss';
 
 const Layout = ({
-  children, className, styleGuidist, direction, style,
+  children, className, styleGuidist, direction, style, dataQa,
 }:propTypes) => {
   const classNames = cn(
-    className,
     styles.layout,
+    className,
     {
       [styles.guide]: styleGuidist,
       [styles.row]: direction === 'row',
@@ -20,6 +20,7 @@ const Layout = ({
       className={classNames}
       direction={direction}
       style={style}
+      data-qa={dataQa}
     >
       {children}
     </div>
@@ -32,6 +33,7 @@ type propTypes = {
   direction?: 'row' | 'column',
   styleGuidist?: boolean,
   style?: Object,
+  dataQa?: string,
 };
 
 Layout.defaultProps = {
@@ -39,6 +41,7 @@ Layout.defaultProps = {
   direction: 'row',
   styleGuidist: false,
   style: {},
+  dataQa: '',
 };
 
 export default Layout;

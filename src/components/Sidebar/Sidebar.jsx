@@ -5,11 +5,11 @@ import { Portal } from 'components';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = ({
-  on, children, className, position, width,
+  on, children, className, position, width, dataQa,
 }: propTypes) => {
   const classNames = cn(
-    className,
     styles.sidebar,
+    className,
     {
       [styles.on]: on,
       [styles.left]: position === 'left',
@@ -23,6 +23,7 @@ const Sidebar = ({
         className={classNames}
         position={position}
         style={{ width }}
+        data-qa={dataQa}
       >
         {children}
       </div>
@@ -36,11 +37,13 @@ type propTypes = {
   className?: string,
   position?: 'right' | 'left',
   width: string,
+  dataQa?: string,
 };
 
 Sidebar.defaultProps = {
   className: '',
   position: 'left',
+  dataQa: '',
 };
 
 export default Sidebar;

@@ -33,6 +33,7 @@ const Input = ({
   step,
   indicator,
   reset,
+  dataQa,
 }: propTypes) => {
   const container = cn(
     styles.container,
@@ -79,6 +80,7 @@ const Input = ({
           aria-required={required}
           aria-label={label && label}
           aria-hidden={type === 'hidden'}
+          data-qa={dataQa}
         />
         {label
           && <label htmlFor={id} className={labelStyle}>{label}</label>}
@@ -117,7 +119,8 @@ type propTypes = {
   min?: number,
   max?: number,
   step?: number | 'any',
-  indicator?: string
+  indicator?: string,
+  dataQa?: string,
 };
 
 Input.defaultProps = {
@@ -141,6 +144,7 @@ Input.defaultProps = {
   max: null,
   step: null,
   indicator: null,
+  dataQa: '',
 };
 
 /* eslint-disable no-nested-ternary */

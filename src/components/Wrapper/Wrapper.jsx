@@ -7,7 +7,7 @@ import styles from './Wrapper.module.scss';
  * @visibleName Wrapper/Header/Footer
  */
 const Wrapper = ({
-  children, className, direction, type, style,
+  children, className, direction, type, style, dataQa,
 }:propTypes) => {
   const classNames = cn(
     styles.wrapper,
@@ -25,6 +25,7 @@ const Wrapper = ({
       type,
       direction,
       style,
+      'data-qa': dataQa,
     },
     children,
   );
@@ -36,6 +37,7 @@ type propTypes = {
   direction?: string,
   style?: Object,
   type?: 'div' | 'header' | 'footer' | 'section',
+  dataQa?: string,
 };
 
 Wrapper.defaultProps = {
@@ -43,6 +45,7 @@ Wrapper.defaultProps = {
   direction: 'column',
   style: {},
   type: 'div',
+  dataQa: '',
 };
 
 export default Wrapper;
