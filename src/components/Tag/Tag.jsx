@@ -9,8 +9,8 @@ const Tag = ({
   const tagClass = cn(
     styles.tag,
     styles[theme],
-    className,
     { [styles.disabled]: disabled },
+    className,
   );
 
   return (

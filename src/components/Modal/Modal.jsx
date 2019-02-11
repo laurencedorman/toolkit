@@ -52,11 +52,11 @@ export default class Modal extends Component<propTypes>{
 
     const classNames = cn(
       styles.content,
-      className,
       {
         [styles.noFooter]: noFooter,
         [styles.iframe]: hasIframe,
       },
+      className,
     );
 
     const headerStyle = cn(

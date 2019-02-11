@@ -16,13 +16,13 @@ const Alert = ({
 }:propTypes) => {
   const classNames = cn(
     styles.alert,
-    className,
     {
       [styles.right]: position === 'topRight' || position === 'bottomRight',
       [styles.left]: position === 'topLeft' || position === 'bottomLeft',
       [styles.top]: position === 'topRight' || position === 'topLeft',
       [styles.bottom]: position === 'bottomRight' || position === 'bottomLeft',
     },
+    className,
   );
 
   const setTranslate = translate(position);

@@ -28,12 +28,12 @@ const Button = React.forwardRef(({
     styles.button,
     styles[size],
     styles[theme],
-    className,
     {
       [styles.icon]: icon,
       [styles.reverse]: reverse,
       [styles.onlyIcon]: !children,
     },
+    className,
   );
 
   /* eslint-disable no-nested-ternary */

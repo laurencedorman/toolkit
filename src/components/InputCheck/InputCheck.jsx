@@ -23,8 +23,8 @@ const InputCheck = ({
 }: PropTypes) => {
   const classNames = cn(
     styles.inputCheck,
-    className,
     { [styles.noLabel]: !label, [styles.required]: required },
+    className,
   );
 
   return (

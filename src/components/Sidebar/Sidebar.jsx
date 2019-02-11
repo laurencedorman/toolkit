@@ -9,12 +9,12 @@ const Sidebar = ({
 }: propTypes) => {
   const classNames = cn(
     styles.sidebar,
-    className,
     {
       [styles.on]: on,
       [styles.left]: position === 'left',
       [styles.right]: position === 'right',
     },
+    className,
   );
 
   return (

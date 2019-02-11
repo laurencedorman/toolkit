@@ -7,12 +7,12 @@ const Layout = ({
 }:propTypes) => {
   const classNames = cn(
     styles.layout,
-    className,
     {
       [styles.guide]: styleGuidist,
       [styles.row]: direction === 'row',
       [styles.column]: direction === 'column',
     },
+    className,
   );
 
   return (
