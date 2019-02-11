@@ -7,7 +7,7 @@ import styles from './Textarea.module.scss';
  * @visibleName Textarea
  */
 const Textarea = ({
-  placeholder, name, value, cols, rows, required, disabled, form, onChange, className,
+  placeholder, name, value, cols, rows, required, disabled, form, onChange, className, dataQa,
 }: propTypes) => {
   const classNames = cn(
     styles.textarea,
@@ -28,6 +28,7 @@ const Textarea = ({
       onChange={onChange}
       aria-multiline="true"
       aria-required={required}
+      data-qa={dataQa}
     />
   );
 };
@@ -43,6 +44,7 @@ type propTypes = {
   form?: string,
   onChange: () => void,
   className?: string,
+  dataQa?: string,
 };
 
 Textarea.defaultProps = {
@@ -54,6 +56,7 @@ Textarea.defaultProps = {
   disabled: false,
   form: '',
   className: '',
+  dataQa: '',
 };
 
 export default Textarea;

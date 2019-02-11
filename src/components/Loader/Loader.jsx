@@ -17,11 +17,12 @@ const bar = [
   },
 ];
 
-const Loader = ({ fill }: propTypes) => (
+const Loader = ({ fill, dataQa }: propTypes) => (
   <div
     className={styles.loader}
     role="alert"
     aria-busy="true"
+    data-qa={dataQa}
   >
     <svg
       role="img"
@@ -61,8 +62,14 @@ const Loader = ({ fill }: propTypes) => (
   </div>
 );
 
-type propTypes = { fill?: string }
+type propTypes = {
+  fill?: string,
+  dataQa?: string,
+}
 
-Loader.defaultProps = { fill: '#0c193a' };
+Loader.defaultProps = {
+  fill: '#0c193a',
+  dataQa: '',
+};
 
 export default Loader;

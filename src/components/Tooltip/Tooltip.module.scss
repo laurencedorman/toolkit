@@ -24,13 +24,14 @@ $marginArrow: -10px;
     &.left, &.right { transform: translateY(-50%) }
   }
 
-  .content {
+  .content, .spanContent {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-backface-visibility: hidden;
     font-size: .9rem;
     white-space: normal;
     word-break: break-word;
+    color: $white;
   }
 }
 

@@ -22,6 +22,7 @@ type propTypes = {
   buttonTitle?: string,
   noFooter?: boolean,
   hasIframe?: boolean,
+  dataQa?: string,
 };
 
 /* eslint-disable */
@@ -33,6 +34,7 @@ export default class Modal extends Component<propTypes>{
     noFooter: false,
     hasIframe: false,
     toggle: null,
+    dataQa: '',
   };
 
   renderHeader = header => (
@@ -45,16 +47,16 @@ export default class Modal extends Component<propTypes>{
 
   render() {
     const {
-      on, toggle, children, className, header, buttonTitle, noFooter, hasIframe,
+      on, toggle, children, className, header, buttonTitle, noFooter, hasIframe, dataQa,
     } = this.props;
 
     const classNames = cn(
       styles.content,
-      className,
       {
         [styles.noFooter]: noFooter,
         [styles.iframe]: hasIframe,
       },
+      className,
     );
 
     const headerStyle = cn(
@@ -94,7 +96,7 @@ export default class Modal extends Component<propTypes>{
                       ),
                     }}
                   >
-                    <Wrapper className={headerStyle}>
+                    <Wrapper className={headerStyle} data-qa={dataQa}>
                       {this.renderHeader(header)}
                       <Icon
                         name="close"

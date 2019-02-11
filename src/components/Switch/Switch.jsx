@@ -8,10 +8,8 @@ const Switch = ({
 }: propTypes) => {
   const container = cn(
     styles.container,
+    { [styles.reset]: reset },
     className,
-    {
-      [styles.reset]: reset,
-    },
   );
 
   const labelClass = cn(styles.label, {

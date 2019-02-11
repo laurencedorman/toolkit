@@ -25,6 +25,7 @@ const Select = ({
   disabled,
   required,
   theme,
+  dataQa,
   ...props
 }:propTypes) => {
   const select = cn(
@@ -61,6 +62,7 @@ const Select = ({
           placeholder={placeholder}
           isDisabled={disabled}
           theme={theme}
+          data-qa={dataQa}
         />
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
@@ -139,6 +141,7 @@ type propTypes = {
   onFocus?: () => void,
   onBlur?: () => void,
   theme?: 'light' | null,
+  dataQa?: string,
 };
 
 Select.defaultProps = {
@@ -154,6 +157,7 @@ Select.defaultProps = {
   onFocus: null,
   onBlur: null,
   theme: null,
+  dataQa: '',
 };
 
 

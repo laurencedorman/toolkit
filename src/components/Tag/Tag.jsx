@@ -4,17 +4,17 @@ import cn from 'classnames';
 import styles from './Tag.module.scss';
 
 const Tag = ({
-  className, theme, children, disabled,
+  className, theme, children, disabled, dataQa,
 }: propTypes) => {
   const tagClass = cn(
-    className,
     styles.tag,
     styles[theme],
     { [styles.disabled]: disabled },
+    className,
   );
 
   return (
-    <span className={tagClass}>
+    <span className={tagClass} data-qa={dataQa}>
       {children}
     </span>
   );
@@ -26,11 +26,13 @@ type propTypes = {
     'default' | 'primary' | 'secondary' | 'reset' | 'balata' | 'bellanotte' | 'playa' | 'artic' | 'hellblau' | 'purplerain',
   children: string | Node,
   disabled: boolean,
+  dataQa?: string,
 };
 
 Tag.defaultProps = {
   className: '',
   theme: 'default',
+  dataQa: '',
 };
 
 export default Tag;

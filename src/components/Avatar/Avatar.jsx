@@ -4,12 +4,12 @@ import cn from 'classnames';
 import styles from './Avatar.module.scss';
 
 const Avatar = ({
-  className, src, alt, size,
+  className, src, alt, size, dataQa,
 }:propTypes) => {
   const classNames = cn(
-    className,
     styles.avatar,
     styles[size],
+    className,
   );
 
   return (
@@ -37,6 +37,7 @@ const Avatar = ({
       <img
         src={src}
         alt={alt}
+        data-qa={dataQa}
       />
     </div>
   );
@@ -47,11 +48,13 @@ type propTypes = {
   src: string,
   alt: string,
   size?: 'big' | 'small',
+  dataQa?: string,
 };
 
 Avatar.defaultProps = {
   className: '',
   size: 'big',
+  dataQa: '',
 };
 
 export default Avatar;

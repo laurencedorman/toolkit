@@ -12,17 +12,17 @@ import styles from './Alert.module.scss';
  * @visibleName Alert
  */
 const Alert = ({
-  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position,
+  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position, dataQa,
 }:propTypes) => {
   const classNames = cn(
     styles.alert,
-    className,
     {
       [styles.right]: position === 'topRight' || position === 'bottomRight',
       [styles.left]: position === 'topLeft' || position === 'bottomLeft',
       [styles.top]: position === 'topRight' || position === 'topLeft',
       [styles.bottom]: position === 'bottomRight' || position === 'bottomLeft',
     },
+    className,
   );
 
   const setTranslate = translate(position);
@@ -61,6 +61,7 @@ const Alert = ({
                     textAlert,
                     icon,
                     iconWidth,
+                    'data-qa': dataQa,
                   },
                 )}
               </animated.div>
@@ -94,6 +95,7 @@ type propTypes = {
   className?: string,
   timeout?: number,
   position?: 'topLeft' | 'bottomLeft' | 'topRight' | 'bottomRight',
+  dataQa?: string,
 };
 
 Alert.defaultProps = {
@@ -104,6 +106,7 @@ Alert.defaultProps = {
   timeout: undefined,
   position: 'topRight',
   toggle: null,
+  dataQa: '',
 };
 
 export default Alert;

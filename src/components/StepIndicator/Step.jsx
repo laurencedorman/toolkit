@@ -11,15 +11,15 @@ const Step = ({
   done,
 }: propTypes) => {
   const classNames = cn(
-    className,
     styles.step,
     { [styles.active]: active },
     { [styles.done]: done },
+    className,
   );
 
   const icon = cn(
-    className,
     { [styles.icon]: done },
+    className,
   );
 
   return (
