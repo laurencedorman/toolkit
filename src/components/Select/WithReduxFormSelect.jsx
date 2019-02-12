@@ -16,6 +16,7 @@ const WithReduxFormSelect = (WrappedComponent) => {
     /* eslint-disable */
     handleChange = (option) => {
       const {
+        onCustomChange,
         input: { onChange },
       } = this.props;
 
@@ -23,7 +24,9 @@ const WithReduxFormSelect = (WrappedComponent) => {
         ? onChange(option)
         : onChange(null);
 
-      this.setState({ getValue: option.value });
+      this.setState({
+        getValue: option.value,
+      }, () => onCustomChange && onCustomChange(option.value));
     };
     /* eslint-enable */
 
@@ -42,7 +45,7 @@ const WithReduxFormSelect = (WrappedComponent) => {
           value={value}
           name={name}
           onChange={this.handleChange}
-          onBlur={() => onBlur(getValue.value)}
+          onBlur={() => onBlur(value)}
           error={meta.touched && meta.error}
           messageError={meta.error}
           {...rest}
