@@ -13,6 +13,7 @@ const Select = ({
   options,
   placeholder,
   value,
+  inputValue,
   onChange,
   onBlur,
   onFocus,
@@ -56,7 +57,8 @@ const Select = ({
           onFocus={onFocus}
           defaultValue={defaultValue}
           options={options}
-          inputValue={value}
+          inputValue={inputValue}
+          value={value}
           isMulti={isMulti}
           matchPos="start"
           placeholder={placeholder}
