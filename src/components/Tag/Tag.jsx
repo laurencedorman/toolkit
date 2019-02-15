@@ -23,7 +23,7 @@ const Tag = ({
 type propTypes = {
   className?: string,
   theme?:
-    'default' | 'primary' | 'secondary' | 'reset' | 'balata' | 'bellanotte' | 'playa' | 'artic' | 'hellblau' | 'purplerain',
+    'default' | 'primary' | 'secondary' | 'reset' | 'balata' | 'bellanotte' | 'playa' | 'artic' | 'hellblau' | 'purplerain' | 'kaktus',
   children: string | Node,
   disabled: boolean,
   dataQa?: string,

@@ -17,7 +17,7 @@
 
   &:active { background-color: $manoBlack }
 
-  &.primary, &.secondary, &.tertiary, &:active, &.disabled, &.purplerain { color: $white }
+  &.primary, &.secondary, &:active, &.disabled, &.purplerain { color: $white }
 
   &.default { border-color: $borderColor }
 
@@ -35,6 +35,8 @@
   &.hellblau { background-color: $hellblau }
 
   &.purplerain { background-color: $purpleRain }
+
+  &.kaktus { background-color: $kaktus }
 
   &.disabled {
     background-color: $greyDark;

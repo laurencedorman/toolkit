@@ -9,6 +9,7 @@ Tag default:
   <Tag theme="artic">Tag</Tag>
   <Tag theme="hellblau">Tag</Tag>
   <Tag theme="purplerain">Tag</Tag>
+  <Tag theme="kaktus">Tag</Tag>
 </div>
 ```
 
