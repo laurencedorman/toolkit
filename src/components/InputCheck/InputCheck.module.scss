@@ -150,9 +150,13 @@ $tinySpace: calc(#{$space} / 4);
 
   &.horizontal{
     flex-flow: row wrap;
-    & > div:not(:last-child) {
-      margin-right: $bigSpace
+    & > div {
+      margin-bottom: $space;
+      &:not(:last-child) {
+        margin-right: $bigSpace;
+      }
     }
+
   }
 
   span {
@@ -171,7 +175,6 @@ $tinySpace: calc(#{$space} / 4);
   .error {
     display: block;
     width: 100%;
-    margin: $space 0 0 0;
     color: $cocoCorail;
     font-size: 0.75rem;
     text-align: left;
