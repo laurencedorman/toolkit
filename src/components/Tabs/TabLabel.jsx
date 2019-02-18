@@ -28,7 +28,7 @@ export default class Tab extends PureComponent<propTypes> {
     );
 
     return (
-      <li className={styles.tabItem}>
+      <li className={styles.tabLabel}>
         <span
           className={classNames}
           onClick={this.onClick}
