@@ -133,7 +133,7 @@ $tinySpace: calc(#{$space} / 4);
 
 .CheckGroup {
   position: relative;
-  display: flex;
+  display: inline-flex;
   width: 100%;
   &:not(:last-child) {
     margin-bottom: $bigSpace;
