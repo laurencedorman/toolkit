@@ -46,16 +46,15 @@ $tinySpace: calc(#{$space} / 4);
         height: 21px;
         top: 0; left: 0;
         box-sizing: border-box;
-        transition: all .15s linear
+        transition: transform .15s linear,
+                    opacity .15s linear,
+                    background-color .15s linear;
+        will-change: transform, opacity, background-color;
       }
 
-      &::before {
-        border: $border $borderColor
-      }
+      &::before { border: $border $borderColor }
 
-      &:hover::before {
-        border-color: $balataGreen
-      }
+      &:hover::before { border-color: $balataGreen }
     }
 
     &:checked + label::before {
@@ -72,7 +71,7 @@ $tinySpace: calc(#{$space} / 4);
     &:disabled + label, &:disabled:hover + label {
       cursor: not-allowed;
       &::before {
-        background: $greyDark;
+        background-color: $greyDark;
         border-color: transparent;
         cursor: not-allowed
       }
@@ -81,14 +80,17 @@ $tinySpace: calc(#{$space} / 4);
 
   input[type="checkbox"] {
     + label {
-      &::before, &::after {
-        border-radius: $radius
-      }
+      &::before { background-color: $white }
     }
+
+    + label {
+      &::before, &::after { border-radius: $radius }
+    }
+
     &:checked + label::after {
       content: '';
       display: block;
-      background: $balataGreen;
+      background-color: $balataGreen;
       opacity: 1;
       transform: scale(1)
     }
@@ -96,19 +98,23 @@ $tinySpace: calc(#{$space} / 4);
 
   input[type="radio"] {
     + label {
+      &::before { background-color: $white }
+    }
+    + label {
       &::before, &::after {
         border-radius: 100%;
         padding: 4px;
       }
     }
     &:checked + label::before {
+      background-color: transparent;
       box-shadow: 0 0 0 2px $white inset;
       z-index: z($levels, max);
     }
     &:checked + label::after {
       top: 0; left: 0; bottom: 0; right: 0;
       border-radius: 100%;
-      background: $balataGreen;
+      background-color: $balataGreen;
       opacity: 1;
       transform: scale(1)
     }
