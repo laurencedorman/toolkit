@@ -13,7 +13,7 @@ $smallSpace: .75em;
   background: transparent;
   font-size: 1rem;
   cursor: pointer;
-  transition: all .15s ease;
+  transition: background-color .15s ease, color .15s ease;
   touch-action: manipulation;
 
   &:focus { outline: none }
