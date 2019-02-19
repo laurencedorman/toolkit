@@ -57,11 +57,14 @@ $iconSpace: 40px;
     border-radius: $radius;
     box-sizing: border-box;
     font: 1rem/1.618 'Open Sans';
+    will-change: transform;
 
     &.hasError { border-color: $cocoCorail }
 
     &.hasIndicator { padding-right: calc(30% + 2em) }
   }
+
+  input:focus { outline-color: $borderColor }
 
   input:focus + label, &.hasValue input + label {
     transform: translate(1px, -16px) scale(.75);

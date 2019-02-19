@@ -12,7 +12,6 @@ initialState = { checked: false };
 />
 ```
 
-
 Input Checkbox: 
 ```js
 initialState = { checked: false };
