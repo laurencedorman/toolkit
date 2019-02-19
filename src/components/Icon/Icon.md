@@ -51,9 +51,14 @@ const span = {
 <span style={span}>clock</span>
 </div>
 
-<div style={style}> 
+<div style={style}>
  <IconComponent name="document" />
 <span style={span}>document</span>
+</div>
+
+<div style={style}>
+ <IconComponent name="delivery-form" />
+<span style={span}>delivery-form</span>
 </div>
 
 <div style={style}> 
