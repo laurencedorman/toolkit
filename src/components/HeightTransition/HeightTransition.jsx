@@ -9,7 +9,9 @@ const HeightTransition = ({ children }:propTypes) => (
   <Spring
     native
     force
-    config={{ tension: 250, friction: 20, mass: 0.2 }}
+    config={{
+      tension: 280, friction: 15, mass: 0.2, precision: 1,
+    }}
     from={{ height: 'auto' }}
     to={{ height: 'auto' }}
   >

@@ -4,11 +4,8 @@
   position: relative;
   display: inline-flex;
 
-  .animated { border-radius: $radius }
-
   .button {
     white-space: nowrap;
-    background-color: transparent!important;
     &:disabled { background-color: $greyDarker !important }
   }
 
