@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { animated, config, Transition } from 'react-spring';
+import { animated, Transition } from 'react-spring';
 import styles from './Overlay.module.scss';
 
 /* eslint-disable */
@@ -8,7 +8,6 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }: propTypes) => (
   <Transition
     native
     items={on}
-    config={config.stiff}
     from={{ o: 0 }}
     enter={{ o: 0.5 }}
     leave={{ o: 0 }}

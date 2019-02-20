@@ -27,16 +27,18 @@ export default class Toggle extends Component<propTypes> {
   handleKey = (e) => {
     const { on } = this.state;
     /* eslint-disable */
-    const keys = {
-      Escape: () => {
-        e.preventDefault();
-        !on
-          ? e.stopPropagation()
-          : this.toggle();
-      },
-    };
+    if (this.ismounted) {
+      const keys = {
+        Escape: () => {
+          e.preventDefault();
+          !on
+            ? e.stopPropagation()
+            : this.toggle();
+        },
+      };
+      if (keys[e.key]) keys[e.key]();
+    }
     /* eslint-enable */
-    if (keys[e.key]) keys[e.key]();
   };
 
   toggle = () => this.setState(prevState => ({ on: !prevState.on }));

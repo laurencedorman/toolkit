@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Transition, animated, interpolate, config,
 } from 'react-spring';
@@ -13,6 +13,107 @@ import styles from './Modal.module.scss';
 /**
  * @visibleName Modal
  */
+
+/* eslint-disable */
+const Modal = ({
+  on,
+  toggle,
+  children,
+  className,
+  header,
+  buttonTitle,
+  noFooter,
+  hasIframe,
+  dataQa
+}:propTypes) => {
+  const classNames = cn(
+    styles.content,
+    {
+      [styles.noFooter]: noFooter,
+      [styles.iframe]: hasIframe,
+    },
+    className,
+  );
+
+  const headerStyle = cn(
+    styles.header,
+    { [styles.hasContent]: header !== null },
+  );
+
+  return (
+    <Portal>
+      <Transition
+        native
+        config={config.stiff}
+        items={on}
+        from={{ o: 0, s: 0.6, y: '-200px' }}
+        enter={{ o: 1, s: 1, y: '0px' }}
+        leave={{ o: 0, s: 0.6, y: '200px' }}
+      >
+        {on => on
+          && (
+            ({ o, s, y }) => (
+              <animated.div
+                onClick={toggle}
+                className={styles.modal}
+                role="Dialog"
+                style={{
+                  opacity: o.interpolate(o => o),
+                }}
+              >
+                <animated.div
+                  className={classNames}
+                  onClick={e => e.stopPropagation()}
+                  role="Contentinfo"
+                  style={{
+                    transform: interpolate(
+                      [s, y],
+                      (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`,
+                    ),
+                  }}
+                >
+                  <Wrapper className={headerStyle} data-qa={dataQa}>
+                    {renderHeader(header)}
+                    <Icon
+                      name="close"
+                      size="12"
+                      onClick={toggle}
+                      className={styles.icon}
+                    />
+                  </Wrapper>
+
+                  <Wrapper className={styles.body}>
+                    {children}
+                  </Wrapper>
+
+                  {!noFooter &&
+                    <Wrapper className={styles.footer} direction="row">
+                      <Button
+                        title={buttonTitle}
+                        onClick={toggle}
+                        theme="secondary"
+                      />
+                    </Wrapper>
+                  }
+                </animated.div>
+              </animated.div>
+            )
+          )
+        }
+      </Transition>
+    </Portal>
+  );
+};
+
+const renderHeader = header => (
+  typeof header === 'string'
+    ? <h4>{header}</h4>
+    : typeof header === 'function'
+    ? header()
+    : null
+);
+/* eslint-enable */
+
 type propTypes = {
   on: boolean,
   toggle?: () => void,
@@ -25,106 +126,14 @@ type propTypes = {
   dataQa?: string,
 };
 
-/* eslint-disable */
-export default class Modal extends Component<propTypes>{
-  static defaultProps = {
-    className: '',
-    header: null,
-    buttonTitle: 'close',
-    noFooter: false,
-    hasIframe: false,
-    toggle: null,
-    dataQa: '',
-  };
+Modal.defaultProps = {
+  className: '',
+  header: null,
+  buttonTitle: 'close',
+  noFooter: false,
+  hasIframe: false,
+  toggle: null,
+  dataQa: '',
+};
 
-  renderHeader = header => (
-    typeof header === 'string'
-      ? <h4>{header}</h4>
-      : typeof header === 'function'
-        ? header()
-        : null
-  );
-
-  render() {
-    const {
-      on, toggle, children, className, header, buttonTitle, noFooter, hasIframe, dataQa,
-    } = this.props;
-
-    const classNames = cn(
-      styles.content,
-      {
-        [styles.noFooter]: noFooter,
-        [styles.iframe]: hasIframe,
-      },
-      className,
-    );
-
-    const headerStyle = cn(
-      styles.header,
-      { [styles.hasContent]: header !== null },
-    );
-
-    return (
-      <Portal>
-        <Transition
-          native
-          config={config.stiff}
-          items={on}
-          from={{ o: 0, s: 0.6, y: '-200px' }}
-          enter={{ o: 1, s: 1, y: '0px' }}
-          leave={{ o: 0, s: 0.6, y: '200px' }}
-        >
-          {on => on
-            && (
-              ({ o, s, y }) => (
-                <animated.div
-                  onClick={toggle}
-                  className={styles.modal}
-                  role="Dialog"
-                  style={{
-                    opacity: o.interpolate(o => o),
-                  }}
-                >
-                  <animated.div
-                    className={classNames}
-                    onClick={e => e.stopPropagation()}
-                    role="Contentinfo"
-                    style={{
-                      transform: interpolate(
-                        [s, y],
-                        (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`,
-                      ),
-                    }}
-                  >
-                    <Wrapper className={headerStyle} data-qa={dataQa}>
-                      {this.renderHeader(header)}
-                      <Icon
-                        name="close"
-                        size="12"
-                        onClick={toggle}
-                        className={styles.icon}
-                      />
-                    </Wrapper>
-                    <Wrapper className={styles.body}>
-                      {children}
-                    </Wrapper>
-                    {!noFooter
-                      && <Wrapper className={styles.footer} direction="row">
-                        <Button
-                          title={buttonTitle}
-                          onClick={toggle}
-                          theme="secondary"
-                        />
-                      </Wrapper>
-                    }
-                  </animated.div>
-                </animated.div>
-              )
-            )
-          }
-        </Transition>
-      </Portal>
-    );
-  }
-}
-/* eslint-enable */
+export default Modal;
