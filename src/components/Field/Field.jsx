@@ -19,7 +19,7 @@ const Field = ({
 const handleComponent = Component => <Component />;
 
 type propTypes = {
-  validate?: () => void | boolean,
+  validate?: boolean,
   normalize?: Object,
   component: Node,
 };

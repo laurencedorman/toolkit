@@ -11,15 +11,20 @@ type propTypes = {
   on: boolean,
   children: string | Node,
   className?: string,
+  style?: Object,
 };
 
 class ToggleDown extends PureComponent<propTypes> {
-  static defaultProps = { className: '' };
+  static defaultProps = {
+    className: '',
+    style: {},
+  };
 
   constructor(props) {
     super(props);
     this.toggleDown = React.createRef();
     this.state = { height: 0 };
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
@@ -29,11 +34,11 @@ class ToggleDown extends PureComponent<propTypes> {
       this.setState({ height: this.toggleDown.current.offsetHeight });
     }, 1000);
 
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', this.handleResize, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize, false);
   }
 
   handleResize = () => {
@@ -43,7 +48,10 @@ class ToggleDown extends PureComponent<propTypes> {
   };
 
   render() {
-    const { on, children, className } = this.props;
+    const {
+      on, children, className, style,
+    } = this.props;
+
     const { height } = this.state;
 
     const classNames = cn(
@@ -54,14 +62,19 @@ class ToggleDown extends PureComponent<propTypes> {
     return (
       <Spring
         force
-        config={{ tension: 250, friction: 20, mass: 0.2 }}
+        config={{
+          tension: 280, friction: 15, mass: 0.2, precision: 1,
+        }}
         from={{ height: 0 }}
         to={{ height: on ? height : 0 }}
       >
-        {style => (
+        {customStyle => (
           <animated.div
             className={classNames}
-            style={style}
+            style={{
+              ...customStyle,
+              ...style,
+            }}
           >
             <div ref={this.toggleDown}>
               {children}

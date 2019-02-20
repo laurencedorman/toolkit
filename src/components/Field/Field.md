@@ -1,7 +1,7 @@
 Field :
 
-  * Field is a decorator for form component to controled validation and format data
+  * Field is a form component with props to pass validation and normalize control.
 
 ```js
-<Field component={Input} />
+<Field component={Input} label="label field" />
 ```

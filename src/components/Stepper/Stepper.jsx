@@ -33,11 +33,6 @@ export default class Stepper extends Component<propTypes> {
     }
   }
 
-  componentWillUnmount() {
-    const { getLength } = this.props;
-    getLength(null);
-  }
-
   render() {
     const {
       children, className, activeStep, direction,

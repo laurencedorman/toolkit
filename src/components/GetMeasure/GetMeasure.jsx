@@ -15,12 +15,28 @@ export default class GetMeasure extends Component<propTypes> {
   }
 
   componentDidMount() {
-    this.myObserver.observe(this.el);
+    this.startLoop();
   }
 
   componentWillUnmount() {
-    this.myObserver.unobserve(this.el);
+    this.stopLoop();
   }
+
+  startLoop = () => {
+    if (!this.frameId) {
+      this.frameId = window.requestAnimationFrame(this.loop);
+    }
+  };
+
+  loop = () => {
+    this.frameId = window.requestAnimationFrame(() => (
+      this.myObserver.observe(this.el)
+    ));
+  };
+
+  stopLoop = () => {
+    window.cancelAnimationFrame(this.frameId);
+  };
 
   render() {
     const { children } = this.props;

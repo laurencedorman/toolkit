@@ -85,8 +85,7 @@ export default class DropDown extends PureComponent<propTypes> {
       <GetMeasure>
         {({ size, ref }) => (
           <div className={wrapper}>
-            {on
-            && <div className={styles.closeTarget} onClick={toggle} />}
+            {on && <div className={styles.closeTarget} onClick={toggle} />}
             <Spring
               force
               native
@@ -157,7 +156,8 @@ const renderOptions = (
   };
 
   return (
-    <div
+    <ToggleDown
+      on={on}
       className={container}
       style={setPosition}
     >
@@ -173,17 +173,17 @@ const renderOptions = (
               disabled={item.disabled}
               onClick={!item.disabled ? onClick : null}
             >
-              <span
-                onClick={!item.disabled ? toggle : null}
-                key={key}
-              >
-                {item.value}
-              </span>
+                <span
+                  onClick={!item.disabled ? toggle : null}
+                  key={key}
+                >
+                  {item.value}
+                </span>
             </li>
           );
         })}
       </ul>
-    </div>
+    </ToggleDown>
   );
 };
 /* eslint-enable */
