@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
+import { GetMeasure } from 'components';
 import styles from './ToggleDown.module.scss';
 
 /**
@@ -11,40 +12,19 @@ type propTypes = {
   on: boolean,
   children: string | Node,
   className?: string,
+  style?: Object,
 };
 
 class ToggleDown extends PureComponent<propTypes> {
-  static defaultProps = { className: '' };
-
-  constructor(props) {
-    super(props);
-    this.toggleDown = React.createRef();
-    this.state = { height: 0 };
-  }
-
-  componentDidMount() {
-    if (!this.toggleDown) return;
-
-    setTimeout(() => {
-      this.setState({ height: this.toggleDown.current.offsetHeight });
-    }, 1000);
-
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleResize = () => {
-    this.setState({
-      height: this.toggleDown.current.offsetHeight,
-    });
+  static defaultProps = {
+    className: '',
+    style: {},
   };
 
   render() {
-    const { on, children, className } = this.props;
-    const { height } = this.state;
+    const {
+      on, children, className, style,
+    } = this.props;
 
     const classNames = cn(
       styles.toggleDown,
@@ -52,23 +32,32 @@ class ToggleDown extends PureComponent<propTypes> {
     );
 
     return (
-      <Spring
-        force
-        config={{ tension: 250, friction: 20, mass: 0.2 }}
-        from={{ height: 0 }}
-        to={{ height: on ? height : 0 }}
-      >
-        {style => (
-          <animated.div
-            className={classNames}
-            style={style}
+      <GetMeasure>
+        {({ size, ref }) => (
+          <Spring
+            force
+            config={{
+              tension: 280, friction: 15, mass: 0.2, precision: 1,
+            }}
+            from={{ height: 0 }}
+            to={{ height: on ? size.height : 0 }}
           >
-            <div ref={this.toggleDown}>
-              {children}
-            </div>
-          </animated.div>
+            {customStyle => (
+              <animated.div
+                className={classNames}
+                style={{
+                  ...customStyle,
+                  ...style,
+                }}
+              >
+                <div ref={ref}>
+                  {children}
+                </div>
+              </animated.div>
+            )}
+          </Spring>
         )}
-      </Spring>
+      </GetMeasure>
     );
   }
 }

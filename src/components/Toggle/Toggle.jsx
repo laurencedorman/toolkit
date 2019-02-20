@@ -13,10 +13,14 @@ export default class Toggle extends Component<propTypes> {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKey);
+    this.ismounted = true;
+    if (this.ismounted) {
+      document.addEventListener('keydown', this.handleKey);
+    }
   }
 
   componentWillUnmount() {
+    this.ismounted = false;
     document.removeEventListener('keydown', this.handleKey);
   }
 

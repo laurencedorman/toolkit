@@ -22,9 +22,10 @@ export default class Tabs extends Component<propTypes> {
   }
 
   componentDidMount() {
+    this.ismounted = true;
     const { children } = this.props;
 
-    if (React.Children.count(children) > 1) {
+    if (this.ismounted && React.Children.count(children) > 1) {
       React.Children.map(children, child => (
         child.props.defaultActive
           ? this.onClickTabItem(child.props.label)
@@ -45,7 +46,7 @@ export default class Tabs extends Component<propTypes> {
   }
 
   componentWillUnmount() {
-    this.onClickTabItem(undefined);
+    this.ismounted = false;
   }
 
   onClickTabItem = labelTab => this.setState({ activeTab: labelTab });

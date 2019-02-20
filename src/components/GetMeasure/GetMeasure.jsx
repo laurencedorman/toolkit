@@ -1,25 +1,32 @@
 // @flow
-import { Component } from 'react';
+import React, { Component } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
 type propTypes = { children: Node }
 
 export default class GetMeasure extends Component<propTypes> {
-  myObserver = new ResizeObserver((el) => {
-    this.setState({ size: el[0].target.getBoundingClientRect() });
+  myObserver = new ResizeObserver((element) => {
+    if (this.ismounted) {
+      this.setState({ size: element[0].target.getBoundingClientRect() });
+    }
   });
 
   constructor(props) {
     super(props);
+    this.ref = React.createRef();
     this.state = { size: {} };
   }
 
   componentDidMount() {
-    this.myObserver.observe(this.el);
+    this.ismounted = true;
+    if (this.ismounted) {
+      this.myObserver.observe(this.ref.current);
+    }
   }
 
   componentWillUnmount() {
-    this.myObserver.unobserve(this.el);
+    this.ismounted = false;
+    this.myObserver.unobserve(this.ref.current);
   }
 
   render() {
@@ -27,8 +34,8 @@ export default class GetMeasure extends Component<propTypes> {
     const { size } = this.state;
 
     return children({
-      size,
-      ref: (el) => { this.el = el; },
+      size: size !== null && size,
+      ref: this.ref,
     });
   }
 }

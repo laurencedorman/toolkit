@@ -20,12 +20,15 @@ export default class StepControler extends Component<propTypes> {
   }
 
   componentDidMount() {
+    this.ismounted = true;
     const { getActiveStep } = this.props;
-    if (getActiveStep) this.setActiveStep(getActiveStep);
+    if (this.ismounted) {
+      if (getActiveStep) this.setActiveStep(getActiveStep);
+    }
   }
 
   componentWillUnmount() {
-    this.setActiveStep(undefined);
+    this.ismounted = false;
   }
 
   setActiveStep = activeStep => this.setState({ activeStep });

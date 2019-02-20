@@ -22,15 +22,19 @@ export default class Portal extends Component<propTypes> {
   }
 
   componentDidMount() {
+    this.ismounted = true;
     if (!this.root) return;
-    const portalClass = cn(styles.portalChild);
 
-    this.el.setAttribute('class', portalClass);
-    this.root.appendChild(this.el);
+    if (this.ismounted) {
+      const portalClass = cn(styles.portalChild);
+
+      this.el.setAttribute('class', portalClass);
+      this.root.appendChild(this.el);
+    }
   }
 
   componentWillUnmount() {
-    this.root.removeChild(this.el);
+    this.ismounted = false;
   }
 
   render() {
