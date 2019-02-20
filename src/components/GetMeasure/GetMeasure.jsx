@@ -6,7 +6,9 @@ type propTypes = { children: Node }
 
 export default class GetMeasure extends Component<propTypes> {
   myObserver = new ResizeObserver((element) => {
-    this.setState({ size: element[0].target.getBoundingClientRect() });
+    if (this.ismounted) {
+      this.setState({ size: element[0].target.getBoundingClientRect() });
+    }
   });
 
   constructor(props) {
@@ -24,6 +26,7 @@ export default class GetMeasure extends Component<propTypes> {
 
   componentWillUnmount() {
     this.ismounted = false;
+    this.myObserver.unobserve(this.ref.current);
   }
 
   render() {
@@ -31,7 +34,7 @@ export default class GetMeasure extends Component<propTypes> {
     const { size } = this.state;
 
     return children({
-      size,
+      size: size !== null && size,
       ref: this.ref,
     });
   }

@@ -3,7 +3,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { font-size: 0.875rem !important }
+html {
+  font-size: 0.875rem !important;
+  scroll-behavior: smooth;
+}
 
 body {
   min-height: 100vh;
