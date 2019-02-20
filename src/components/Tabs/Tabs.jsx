@@ -1,9 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { animated, Spring } from 'react-spring';
 import cn from 'classnames';
 import {
-  Wrapper, GetMeasure, TabBody, TabLabel,
+  HeightTransition, TabBody, TabLabel, Wrapper,
 } from 'components';
 import styles from './Tabs.module.scss';
 
@@ -75,27 +74,13 @@ export default class Tabs extends Component<propTypes> {
             );
           })}
         </ul>
-        <GetMeasure>
-          {({ size, ref }) => (
-            <Spring
-              force
-              native
-              config={{ tension: 250, friction: 20, mass: 0.2 }}
-              from={{ height: size.height }}
-              to={{ height: 'auto' }}
-            >
-              {style => (
-                <animated.div style={style}>
-                  <div ref={ref} className={styles.tabContent}>
-                    <TabBody activeTab={activeTab}>
-                      {children}
-                    </TabBody>
-                  </div>
-                </animated.div>
-              )}
-            </Spring>
-          )}
-        </GetMeasure>
+        <HeightTransition>
+          <div className={styles.tabContent}>
+            <TabBody activeTab={activeTab}>
+              {children}
+            </TabBody>
+          </div>
+        </HeightTransition>
       </Wrapper>
     );
   }
