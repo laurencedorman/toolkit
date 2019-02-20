@@ -19,7 +19,6 @@ const TabBody = ({ children, activeTab }:propTypes) => {
       <Transition
         native
         unique
-        force
         reset
         items={isOn}
         from={{ o: 0 }}
