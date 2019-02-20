@@ -24,27 +24,33 @@ class ToggleDown extends PureComponent<propTypes> {
     super(props);
     this.toggleDown = React.createRef();
     this.state = { height: 0 };
-    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
+    this.ismounted = true;
+
     if (!this.toggleDown) return;
 
-    setTimeout(() => {
-      this.setState({ height: this.toggleDown.current.offsetHeight });
-    }, 1000);
+    if (this.ismounted) {
+      setTimeout(() => {
+        this.setState({ height: this.toggleDown.current.offsetHeight });
+      }, 1000);
 
-    window.addEventListener('resize', this.handleResize, false);
+      window.addEventListener('resize', this.handleResize, false);
+    }
   }
 
   componentWillUnmount() {
+    this.ismounted = false;
     window.removeEventListener('resize', this.handleResize, false);
   }
 
   handleResize = () => {
-    this.setState({
-      height: this.toggleDown.current.offsetHeight,
-    });
+    if (this.ismounted) {
+      this.setState({
+        height: this.toggleDown.current.offsetHeight,
+      });
+    }
   };
 
   render() {

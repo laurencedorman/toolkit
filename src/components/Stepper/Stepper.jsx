@@ -22,8 +22,11 @@ export default class Stepper extends Component<propTypes> {
   };
 
   componentDidMount() {
+    this.ismounted = true;
     const { getLength, children } = this.props;
-    getLength(React.Children.count(children));
+    if (this.ismounted) {
+      getLength(React.Children.count(children));
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -31,6 +34,10 @@ export default class Stepper extends Component<propTypes> {
     if (React.Children.count(prevProps.children) !== React.Children.count(children)) {
       getLength(React.Children.count(children));
     }
+  }
+
+  componentWillUnmount() {
+    this.ismounted = false;
   }
 
   render() {
