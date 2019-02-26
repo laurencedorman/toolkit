@@ -86,6 +86,8 @@ type propTypes = {
   marginBottom?: string,
 };
 
+Button.displayName = 'button';
+
 Button.defaultProps = {
   children: null,
   theme: 'default',

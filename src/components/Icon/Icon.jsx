@@ -16,13 +16,14 @@ const IconComponent = ({
     className,
   );
 
+  /* eslint-disable */
   return (
     <div
       className={classNames}
       onClick={onClick}
       onKeyPress={onClick}
       tabIndex="-1"
-      role="button"
+      role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
     >
       {Object.prototype.hasOwnProperty.call(iconAssets, name)
@@ -44,6 +45,7 @@ const IconComponent = ({
       )}
     </div>
   );
+  /* eslint-enable */
 };
 
 type propTypes = {
