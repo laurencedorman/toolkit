@@ -7,7 +7,9 @@ type propTypes = { children: Node }
 export default class GetMeasure extends Component<propTypes> {
   myObserver = new ResizeObserver((element) => {
     if (this.ismounted) {
-      this.setState({ size: element[0].target.getBoundingClientRect() });
+      this.setState({
+        size: element[0].target.getBoundingClientRect(),
+      });
     }
   });
 
@@ -20,7 +22,7 @@ export default class GetMeasure extends Component<propTypes> {
   componentDidMount() {
     this.ismounted = true;
     if (this.ismounted) {
-      this.myObserver.observe(this.ref.current);
+      this.animate();
     }
   }
 
@@ -28,6 +30,11 @@ export default class GetMeasure extends Component<propTypes> {
     this.ismounted = false;
     this.myObserver.unobserve(this.ref.current);
   }
+
+  animate = () => {
+    this.myObserver.observe(this.ref.current);
+    requestAnimationFrame(() => this.animate);
+  };
 
   render() {
     const { children } = this.props;
