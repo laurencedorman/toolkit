@@ -3,6 +3,7 @@ export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as DropDown, OptionContainer } from './DropDown';
+export { default as Field } from './Field';
 export { default as GetMeasure } from './GetMeasure';
 export { default as HeightTransition } from './HeightTransition';
 export { default as Hint } from './Hint';
