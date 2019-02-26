@@ -47,8 +47,8 @@ const span = {
 </div>
 
 <div style={style}> 
-<IconComponent name="clock" />
-<span style={span}>clock</span>
+<IconComponent name="3x" />
+<span style={span}>3x</span>
 </div>
 
 <div style={style}>
