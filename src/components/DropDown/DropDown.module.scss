@@ -60,6 +60,8 @@
     cursor: pointer;
     transition: background-color $timeout $in;
 
+    &:first-child { border-radius: $radius $radius 0 0 }
+
     &:hover, &.active {
       background-color: $squidInk;
       color: $white;
