@@ -44,5 +44,11 @@ $tinySpace: calc(#{$space} / 4);
     &.hasError {
       border-color: $cocoCorail
     }
+
+    &.disabled {
+      background-color: $greyLight !important;
+
+      & > div { background-color: transparent !important }
+    }
   }
 }

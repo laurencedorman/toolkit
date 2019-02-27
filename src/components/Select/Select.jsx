@@ -32,7 +32,10 @@ const Select = ({
   const select = cn(
     styles.select,
     styles[theme],
-    { hasError: error },
+    {
+      [styles.hasError]: error,
+      [styles.disabled]: disabled,
+    },
   );
 
   const labelStyle = cn({
