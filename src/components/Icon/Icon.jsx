@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-
-import iconAssets from '../../assets/setIcons';
+import { Svg } from 'components';
 import styles from './Icon.module.scss';
 
 /**
@@ -26,23 +25,11 @@ const IconComponent = ({
       role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
     >
-      {Object.prototype.hasOwnProperty.call(iconAssets, name)
-      && (
-        <svg
-          className={styles.svg}
-          width={`${String(size)}px`}
-          height={`${String(size)}px`}
-          viewBox={iconAssets[name].viewBox}
-          aria-describedby={name}
-          fill={fill}
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-        >
-          <path
-            d={iconAssets[name].d}
-          />
-        </svg>
-      )}
+      <Svg
+        name={name}
+        size={size}
+        fill={fill}
+      />
     </div>
   );
   /* eslint-enable */
