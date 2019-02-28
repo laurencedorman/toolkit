@@ -4,7 +4,6 @@ import italy from './italy.svg';
 import spain from './spain.svg';
 import unitedKingdom from './unitedKingdom.svg';
 
-
 export const img = {
   france,
   germany,

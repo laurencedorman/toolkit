@@ -5,11 +5,15 @@ import styles from './Image.module.scss';
 import imgAssets from '../../assets/setImg';
 
 /* eslint-disable */
-const Img = ({ src, alt, className, onClick, dataQa }: propTypes) => {
+const Image = ({ src, alt, className, onClick, dataQa }: propTypes) => {
   const classNames = cn(
     styles.container,
     className,
   );
+
+  const withCursor = {
+    cursor: onClick && 'pointer',
+  };
 
   return (
     <div
@@ -19,6 +23,7 @@ const Img = ({ src, alt, className, onClick, dataQa }: propTypes) => {
       tabIndex="-1"
       role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
+      style={withCursor}
     >
       {Object.prototype.hasOwnProperty.call(imgAssets, src)
         && (
@@ -40,8 +45,8 @@ type propTypes = {
   className?: string,
 };
 
-Img.defaultProps = {
+Image.defaultProps = {
   className: '',
 };
 
-export default Img;
+export default Image;

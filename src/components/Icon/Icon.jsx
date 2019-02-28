@@ -23,7 +23,6 @@ const IconComponent = ({
       className={classNames}
       onClick={onClick}
       onKeyPress={onClick}
-      tabIndex="-1"
       role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
     >
@@ -33,13 +32,13 @@ const IconComponent = ({
           className={styles.svg}
           width={`${String(size)}px`}
           height={`${String(size)}px`}
-          viewBox={iconAssets[name].viewBox}
+          viewBox="0 0 32 32"
           aria-describedby={name}
           fill={fill}
           xmlns="http://www.w3.org/2000/svg"
           role="img"
         >
-          <path d={iconAssets[name].d} />
+          <path d={iconAssets[name]} />
         </svg>
       )}
     </div>
