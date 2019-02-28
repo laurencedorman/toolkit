@@ -9,11 +9,11 @@ const bar = [
   },
   {
     x: '10',
-    begin: '0.15s',
+    begin: '0.16s',
   },
   {
     x: '20',
-    begin: '0.3s',
+    begin: '0.32s',
   },
 ];
 
@@ -39,6 +39,7 @@ const Loader = ({ fill, dataQa }: propTypes) => (
           width="4"
           height="5"
           fill={fill}
+          rx="2"
         >
           <animate
             attributeName="height"

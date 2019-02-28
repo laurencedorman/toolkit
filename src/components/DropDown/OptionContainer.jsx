@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { ToggleDown, Overlay } from 'components';
+import { ToggleDown } from 'components';
 import styles from './DropDown.module.scss';
 
 /**
@@ -45,12 +45,12 @@ const OptionContainer = ({
 
   return (
     <>
-      <Overlay
-        on={on}
-        onClick={toggle}
-        backgroundColor="transparent"
-        zIndex={1}
-      />
+
+      {on
+        /* eslint-disable */
+        && <div className={styles.closeTarget} onClick={toggle} />
+        /* eslint-enable */
+      }
       <ToggleDown
         on={on}
         className={container}
