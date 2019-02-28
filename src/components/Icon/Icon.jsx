@@ -1,12 +1,15 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Svg } from 'components';
+
+import iconAssets from '../../assets/setIcons';
 import styles from './Icon.module.scss';
 
 /**
  * @visibleName Icon
  */
+
+/* eslint-disable */
 const IconComponent = ({
   onClick, className, name, size, fill, dataQa,
 }: propTypes) => {
@@ -15,7 +18,6 @@ const IconComponent = ({
     className,
   );
 
-  /* eslint-disable */
   return (
     <div
       className={classNames}
@@ -25,15 +27,26 @@ const IconComponent = ({
       role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
     >
-      <Svg
-        name={name}
-        size={size}
-        fill={fill}
-      />
+      {Object.prototype.hasOwnProperty.call(iconAssets, name)
+      && (
+        <svg
+          className={styles.svg}
+          width={`${String(size)}px`}
+          height={`${String(size)}px`}
+          viewBox={iconAssets[name].viewBox}
+          aria-describedby={name}
+          fill={fill}
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+        >
+          <path d={iconAssets[name].d} />
+        </svg>
+      )}
     </div>
   );
-  /* eslint-enable */
 };
+
+/* eslint-enable */
 
 type propTypes = {
   onClick?: () => void,

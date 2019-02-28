@@ -7,7 +7,7 @@ export { default as Field } from './Field';
 export { default as GetMeasure } from './GetMeasure';
 export { default as HeightTransition } from './HeightTransition';
 export { default as Hint } from './Hint';
-export { default as Icon, Svg, Img } from './Icon';
+export { default as Icon } from './Icon';
 export { default as Iframe } from './Iframe';
 export { default as Input, InputLight } from './Input';
 export { default as InputCheck, InputCheckGroup } from './InputCheck';
