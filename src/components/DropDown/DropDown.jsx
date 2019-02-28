@@ -12,7 +12,7 @@ import styles from './DropDown.module.scss';
 /**
  * @visibleName DropDown
  */
-/* eslint-disable */
+
 const DropDown = ({
   title,
   on,
@@ -43,13 +43,12 @@ const DropDown = ({
     <GetMeasure>
       {({ size, ref }) => (
         <div className={wrapper}>
-          {on && <div className={styles.closeTarget} onClick={toggle} />}
           <Button
             ref={ref}
             onClick={toggle}
             className={styles.button}
             disabled={disabled}
-            style={{backgroundColor}}
+            style={{ backgroundColor }}
           >
             {renderTitle(title)}
             {icon && (
@@ -78,7 +77,7 @@ const DropDown = ({
     </GetMeasure>
   );
 };
-
+/* eslint-disable */
 const renderTitle = title => (
   typeof title === 'string'
     ? title
@@ -86,7 +85,6 @@ const renderTitle = title => (
       ? title()
       : null
 );
-
 /* eslint-enable */
 
 type propTypes = {
