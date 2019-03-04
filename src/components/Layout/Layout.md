@@ -4,7 +4,7 @@ Layout:
  * Set props <b>direction</b> to choose flex-direction <b>[row | column]</b>
  * No style, just padding.
  
- * Layout is an application wrapper. For simple container please use Wrapper component.
+ * <b>Layout is an application wrapper, for simple container please use Wrapper component</b>
 
 ```js
 <Layout direction="column" styleGuidist>
