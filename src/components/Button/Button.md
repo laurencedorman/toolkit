@@ -2,12 +2,12 @@ Default Button:
 
 ```js
 <Layout styleGuidist direction="row">
-  <Button>default Button</Button>
-  <Button theme="primary"> primary Button</Button>
-  <Button theme="secondary">secondary Button</Button>
-  <Button theme="ghost">ghost Button</Button>
-  <Button theme="reset">reset style Button</Button> 
-  <Button disabled>disabled Button</Button> 
+  <Button marginBottom={16}>default Button</Button>
+  <Button marginBottom={16} theme="primary"> primary Button</Button>
+  <Button marginBottom={16} theme="secondary">secondary Button</Button>
+  <Button marginBottom={16} theme="ghost">ghost Button</Button>
+  <Button marginBottom={16} theme="reset">reset style Button</Button> 
+  <Button marginBottom={16} disabled>disabled Button</Button> 
 </Layout>
 
 ```

@@ -109,7 +109,7 @@ const renderHeader = header => (
   typeof header === 'string'
     ? <h4>{header}</h4>
     : typeof header === 'function'
-    ? header()
+    ? <h4>{header()}</h4>
     : null
 );
 /* eslint-enable */
