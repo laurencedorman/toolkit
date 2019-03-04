@@ -9,6 +9,7 @@ export { default as HeightTransition } from './HeightTransition';
 export { default as Hint } from './Hint';
 export { default as Icon } from './Icon';
 export { default as Iframe } from './Iframe';
+export { default as Image } from './Image';
 export { default as Input, InputLight } from './Input';
 export { default as InputCheck, InputCheckGroup } from './InputCheck';
 export { default as Layout } from './Layout';

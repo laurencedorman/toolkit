@@ -8,8 +8,10 @@ import styles from './Icon.module.scss';
 /**
  * @visibleName Icon
  */
+
+/* eslint-disable */
 const IconComponent = ({
-  onClick, className, name, size, fill, dataQa,
+  onClick, className, name, size, fill, stroke, dataQa,
 }: propTypes) => {
   const classNames = cn(
     styles.container,
@@ -21,28 +23,38 @@ const IconComponent = ({
       className={classNames}
       onClick={onClick}
       onKeyPress={onClick}
-      tabIndex="-1"
-      role="button"
+      role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
     >
-      {Object.prototype.hasOwnProperty.call(iconAssets, name)
-      && (
+      {Object.prototype.hasOwnProperty.call(iconAssets, name) && (
         <svg
           className={styles.svg}
           width={`${String(size)}px`}
           height={`${String(size)}px`}
-          viewBox={iconAssets[name].viewBox}
+          viewBox="0 0 32 32"
           aria-describedby={name}
           fill={fill}
           xmlns="http://www.w3.org/2000/svg"
           role="img"
         >
-          <path d={iconAssets[name].d} />
+          {name.includes('chevron')
+            ? <g fill="none">
+                <path
+                  stroke={stroke}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d={iconAssets[name]}
+                />
+              </g>
+            : <path d={iconAssets[name]} />
+          }
         </svg>
       )}
     </div>
   );
 };
+/* eslint-enable */
 
 type propTypes = {
   onClick?: () => void,
@@ -50,6 +62,7 @@ type propTypes = {
   name: string,
   size?: number,
   fill?: string | () => void,
+  stroke?: string | () => void,
   dataQa?: string,
 };
 
@@ -58,6 +71,7 @@ IconComponent.defaultProps = {
   className: '',
   size: 32,
   fill: '#0c193a',
+  stroke: '#0c193a',
   dataQa: '',
 };
 

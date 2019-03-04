@@ -10,6 +10,7 @@ export {
   Hint,
   Icon,
   Iframe,
+  Image,
   Input,
   InputCheck,
   InputCheckGroup,
