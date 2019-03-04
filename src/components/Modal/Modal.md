@@ -29,12 +29,7 @@ Tips:
 ```
 
 ```js
-const renderComp = () => (
-  <Card>
-  <h4>I'm a component</h4>
-  <p>You can use render function to pass component or custom render as header</p>
-  </Card>
-);
+const renderComp = () => 'Header title render as a function';
 
 <Layout direction="column" styleGuidist>
  <h4>Modal with Header as a render function and default footer</h4>
