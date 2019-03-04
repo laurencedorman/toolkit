@@ -5,7 +5,7 @@ import styles from './Image.module.scss';
 import imgAssets from '../../assets/setImg';
 
 /* eslint-disable */
-const Image = ({ src, alt, className, onClick, dataQa }: propTypes) => {
+const Image = ({ src, alt, className, onClick, dataQa, style }: propTypes) => {
   const classNames = cn(
     styles.container,
     className,
@@ -20,10 +20,12 @@ const Image = ({ src, alt, className, onClick, dataQa }: propTypes) => {
       className={classNames}
       onClick={onClick}
       onKeyPress={onClick}
-      tabIndex="-1"
       role={onClick ? 'button' : 'image'}
       data-qa={dataQa}
-      style={withCursor}
+      style={{
+        withCursor,
+        ...style,
+      }}
     >
       {Object.prototype.hasOwnProperty.call(imgAssets, src)
         && (
@@ -43,10 +45,12 @@ type propTypes = {
   src: string,
   alt: string,
   className?: string,
+  style?: Object,
 };
 
 Image.defaultProps = {
   className: '',
+  style: {},
 };
 
 export default Image;

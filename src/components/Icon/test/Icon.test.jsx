@@ -3,9 +3,19 @@ import { shallow } from 'enzyme';
 import Icon from '../Icon';
 
 describe('Icon', () => {
-  const wrapper = shallow(<Icon name="document" />);
+  let wrapper;
+
+  wrapper = shallow(<Icon name="document" />);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
+  });
+
+  it('should render different role', () => {
+    wrapper.setProps({ onClick: 'test' });
+  });
+
+  it('should render different svg with special name', () => {
+    wrapper = shallow(<Icon name="chevron-up" />);
   });
 });
