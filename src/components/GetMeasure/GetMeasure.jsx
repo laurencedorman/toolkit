@@ -6,7 +6,7 @@ type propTypes = { children: Node }
 
 export default class GetMeasure extends Component<propTypes> {
   myObserver = new ResizeObserver((element) => {
-    if (this.ismounted) {
+    if (this.ismounted && element) {
       this.setState({
         size: element[0].target.getBoundingClientRect(),
       });

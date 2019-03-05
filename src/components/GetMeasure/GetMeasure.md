@@ -5,6 +5,31 @@ GetMeasure:
   * Use as render child method (Check code of exemple).
   * Just set a `ref={ref}` on target who need measure.
   * Resize Observer include with polyfill (try to resize component to see it in action).
+  
+```js
+<div>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+<p>jfeijieojgtio</p>
+</div>
+```
 
 ```js
 <Layout direction="column" styleGuidist>
