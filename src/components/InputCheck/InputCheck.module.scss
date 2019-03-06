@@ -1,7 +1,10 @@
 @import 'styles/import.scss';
 
+$inputCheckboxSize: 24px;
 $bigSpace: 2em;
 $tinySpace: calc(#{$space} / 4);
+$focusShadow: 0 2px 10px 2px rgba(12, 25, 58, .1);
+$radioCheckedInnerShadow: 0 0 0 2px $white inset;
 
 .container {
   position: relative;
@@ -20,7 +23,7 @@ $tinySpace: calc(#{$space} / 4);
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $tinySpace
+      padding-left: $tinySpace;
     }
   }
 
@@ -28,43 +31,49 @@ $tinySpace: calc(#{$space} / 4);
     margin-right: $bigSpace;
   }
 
-  input[type="checkbox"], input[type="radio"] {
-    position: absolute;
-    left: -9999px;
-    visibility: hidden;
+  label {
+    position: relative;
+    display: inline-block;
+    padding-left: $inputCheckboxSize + 8px; // 8 $halfSpace in px
+    cursor: pointer;
+    line-height: $inputCheckboxSize;
 
-    + label {
-      position: relative;
-      display: inline-block;
-      padding-left: calc(#{$space}*2);
-      cursor: pointer;
-
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        width: 21px;
-        height: 21px;
-        top: 0; left: 0;
-        box-sizing: border-box;
-        transition: transform .15s linear,
-                    opacity .15s linear,
-                    background-color .15s linear;
-        will-change: transform, opacity, background-color;
-      }
-
-      &::before { border: $border $borderColor }
-
-      &:hover::before { border-color: $balataGreen }
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: $inputCheckboxSize;
+      height: $inputCheckboxSize;
+      top: 0; left: 0;
+      box-sizing: border-box;
+      transition: transform .15s ease-out,
+                  opacity .15s linear,
+                  background-color .15s linear,
+                  box-shadow .15s ease-in;
+      will-change: transform, opacity, background-color;
     }
 
+    &::before { border: $border $borderColor }
+
+    &:hover::before { border-color: $balataGreen }
+  }
+
+  input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+
     &:checked + label::before {
-      border-color: $balataGreen
+      border-color: $balataGreen;
+    }
+
+    &:focus + label::before {
+      box-shadow: $focusShadow;
     }
 
     &:not(checked) + label {
       &::after {
         opacity: 0;
-        transform: scale(0)
+        transform: scale(0);
       }
     }
 
@@ -73,12 +82,12 @@ $tinySpace: calc(#{$space} / 4);
       &::before {
         background-color: $greyDark;
         border-color: transparent;
-        cursor: not-allowed
+        cursor: not-allowed;
       }
     }
   }
 
-  input[type="checkbox"] {
+  [type="checkbox"] {
     + label {
       &::before { background-color: $white }
     }
@@ -92,31 +101,39 @@ $tinySpace: calc(#{$space} / 4);
       display: block;
       background-color: $balataGreen;
       opacity: 1;
-      transform: scale(1)
+      transform: scale(1);
     }
   }
 
-  input[type="radio"] {
+  [type="radio"] {
     + label {
       &::before { background-color: $white }
     }
+
     + label {
       &::before, &::after {
         border-radius: 100%;
         padding: 4px;
       }
     }
+
     &:checked + label::before {
       background-color: transparent;
-      box-shadow: 0 0 0 2px $white inset;
+      box-shadow: $radioCheckedInnerShadow;
       z-index: z($levels, max);
     }
+
+    &:focus:checked + label::before {
+      box-shadow: $radioCheckedInnerShadow,
+                  $focusShadow;
+    }
+
     &:checked + label::after {
       top: 0; left: 0; bottom: 0; right: 0;
       border-radius: 100%;
       background-color: $balataGreen;
       opacity: 1;
-      transform: scale(1)
+      transform: scale(1);
     }
   }
 
@@ -126,15 +143,16 @@ $tinySpace: calc(#{$space} / 4);
     justify-content: center;
     align-items: center;
     top: 0; left: 0;
-    width: 21px; height: 21px;
+    width: $inputCheckboxSize; height: $inputCheckboxSize;
     z-index: z($sub-levels, max);
+
     svg {
       fill: $white;
       stroke: $white;
     }
   }
 
-  &.noLabel label { height: 21px }
+  &.noLabel label { height: $inputCheckboxSize }
 }
 
 .CheckGroup {
@@ -162,7 +180,6 @@ $tinySpace: calc(#{$space} / 4);
         margin-right: $bigSpace;
       }
     }
-
   }
 
   span {
@@ -174,7 +191,7 @@ $tinySpace: calc(#{$space} / 4);
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $tinySpace
+      padding-left: $tinySpace;
     }
   }
 
