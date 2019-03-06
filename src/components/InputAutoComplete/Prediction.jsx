@@ -1,13 +1,13 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import styles from './Prediction.module.scss';
 import { highlight } from './helpers';
+import styles from './Prediction.module.scss';
 
 const Prediction = ({
   highlighted, highlightValue, label, onClick, onFocus, onKeyDown, onMouseOver, refCallback,
   selected, value,
-}: Props) => {
+}: PropTypes) => {
   const className = cn(styles.prediction, {
     [styles.highlighted]: highlighted,
     [styles.selected]: selected,
@@ -37,7 +37,7 @@ const Prediction = ({
   );
 };
 
-type Props = {
+type PropTypes = {
   highlighted?: boolean,
   highlightValue?: string,
   label?: string,

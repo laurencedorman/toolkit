@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 import Predictions from '../Predictions';
 import Prediction from '../Prediction';
@@ -13,7 +13,7 @@ describe('Predictions', () => {
       .map((value, index) => `${value}${index}`)
       .map(value => ({ label: `${value}-label`, value }));
 
-    wrapper = mount(<Predictions predictions={predictions} />);
+    wrapper = shallow(<Predictions predictions={predictions} />);
   });
 
   it('should display predictions', () => {
@@ -59,6 +59,7 @@ describe('Predictions', () => {
   });
 
   it('should set getTopOffset method in predictions', () => {
+    wrapper.find(Prediction).at(0).prop('refCallback')({ offsetTop: 0 });
     expect(typeof predictions[0].getTopOffset).toEqual('function');
     expect(typeof predictions[0].getTopOffset()).toEqual('number');
   });

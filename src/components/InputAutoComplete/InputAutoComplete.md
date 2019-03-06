@@ -1,16 +1,16 @@
-autocomplete as array
+predict as array
 ```js
-const autocomplete = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (75001 + i).toString() }));
+const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (75001 + i).toString() }));
 
 <InputAutoComplete
   placeholder="Zip code"
-  autocomplete={autocomplete}
+  predict={predict}
 />
 ```
 
-autocomplete as async function
+predict as async function
 ```js
-const autocomplete = (value) => {
+const predict = (value) => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(
@@ -24,31 +24,31 @@ const autocomplete = (value) => {
 
 <InputAutoComplete
   placeholder="Zip code"
-  autocomplete={autocomplete}
+  predict={predict}
 />
 ```
 
-autocomplete as async function: error
+predict as async function: error
 ```js
-const autocomplete = () => Promise.reject(new Error('💣'));
+const predict = () => Promise.reject(new Error('💣'));
 
 <InputAutoComplete
   type="number"
   placeholder="Zip code"
-  autocomplete={autocomplete}
+  predict={predict}
 />
 ```
 
 disabled
 ```js
 const initialState = { disabled: true };
-const autocomplete = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (75001 + i).toString() }));
+const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (75001 + i).toString() }));
 
 <div>
   <InputAutoComplete
     disabled={state.disabled}
     placeholder="Zip code"
-    autocomplete={autocomplete}
+    predict={predict}
   />
   <br />
   <InputCheck

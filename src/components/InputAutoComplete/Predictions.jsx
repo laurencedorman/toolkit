@@ -12,6 +12,11 @@ const Predictions = ({
       ((predictions: any): PredictionType[]).map((prediction) => {
         const { label, value } = prediction;
         const highlighted = prediction === highlightedPrediction;
+        const onClickHandler = () => onClick && onClick(prediction);
+        const onMouseOverHandler = () => onMouseOver && onMouseOver(prediction);
+        // I do not like this but I did not find any proper way until now
+        /* eslint-disable-next-line no-param-reassign */
+        const refCallbackHandler = (elem) => { prediction.getTopOffset = () => elem.offsetTop; };
         const selected = prediction === selectedPrediction;
 
         return (
@@ -21,11 +26,9 @@ const Predictions = ({
             highlightValue={highlightValue}
             key={value}
             label={label}
-            onClick={() => onClick && onClick(prediction)}
-            onMouseOver={() => onMouseOver && onMouseOver(prediction)}
-            // I do not like this but I did not find any proper way until now
-            /* eslint-disable-next-line no-param-reassign */
-            refCallback={(elem) => { prediction.getTopOffset = () => elem.offsetTop; }}
+            onClick={onClickHandler}
+            onMouseOver={onMouseOverHandler}
+            refCallback={refCallbackHandler}
             selected={selected}
             value={value}
           />

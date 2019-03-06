@@ -1,6 +1,6 @@
 // @flow
-import cn from 'classnames';
 import React, { Component } from 'react';
+import cn from 'classnames';
 import Input from '../Input';
 import type { InputProps } from '../Input';
 import {
@@ -8,26 +8,30 @@ import {
   PREDICT_DEBOUNCE_DELAY, STATUS,
 } from './constants';
 import type { Prediction } from './constants';
-import styles from './InputAutoComplete.module.scss';
 import Predictions from './Predictions';
 import Status from './Status';
+import styles from './InputAutoComplete.module.scss';
 
-type Private = {
+type PrivateType = {
   inputRef: { current: null | HTMLInputElement },
   predictionsContainerRef: { current: null | HTMLDivElement },
   predictTimeout: number | null,
 };
 
-type Props = InputProps & {
-  autocomplete: Prediction[] | () => Promise<Prediction[]>,
+type PropTypes = InputProps & {
   className?: string,
   onChange?: (value: string) => void,
-  transKeepTyping?: string,
+  predict: Prediction[] | () => Promise<Prediction[]>,
+  translations?: {
+    keepTyping: string,
+    noResult: string,
+    unableToPredict: string,
+  },
   transNoResult?: string,
   value?: string,
 };
 
-type State = {
+type StateType = {
   errorMessage: string | null,
   highlightedPrediction: Prediction | null,
   loading: boolean,
@@ -40,34 +44,34 @@ type State = {
 /**
  * @visibleName InputAutoComplete
  */
-export default class InputAutoComplete extends Component<Props, State> {
+export default class InputAutoComplete extends Component<PropTypes, StateType> {
   static defaultProps = {
-    autocomplete: [],
     className: '',
     onChange: undefined,
-    transKeepTyping: undefined,
-    transNoResult: undefined,
+    predict: [],
+    translations: {
+      keepTyping: undefined,
+      noResult: undefined,
+      unableToPredict: 'Unable to predict :(',
+    },
     value: '',
   };
 
-  private: Private = {
-    inputRef: { current: null },
-    predictionsContainerRef: React.createRef(),
-    predictTimeout: null,
-  };
+  // This rule seems to be broken, see https://github.com/yannickcr/eslint-plugin-react/issues/1814
+  // eslint-disable-next-line react/sort-comp
+  private: PrivateType;
 
   // eslint-disable-next-line react/sort-comp
-  state: State;
+  state: StateType;
 
-  constructor(props: Props) {
+  constructor(props: PropTypes) {
     super(props);
 
-    (this: any).handleFocusIn = this.handleFocusIn.bind(this);
-    (this: any).handleFocusOut = this.handleFocusOut.bind(this);
-    (this: any).handleKeydown = this.handleKeydown.bind(this);
-    (this: any).handleInput = this.handleInput.bind(this);
-    (this: any).handlePredictionMouseOver = this.handlePredictionMouseOver.bind(this);
-    (this: any).selectPrediction = this.selectPrediction.bind(this);
+    this.private = {
+      inputRef: { current: null },
+      predictionsContainerRef: React.createRef(),
+      predictTimeout: null,
+    };
 
     this.state = {
       errorMessage: null,
@@ -96,24 +100,24 @@ export default class InputAutoComplete extends Component<Props, State> {
     return null;
   }
 
-  handleFocusIn(): void {
+  handleFocusIn = (): void => {
     const { value } = this.state;
 
     if (value.length > 0) {
       this.open();
     }
-  }
+  };
 
-  handleFocusOut(): void {
+  handleFocusOut = (): void => {
     const { showPredictions } = this.state;
 
     if (showPredictions) {
       // A delay is needed to avoid closing the panel before handling a click event
       setTimeout(() => this.close(), BLUR_CLOSING_DELAY);
     }
-  }
+  };
 
-  handleKeydown(event: SyntheticKeyboardEvent<HTMLInputElement>): void {
+  handleKeydown = (event: SyntheticKeyboardEvent<HTMLInputElement>): void => {
     const { showPredictions } = this.state;
     const key = event.charCode || event.keyCode;
 
@@ -181,9 +185,9 @@ export default class InputAutoComplete extends Component<Props, State> {
       event.preventDefault();
       this.highlightPrediction(predictions[newIndex]);
     }
-  }
+  };
 
-  handleInput(event: SyntheticEvent<HTMLInputElement>): Promise<void> {
+  handleInput = (event: SyntheticEvent<HTMLInputElement>): Promise<void> => {
     const { target }: any = event;
 
     if (target.value === undefined) {
@@ -225,20 +229,27 @@ export default class InputAutoComplete extends Component<Props, State> {
           this.highlightPrediction(predictions[0]);
         }
       })
-      .catch((error) => {
-        this.setState({ errorMessage: 'Unable to predict :(', loading: false });
+      .catch(() => {
+        const { translations: { unableToPredict } } = this.props;
+        this.setState({ errorMessage: unableToPredict, loading: false });
         this.close();
-        throw error;
       });
-  }
+  };
 
-  handlePredictionMouseOver(prediction: Prediction): void {
+  handlePredictionMouseOver = (prediction: Prediction): void => {
     this.highlightPrediction(prediction, false);
-  }
+  };
 
-  close(): void {
-    this.setState({ showPredictions: false });
-  }
+  selectPrediction = (selectedPrediction: Prediction): void => {
+    const { onChange } = this.props;
+    const { value } = selectedPrediction;
+
+    this.setState({ showPredictions: false, value, selectedPrediction });
+
+    if (typeof onChange === 'function') {
+      onChange(value);
+    }
+  };
 
   highlightPrediction(prediction: Prediction, scroll: boolean = true): void {
     const scrollToPrediction = scroll
@@ -263,15 +274,15 @@ export default class InputAutoComplete extends Component<Props, State> {
   }
 
   predict(value: string): Promise<string[]> {
-    const { autocomplete } = this.props;
+    const { predict } = this.props;
     let predictionPromise = Promise.resolve([]);
 
     if (value.length >= MIN_NUMBER_OF_CHARACTERS) {
-      if (Array.isArray(autocomplete)) {
+      if (Array.isArray(predict)) {
         predictionPromise = Promise.resolve(
-          autocomplete.filter(prediction => prediction.value.indexOf(value) === 0),
+          predict.filter(prediction => prediction.value.indexOf(value) === 0),
         );
-      } else if (typeof autocomplete === 'function') {
+      } else if (typeof predict === 'function') {
         predictionPromise = new Promise((resolve, reject) => {
           if (this.private.predictTimeout) {
             window.clearTimeout(this.private.predictTimeout);
@@ -280,7 +291,7 @@ export default class InputAutoComplete extends Component<Props, State> {
           this.private.predictTimeout = window.setTimeout(() => {
             this.private.predictTimeout = null;
             try {
-              autocomplete(value)
+              predict(value)
                 .then(resolve)
                 .catch(reject);
             } catch (error) {
@@ -317,15 +328,8 @@ export default class InputAutoComplete extends Component<Props, State> {
     container.scrollTop = 0;
   }
 
-  selectPrediction(selectedPrediction: Prediction): void {
-    const { onChange } = this.props;
-    const { value } = selectedPrediction;
-
-    this.setState({ showPredictions: false, value, selectedPrediction });
-
-    if (typeof onChange === 'function') {
-      onChange(value);
-    }
+  close(): void {
+    this.setState({ showPredictions: false });
   }
 
   shouldRenderPredictions(): boolean {
@@ -334,12 +338,19 @@ export default class InputAutoComplete extends Component<Props, State> {
   }
 
   render() {
-    const { props, state, status } = this;
-    const { transKeepTyping, transNoResult } = props;
+    // Some properties are unused but it is needed to avoid giving props of this component to the
+    // Input component
     const {
-      errorMessage, highlightedPrediction, predictions, selectedPrediction, showPredictions, value,
+      className, onChange, predict, translations, value, ...rest
+    } = this.props;
+    const { state, status } = this;
+    const {
+      errorMessage, highlightedPrediction, predictions, selectedPrediction, showPredictions,
     } = state;
-    const container = cn(styles.container, props.className);
+    const currentValue = state.value;
+    const container = cn(styles.container, className);
+    const { keepTyping, noResult } = translations;
+    const statusTranslations = keepTyping && noResult ? { keepTyping, noResult } : undefined;
 
     return (
       <div className={container}>
@@ -347,11 +358,7 @@ export default class InputAutoComplete extends Component<Props, State> {
           showPredictions && (
             <div className={styles.predictionsContainer} ref={this.private.predictionsContainerRef}>
               {status && (
-                <Status
-                  status={status}
-                  transKeepTyping={transKeepTyping}
-                  transNoResult={transNoResult}
-                />
+                <Status status={status} translations={statusTranslations} />
               )}
               {this.shouldRenderPredictions() && (
                 // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
@@ -368,7 +375,7 @@ export default class InputAutoComplete extends Component<Props, State> {
           )
         }
         <Input
-          {...props}
+          {...rest}
           error={!!errorMessage}
           onBlur={this.handleFocusOut}
           onChange={this.handleInput}
@@ -376,7 +383,7 @@ export default class InputAutoComplete extends Component<Props, State> {
           onKeyDown={this.handleKeydown}
           messageError={errorMessage}
           type="text"
-          value={value}
+          value={currentValue}
         />
       </div>
     );

@@ -1,8 +1,8 @@
 // @flow
 
-type RichText = { strong: boolean, text: string };
+type RichTextType = { strong: boolean, text: string };
 
-export function highlight(text: string, highlightText?: string = ''): RichText[] {
+export function highlight(text: string, highlightText?: string = ''): RichTextType[] {
   // String.prototype.normalize does not exist in IE11 and right now (05/03/19) polyfill.io does
   // not provide that polyfill so it will be accent sensitive in IE11 as it is an acceptable
   // behavior.

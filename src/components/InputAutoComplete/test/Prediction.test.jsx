@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 import Prediction from '../Prediction';
 
@@ -8,7 +8,7 @@ describe('Prediction', () => {
 
   beforeEach(() => {
     value = 'value';
-    wrapper = mount(<Prediction value={value} />);
+    wrapper = shallow(<Prediction value={value} />);
   });
 
   it('should display prediction content', () => {
@@ -52,12 +52,5 @@ describe('Prediction', () => {
       wrapper.find('li').simulate(event);
       expect(mock).toHaveBeenCalled();
     });
-  });
-
-  it('should allow parent to retrieve html element', () => {
-    const refCallback = jest.fn();
-    const prediction = mount(<Prediction refCallback={refCallback} value="test" />);
-    expect(refCallback).toHaveBeenCalled();
-    expect(refCallback).toHaveBeenCalledWith(prediction.find('li').instance());
   });
 });

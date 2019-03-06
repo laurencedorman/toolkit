@@ -17,7 +17,7 @@ export const KEYMAP = {
   DOWN_ARROW: 40,
 };
 
-export type Prediction = {
+export type PredictionType = {
   label: string,
   getTopOffset?: () => number,
   value: string,

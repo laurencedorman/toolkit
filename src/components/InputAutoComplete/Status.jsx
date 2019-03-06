@@ -4,18 +4,20 @@ import Loader from '../Loader';
 import { STATUS } from './constants';
 import styles from './Status.module.scss';
 
-const Status = ({ status, transKeepTyping, transNoResult }: Props) => {
+const Status = ({ status, translations }: PropTypes) => {
+  // Have default values
+  const { keepTyping, noResult } = (translations : any);
   let content;
 
   switch (status) {
     case STATUS.KEEP_TYPING:
-      content = transKeepTyping;
+      content = keepTyping;
       break;
     case STATUS.LOADING:
       content = <Loader />;
       break;
     case STATUS.NO_RESULT:
-      content = transNoResult;
+      content = noResult;
       break;
     default:
       throw new Error('Unknown status');
@@ -24,15 +26,19 @@ const Status = ({ status, transKeepTyping, transNoResult }: Props) => {
   return <div className={styles.status}>{content}</div>;
 };
 
-type Props = {
+type PropTypes = {
   status: string,
-  transKeepTyping?: string,
-  transNoResult?: string,
+  translations?: {
+    keepTyping: string,
+    noResult: string,
+  },
 };
 
 Status.defaultProps = {
-  transKeepTyping: 'Keep typing ✍️',
-  transNoResult: 'No result 😞',
+  translations: {
+    keepTyping: 'Keep typing ✍️',
+    noResult: 'No result 😞',
+  },
 };
 
 export default Status;
