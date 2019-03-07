@@ -18,7 +18,7 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }: propTypes) => (
           className={styles.overlay}
           onClick={onClick}
           style={{
-            opacity: o,
+            opacity: o.interpolate(o => o),
             cursor: onClick && 'pointer',
             zIndex,
             backgroundColor,

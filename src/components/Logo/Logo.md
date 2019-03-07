@@ -33,3 +33,18 @@ Logo mini:
   <Logo theme="color" mini />
 </div>
 ```
+
+
+Logo b2b:
+```js
+<div style={{ padding: 20 }} width="100%" height="100%">
+  <Logo theme="b2b" />
+</div>
+```
+
+Logo mf:
+```js
+<div style={{ padding: 20 }} width="100%" height="100%">
+  <Logo theme="mf" />
+</div>
+```
