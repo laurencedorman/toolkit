@@ -6,9 +6,10 @@
   top: 0; right: 0; bottom: 0; left: 0;
   justify-content: center;
   align-items: center;
-  background-color: rgba($manoBlack, .5);
+  background-color: rgba($black, .5);
+  z-index: z($layers, fullScreen);
+  will-change: opacity;
   cursor: pointer;
-  z-index: z($layers, modal);
 
   .icon {
     position: absolute;
@@ -60,6 +61,7 @@
   cursor: default;
   overflow: hidden;
   z-index: z($levels, max);
+  will-change: transform, opacity;
 
   &.noFooter { padding-bottom: 2em }
   &.iframe {

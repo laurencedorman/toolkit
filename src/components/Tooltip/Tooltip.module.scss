@@ -17,7 +17,7 @@ $marginArrow: -10px;
       border-radius: $radius;
       color: $white !important;
       text-align: center;
-      will-change: unset;
+      backface-visibility: hidden;
     }
 
     &.top, &.bottom { transform: translateX(-50%) }
@@ -27,11 +27,11 @@ $marginArrow: -10px;
   .content, .spanContent {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-backface-visibility: hidden;
     font-size: .9rem;
     white-space: normal;
     word-break: break-word;
     color: $white;
+    opacity: 1.01;
   }
 }
 

@@ -33,3 +33,18 @@ Logo mini:
   <Logo theme="color" mini />
 </div>
 ```
+
+
+Logo pro:
+```js
+<div style={{ padding: 20 }} width="100%" height="100%">
+  <Logo theme="pro" mini />
+</div>
+```
+
+Logo mf:
+```js
+<div style={{ padding: 20 }} width="100%" height="100%">
+  <Logo theme="mf" mini />
+</div>
+```

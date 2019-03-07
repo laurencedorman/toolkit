@@ -3,27 +3,36 @@
 .logo {
   display: block;
 
-  &.color, &.colorWhite {
-    .hexagone { fill: url(#linearGradient-1) }
-    .hexagoneLetter { fill: $white }
-  }
-
-  &.colorWhite, &.white {
-    .letters { fill: $white }
-  }
+  .hexagoneLetter { fill: $white }
 
   &.color {
+    .hexagone { fill: url(#default) }
     .letters { fill: $bellaNotte }
+  }
+
+  &.colorWhite {
+    .hexagone { fill: url(#default) }
+    .letters { fill: $white }
   }
 
   &.black {
     .hexagone { fill: $black }
-    .hexagoneLetter { fill: $white }
     .letters { fill: $black }
   }
 
   &.white {
     .hexagone { fill: $white }
     .hexagoneLetter { fill: $black }
+    .letters { fill: $white }
+  }
+
+  &.pro {
+    .hexagone { fill: url(#pro) }
+    .letters { fill: $bellaNotte }
+  }
+
+  &.mf {
+    .hexagone { fill: url(#mf) }
+    .letters { fill: $bellaNotte }
   }
 }

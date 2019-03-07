@@ -1,8 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react';
-import {
-  Transition, animated,
-} from 'react-spring';
+import { Transition, animated } from 'react-spring';
 import cn from 'classnames';
 
 import { Portal, Toggle } from 'components';
@@ -10,7 +8,7 @@ import { tooltipPosition } from './TooltipPosition';
 
 import styles from './Tooltip.module.scss';
 
-let addTooltipPosition;
+let addTooltipPosition = {};
 
 type propTypes = {
   children: string | Node | () => void,
@@ -81,7 +79,7 @@ const renderTooltip = (display, content, bgColor) => {
         native
         unique
         reset
-        config={{ tension: 320, friction: 12, mass: 0.1 }}
+        config={{ tension: 500, friction: 22, mass: 0.1 }}
         items={display}
         from={{ o: 0, s: 0.6 }}
         enter={{ o: 1, s: 1 }}

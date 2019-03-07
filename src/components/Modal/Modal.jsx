@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import {
-  Transition, animated, interpolate, config,
+  Transition, animated, interpolate,
 } from 'react-spring';
 import cn from 'classnames';
 
@@ -44,11 +44,11 @@ const Modal = ({
     <Portal>
       <Transition
         native
-        config={config.stiff}
+        config={{ tension: 350, friction: 23, mass: 0.6 }}
         items={on}
-        from={{ o: 0, s: 0.6, y: '-200px' }}
-        enter={{ o: 1, s: 1, y: '0px' }}
-        leave={{ o: 0, s: 0.6, y: '200px' }}
+        from={{ o: 0, s: 0.75, y: '33vh' }}
+        enter={{ o: 1, s: 1, y: '0' }}
+        leave={{ o: 0, s: 0.75, y: '33vh' }}
       >
         {on => on
           && (
