@@ -1,11 +1,13 @@
 // @flow
-import type { MaskOptions } from './type.flow';
+import isString from 'validators/isString';
+import isPlainObject from 'validators/isPlainObject';
+import type { MaskOptions } from './maskTypes.flow';
 
 function mask(value: string, options: MaskOptions) {
-  if (typeof value !== 'string') {
+  if (!isString(value)) {
     throw new TypeError('Invalid value for the parameter `value`: must be a string!');
   }
-  if (!options || typeof options !== 'object' || Array.isArray(options)) {
+  if (!isPlainObject(options)) {
     throw new TypeError('Invalid value for the parameter `options`: must be an object!');
   }
 

@@ -1,5 +1,5 @@
 // @flow
-import type { MaskOptions } from '../type.flow';
+import type { MaskOptions } from '../maskTypes.flow';
 
 type phoneNumberOptions = {
   ext?: string,

@@ -1,17 +1,19 @@
 // @flow
-import type { unmaskPhoneNumberOptions } from './type.flow';
+import isString from 'validators/isString';
+import isPlainObject from 'validators/isPlainObject';
+import type { unmaskPhoneNumberOptions } from './maskPhoneNumberTypes.flow';
 import ZERO from './constantPhoneNumber';
 
 const REPLACER = {
-  ANONIMIZED: new RegExp('[^0-9*]', 'g'),
+  ANONYMIZED: new RegExp('[^0-9*]', 'g'),
   NORMAL: new RegExp('\\D', 'g'),
 };
 
 function unmaskPhoneNumber(value: string, options: unmaskPhoneNumberOptions) {
-  if (typeof value !== 'string') {
+  if (!isString(value)) {
     throw new TypeError('Invalid value for the parameter `value`: must be a string!');
   }
-  if (!options || typeof options !== 'object' || Array.isArray(options)) {
+  if (!isPlainObject(options)) {
     throw new TypeError('Invalid value for the parameter `options`: must be an object!');
   }
 
@@ -32,7 +34,7 @@ function unmaskPhoneNumber(value: string, options: unmaskPhoneNumberOptions) {
   }
 
   v = v.replace(ZERO, zero === true ? '0' : '');
-  v = v.replace(anonymized === true ? REPLACER.ANONIMIZED : REPLACER.NORMAL, '');
+  v = v.replace(anonymized === true ? REPLACER.ANONYMIZED : REPLACER.NORMAL, '');
 
   if (zero === true && v.length && !v.startsWith('0')) {
     v = `0${v}`;

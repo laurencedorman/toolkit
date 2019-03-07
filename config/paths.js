@@ -22,7 +22,10 @@ module.exports = {
   components: resolveApp('src/components'),
   constants: resolveApp('src/constants'),
   dotenv: resolveApp('.env'),
+  helpers: resolveApp('src/helpers'),
+  masks: resolveApp('src/helpers/masks'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   styles: resolveApp('src/styles'),
+  validators: resolveApp('src/helpers/validators'),
   yarnLockFile: resolveApp('yarn.lock'),
 };
