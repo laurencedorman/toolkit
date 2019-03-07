@@ -263,15 +263,15 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
   open(): void {
     const { predictions, value } = this.state;
 
-    this.setState({ showPredictions: true });
+    this.setState({ showPredictions: true }, () => {
+      if (this.shouldRenderPredictions()) {
+        const prediction = predictions.find(p => p.value.indexOf(value) === 0);
 
-    if (this.shouldRenderPredictions()) {
-      const prediction = predictions.find(p => p.value.indexOf(value) === 0);
-
-      if (prediction) {
-        this.highlightPrediction(prediction);
+        if (prediction) {
+          this.highlightPrediction(prediction);
+        }
       }
-    }
+    });
   }
 
   predict(value: string): Promise<string[]> {
