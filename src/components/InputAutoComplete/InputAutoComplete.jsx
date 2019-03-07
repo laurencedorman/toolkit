@@ -28,6 +28,7 @@ type PropTypes = InputProps & {
     unableToPredict: string,
   },
   transNoResult?: string,
+  type: 'email' | 'number' | 'search' | 'tel' | 'text' | 'url',
   value?: string,
 };
 
@@ -225,7 +226,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       .then(() => {
         const { predictions } = this.state;
 
-        if (predictions.length > 0) {
+        if (this.shouldRenderPredictions()) {
           this.highlightPrediction(predictions[0]);
         }
       })
@@ -333,8 +334,11 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
   }
 
   shouldRenderPredictions(): boolean {
-    const { state: { predictions }, status } = this;
-    return ![STATUS.KEEP_TYPING, STATUS.NO_RESULT].includes(status) && predictions.length > 0;
+    const { predictions, showPredictions } = this.state;
+
+    return showPredictions
+      && predictions.length > 0
+      && ![STATUS.KEEP_TYPING, STATUS.NO_RESULT].includes(this.status);
   }
 
   render() {
@@ -382,7 +386,6 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
           onFocus={this.handleFocusIn}
           onKeyDown={this.handleKeydown}
           messageError={errorMessage}
-          type="text"
           value={currentValue}
         />
       </div>

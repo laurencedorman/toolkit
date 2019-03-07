@@ -25,7 +25,7 @@ describe('InputAutoComplete', () => {
       ),
     ];
 
-    wrapper = mount(<InputAutoComplete predict={predicts[0]} />);
+    wrapper = mount(<InputAutoComplete predict={predicts[0]} type="text" />);
 
     simulateInput = async (value) => {
       jest.useFakeTimers();

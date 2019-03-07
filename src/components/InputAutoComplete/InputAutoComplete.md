@@ -5,6 +5,7 @@ const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (7
 <InputAutoComplete
   placeholder="Zip code"
   predict={predict}
+  type={"text"}
 />
 ```
 
@@ -25,6 +26,7 @@ const predict = (value) => {
 <InputAutoComplete
   placeholder="Zip code"
   predict={predict}
+  type={"text"}
 />
 ```
 
@@ -36,6 +38,7 @@ const predict = () => Promise.reject(new Error('💣'));
   type="number"
   placeholder="Zip code"
   predict={predict}
+  type={"text"}
 />
 ```
 
@@ -49,6 +52,7 @@ const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (7
     disabled={state.disabled}
     placeholder="Zip code"
     predict={predict}
+    type={"text"}
   />
   <br />
   <InputCheck
