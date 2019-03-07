@@ -26,13 +26,11 @@
     .letters { fill: $white }
   }
 
-  &.pro {
-    .hexagone { fill: url(#pro) }
-    .letters { fill: $bellaNotte }
+  &.b2b {
+    .hexagone { fill: url(#b2b) }
   }
 
   &.mf {
     .hexagone { fill: url(#mf) }
-    .letters { fill: $bellaNotte }
   }
 }
