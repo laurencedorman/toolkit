@@ -1,5 +1,8 @@
 @import 'styles/import.scss';
 
+// TODO adds a way to detect mobile/iOS devices to be able to improve UX on that devices
+// see https://git.manomano.tech/component-react/toolkit.manomano-lan.com/merge_requests/173#note_88668
+
 .container {
   position: relative;
 }
@@ -16,8 +19,7 @@
   border: $border $borderColor;
   border-radius: $radius;
   max-height: 200px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
   padding: 8px;
   scroll-behavior: smooth;
 }
