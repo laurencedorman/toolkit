@@ -4,8 +4,9 @@ import Prediction from './Prediction';
 import type { PredictionType } from './prediction-type';
 
 const Predictions = ({
-  highlightedPrediction, highlightValue, onClick, onMouseOver, predictions, selectedPrediction,
-}: Props) => (
+  highlightedPrediction, highlightValue, onClick, onMouseOver, predictions, refCallback,
+  selectedPrediction,
+}: PropTypes) => (
   <ul>
     {
       // Flow does not manage default props
@@ -14,9 +15,7 @@ const Predictions = ({
         const highlighted = prediction === highlightedPrediction;
         const onClickHandler = () => onClick && onClick(prediction);
         const onMouseOverHandler = () => onMouseOver && onMouseOver(prediction);
-        // I do not like this but I did not find any proper way until now
-        /* eslint-disable-next-line no-param-reassign */
-        const refCallbackHandler = (elem) => { prediction.getTopOffset = () => elem.offsetTop; };
+        const refCallbackHandler = elem => refCallback && refCallback(prediction, elem);
         const selected = prediction === selectedPrediction;
 
         return (
@@ -38,12 +37,13 @@ const Predictions = ({
   </ul>
 );
 
-type Props = {
+type PropTypes = {
   highlightedPrediction?: PredictionType,
   highlightValue?: string,
   onClick?: (prediction: PredictionType) => void,
   onMouseOver?: (predictionIndex: number) => void,
   predictions?: PredictionType[],
+  refCallback?: (prediction: PredictionType, element: HTMLElement) => void,
   selectedPrediction?: PredictionType,
 };
 
@@ -53,6 +53,7 @@ Predictions.defaultProps = {
   onClick: undefined,
   onMouseOver: undefined,
   predictions: [],
+  refCallback: undefined,
   selectedPrediction: undefined,
 };
 

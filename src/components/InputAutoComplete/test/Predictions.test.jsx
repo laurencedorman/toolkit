@@ -58,9 +58,10 @@ describe('Predictions', () => {
     expect(onMouseOver).toHaveBeenCalled();
   });
 
-  it('should set getTopOffset method in predictions', () => {
-    wrapper.find(Prediction).at(0).prop('refCallback')({ offsetTop: 0 });
-    expect(typeof predictions[0].getTopOffset).toEqual('function');
-    expect(typeof predictions[0].getTopOffset()).toEqual('number');
+  it('should allow parent to handle prediction ref call', () => {
+    const refCallback = jest.fn();
+    wrapper.setProps({ refCallback });
+    wrapper.find(Prediction).at(0).prop('refCallback')();
+    expect(refCallback).toHaveBeenCalled();
   });
 });

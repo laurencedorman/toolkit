@@ -14,7 +14,7 @@ import Status, { STATUS } from './Status';
 import styles from './InputAutoComplete.module.scss';
 
 type PrivateType = {
-  inputRef: { current: null | HTMLInputElement },
+  predictionElemMap: { [predictionIndex: number]: HTMLElement };
   predictionsContainerRef: { current: null | HTMLDivElement },
   predictTimeout: number | null,
 };
@@ -59,7 +59,6 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     value: '',
   };
 
-  // This rule seems to be broken, see https://github.com/yannickcr/eslint-plugin-react/issues/1814
   // eslint-disable-next-line react/sort-comp
   private: PrivateType;
 
@@ -70,7 +69,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     super(props);
 
     this.private = {
-      inputRef: { current: null },
+      predictionElemMap: {},
       predictionsContainerRef: React.createRef(),
       predictTimeout: null,
     };
@@ -100,6 +99,17 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
 
     return null;
+  }
+
+  getPredictionTopOffset(prediction: PredictionType): number {
+    const { predictions } = this.state;
+    const predictionIndex = predictions.indexOf(prediction);
+    const predictionElem = this.private.predictionElemMap[predictionIndex];
+
+    if (predictionElem === undefined) {
+      throw new Error('Unable to retrieve prediction offset');
+    }
+    return predictionElem.offsetTop;
   }
 
   handleFocusIn = (): void => {
@@ -313,11 +323,8 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     if (container === null) {
       throw new Error('Unable to retrieve reference of predictions container');
     }
-    if (prediction.getTopOffset === undefined) {
-      throw new Error('Unable to retrieve prediction offset');
-    }
 
-    container.scrollTop = prediction.getTopOffset() - HIGHLIGHT_TOP_MARGIN;
+    container.scrollTop = this.getPredictionTopOffset(prediction) - HIGHLIGHT_TOP_MARGIN;
   }
 
   scrollToTop(): void {
@@ -356,6 +363,12 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     const container = cn(styles.container, className);
     const { keepTyping, noResult } = translations;
     const statusTranslations = keepTyping && noResult ? { keepTyping, noResult } : undefined;
+    const refCallbackHandler = (prediction, elem) => {
+      const predictionIndex = predictions.indexOf(prediction);
+      this.private.predictionElemMap[predictionIndex] = elem;
+    };
+
+    this.private.predictionElemMap = {};
 
     return (
       <div className={container}>
@@ -373,6 +386,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
                   onClick={this.selectPrediction}
                   onMouseOver={this.handlePredictionMouseOver}
                   predictions={predictions}
+                  refCallback={refCallbackHandler}
                   selectedPrediction={selectedPrediction}
                 />
               )}

@@ -12,6 +12,7 @@ const Prediction = ({
     [styles.highlighted]: highlighted,
     [styles.selected]: selected,
   });
+  const refHandler = (elem: HTMLElement | null) => refCallback && elem && refCallback(elem);
 
   return (
     <li
@@ -21,7 +22,7 @@ const Prediction = ({
       onKeyDown={onKeyDown}
       onFocus={onFocus}
       onMouseOver={onMouseOver}
-      ref={(refCallback: any)}
+      ref={refHandler}
       role="option"
     >
       {
@@ -45,7 +46,7 @@ type PropTypes = {
   onFocus?: (event: SyntheticEvent<HTMLLIElement>) => void,
   onKeyDown?: (event: SyntheticKeyboardEvent<HTMLLIElement>) => void,
   onMouseOver?: (event: SyntheticEvent<HTMLLIElement>) => void,
-  refCallback?: (element: HTMLLIElement) => void,
+  refCallback?: (element: HTMLElement | null) => void,
   selected?: boolean,
   value: string,
 };
