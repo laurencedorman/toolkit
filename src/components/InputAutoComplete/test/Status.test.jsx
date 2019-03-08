@@ -1,8 +1,7 @@
 import { Loader } from 'components';
 import { shallow } from 'enzyme';
 import React from 'react';
-import Status from '../Status';
-import { STATUS } from '../constants';
+import Status, { STATUS } from '../Status';
 
 describe('Status', () => {
   let wrapper;

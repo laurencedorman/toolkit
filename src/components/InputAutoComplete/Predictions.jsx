@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import type { Prediction as PredictionType } from './constants';
 import Prediction from './Prediction';
+import type { PredictionType } from './prediction-type';
 
 const Predictions = ({
   highlightedPrediction, highlightValue, onClick, onMouseOver, predictions, selectedPrediction,

@@ -2,9 +2,9 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { InputAutoComplete } from 'components';
-import { MIN_NUMBER_OF_CHARACTERS, STATUS } from '../constants';
+import { MIN_NUMBER_OF_CHARACTERS } from '../constants';
 import Predictions from '../Predictions';
-import Status from '../Status';
+import Status, { STATUS } from '../Status';
 
 describe('InputAutoComplete', () => {
   let predicts;

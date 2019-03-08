@@ -1,15 +1,16 @@
 // @flow
 import React, { Component } from 'react';
 import cn from 'classnames';
+import { KEYMAP } from 'constants/keymap';
 import Input from '../Input';
 import type { InputProps } from '../Input';
 import {
-  BLUR_CLOSING_DELAY, HIGHLIGHT_TOP_MARGIN, KEYMAP, MIN_NUMBER_OF_CHARACTERS,
-  PREDICT_DEBOUNCE_DELAY, STATUS,
+  BLUR_CLOSING_DELAY, HIGHLIGHT_TOP_MARGIN, MIN_NUMBER_OF_CHARACTERS,
+  PREDICT_DEBOUNCE_DELAY,
 } from './constants';
-import type { Prediction } from './constants';
+import type { PredictionType } from './prediction-type';
 import Predictions from './Predictions';
-import Status from './Status';
+import Status, { STATUS } from './Status';
 import styles from './InputAutoComplete.module.scss';
 
 type PrivateType = {
@@ -21,7 +22,7 @@ type PrivateType = {
 type PropTypes = InputProps & {
   className?: string,
   onChange?: (value: string) => void,
-  predict: Prediction[] | () => Promise<Prediction[]>,
+  predict: PredictionType[] | () => Promise<PredictionType[]>,
   translations?: {
     keepTyping: string,
     noResult: string,
@@ -34,11 +35,11 @@ type PropTypes = InputProps & {
 
 type StateType = {
   errorMessage: string | null,
-  highlightedPrediction: Prediction | null,
+  highlightedPrediction: PredictionType | null,
   loading: boolean,
   showPredictions: boolean,
-  predictions: Prediction[],
-  selectedPrediction: Prediction | null,
+  predictions: PredictionType[],
+  selectedPrediction: PredictionType | null,
   value: string,
 };
 
@@ -237,11 +238,11 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       });
   };
 
-  handlePredictionMouseOver = (prediction: Prediction): void => {
+  handlePredictionMouseOver = (prediction: PredictionType): void => {
     this.highlightPrediction(prediction, false);
   };
 
-  selectPrediction = (selectedPrediction: Prediction): void => {
+  selectPrediction = (selectedPrediction: PredictionType): void => {
     const { onChange } = this.props;
     const { value } = selectedPrediction;
 
@@ -252,7 +253,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  highlightPrediction(prediction: Prediction, scroll: boolean = true): void {
+  highlightPrediction(prediction: PredictionType, scroll: boolean = true): void {
     const scrollToPrediction = scroll
       ? () => this.scrollToPrediction(prediction)
       : undefined;
@@ -306,7 +307,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     return predictionPromise;
   }
 
-  scrollToPrediction(prediction: Prediction): void {
+  scrollToPrediction(prediction: PredictionType): void {
     const container = this.private.predictionsContainerRef.current;
 
     if (container === null) {

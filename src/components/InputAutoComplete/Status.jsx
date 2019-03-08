@@ -1,8 +1,13 @@
 // @flow
 import React from 'react';
 import Loader from '../Loader';
-import { STATUS } from './constants';
 import styles from './Status.module.scss';
+
+export const STATUS = {
+  KEEP_TYPING: 'KEEP_TYPING',
+  LOADING: 'LOADING',
+  NO_RESULT: 'NO_RESULT',
+};
 
 const Status = ({ status, translations }: PropTypes) => {
   // Have default values
