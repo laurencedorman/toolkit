@@ -129,8 +129,9 @@ module.exports = (webpackEnv) => {
       ],
       extensions: ['.js', '.jsx', '.json'],
       alias: {
-        styles: paths.styles,
         components: paths.components,
+        constants: paths.constants,
+        styles: paths.styles,
       },
     },
     resolveLoader: {
