@@ -11,10 +11,16 @@ module.exports = {
   template: {
     favicon: './src/assets/favicons.png',
     head: {
-      links: [{
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Open+Sans',
-      }],
+      links: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css?family=Open+Sans',
+        },
+        {
+          rel: 'stylesheet',
+          href: './src/index.scss',
+        },
+      ],
     },
     body: {
       raw: '<div id="root"></div><div id="portalRoot"></div>',

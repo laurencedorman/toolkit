@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import '../index.scss';
 
 type propTypes = { children: Node }
 
