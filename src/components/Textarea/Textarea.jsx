@@ -7,29 +7,69 @@ import styles from './Textarea.module.scss';
  * @visibleName Textarea
  */
 const Textarea = ({
-  placeholder, name, value, cols, rows, required, disabled, form, onChange, className, dataQa,
+  placeholder,
+  label,
+  id,
+  name,
+  value,
+  cols,
+  rows,
+  required,
+  disabled,
+  form,
+  onChange,
+  className,
+  dataQa,
+  error,
+  messageError,
+  valid,
+  helper,
 }) => {
-  const classNames = cn(
-    styles.textarea,
+  const container = cn(
+    styles.container,
     className,
   );
 
+  const content = cn(styles.content, {
+    [styles.hasValue]: value !== '',
+    [styles.hasSuccess]: valid,
+  });
+
+  const textarea = cn(
+    styles.textarea,
+    { [styles.hasError]: error },
+  );
+
+  const labelCn = cn({
+    [styles.required]: required,
+  });
+  /* eslint-disable jsx-a11y/label-has-for */
   return (
-    <textarea
-      className={classNames}
-      placeholder={placeholder}
-      name={name}
-      value={value}
-      cols={cols}
-      rows={rows}
-      required={required}
-      disabled={disabled}
-      form={form}
-      onChange={onChange}
-      aria-multiline="true"
-      aria-required={required}
-      data-qa={dataQa}
-    />
+    <div className={container}>
+      <div className={content}>
+        <textarea
+          id={id}
+          className={textarea}
+          placeholder={placeholder}
+          name={name}
+          value={value}
+          cols={cols}
+          rows={rows}
+          required={required}
+          disabled={disabled}
+          form={form}
+          onChange={onChange}
+          aria-multiline="true"
+          aria-required={required}
+          data-qa={dataQa}
+        />
+        {label
+          && <label htmlFor={id} className={labelCn}>{label}</label>}
+      </div>
+      {helper && <span className={styles.helper}>{helper}</span>}
+      {error && <span className={styles.error}>{messageError}</span>}
+    </div>
+    /* eslint-enable jsx-a11y/label-has-for */
   );
 };
 
@@ -57,6 +97,8 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   placeholder: '',
+  label: '',
+  id: '',
   value: '',
   cols: '20',
   rows: '5',
@@ -66,6 +108,10 @@ Textarea.defaultProps = {
   form: '',
   className: '',
   dataQa: '',
+  valid: false,
+  error: false,
+  messageError: '',
+  helper: '',
 };
 
 export default Textarea;
