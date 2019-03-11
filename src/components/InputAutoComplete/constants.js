@@ -1,0 +1,4 @@
+export const BLUR_CLOSING_DELAY = 250;
+export const HIGHLIGHT_TOP_MARGIN = 10;
+export const MIN_NUMBER_OF_CHARACTERS = 3;
+export const PREDICT_DEBOUNCE_DELAY = 150;

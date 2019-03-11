@@ -1,6 +1,3 @@
-'use strict';
-
-/* eslint-disable global-require */
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
@@ -11,8 +8,8 @@ const safePostCssParser = require('postcss-safe-parser');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const paths = require('./paths');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
+const paths = require('./paths');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
@@ -21,7 +18,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-module.exports = function (webpackEnv) {
+module.exports = (webpackEnv) => {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -37,6 +34,7 @@ module.exports = function (webpackEnv) {
         options: {
           ident: 'postcss',
           plugins: () => [
+            // eslint-disable-next-line global-require
             require('postcss-flexbugs-fixes'),
             autoprefixer({
               browsers: [
@@ -63,17 +61,18 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
 
+  let devtool = 'eval-source-map';
+
+  if (isEnvProduction) {
+    devtool = shouldUseSourceMap ? 'source-map' : false;
+  }
+
   return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     bail: isEnvProduction,
-    devtool: isEnvProduction
-      ? shouldUseSourceMap
-        ? 'source-map'
-        : false
-      : isEnvDevelopment && 'cheap-module-source-map',
+    devtool,
     entry: [
-      isEnvDevelopment &&
-        require.resolve('react-dev-utils/webpackHotDevClient'),
+      isEnvDevelopment && require.resolve('react-dev-utils/webpackHotDevClient'),
       paths.appIndexJs,
     ].filter(Boolean),
     output: {
@@ -130,8 +129,9 @@ module.exports = function (webpackEnv) {
       ],
       extensions: ['.js', '.jsx', '.json'],
       alias: {
-        styles: paths.styles,
         components: paths.components,
+        constants: paths.constants,
+        styles: paths.styles,
       },
     },
     resolveLoader: {
@@ -302,4 +302,3 @@ module.exports = function (webpackEnv) {
     performance: false,
   };
 };
-/* eslint-enable global-require */

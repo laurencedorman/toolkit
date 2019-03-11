@@ -240,7 +240,8 @@
             "./src"
           ],
           "alias": {
-            "components": "./src/components"
+            "components": "./src/components",
+            "constants": "./src/constants"
           }
         }
       ]

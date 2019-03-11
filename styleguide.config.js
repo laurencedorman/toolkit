@@ -94,6 +94,7 @@ module.exports = {
       ignore: [
         'src/components/GetMeasure/*.jsx',
         'src/components/HeightTransition/*.jsx',
+        'src/components/InputAutoComplete/!(InputAutoComplete.jsx)',
         'src/components/Portal/*.jsx',
         'src/components/StepControler/*.jsx',
         'src/components/Tabs/TabBody.jsx',
