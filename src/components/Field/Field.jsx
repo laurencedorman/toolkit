@@ -9,9 +9,9 @@ const Field = ({
 }:propTypes) => React.cloneElement(
   handleComponent(component),
   {
-    validate,
+    valid: validate,
     normalize,
-    error: validate,
+    error: !validate,
     ...rest,
   },
 );

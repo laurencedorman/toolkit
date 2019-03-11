@@ -33,7 +33,7 @@ export default class GetMeasure extends Component<propTypes> {
 
   animate = () => {
     this.myObserver.observe(this.ref.current);
-    requestAnimationFrame(() => this.animate);
+    window.requestAnimationFrame(() => this.animate);
   };
 
   render() {

@@ -57,6 +57,7 @@ export default class Tooltip extends PureComponent<propTypes> {
               className={classNames}
               onMouseEnter={e => this.handleMouseEnter(e, toggleIn)}
               onMouseLeave={toggleOut}
+              onWheel={toggleOut}
               ref={this.transmitter}
               role="button"
               data-qa={dataQa}
