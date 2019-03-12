@@ -129,7 +129,7 @@ module.exports = (webpackEnv) => {
       ],
       extensions: ['.js', '.jsx', '.json'],
       alias: {
-        components: paths.components,
+        components: paths.appIndexJs,
         constants: paths.constants,
         styles: paths.styles,
       },
