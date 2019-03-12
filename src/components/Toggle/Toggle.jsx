@@ -53,9 +53,9 @@ export default class Toggle extends Component<propTypes> {
 
     return children({
       on,
-      toggle: e => this.toggle(e),
-      toggleIn: e => this.toggleIn(e),
-      toggleOut: e => this.toggleOut(e),
+      toggle: this.toggle,
+      toggleIn: this.toggleIn,
+      toggleOut: this.toggleOut,
     });
   }
 }

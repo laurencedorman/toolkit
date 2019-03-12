@@ -1,11 +1,10 @@
 const space = 16;
 const requiredSpace = 100;
 
-
-export const tooltipPosition = (ref, position) => {
+const tooltipPosition = (measure, position) => {
   const {
     top, left, right, bottom, width, height,
-  } = ref.getBoundingClientRect();
+  } = measure;
 
   const leftSpace = left + width / 2 + window.scrollX;
 
@@ -60,3 +59,5 @@ export const tooltipPosition = (ref, position) => {
       };
   }
 };
+
+export default tooltipPosition;
