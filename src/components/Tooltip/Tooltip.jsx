@@ -1,10 +1,12 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { Transition, animated } from 'react-spring';
+import {
+  Transition, animated,
+} from 'react-spring';
 import cn from 'classnames';
 
 import { Portal, Toggle } from 'components';
-import tooltipPosition from './TooltipPosition';
+import { tooltipPosition } from './TooltipPosition';
 
 import styles from './Tooltip.module.scss';
 
@@ -31,32 +33,12 @@ export default class Tooltip extends PureComponent<propTypes> {
   constructor(props) {
     super(props);
     this.transmitter = React.createRef();
-    this.state = { measure: {} };
   }
-
-  componentDidMount() {
-    this.getPosition();
-    window.addEventListener('scroll', () => {
-      window.requestAnimationFrame(() => {
-        this.getPosition();
-      });
-    });
-  };
-
-  getPosition = () => {
-    if (this.transmitter.current) {
-      this.setState({
-        measure: this.transmitter.current.getBoundingClientRect(),
-      })
-    }
-  };
 
   handleMouseEnter = (e, toggleIn) => {
     const { position } = this.props;
-    const { measure } = this.state;
-
     if (this.transmitter.current) {
-      addTooltipPosition = tooltipPosition(measure, position);
+      addTooltipPosition = tooltipPosition(this.transmitter.current, position);
     }
     toggleIn();
   };
