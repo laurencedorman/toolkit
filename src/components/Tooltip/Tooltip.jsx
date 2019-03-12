@@ -97,7 +97,7 @@ const renderTooltip = (display, content, bgColor) => (
     <Transition
       native
       unique
-      config={{ tension: 320, friction: 23, mass: 0.6, precision: 1 }}
+      config={{ tension: 350, friction: 23, mass: 0.6, precision: 0.1 }}
       items={display}
       from={{ o: 0, s: 0.6 }}
       enter={{ o: 1.01, s: 1 }}
