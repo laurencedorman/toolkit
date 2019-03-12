@@ -189,7 +189,10 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "!src/**/index.js"
+      "!src/**/index.js",
+      "!src/components/Select/Select.jsx",
+      "!src/components/Select/WithReduxFormSelect.jsx",
+      "!src/components/Tooltip/TooltipPosition.js"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [

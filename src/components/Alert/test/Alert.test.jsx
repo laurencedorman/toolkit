@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { animated } from 'react-spring';
 import Alert, { translate } from '../Alert';
 
@@ -8,7 +8,9 @@ describe('Alert', () => {
   const toggle = jest.fn();
   const TestAnimated = animated;
 
-  const wrapper = shallow(<Alert on={false} toggle={toggle} textAlert="test" />);
+  const wrapper = mount(
+    <Alert on={false} toggle={toggle} textAlert="test" theme="danger" />,
+  );
 
 
   it('should render without crash with layoutContainer', () => {
