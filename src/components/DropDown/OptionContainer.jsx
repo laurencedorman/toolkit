@@ -45,7 +45,6 @@ const OptionContainer = ({
 
   return (
     <>
-
       {on
         /* eslint-disable */
         && <div className={styles.closeTarget} onClick={toggle} />

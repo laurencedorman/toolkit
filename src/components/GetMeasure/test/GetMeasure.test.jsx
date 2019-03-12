@@ -24,5 +24,6 @@ describe('GetMeasure', () => {
   it('should setState', () => {
     const observer = jest.fn(() => 'test');
     wrapper.setState({ size: observer });
+    expect(wrapper.state().size).toEqual(observer);
   });
 });

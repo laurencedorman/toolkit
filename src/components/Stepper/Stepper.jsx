@@ -11,7 +11,7 @@ type propTypes = {
   children: Node | Array<Node>,
   activeStep?: number,
   getLength?: () => void,
-  direction: string,
+  direction: 'up' | 'down',
 }
 
 export default class Stepper extends Component<propTypes> {
@@ -75,7 +75,9 @@ const bodyStepper = (children, activeStep, up) => {
       native
       unique
       reset
-      config={{ tension: 230, friction: 20, mass: 0.2 }}
+      config={{
+        tension: 280, friction: 15, mass: 0.2, precision: 1,
+      }}
       items={activeStep}
       from={{ t: up ? 100 : -100 }}
       enter={{ t: 0 }}

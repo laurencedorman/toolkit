@@ -19,7 +19,7 @@ const ToggleDown = ({
     <Spring
       force
       config={{
-        tension: 280, friction: 15, mass: 0.2, precision: 1,
+        tension: 300, friction: 17, mass: 0.2, precision: 1,
       }}
       from={{ height: 0 }}
       to={{ height: on ? 'auto' : 0 }}

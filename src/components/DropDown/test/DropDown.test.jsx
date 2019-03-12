@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import DropDown from '../DropDown';
 
 describe('DropDown', () => {
@@ -9,7 +9,7 @@ describe('DropDown', () => {
     ],
   };
 
-  const wrapper = shallow(<DropDown {...props} />);
+  const wrapper = mount(<DropDown {...props} />);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);

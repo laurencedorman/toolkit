@@ -20,4 +20,16 @@ describe('Button', () => {
   it('should render a children if props is true', () => {
     wrapper.setProps({ title: true });
   });
+
+  it('should render a different theme', () => {
+    wrapper.setProps({ theme: 'primary' });
+  });
+
+  it('should render a different theme', () => {
+    wrapper.setProps({ theme: 'secondary' });
+  });
+
+  it('should render a different theme', () => {
+    wrapper.setProps({ theme: 'other' });
+  });
 });

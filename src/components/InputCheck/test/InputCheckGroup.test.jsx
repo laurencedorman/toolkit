@@ -26,7 +26,8 @@ describe('InputCheckGroup', () => {
     <InputCheckGroup
       type="radio"
       inputGroupTitle="test Group :"
-      groupName="name"
+      name="name"
+      value="mp3"
       options={props.options}
     />,
   );
@@ -53,9 +54,19 @@ describe('InputCheckGroup', () => {
       <InputCheckGroup
         type="radio"
         inputGroupTitle="test Group :"
-        groupName="name"
+        name="name"
+        value="mp3"
         options={props.options}
       />,
     );
+  });
+
+  it('should be disabled', () => {
+    expect(wrapper.setProps({ checked: true }));
+    expect(wrapper.setProps({ disabled: true }));
+  });
+
+  it('should render error message if error', () => {
+    wrapper.setProps({ error: true });
   });
 });
