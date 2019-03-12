@@ -23,7 +23,7 @@ module.exports = {
       ],
     },
     body: {
-      raw: '<div id="root"></div><div id="portalRoot"></div>',
+      raw: '<div id="root"></div>',
     },
   },
   pagePerSection: true,
