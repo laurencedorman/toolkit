@@ -2,9 +2,10 @@
 import React from 'react';
 import cn from 'classnames';
 
-import {
-  Button, GetMeasure, Icon, OptionContainer,
-} from 'components';
+import Button from '../Button';
+import Icon from '../Icon';
+import GetMeasure from '../GetMeasure';
+import OptionContainer from './OptionContainer';
 
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
@@ -28,16 +29,10 @@ const DropDown = ({
   right,
   active,
   onClick,
-}:propTypes) => {
-  const wrapper = cn(
-    styles.wrapper,
-    className,
-  );
+}: propTypes) => {
+  const wrapper = cn(styles.wrapper, className);
 
-  const iconButton = cn(
-    styles.iconButton,
-    { [styles.rotate]: on },
-  );
+  const iconButton = cn(styles.iconButton, { [styles.rotate]: on });
 
   return (
     <GetMeasure>
@@ -78,17 +73,16 @@ const DropDown = ({
   );
 };
 /* eslint-disable */
-const renderTitle = title => (
+const renderTitle = title =>
   typeof title === 'string'
     ? title
     : typeof title === 'function'
-      ? title()
-      : null
-);
+    ? title()
+    : null;
 /* eslint-enable */
 
 type propTypes = {
-  title: string | Node | () => void,
+  title: string | Node | (() => void),
   options: Array,
   right?: boolean,
   on: boolean,

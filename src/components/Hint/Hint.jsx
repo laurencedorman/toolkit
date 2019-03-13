@@ -1,17 +1,18 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Icon } from 'components';
+import Icon from '../Icon';
 import styles from './Hint.module.scss';
 
 const Hint = ({
-  theme, textAlert, icon, iconWidth, className, dataQa,
+  theme,
+  textAlert,
+  icon,
+  iconWidth,
+  className,
+  dataQa,
 }: PropTypes) => {
-  const classNames = cn(
-    styles.hint,
-    styles[theme],
-    className,
-  );
+  const classNames = cn(styles.hint, styles[theme], className);
 
   return (
     <div className={classNames} data-qa={dataQa}>
@@ -27,7 +28,7 @@ const Hint = ({
 
 type PropTypes = {
   theme?: Array<'default', 'light', 'danger', 'menthe'>,
-  textAlert: string | () => void,
+  textAlert: string | (() => void),
   icon?: string,
   iconWidth?: number,
   className?: string,

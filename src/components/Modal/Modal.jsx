@@ -5,9 +5,10 @@ import {
 } from 'react-spring';
 import cn from 'classnames';
 
-import {
-  Button, Icon, Portal, Wrapper,
-} from 'components';
+import Button from '../Button';
+import Icon from '../Icon';
+import Portal from '../Portal';
+import Wrapper from '../Wrapper';
 import styles from './Modal.module.scss';
 
 /**

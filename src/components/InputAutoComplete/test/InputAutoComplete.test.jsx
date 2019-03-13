@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop,no-restricted-syntax */
 import { mount } from 'enzyme';
 import React from 'react';
-import { InputAutoComplete } from 'components';
+import InputAutoComplete from '../InputAutoComplete';
 import { MIN_NUMBER_OF_CHARACTERS } from '../constants';
 import Predictions from '../Predictions';
 import Status, { STATUS } from '../Status';

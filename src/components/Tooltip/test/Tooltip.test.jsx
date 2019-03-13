@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Tooltip } from 'components';
+import Tooltip from '../Tooltip';
 
 describe('Tooltip', () => {
   let wrapper;

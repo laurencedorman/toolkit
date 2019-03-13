@@ -1,19 +1,27 @@
 // @flow
 import React from 'react';
-import {
-  Transition, animated, config,
-} from 'react-spring';
+import { Transition, animated, config } from 'react-spring';
 import cn from 'classnames';
 
-import { Hint, Portal } from 'components';
+import Hint from '../Hint';
+import Portal from '../Portal';
 import styles from './Alert.module.scss';
 
 /**
  * @visibleName Alert
  */
 const Alert = ({
-  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position, dataQa,
-}:propTypes) => {
+  on,
+  className,
+  toggle,
+  theme,
+  textAlert,
+  icon,
+  iconWidth,
+  timeout,
+  position,
+  dataQa,
+}: propTypes) => {
   const classNames = cn(
     styles.alert,
     {
@@ -22,7 +30,7 @@ const Alert = ({
       [styles.top]: position === 'topRight' || position === 'topLeft',
       [styles.bottom]: position === 'bottomRight' || position === 'bottomLeft',
     },
-    className,
+    className
   );
 
   const setTranslate = translate(position);
@@ -42,54 +50,53 @@ const Alert = ({
         enter={{ transform: 'translateX(0)' }}
         leave={{ transform: `translateX(${setTranslate}px)` }}
       >
-        {on => on
+        {on =>
+          on &&
           /* eslint-enable */
-          && (
-            style => (
-              <animated.div
-                className={classNames}
-                role="Contentinfo"
-                style={style}
-                onClick={toggle}
-                timer={timeout}
-                position={position}
-              >
-                {React.cloneElement(
-                  <Hint />,
-                  {
-                    theme,
-                    textAlert,
-                    icon,
-                    iconWidth,
-                    'data-qa': dataQa,
-                  },
-                )}
-              </animated.div>
-            )
-          )
+          (style => (
+            <animated.div
+              className={classNames}
+              role="Contentinfo"
+              style={style}
+              onClick={toggle}
+              timer={timeout}
+              position={position}
+            >
+              {React.cloneElement(<Hint />, {
+                theme,
+                textAlert,
+                icon,
+                iconWidth,
+                'data-qa': dataQa,
+              })}
+            </animated.div>
+          ))
         }
       </Transition>
     </Portal>
   );
 };
 
-export const translate = (value) => {
+export const translate = value => {
   switch (value) {
     case 'topRight':
-    case 'bottomRight': return 320;
+    case 'bottomRight':
+      return 320;
     case 'topLeft':
-    case 'bottomLeft': return -320;
-    default: return 320;
+    case 'bottomLeft':
+      return -320;
+    default:
+      return 320;
   }
 };
 
-const timer = (toggle, timeout) => setTimeout(() => (toggle()), timeout);
+const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
 
 type propTypes = {
   on: boolean,
   toggle?: () => void,
   theme?: 'default' | 'light' | 'danger' | 'menthe',
-  textAlert: string | () => void,
+  textAlert: string | (() => void),
   icon?: string,
   iconWidth?: number,
   className?: string,

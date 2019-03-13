@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Sidebar } from 'components';
+import Sidebar from '../Sidebar';
 
 describe('Sidebar', () => {
   const wrapper = shallow(

@@ -1,17 +1,16 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Step } from 'components';
+import Step from './Step';
 import styles from './StepIndicator.module.scss';
 
-
 const StepIndicator = ({
-  children, className, activeStep, lastStep,
+  children,
+  className,
+  activeStep,
+  lastStep,
 }: propTypes) => {
-  const classNames = cn(
-    styles.stepIndicatorContainer,
-    className,
-  );
+  const classNames = cn(styles.stepIndicatorContainer, className);
 
   return (
     <div className={classNames}>
@@ -39,7 +38,7 @@ type propTypes = {
   className?: string,
   children: Array<Node>,
   activeStep: number,
-}
+};
 
 StepIndicator.defaultProps = { className: '' };
 

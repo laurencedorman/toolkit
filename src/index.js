@@ -11,7 +11,6 @@ export { default as HeightTransition } from './components/HeightTransition';
 export { default as Hint } from './components/Hint';
 export { default as Icon } from './components/Icon';
 export { default as Iframe } from './components/Iframe';
-export { default as Image } from './components/Image';
 export { default as Input, InputLight } from './components/Input';
 export { default as InputAutoComplete } from './components/InputAutoComplete';
 export { default as InputCheck, InputCheckGroup } from './components/InputCheck';

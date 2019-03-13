@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Icon } from 'components';
+import Icon from '../Icon';
 import styles from './InputCheck.module.scss';
 
 /**
@@ -24,7 +24,7 @@ const InputCheck = ({
   const classNames = cn(
     styles.inputCheck,
     { [styles.noLabel]: !label, [styles.required]: required },
-    className,
+    className
   );
 
   return (
@@ -45,9 +45,9 @@ const InputCheck = ({
       />
       <label htmlFor={value}>
         {label && label}
-        {checked && type === 'checkbox'
-          ? <Icon name="check" className={styles.icon} size="18" />
-          : null}
+        {checked && type === 'checkbox' ? (
+          <Icon name="check" className={styles.icon} size="18" />
+        ) : null}
       </label>
     </div>
     /* eslint-enable jsx-a11y/label-has-for */
@@ -61,7 +61,7 @@ type PropTypes = {
   checked?: boolean,
   required?: boolean,
   disabled?: boolean,
-  onChange?: (Event) => void,
+  onChange?: Event => void,
   label?: string,
   className?: string,
   dataQa?: string,

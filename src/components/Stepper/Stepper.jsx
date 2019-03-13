@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { Transition, animated } from 'react-spring';
 import cn from 'classnames';
-import { StepIndicator, Wrapper } from 'components';
+import StepIndicator from '../StepIndicator';
+import Wrapper from '../Wrapper';
 import styles from './Stepper.module.scss';
 
 

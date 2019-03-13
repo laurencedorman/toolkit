@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { ToggleDown } from 'components';
+import ToggleDown from '../ToggleDown';
 import styles from './DropDown.module.scss';
 
 /**

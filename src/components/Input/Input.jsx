@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Icon } from 'components';
+import Icon from '../Icon';
 import styles from './Input.module.scss';
 
 /**
@@ -36,10 +36,7 @@ const Input = ({
   reset,
   dataQa,
 }: propTypes) => {
-  const container = cn(
-    styles.container,
-    className,
-  );
+  const container = cn(styles.container, className);
 
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
@@ -84,15 +81,18 @@ const Input = ({
           aria-hidden={type === 'hidden'}
           data-qa={dataQa}
         />
-        {label
-          && <label htmlFor={id} className={labelStyle}>{label}</label>}
-        { handleIcon(error, value, reverse, reset, icon) }
-        { handleIndicator(indicator, icon) }
+        {label && (
+          <label htmlFor={id} className={labelStyle}>
+            {label}
+          </label>
+        )}
+        {handleIcon(error, value, reverse, reset, icon)}
+        {handleIndicator(indicator, icon)}
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
     </div>
-  /* eslint-enable jsx-a11y/label-has-for */
+    /* eslint-enable jsx-a11y/label-has-for */
   );
 };
 
@@ -151,18 +151,15 @@ Input.defaultProps = {
 };
 
 /* eslint-disable no-nested-ternary */
-const handleIcon = (error, value, reverse, reset, icon) => (
-  (!error && value !== '' && !reverse && !reset)
-    ? <Icon name="check" size="22" className={styles.icon} />
-    : icon
-      ? <Icon name={icon} size="16" className={styles.icon} />
-      : null
-);
+const handleIcon = (error, value, reverse, reset, icon) =>
+  !error && value !== '' && !reverse && !reset ? (
+    <Icon name="check" size="22" className={styles.icon} />
+  ) : icon ? (
+    <Icon name={icon} size="16" className={styles.icon} />
+  ) : null;
 
-const handleIndicator = (indicator, icon) => (
-  (indicator && !icon)
-    && <span className={styles.indicator}>{indicator}</span>
-);
+const handleIndicator = (indicator, icon) =>
+  indicator && !icon && <span className={styles.indicator}>{indicator}</span>;
 /* eslint-enable no-nested-ternary */
 
 export default Input;

@@ -1,7 +1,9 @@
+const config = require('@manomano/webpack/config.js');
 const path = require('path');
 
+
 module.exports = {
-  webpackConfig: require('./config/webpack.config.dev.js'),
+  webpackConfig: config('en'),
   title: ' ',
   styleguideComponents: {
     Wrapper: path.join(__dirname, './src/styleguidist/Wrapper'),
