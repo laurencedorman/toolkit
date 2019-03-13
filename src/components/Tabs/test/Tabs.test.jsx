@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Tab, Tabs } from 'components';
+import Tab from '../Tab';
+import Tabs from '../Tabs';
 
 
 describe('Tabs', () => {

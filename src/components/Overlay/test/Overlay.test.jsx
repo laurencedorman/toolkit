@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Overlay } from 'components';
+import Overlay from '../Overlay';
 
 describe('Overlay', () => {
   const props = {

@@ -1,15 +1,17 @@
 // @flow
 import React, { Component } from 'react';
 import cn from 'classnames';
-import {
-  HeightTransition, TabBody, TabLabel, Wrapper,
-} from 'components';
+
+import HeightTransition from '../HeightTransition';
+import TabBody from './TabBody';
+import TabLabel from './TabLabel';
+import Wrapper from '../Wrapper';
 import styles from './Tabs.module.scss';
 
 type propTypes = {
   className?: string,
   children: Array<Node>,
-}
+};
 
 /* eslint no-shadow:  */
 export default class Tabs extends Component<propTypes> {
@@ -25,22 +27,25 @@ export default class Tabs extends Component<propTypes> {
     const { children } = this.props;
 
     if (this.ismounted && React.Children.count(children) > 1) {
-      React.Children.map(children, child => (
+      React.Children.map(children, child =>
         child.props.defaultActive
           ? this.onClickTabItem(child.props.label)
           : this.onClickTabItem(children[0].props.label)
-      ));
+      );
     }
   }
 
   componentDidUpdate(prevProps) {
     const { children } = this.props;
-    if (React.Children.count(prevProps.children) !== React.Children.count(children)) {
-      React.Children.map(children, child => (
+    if (
+      React.Children.count(prevProps.children) !==
+      React.Children.count(children)
+    ) {
+      React.Children.map(children, child =>
         child.props.defaultActive
           ? this.onClickTabItem(child.props.label)
           : this.onClickTabItem(children[0].props.label)
-      ));
+      );
     }
   }
 
@@ -54,15 +59,12 @@ export default class Tabs extends Component<propTypes> {
     const { children, className } = this.props;
     const { activeTab } = this.state;
 
-    const classNames = cn(
-      styles.tabs,
-      className,
-    );
+    const classNames = cn(styles.tabs, className);
 
     return (
       <Wrapper className={classNames}>
         <ul className={styles.tabList}>
-          {React.Children.map(children, (child) => {
+          {React.Children.map(children, child => {
             const { label } = child.props;
             return React.cloneElement(
               <TabLabel
@@ -70,15 +72,13 @@ export default class Tabs extends Component<propTypes> {
                 label={label}
                 onClick={this.onClickTabItem}
                 key={label}
-              />,
+              />
             );
           })}
         </ul>
         <HeightTransition>
           <div className={styles.tabContent}>
-            <TabBody activeTab={activeTab}>
-              {children}
-            </TabBody>
+            <TabBody activeTab={activeTab}>{children}</TabBody>
           </div>
         </HeightTransition>
       </Wrapper>

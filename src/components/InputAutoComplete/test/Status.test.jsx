@@ -1,6 +1,6 @@
-import { Loader } from 'components';
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallow } from 'enzyme';
+import Loader from '../../Loader';
 import Status, { STATUS } from '../Status';
 
 describe('Status', () => {

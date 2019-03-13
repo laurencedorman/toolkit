@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { InputLight } from 'components';
+import InputLight from '../InputLight';
 
 describe('InputLight', () => {
   const wrapper = shallow(

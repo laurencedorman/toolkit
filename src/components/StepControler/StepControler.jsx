@@ -1,8 +1,6 @@
 // @flow
 import { Component } from 'react';
 
-// TODO rename it to StepController
-
 type propTypes = {
   children: Node,
   getActiveStep?: number,

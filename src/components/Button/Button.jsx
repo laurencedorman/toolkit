@@ -2,7 +2,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Icon } from 'components';
+import Icon from '../Icon';
 import colors from '../../styles/colors';
 import styles from './Button.module.scss';
 

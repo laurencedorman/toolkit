@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { TabBody, Tab } from 'components';
+import TabBody from '../TabBody';
+import Tab from '../Tab';
 
 describe('TabBody', () => {
   let wrapper;

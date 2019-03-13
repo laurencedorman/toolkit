@@ -60,3 +60,5 @@ export const tooltipPosition = (ref, position) => {
       };
   }
 };
+
+export default tooltipPosition;

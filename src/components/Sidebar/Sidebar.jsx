@@ -1,11 +1,16 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import { Portal } from 'components';
+import Portal from '../Portal';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = ({
-  on, children, className, position, width, dataQa,
+  on,
+  children,
+  className,
+  position,
+  width,
+  dataQa,
 }: propTypes) => {
   const classNames = cn(
     styles.sidebar,
@@ -14,7 +19,7 @@ const Sidebar = ({
       [styles.left]: position === 'left',
       [styles.right]: position === 'right',
     },
-    className,
+    className
   );
 
   return (
