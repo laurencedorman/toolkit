@@ -22,6 +22,7 @@ module.exports = {
   components: resolveApp('src/components'),
   constants: resolveApp('src/constants'),
   dotenv: resolveApp('.env'),
+  helpers: resolveApp('src/helpers'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   styles: resolveApp('src/styles'),
   yarnLockFile: resolveApp('yarn.lock'),

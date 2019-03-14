@@ -128,9 +128,12 @@ module.exports = (webpackEnv) => {
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
       ],
       extensions: ['.js', '.jsx', '.json'],
+      // If you have some trouble with aliases and Jest have a look here :
+      // package.json in the configuration babel.plugins['@babel/plugin-proposal-class-properties']['module-resolver'].alias
       alias: {
         components: paths.appIndexJs,
         constants: paths.constants,
+        helpers: paths.helpers,
         styles: paths.styles,
       },
     },
