@@ -66,10 +66,8 @@
     "alias": {
       "components": "src",
       "constants": "src/constants",
-      "helpers": "./src/helpers",
-      "masks": "./src/helpers/masks",
-      "styles": "src/styles",
-      "validators": "./src/helpers/validators"
+      "helpers": "src/helpers",
+      "styles": "src/styles"
     }
   }
 }

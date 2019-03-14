@@ -1,6 +1,6 @@
-import isDefined from '../isDefined';
+import { isDefinedAndNotNull } from '../isDefinedAndNotNull';
 
-describe('isDefined', () => {
+describe('isDefinedAndNotNull', () => {
   const tests = [
     {
       test: undefined,
@@ -69,8 +69,8 @@ describe('isDefined', () => {
   ];
 
   tests.forEach((test) => {
-    it(`isDefined(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
-      expect(isDefined(test.test)).toBe(test.expected);
+    it(`isDefinedAndNotNull(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+      expect(isDefinedAndNotNull(test.test)).toBe(test.expected);
     });
   });
 });

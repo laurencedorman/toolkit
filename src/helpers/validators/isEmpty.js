@@ -1,13 +1,13 @@
 // @flow
-import isArray from './isArray';
-import isDefined from './isDefined';
-import isPlainObject from './isPlainObject';
-import isString from './isString';
+import { isArray } from './isArray';
+import { isDefinedAndNotNull } from './isDefinedAndNotNull';
+import { isPlainObject } from './isPlainObject';
+import { isString } from './isString';
 
 const EMPTY_STRING_REGEXP = /^\s*$/;
 
-function isEmpty(value: any) {
-  if (!isDefined(value)) {
+export function isEmpty(value: any) {
+  if (!isDefinedAndNotNull(value)) {
     return true;
   }
 
@@ -25,5 +25,3 @@ function isEmpty(value: any) {
 
   return false;
 }
-
-export default isEmpty;

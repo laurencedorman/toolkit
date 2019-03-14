@@ -1,4 +1,4 @@
-import isInteger from '../isInteger';
+import { isInteger } from '../isInteger';
 
 describe('isInteger', () => {
   const tests = [

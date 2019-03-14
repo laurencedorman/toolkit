@@ -1,4 +1,4 @@
-import isFunction from '../isFunction';
+import { isFunction } from '../isFunction';
 
 describe('isFunction', () => {
   const tests = [

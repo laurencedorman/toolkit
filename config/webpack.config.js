@@ -134,9 +134,7 @@ module.exports = (webpackEnv) => {
         components: paths.appIndexJs,
         constants: paths.constants,
         helpers: paths.helpers,
-        masks: paths.masks,
         styles: paths.styles,
-        validators: paths.validators,
       },
     },
     resolveLoader: {

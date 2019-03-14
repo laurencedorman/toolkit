@@ -1,6 +1,6 @@
 // @flow
-import isString from 'validators/isString';
-import isPlainObject from 'validators/isPlainObject';
+
+import { isPlainObject, isString } from 'helpers/validators';
 import type { MaskOptions } from './maskTypes.flow';
 
 function mask(value: string, options: MaskOptions) {

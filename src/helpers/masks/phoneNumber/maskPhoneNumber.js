@@ -1,6 +1,5 @@
 // @flow
-import isString from 'validators/isString';
-import isPlainObject from 'validators/isPlainObject';
+import { isPlainObject, isString } from 'helpers/validators';
 import type { maskPhoneNumberOptions } from './maskPhoneNumberTypes.flow';
 import unmaskPhoneNumber from './unmaskPhoneNumber';
 import ZERO from './constantPhoneNumber';
