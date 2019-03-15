@@ -1,11 +1,13 @@
 // @flow
 import React, { Component } from 'react';
 import cn from 'classnames';
-import { KEYMAP } from 'constants/keymap';
+import { KEYMAP } from '../../constants/keymap';
 import Input from '../Input';
 import type { InputProps } from '../Input';
 import {
-  BLUR_CLOSING_DELAY, HIGHLIGHT_TOP_MARGIN, MIN_NUMBER_OF_CHARACTERS,
+  BLUR_CLOSING_DELAY,
+  HIGHLIGHT_TOP_MARGIN,
+  MIN_NUMBER_OF_CHARACTERS,
   PREDICT_DEBOUNCE_DELAY,
 } from './constants';
 import type { PredictionType } from './prediction-type';
@@ -14,7 +16,7 @@ import Status, { STATUS } from './Status';
 import styles from './InputAutoComplete.module.scss';
 
 type PrivateType = {
-  predictionElemMap: { [predictionIndex: number]: HTMLElement };
+  predictionElemMap: { [predictionIndex: number]: HTMLElement },
   predictionsContainerRef: { current: null | HTMLDivElement },
   predictTimeout: number | null,
 };
@@ -22,7 +24,7 @@ type PrivateType = {
 type PropTypes = InputProps & {
   className?: string,
   onChange?: (value: string) => void,
-  predict: PredictionType[] | () => Promise<PredictionType[]>,
+  predict: PredictionType[] | (() => Promise<PredictionType[]>),
   translations?: {
     keepTyping: string,
     noResult: string,
@@ -170,9 +172,10 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       }
 
       case KEYMAP.DOWN_ARROW:
-        newIndex = currentIndex > -1 && currentIndex < (predictions.length - 1)
-          ? currentIndex + 1
-          : 0;
+        newIndex =
+          currentIndex > -1 && currentIndex < predictions.length - 1
+            ? currentIndex + 1
+            : 0;
         break;
 
       case KEYMAP.UP_ARROW:
@@ -231,9 +234,12 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     this.setState({ loading: true });
 
     return this.predict(value)
-      .then(predictions => new Promise(
-        resolve => this.setState({ loading: false, predictions }, resolve),
-      ))
+      .then(
+        predictions =>
+          new Promise(resolve =>
+            this.setState({ loading: false, predictions }, resolve)
+          )
+      )
       .then(() => {
         const { predictions } = this.state;
 
@@ -242,7 +248,9 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
         }
       })
       .catch(() => {
-        const { translations: { unableToPredict } } = this.props;
+        const {
+          translations: { unableToPredict },
+        } = this.props;
         this.setState({ errorMessage: unableToPredict, loading: false });
         this.close();
       });
@@ -263,7 +271,10 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  highlightPrediction(prediction: PredictionType, scroll: boolean = true): void {
+  highlightPrediction(
+    prediction: PredictionType,
+    scroll: boolean = true
+  ): void {
     const scrollToPrediction = scroll
       ? () => this.scrollToPrediction(prediction)
       : undefined;
@@ -292,7 +303,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     if (value.length >= MIN_NUMBER_OF_CHARACTERS) {
       if (Array.isArray(predict)) {
         predictionPromise = Promise.resolve(
-          predict.filter(prediction => prediction.value.indexOf(value) === 0),
+          predict.filter(prediction => prediction.value.indexOf(value) === 0)
         );
       } else if (typeof predict === 'function') {
         predictionPromise = new Promise((resolve, reject) => {
@@ -324,7 +335,8 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       throw new Error('Unable to retrieve reference of predictions container');
     }
 
-    container.scrollTop = this.getPredictionTopOffset(prediction) - HIGHLIGHT_TOP_MARGIN;
+    container.scrollTop =
+      this.getPredictionTopOffset(prediction) - HIGHLIGHT_TOP_MARGIN;
   }
 
   scrollToTop(): void {
@@ -344,25 +356,37 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
   shouldRenderPredictions(): boolean {
     const { predictions, showPredictions } = this.state;
 
-    return showPredictions
-      && predictions.length > 0
-      && ![STATUS.KEEP_TYPING, STATUS.NO_RESULT].includes(this.status);
+    return (
+      showPredictions &&
+      predictions.length > 0 &&
+      ![STATUS.KEEP_TYPING, STATUS.NO_RESULT].includes(this.status)
+    );
   }
 
   render() {
     // Some properties are unused but it is needed to avoid giving props of this component to the
     // Input component
     const {
-      className, onChange, predict, translations, value, ...rest
+      className,
+      onChange,
+      predict,
+      translations,
+      value,
+      ...rest
     } = this.props;
     const { state, status } = this;
     const {
-      errorMessage, highlightedPrediction, predictions, selectedPrediction, showPredictions,
+      errorMessage,
+      highlightedPrediction,
+      predictions,
+      selectedPrediction,
+      showPredictions,
     } = state;
     const currentValue = state.value;
     const container = cn(styles.container, className);
     const { keepTyping, noResult } = translations;
-    const statusTranslations = keepTyping && noResult ? { keepTyping, noResult } : undefined;
+    const statusTranslations =
+      keepTyping && noResult ? { keepTyping, noResult } : undefined;
     const refCallbackHandler = (prediction, elem) => {
       const predictionIndex = predictions.indexOf(prediction);
       this.private.predictionElemMap[predictionIndex] = elem;
@@ -372,27 +396,28 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
 
     return (
       <div className={container}>
-        {
-          showPredictions && (
-            <div className={styles.predictionsContainer} ref={this.private.predictionsContainerRef}>
-              {status && (
-                <Status status={status} translations={statusTranslations} />
-              )}
-              {this.shouldRenderPredictions() && (
-                // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
-                <Predictions
-                  highlightedPrediction={highlightedPrediction}
-                  highlightValue={value}
-                  onClick={this.selectPrediction}
-                  onMouseOver={this.handlePredictionMouseOver}
-                  predictions={predictions}
-                  refCallback={refCallbackHandler}
-                  selectedPrediction={selectedPrediction}
-                />
-              )}
-            </div>
-          )
-        }
+        {showPredictions && (
+          <div
+            className={styles.predictionsContainer}
+            ref={this.private.predictionsContainerRef}
+          >
+            {status && (
+              <Status status={status} translations={statusTranslations} />
+            )}
+            {this.shouldRenderPredictions() && (
+              // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+              <Predictions
+                highlightedPrediction={highlightedPrediction}
+                highlightValue={value}
+                onClick={this.selectPrediction}
+                onMouseOver={this.handlePredictionMouseOver}
+                predictions={predictions}
+                refCallback={refCallbackHandler}
+                selectedPrediction={selectedPrediction}
+              />
+            )}
+          </div>
+        )}
         <Input
           {...rest}
           error={!!errorMessage}
