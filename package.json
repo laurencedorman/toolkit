@@ -28,9 +28,9 @@
     "react-table": "6.8.6"
   },
   "devDependencies": {
-    "@manomano/eslint-config": "0.0.11",
-    "@manomano/macgyver": "0.0.11",
-    "@manomano/prettier-config": "0.0.11",
+    "@manomano/eslint-config": "0.0.13",
+    "@manomano/macgyver": "0.0.13",
+    "@manomano/prettier-config": "0.0.13",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
     "husky": "1.1.4",
