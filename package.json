@@ -1,5 +1,5 @@
 {
-  "name": "mano-toolkit",
+  "name": "@manomano/toolkit",
   "version": "0.1.0",
   "description": "mano-toolkit component library",
   "private": true,
@@ -8,7 +8,8 @@
   "module": "dist/index.esm.js",
   "style": "dist/index.css",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/*"
   ],
   "author": "",
   "license": "MIT",
