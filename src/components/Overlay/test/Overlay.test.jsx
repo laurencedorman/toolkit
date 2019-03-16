@@ -15,8 +15,4 @@ describe('Overlay', () => {
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);
   });
-
-  it('should have onClick action', () => {
-    wrapper.find('div').simulate('click');
-  });
 });

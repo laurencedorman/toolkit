@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Portal from '../Portal';
 
 describe('Portal', () => {
@@ -17,7 +17,7 @@ describe('Portal', () => {
   beforeEach(() => {
     ismounted = true;
     if (ismounted) {
-      wrapper = mount(<Portal><div>children</div></Portal>);
+      wrapper = shallow(<Portal><div>children</div></Portal>);
     }
   });
 

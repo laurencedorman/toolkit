@@ -1,16 +1,12 @@
-// @flow
-import { Component } from 'react';
+import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import styles from './Portal.module.scss';
 
 /**
  * @visibleName Portal
  */
-type propTypes = {
-  children: Node,
-}
-
-export default class Portal extends Component<propTypes> {
+export default class Portal extends PureComponent {
   constructor(props) {
     super(props);
     this.el = document.createElement('div');
@@ -27,3 +23,5 @@ export default class Portal extends Component<propTypes> {
     return ReactDOM.createPortal(children, this.el);
   }
 }
+
+Portal.propTypes = { children: PropTypes.element.isRequired };

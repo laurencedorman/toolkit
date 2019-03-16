@@ -1,5 +1,5 @@
-// @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import HeightTransition from '../HeightTransition';
@@ -8,13 +8,9 @@ import TabLabel from './TabLabel';
 import Wrapper from '../Wrapper';
 import styles from './Tabs.module.scss';
 
-type propTypes = {
-  className?: string,
-  children: Array<Node>,
-};
 
 /* eslint no-shadow:  */
-export default class Tabs extends Component<propTypes> {
+export default class Tabs extends PureComponent {
   static defaultProps = { className: '' };
 
   constructor(props) {
@@ -86,3 +82,12 @@ export default class Tabs extends Component<propTypes> {
   }
 }
 /* eslint shadow:  */
+
+Tabs.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.arrayOf([PropTypes.node])
+  ]),
+};

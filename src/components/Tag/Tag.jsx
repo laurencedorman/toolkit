@@ -1,11 +1,11 @@
-// @flow
-import React, { type Node } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Tag.module.scss';
 
 const Tag = ({
   className, theme, children, disabled, dataQa,
-}: propTypes) => {
+}) => {
   const tagClass = cn(
     styles.tag,
     styles[theme],
@@ -20,19 +20,35 @@ const Tag = ({
   );
 };
 
-type propTypes = {
-  className?: string,
-  theme?:
-    'default' | 'primary' | 'secondary' | 'reset' | 'balata' | 'bellanotte' | 'playa' | 'artic' | 'hellblau' | 'purplerain' | 'kaktus',
-  children: string | Node,
-  disabled: boolean,
-  dataQa?: string,
+Tag.propTypes = {
+  className: PropTypes.string,
+  theme: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'tertiary',
+    'reset',
+    'balata',
+    'bellanotte',
+    'playa',
+    'artic',
+    'hellblau',
+    'purplerain',
+    'kaktus',
+  ]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
+  disabled: PropTypes.bool,
+  dataQa: PropTypes.string,
 };
 
 Tag.defaultProps = {
   className: '',
   theme: 'default',
   dataQa: '',
+  disabled: false,
 };
 
 export default Tag;

@@ -1,18 +1,15 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import styles from './Tabs.module.scss';
 
-type propTypes = {
-  label: string,
-  activeTab: string,
-  onClick: () => void,
-  className?: string,
-}
-
 /* eslint-disable */
-export default class Tab extends PureComponent<propTypes> {
-  static defaultProps = { className: '' };
+export default class TabLabel extends PureComponent {
+  static defaultProps = {
+    className: '',
+    activeTab: '',
+  };
 
   onClick = () => {
     const { label, onClick } = this.props;
@@ -42,3 +39,13 @@ export default class Tab extends PureComponent<propTypes> {
   }
 }
 /* eslint-enable */
+
+TabLabel.propTypes = {
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]),
+  activeTab: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};

@@ -1,12 +1,12 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import colors from '../../styles/colors';
 import styles from './Logo.module.scss';
 
 const Logo = ({
   theme, mini, className, dataQa,
-}: propTypes) => {
+}) => {
   const classNames = cn(
     styles.logo,
     styles[theme],
@@ -82,17 +82,18 @@ const Logo = ({
   );
 };
 
-type propTypes = {
-  theme?: 'color' | 'colorWhite' | 'black' | 'white' | 'pro' | 'mf',
-  mini: boolean,
-  className?: string,
-  dataQa?: string,
+Logo.propTypes = {
+  theme: PropTypes.oneOf(['color', 'colorWhite', 'black', 'white', 'b2b', 'mf']),
+  mini: PropTypes.bool,
+  className: PropTypes.string,
+  dataQa: PropTypes.string,
 };
 
 Logo.defaultProps = {
   theme: 'color',
   className: '',
   dataQa: '',
+  mini: false,
 };
 
 export default Logo;

@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
 import styles from './Input.module.scss';
@@ -35,8 +35,11 @@ const Input = ({
   indicator,
   reset,
   dataQa,
-}: propTypes) => {
-  const container = cn(styles.container, className);
+}) => {
+  const container = cn(
+    styles.container,
+    className,
+  );
 
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
@@ -96,33 +99,48 @@ const Input = ({
   );
 };
 
-export type propTypes = {
-  className?: string,
-  label: string,
-  type: 'text' | 'email' | 'password' | 'number' | 'tel' | 'search' | 'hidden',
-  id: string,
-  name: string,
-  value?: string,
-  placeholder?: string,
-  required?: boolean,
-  minLength?: number,
-  maxLength?: number,
-  disabled?: boolean,
-  error?: boolean,
-  messageError?: string,
-  helper?: string,
-  hidden?: boolean,
-  onChange?: (event: SyntheticEvent<HTMLInputElement>) => void,
-  onFocus?: (event: SyntheticEvent<HTMLInputElement>) => void,
-  onKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
-  onBlur?: (event: SyntheticEvent<HTMLInputElement>) => void,
-  icon?: string,
-  reverse?: boolean,
-  min?: number,
-  max?: number,
-  step?: number | 'any',
-  indicator?: string,
-  dataQa?: string,
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.oneOf([
+    'text',
+    'email',
+    'password',
+    'number',
+    'tel',
+    'search',
+    'hidden',
+  ]).isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  messageError: PropTypes.string,
+  helper: PropTypes.string,
+  hidden: PropTypes.bool,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onBlur: PropTypes.func,
+  icon: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+  ]),
+  reverse: PropTypes.bool,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.bool,
+  indicator: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+  ]),
+  dataQa: PropTypes.string,
+  reset: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -148,6 +166,7 @@ Input.defaultProps = {
   step: null,
   indicator: null,
   dataQa: '',
+  reset: false,
 };
 
 /* eslint-disable no-nested-ternary */

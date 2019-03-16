@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Button from '../Button';
@@ -23,14 +23,18 @@ const DropDown = ({
   icon,
   backgroundColor,
   fill,
+  stroke,
   sideLeft,
   sideRight,
   options,
   right,
   active,
   onClick,
-}: propTypes) => {
-  const wrapper = cn(styles.wrapper, className);
+}) => {
+  const wrapper = cn(
+    styles.wrapper,
+    className,
+  );
 
   const iconButton = cn(styles.iconButton, { [styles.rotate]: on });
 
@@ -49,9 +53,10 @@ const DropDown = ({
             {icon && (
               <Icon
                 name="chevron-right"
-                size="10"
+                size="16"
                 className={iconButton}
                 fill={fill}
+                stroke={stroke}
               />
             )}
           </Button>
@@ -77,25 +82,30 @@ const renderTitle = title =>
   typeof title === 'string'
     ? title
     : typeof title === 'function'
-    ? title()
-    : null;
+      ? title()
+      : null;
 /* eslint-enable */
 
-type propTypes = {
-  title: string | Node | (() => void),
-  options: Array,
-  right?: boolean,
-  on: boolean,
-  toggle?: () => void,
-  onClick: () => void,
-  className?: string,
-  disabled?: boolean,
-  active?: string,
-  icon?: boolean,
-  backgroundColor?: string,
-  sideLeft?: boolean,
-  sideRight?: boolean,
-  fill?: string,
+DropDown.propTypes = {
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  on: PropTypes.bool.isRequired,
+  onClick: PropTypes.func,
+  right: PropTypes.bool,
+  toggle: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  active: PropTypes.string,
+  icon: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  sideLeft: PropTypes.bool,
+  sideRight: PropTypes.bool,
+  fill: PropTypes.string,
+  stroke: PropTypes.string,
 };
 
 DropDown.defaultProps = {
@@ -109,6 +119,7 @@ DropDown.defaultProps = {
   sideRight: false,
   toggle: null,
   fill: colors.white,
+  stroke: colors.white,
 };
 
 export default DropDown;

@@ -1,13 +1,8 @@
-// @flow
 import React from 'react';
 
-type propTypes = {
-  meta: Object,
-  input: Object,
-}
 
 const WithReduxFormSelect = (WrappedComponent) => {
-  class Component extends React.PureComponent<propTypes> {
+  class Component extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = { getValue: {} };

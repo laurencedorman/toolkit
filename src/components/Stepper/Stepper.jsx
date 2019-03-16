@@ -1,5 +1,5 @@
-// @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Transition, animated } from 'react-spring';
 import cn from 'classnames';
 import StepIndicator from '../StepIndicator';
@@ -7,15 +7,7 @@ import Wrapper from '../Wrapper';
 import styles from './Stepper.module.scss';
 
 
-type propTypes = {
-  className?: string,
-  children: Node | Array<Node>,
-  activeStep?: number,
-  getLength?: () => void,
-  direction: 'up' | 'down',
-}
-
-export default class Stepper extends Component<propTypes> {
+export default class Stepper extends PureComponent {
   static defaultProps = {
     className: '',
     activeStep: 0,
@@ -85,16 +77,35 @@ const bodyStepper = (children, activeStep, up) => {
       leave={{ t: up ? -100 : 100 }}
     >
       {activeStep => ({ t }) => (
-        <animated.div
-          className={styles.container}
-          style={{
-            transform: t.interpolate(t => `translate(${t}%, 0)`),
-          }}
-        >
-          {children[activeStep]}
-        </animated.div>
+        <>
+          <animated.div
+            className={styles.container}
+            style={{
+              transform: t.interpolate(t => `translate(${t}%, 0)`),
+            }}
+          >
+            {children[activeStep]}
+          </animated.div>
+        </>
       )}
     </Transition>
   );
+};
+
+Stepper.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.elementType,
+    PropTypes.node,
+    PropTypes.arrayOf([
+      PropTypes.element,
+      PropTypes.elementType,
+      PropTypes.node,
+    ]),
+  ]),
+  activeStep: PropTypes.number,
+  getLength: PropTypes.func,
+  direction: PropTypes.oneOf(['up', 'down']),
 };
 /* eslint-enable  */

@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
 import styles from './StepIndicator.module.scss';
 
-const Step = ({ className, step, active, label, done }: propTypes) => {
+
+const Step = ({
+  className,
+  step,
+  active,
+  label,
+  done,
+}) => {
   const classNames = cn(
     styles.step,
     { [styles.active]: active },
@@ -26,17 +34,21 @@ const Step = ({ className, step, active, label, done }: propTypes) => {
   );
 };
 
-type propTypes = {
-  className?: string,
-  step: string,
-  label?: string,
-  active: boolean,
-  done: boolean,
+Step.propTypes = {
+  className: PropTypes.string,
+  step: PropTypes.string,
+  label: PropTypes.string,
+  active: PropTypes.bool,
+  done: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number,
+  ]),
 };
 
 Step.defaultProps = {
   className: '',
   label: null,
+  active: false,
 };
 
 export default Step;

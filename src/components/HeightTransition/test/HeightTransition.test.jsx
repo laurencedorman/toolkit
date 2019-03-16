@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import HeightTransition from '../HeightTransition';
 
 
 describe('HeightTransition', () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <HeightTransition>
       <div>test</div>
     </HeightTransition>,

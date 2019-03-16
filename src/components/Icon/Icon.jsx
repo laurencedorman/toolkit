@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import iconAssets from '../../assets/setIcons';
@@ -12,7 +12,7 @@ import styles from './Icon.module.scss';
 /* eslint-disable */
 const IconComponent = ({
   onClick, className, name, size, fill, stroke, dataQa,
-}: propTypes) => {
+}) => {
   const classNames = cn(
     styles.container,
     className,
@@ -54,16 +54,28 @@ const IconComponent = ({
     </div>
   );
 };
-/* eslint-enable */
 
-type propTypes = {
-  onClick?: () => void,
-  className?: string,
-  name: string,
-  size?: number,
-  fill?: string | () => void,
-  stroke?: string | () => void,
-  dataQa?: string,
+/* eslint-enable */
+IconComponent.propTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  name: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+  ]).isRequired,
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  fill: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]),
+  stroke: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]),
+  dataQa: PropTypes.string,
 };
 
 IconComponent.defaultProps = {

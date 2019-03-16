@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import cn from 'classnames';
 
@@ -28,7 +28,7 @@ const Select = ({
   theme,
   dataQa,
   ...props
-}:propTypes) => {
+}) => {
   const select = cn(
     styles.select,
     styles[theme],
@@ -132,21 +132,21 @@ const customStyles = {
   }),
 };
 
-type propTypes = {
-  disabled?: boolean,
-  required?: boolean,
-  label?: string,
-  placeholder?: string,
-  defaultValue?: string,
-  options: Array<{label: string} | {value: string}>,
-  helper?: string,
-  error?: string,
-  isMulti?: boolean,
-  onChange?: () => void,
-  onFocus?: () => void,
-  onBlur?: () => void,
-  theme?: 'light' | null,
-  dataQa?: string,
+Select.propTypes = {
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  defaultValue: PropTypes.arrayOf(PropTypes.shape()),
+  options: PropTypes.arrayOf(PropTypes.shape()),
+  helper: PropTypes.string,
+  error: PropTypes.string,
+  isMulti: PropTypes.bool,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  theme: PropTypes.string,
+  dataQa: PropTypes.string,
 };
 
 Select.defaultProps = {
@@ -154,7 +154,7 @@ Select.defaultProps = {
   required: false,
   label: '',
   placeholder: '',
-  defaultValue: '',
+  defaultValue: null,
   helper: '',
   error: '',
   isMulti: false,

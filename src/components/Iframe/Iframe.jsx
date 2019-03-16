@@ -1,10 +1,10 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Iframe.module.scss';
 
 const Iframe = ({
   id, src, title, dataQa,
-}:propTypes) => (
+}) => (
   <div className={styles.container} data-qa={dataQa}>
     <iframe
       id={id}
@@ -16,12 +16,12 @@ const Iframe = ({
   </div>
 );
 
-type propTypes = {
-  id: string,
-  src: string,
-  title: string,
-  dataQa?: string,
-}
+Iframe.propTypes = {
+  id: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  dataQa: PropTypes.string,
+};
 
 Iframe.defaultProps = { dataQa: '' };
 

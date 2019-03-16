@@ -6,6 +6,7 @@ describe('InputLight', () => {
   const wrapper = shallow(
     <InputLight
       type="text"
+      label="text"
       id="id"
       name="name"
     />,

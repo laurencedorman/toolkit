@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
 import styles from './InputCheck.module.scss';
@@ -20,7 +20,7 @@ const InputCheck = ({
   className,
   itemId,
   dataQa,
-}: PropTypes) => {
+}) => {
   const classNames = cn(
     styles.inputCheck,
     { [styles.noLabel]: !label, [styles.required]: required },
@@ -54,18 +54,18 @@ const InputCheck = ({
   );
 };
 
-type PropTypes = {
-  type: 'radio' | 'checkbox',
-  value: string,
-  name: string,
-  checked?: boolean,
-  required?: boolean,
-  disabled?: boolean,
-  onChange?: Event => void,
-  label?: string,
-  className?: string,
-  dataQa?: string,
-  itemId?: string,
+InputCheck.propTypes = {
+  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  checked: PropTypes.bool,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  className: PropTypes.string,
+  dataQa: PropTypes.string,
+  itemId: PropTypes.string,
 };
 
 InputCheck.defaultProps = {

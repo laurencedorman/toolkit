@@ -1,17 +1,12 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Portal from '../Portal';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = ({
-  on,
-  children,
-  className,
-  position,
-  width,
-  dataQa,
-}: propTypes) => {
+  on, children, className, position, width, dataQa,
+}) => {
   const classNames = cn(
     styles.sidebar,
     {
@@ -36,13 +31,17 @@ const Sidebar = ({
   );
 };
 
-type propTypes = {
-  on: boolean,
-  children: Node,
-  className?: string,
-  position?: 'right' | 'left',
-  width: string,
-  dataQa?: string,
+Sidebar.propTypes = {
+  on: PropTypes.bool.isRequired,
+  width: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
+  className: PropTypes.string,
+  position: PropTypes.oneOf(['right', 'left']),
+  dataQa: PropTypes.string,
 };
 
 Sidebar.defaultProps = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import OptionContainer from '../OptionContainer';
 
 describe('OptionContainer', () => {
@@ -19,8 +19,8 @@ describe('OptionContainer', () => {
     }],
   };
 
-  const wrapper = mount(
-    <OptionContainer {...props} />,
+  const wrapper = shallow(
+    <OptionContainer {...props} on />,
   );
 
   it('should render without crash', () => {

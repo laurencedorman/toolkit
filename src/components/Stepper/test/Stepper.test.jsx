@@ -1,9 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Stepper from '../Stepper';
 
 describe('Stepper', () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <Stepper direction="up">
       <div step="1" label="One">
         <h4>step 1 container</h4>
@@ -28,8 +28,6 @@ describe('Stepper', () => {
 
   it('should control step', () => {
     const action = jest.fn();
-    // const prevStep = jest.fn();
-    // const nextStep = jest.fn();
     wrapper.setProps({
       prevState: action,
       nextStep: action,
@@ -39,6 +37,5 @@ describe('Stepper', () => {
       lastStep: action,
       totalStep: 4,
     });
-    // wrapper.simulate('click');
   });
 });

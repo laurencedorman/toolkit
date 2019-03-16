@@ -1,18 +1,30 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Tab = ({ children, label }:propTypes) => (
-  <div label={label.toString()}>
+const Tab = ({ children, label, defaultActive }) => (
+  <div
+    label={label.toString()}
+    defaultactive={defaultActive}
+  >
     {children}
   </div>
 );
 
-
-type propTypes = {
-  children: Node,
-  label: string | () => void,
-  defaultActive?: boolean,
-}
+Tab.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.func,
+  ]),
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]).isRequired,
+  defaultActive: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+};
 
 Tab.defaultProps = { defaultActive: false };
 

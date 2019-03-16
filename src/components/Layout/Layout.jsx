@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Layout.module.scss';
 
 const Layout = ({
   children, className, styleGuidist, direction, style, dataQa,
-}:propTypes) => {
+}) => {
   const classNames = cn(
     styles.layout,
     {
@@ -27,13 +28,17 @@ const Layout = ({
   );
 };
 
-type propTypes = {
-  children: string | Node,
-  className?: string,
-  direction?: 'row' | 'column',
-  styleGuidist?: boolean,
-  style?: Object,
-  dataQa?: string,
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+  className: PropTypes.string,
+  direction: PropTypes.oneOf(['row', 'column']),
+  styleGuidist: PropTypes.bool,
+  style: PropTypes.shape({}),
+  dataQa: PropTypes.string,
 };
 
 Layout.defaultProps = {

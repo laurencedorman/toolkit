@@ -1,9 +1,9 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import { animated, Transition } from 'react-spring';
 
 /* eslint-disable */
-const TabBody = ({ children, activeTab }:propTypes) => {
+const TabBody = ({ children, activeTab }) => {
   const setChildren = React.Children.toArray(children);
 
   return React.Children.map(setChildren, (child) => {
@@ -43,9 +43,13 @@ const TabBody = ({ children, activeTab }:propTypes) => {
 };
 /* eslint-enable */
 
-type propTypes = {
-  children: Node,
-  activeTab: string,
-}
+TabBody.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.arrayOf([PropTypes.node])
+  ]),
+  activeTab: PropTypes.string,
+};
 
 export default TabBody;

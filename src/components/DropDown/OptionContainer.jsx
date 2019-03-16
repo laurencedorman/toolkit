@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ToggleDown from '../ToggleDown';
 import styles from './DropDown.module.scss';
@@ -18,7 +18,7 @@ const OptionContainer = ({
   active,
   sideLeft,
   sideRight,
-}:propTypes) => {
+}) => {
   const container = cn(
     styles.container,
     {
@@ -84,21 +84,22 @@ const OptionContainer = ({
   );
 };
 
-type propTypes = {
-  on: boolean,
-  toggle?: () => void,
-  options: Array,
-  right?: boolean,
-  onClick: () => void,
-  className?: string,
-  disabled?: boolean,
-  active?: string,
-  sideLeft?: boolean,
-  sideRight?: boolean,
+OptionContainer.propTypes = {
+  on: PropTypes.bool.isRequired,
+  toggle: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  right: PropTypes.bool,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  active: PropTypes.string,
+  sideLeft: PropTypes.bool,
+  sideRight: PropTypes.bool,
 };
 
 OptionContainer.defaultProps = {
   toggle: null,
+  onClick: null,
   right: false,
   className: '',
   disabled: false,

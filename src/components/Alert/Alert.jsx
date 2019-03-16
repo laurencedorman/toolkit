@@ -1,6 +1,8 @@
-// @flow
 import React from 'react';
-import { Transition, animated, config } from 'react-spring';
+import PropTypes from 'prop-types';
+import {
+  Transition, animated, config,
+} from 'react-spring';
 import cn from 'classnames';
 
 import Hint from '../Hint';
@@ -11,17 +13,8 @@ import styles from './Alert.module.scss';
  * @visibleName Alert
  */
 const Alert = ({
-  on,
-  className,
-  toggle,
-  theme,
-  textAlert,
-  icon,
-  iconWidth,
-  timeout,
-  position,
-  dataQa,
-}: propTypes) => {
+  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position, dataQa,
+}) => {
   const classNames = cn(
     styles.alert,
     {
@@ -52,7 +45,6 @@ const Alert = ({
       >
         {on =>
           on &&
-          /* eslint-enable */
           (style => (
             <animated.div
               className={classNames}
@@ -62,18 +54,19 @@ const Alert = ({
               timer={timeout}
               position={position}
             >
-              {React.cloneElement(<Hint />, {
-                theme,
-                textAlert,
-                icon,
-                iconWidth,
-                'data-qa': dataQa,
-              })}
+              <Hint
+                textAlert={textAlert}
+                theme={theme}
+                icon={icon}
+                iconWidth={iconWidth}
+                dataQa={dataQa}
+              />
             </animated.div>
           ))
         }
       </Transition>
     </Portal>
+    /* eslint-enable */
   );
 };
 
@@ -92,17 +85,25 @@ export const translate = value => {
 
 const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
 
-type propTypes = {
-  on: boolean,
-  toggle?: () => void,
-  theme?: 'default' | 'light' | 'danger' | 'menthe',
-  textAlert: string | (() => void),
-  icon?: string,
-  iconWidth?: number,
-  className?: string,
-  timeout?: number,
-  position?: 'topLeft' | 'bottomLeft' | 'topRight' | 'bottomRight',
-  dataQa?: string,
+Alert.propTypes = {
+  on: PropTypes.bool.isRequired,
+  toggle: PropTypes.func,
+  theme: PropTypes.oneOf(['default', 'light', 'danger', 'menthe']),
+  textAlert: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]).isRequired,
+  icon: PropTypes.string,
+  iconWidth: PropTypes.number,
+  className: PropTypes.string,
+  timeout: PropTypes.number,
+  position: PropTypes.oneOf([
+    'topLeft',
+    'bottomLeft',
+    'topRight',
+    'bottomRight',
+  ]),
+  dataQa: PropTypes.string,
 };
 
 Alert.defaultProps = {

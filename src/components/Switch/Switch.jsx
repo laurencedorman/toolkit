@@ -1,11 +1,11 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
   name, id, checked, onChange, className, dataQa, label, reset, itemId,
-}: propTypes) => {
+}) => {
   const container = cn(
     styles.container,
     { [styles.reset]: reset },
@@ -41,23 +41,23 @@ const Switch = ({
         className={labelClass}
       />
       {label
-      && <label htmlFor={id} className={styles.title}>{label}</label>}
+        && <label htmlFor={id} className={styles.title}>{label}</label>}
     </div>
   );
   /* eslint-enable jsx-a11y/label-has-associated-control */
   /* eslint-enable jsx-a11y/label-has-for */
 };
 
-type propTypes = {
-  id: string,
-  itemId?: string,
-  name: string,
-  checked: boolean,
-  onChange: SyntheticInputEvent<HTMLInputElement> => void,
-  className?: string,
-  dataQa?: string,
-  label?: string,
-  reset?: boolean,
+Switch.propTypes = {
+  id: PropTypes.string.isRequired,
+  itemId: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  dataQa: PropTypes.string,
+  label: PropTypes.string,
+  reset: PropTypes.bool,
 };
 
 Switch.defaultProps = {

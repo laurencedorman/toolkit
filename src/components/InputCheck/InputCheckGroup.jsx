@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import InputCheck from './InputCheck';
 import styles from './InputCheck.module.scss';
@@ -20,7 +20,7 @@ const InputCheckGroup = ({
   className,
   error,
   messageError,
-}: PropTypes) => {
+}) => {
   const classNames = cn(
     styles.CheckGroup,
     styles[direction],
@@ -54,19 +54,22 @@ const InputCheckGroup = ({
   );
 };
 
-type PropTypes = {
-  inputGroupTitle?: string,
-  direction?: 'horizontal' | 'vertical',
-  options: Array<{label: string} | {value: string}>,
-  type: 'radio' | 'checkbox',
-  name: string,
-  selectedOption?: string | Array<string>,
-  disabled?: boolean,
-  required?: boolean,
-  onChange?: (Event) => void,
-  className?: string,
-  error?: boolean,
-  messageError?: string,
+InputCheckGroup.propTypes = {
+  inputGroupTitle: PropTypes.string,
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
+  name: PropTypes.string.isRequired,
+  selectedOption: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf([PropTypes.string]),
+  ]),
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  onChange: PropTypes.func,
+  className: PropTypes.string,
+  error: PropTypes.bool,
+  messageError: PropTypes.string,
 };
 
 InputCheckGroup.defaultProps = {

@@ -3,10 +3,13 @@ import { shallow } from 'enzyme';
 import Switch from '../Switch';
 
 describe('Switch', () => {
+  const mock = jest.fn();
   const wrapper = shallow(
     <Switch
       id="test"
       name="name"
+      checked
+      onChange={mock}
     />,
   );
 
@@ -23,6 +26,6 @@ describe('Switch', () => {
   });
 
   it('should render label', () => {
-    wrapper.setProps({ label: true });
+    wrapper.setProps({ label: 'test' });
   });
 });

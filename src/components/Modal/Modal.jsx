@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Transition, animated, interpolate,
 } from 'react-spring';
@@ -26,7 +26,7 @@ const Modal = ({
   noFooter,
   hasIframe,
   dataQa
-}:propTypes) => {
+}) => {
   const classNames = cn(
     styles.content,
     {
@@ -115,16 +115,24 @@ const renderHeader = header => (
 );
 /* eslint-enable */
 
-type propTypes = {
-  on: boolean,
-  toggle?: () => void,
-  children: string | Node,
-  className?: string,
-  header?: string | () => void,
-  buttonTitle?: string,
-  noFooter?: boolean,
-  hasIframe?: boolean,
-  dataQa?: string,
+Modal.propTypes = {
+  on: PropTypes.bool.isRequired,
+  toggle: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+  className: PropTypes.string,
+  header: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.arrayOf([]),
+  ]),
+  buttonTitle: PropTypes.string,
+  noFooter: PropTypes.bool,
+  hasIframe: PropTypes.bool,
+  dataQa: PropTypes.string,
 };
 
 Modal.defaultProps = {

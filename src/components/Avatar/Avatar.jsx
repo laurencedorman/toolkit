@@ -1,11 +1,11 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Avatar.module.scss';
 
 const Avatar = ({
   className, src, alt, size, dataQa,
-}:propTypes) => {
+}) => {
   const classNames = cn(
     styles.avatar,
     styles[size],
@@ -43,12 +43,15 @@ const Avatar = ({
   );
 };
 
-type propTypes = {
-  className?: string,
-  src: string,
-  alt: string,
-  size?: 'big' | 'small',
-  dataQa?: string,
+Avatar.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  size: PropTypes.oneOf([
+    'big',
+    'small',
+  ]),
+  dataQa: PropTypes.string,
 };
 
 Avatar.defaultProps = {

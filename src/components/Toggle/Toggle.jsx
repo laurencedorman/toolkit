@@ -1,12 +1,10 @@
-// @flow
-import { Component } from 'react';
+import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * @visibleName Toggle
  */
-type propTypes = { children: () => void | Node }
-
-export default class Toggle extends Component<propTypes> {
+export default class Toggle extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { on: false };
@@ -59,3 +57,10 @@ export default class Toggle extends Component<propTypes> {
     });
   }
 }
+
+Toggle.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]),
+};

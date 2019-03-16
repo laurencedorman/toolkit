@@ -1,5 +1,5 @@
-// @flow
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
   Transition, animated,
 } from 'react-spring';
@@ -13,17 +13,9 @@ import styles from './Tooltip.module.scss';
 
 let addTooltipPosition = {};
 
-type propTypes = {
-  children: string | Node | () => void,
-  content: string | Node | () => void,
-  position?: 'top' | 'right' | 'bottom' | 'left',
-  className?: string,
-  bgColor?: string,
-  dataQa?: string,
-};
 
 /* eslint-disable */
-export default class Tooltip extends PureComponent<propTypes> {
+export default class Tooltip extends PureComponent {
   static defaultProps = {
     position: 'top',
     className: '',
@@ -127,7 +119,6 @@ const renderTooltip = (display, content, bgColor) => {
   );
 };
 
-
 const renderContent = (content, className) => (
   typeof content === 'string'
     ? <span className={className}>{content}</span>
@@ -136,3 +127,25 @@ const renderContent = (content, className) => (
     : null
 );
 /* eslint-enable */
+
+Tooltip.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]).isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]).isRequired,
+  position: PropTypes.oneOf([
+    'top',
+    'right',
+    'bottom',
+    'left',
+  ]),
+  className: PropTypes.string,
+  bgColor: PropTypes.string,
+  dataQa: PropTypes.string,
+};
