@@ -27,6 +27,7 @@ $tinySpace: calc(#{$space} / 4);
   label {
     display: block;
     position: absolute;
+    top: 0; left: 0;
     margin: $space 0 0 $space;
     color: $greyMedDarker;
     transform: translate(0) scale(1);
