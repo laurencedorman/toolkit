@@ -136,6 +136,7 @@ initialState = {value: 'Value is valid !'};
   type="text"
   id="Validated"
   name="Validated"
+  valid
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />

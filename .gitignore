@@ -6,6 +6,7 @@
 /coverage/*
 /.idea/*
 package-lock.json
+stats.html
 
 # production
 /build
