@@ -12,7 +12,8 @@ describe('Icon', () => {
   });
 
   it('should render different role', () => {
-    wrapper.setProps({ onClick: 'test' });
+    const click = jest.fn();
+    wrapper.setProps({ onClick: click });
   });
 
   it('should render different svg with special name', () => {

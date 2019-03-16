@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
@@ -9,7 +9,7 @@ import styles from './ToggleDown.module.scss';
  */
 const ToggleDown = ({
   on, children, className, style,
-}:propTypes) => {
+}) => {
   const classNames = cn(
     styles.toggleDown,
     className,
@@ -41,11 +41,15 @@ const ToggleDown = ({
   );
 };
 
-type propTypes = {
-  on: boolean,
-  children: string | Node,
-  className?: string,
-  style?: Object,
+ToggleDown.propTypes = {
+  on: PropTypes.bool.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf([PropTypes.element]),
+  ]).isRequired,
+  className: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 ToggleDown.defaultProps = {

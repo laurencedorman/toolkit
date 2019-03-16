@@ -1,9 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ToggleDown from '../ToggleDown';
 
 describe('ToggleDown', () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <ToggleDown on={false}>
       <div>children</div>
     </ToggleDown>,

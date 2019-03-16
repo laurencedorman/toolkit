@@ -6,15 +6,23 @@ import Alert, { translate } from '../Alert';
 
 describe('Alert', () => {
   const toggle = jest.fn();
-  const TestAnimated = animated;
+  const TestAnimated = new animated();
 
   const wrapper = mount(
-    <Alert on={false} toggle={toggle} textAlert="test" theme="danger" />,
+    <Alert
+      on={false}
+      toggle={toggle}
+      textAlert="test"
+      theme="danger"
+    />,
   );
-
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
+  });
+
+  it('instantiates', () => {
+    expect(TestAnimated).toBeTruthy()
   });
 
   it('should render alert if props on is true', () => {

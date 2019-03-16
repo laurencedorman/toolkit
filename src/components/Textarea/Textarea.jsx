@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Textarea.module.scss';
 
@@ -8,7 +8,7 @@ import styles from './Textarea.module.scss';
  */
 const Textarea = ({
   placeholder, name, value, cols, rows, required, disabled, form, onChange, className, dataQa,
-}: propTypes) => {
+}) => {
   const classNames = cn(
     styles.textarea,
     className,
@@ -33,18 +33,26 @@ const Textarea = ({
   );
 };
 
-type propTypes = {
-  placeholder?: string,
-  name: string,
-  value?: string,
-  cols?: string,
-  rows?: string,
-  required?: boolean,
-  disabled?: boolean,
-  form?: string,
-  onChange: () => void,
-  className?: string,
-  dataQa?: string,
+Textarea.propTypes = {
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  cols: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.any,
+  ]),
+  rows: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.any,
+  ]),
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  form: PropTypes.string,
+  onChange: PropTypes.func,
+  className: PropTypes.string,
+  dataQa: PropTypes.string,
 };
 
 Textarea.defaultProps = {
@@ -54,6 +62,7 @@ Textarea.defaultProps = {
   rows: '5',
   required: false,
   disabled: false,
+  onChange: null,
   form: '',
   className: '',
   dataQa: '',

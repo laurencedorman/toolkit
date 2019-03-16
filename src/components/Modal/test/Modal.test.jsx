@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Modal from '../Modal';
 
 describe('Modal', () => {
-  const wrapper = mount(
-    <Modal><p>Modal test</p></Modal>,
+  const wrapper = shallow(
+    <Modal on><p>Modal test</p></Modal>,
   );
 
   it('should render without crash', () => {

@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Loader.module.scss';
 
 const bar = [
@@ -17,7 +17,7 @@ const bar = [
   },
 ];
 
-const Loader = ({ fill, dataQa }: propTypes) => (
+const Loader = ({ fill, dataQa }) => (
   <div
     className={styles.loader}
     role="alert"
@@ -63,10 +63,10 @@ const Loader = ({ fill, dataQa }: propTypes) => (
   </div>
 );
 
-type propTypes = {
-  fill?: string,
-  dataQa?: string,
-}
+Loader.propTypes = {
+  fill: PropTypes.string,
+  dataQa: PropTypes.string,
+};
 
 Loader.defaultProps = {
   fill: '#0c193a',

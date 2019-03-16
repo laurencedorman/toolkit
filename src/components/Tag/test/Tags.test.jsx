@@ -1,16 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Tags from '../Tag';
+import Tag from '../Tag';
 
-describe('Tags', () => {
-  const wrapper = shallow(<Tags>Tag</Tags>);
+describe('Tag', () => {
+  let wrapper;
+  wrapper = shallow(<Tag><p>Tag</p></Tag>);
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('should render a children', () => {
-    expect(wrapper.text()).toEqual('Tag');
+  it('should render a children as string', () => {
+    expect(wrapper.find('p').text()).toEqual('Tag');
   });
 
   it('should have className disabled if props is true', () => {

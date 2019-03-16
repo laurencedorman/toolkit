@@ -14,11 +14,7 @@ describe('Button', () => {
   });
 
   it('should render a children if props is true', () => {
-    wrapper.setProps({ children: true });
-  });
-
-  it('should render a children if props is true', () => {
-    wrapper.setProps({ title: true });
+    wrapper.setProps({ title: 'test' });
   });
 
   it('should render a different theme', () => {
@@ -27,9 +23,5 @@ describe('Button', () => {
 
   it('should render a different theme', () => {
     wrapper.setProps({ theme: 'secondary' });
-  });
-
-  it('should render a different theme', () => {
-    wrapper.setProps({ theme: 'other' });
   });
 });

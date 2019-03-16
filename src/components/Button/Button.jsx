@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import Icon from '../Icon';
@@ -24,7 +24,7 @@ const Button = React.forwardRef(({
   title,
   fill,
   marginBottom,
-}, ref:propTypes) => {
+}, ref) => {
   const classNames = cn(
     styles.button,
     styles[size],
@@ -70,20 +70,39 @@ const Button = React.forwardRef(({
   /* eslint-enable react/button-has-type */
 });
 
-type propTypes = {
-  children?: string | Node,
-  theme?: 'default' | 'primary' | 'secondary' | 'reset',
-  size?: 'big' | 'default' | 'small' | 'xsmall',
-  type?: 'submit' | 'reset' | 'button' | 'menu',
-  icon?: string,
-  reverse?: boolean,
-  disabled?: boolean,
-  onClick?: () => void,
-  dataQa?: string,
-  className?: string,
-  title?: string | () => void,
-  fill?: string,
-  marginBottom?: string,
+Button.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+  theme: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'ghost',
+    'reset',
+  ]),
+  size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
+  type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+  reverse: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  dataQa: PropTypes.string,
+  className: PropTypes.string,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]),
+  fill: PropTypes.string,
+  marginBottom: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 Button.displayName = 'button';
@@ -99,7 +118,7 @@ Button.defaultProps = {
   onClick: null,
   dataQa: '',
   className: '',
-  title: undefined,
+  title: '',
   fill: colors.white,
   marginBottom: '0',
 };

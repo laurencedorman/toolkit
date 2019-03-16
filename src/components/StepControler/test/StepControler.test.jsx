@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import StepControler from '../StepControler';
 
 describe('StepControler', () => {
@@ -7,7 +7,7 @@ describe('StepControler', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(
+    wrapper = shallow(
       <StepControler getActiveStep={renderMock}>
         {({ props }) => (
           <div {...props}>test</div>

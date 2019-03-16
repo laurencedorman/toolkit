@@ -1,10 +1,8 @@
-// @flow
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 
-type propTypes = { children: Node }
-
-export default class GetMeasure extends Component<propTypes> {
+export default class GetMeasure extends Component {
   myObserver = new ResizeObserver((element) => {
     if (this.ismounted && element) {
       this.setState({
@@ -46,3 +44,10 @@ export default class GetMeasure extends Component<propTypes> {
     });
   }
 }
+
+GetMeasure.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.func,
+  ]).isRequired,
+};

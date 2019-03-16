@@ -1,27 +1,24 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Field = ({
-  validate,
-  normalize,
-  component,
-  ...rest
-}:propTypes) => React.cloneElement(
-  handleComponent(component),
-  {
-    valid: validate,
-    normalize,
-    error: !validate,
-    ...rest,
-  },
-);
 
-const handleComponent = Component => <Component />;
+const Field = ({ validate, normalize, component: Component, ...props, }) =>
+  React.Children.only(
+    <Component
+      valid={validate}
+      normalize={normalize}
+      error={!validate}
+      {...props}
+    />,
+  );
 
-type propTypes = {
-  validate?: boolean,
-  normalize?: Object,
-  component: Node,
+Field.propTypes = {
+  validate: PropTypes.bool,
+  normalize: PropTypes.shape({}),
+  component: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
 };
 
 Field.defaultProps = {

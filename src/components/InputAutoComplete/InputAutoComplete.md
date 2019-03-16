@@ -59,6 +59,7 @@ const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (7
     type="checkbox"
     label="disabled"
     value="value"
+    name="name"
     checked={state.disabled}
     onChange={() => setState({ disabled: !state.disabled })}
   />

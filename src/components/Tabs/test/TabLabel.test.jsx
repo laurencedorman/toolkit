@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import TabLabel from '../TabLabel';
 
 
@@ -7,7 +7,7 @@ describe('TabLabel', () => {
   let wrapper;
   const renderMock = jest.fn();
 
-  wrapper = mount(
+  wrapper = shallow(
     <TabLabel
       onClick={renderMock}
       label="test"
@@ -27,7 +27,7 @@ describe('TabLabel', () => {
   it('should execute label if typeof is a function', () => {
     const label = () => 'test';
 
-    wrapper = mount(
+    wrapper = shallow(
       <TabLabel
         onClick={renderMock}
         label={label}

@@ -1,20 +1,16 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Tab from '../Tab';
 import Tabs from '../Tabs';
 
 
 describe('Tabs', () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <Tabs>
-      <Tab label="LabelOne">
-        <h4>title</h4>
+      <Tab label="Label">
+        <p>Dizzle</p>
       </Tab>
-
-      <Tab label="LabelTwo" defaultActive>
-        <h4>title</h4>
-      </Tab>
-    </Tabs>,
+    </Tabs>
   );
 
   it('should render without crash with layoutContainer', () => {

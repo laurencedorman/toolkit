@@ -6,10 +6,19 @@ import styles from './Input.module.scss';
 const InputLight = ({ className, ...props }) => {
   const classNames = cn(className, styles.inputLight);
 
-  return React.cloneElement(<Input reset />, {
-    ...props,
-    className: classNames,
-  });
+  return React.cloneElement(
+    <Input
+      reset
+      type={props.type}
+      label={props.label}
+      id={props.id}
+      name={props.name}
+    />,
+    {
+      ...props,
+      className: classNames,
+    }
+  );
 };
 
 export default InputLight;

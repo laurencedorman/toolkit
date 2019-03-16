@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Tooltip from '../Tooltip';
 
 describe('Tooltip', () => {
   let wrapper;
-  wrapper = mount(
+  wrapper = shallow(
     <Tooltip content="test">
       test
     </Tooltip>,
@@ -16,7 +16,7 @@ describe('Tooltip', () => {
 
   it('should render content by function', () => {
     const mock = jest.fn();
-    wrapper = mount(
+    wrapper = shallow(
       <Tooltip content={mock}>
         test
       </Tooltip>,

@@ -5,7 +5,7 @@ import Card from '../Card';
 describe('Card', () => {
   let wrapper;
 
-  wrapper = shallow(<Card />);
+  wrapper = shallow(<Card>Card</Card>);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);

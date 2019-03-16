@@ -1,5 +1,5 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Wrapper.module.scss';
 
@@ -8,7 +8,7 @@ import styles from './Wrapper.module.scss';
  */
 const Wrapper = ({
   children, className, direction, type, style, dataQa,
-}:propTypes) => {
+}) => {
   const classNames = cn(
     styles.wrapper,
     {
@@ -31,13 +31,22 @@ const Wrapper = ({
   );
 };
 
-type propTypes = {
-  children: string | Node | () => void,
-  className?: string,
-  direction?: string,
-  style?: Object,
-  type?: 'div' | 'header' | 'footer' | 'section',
-  dataQa?: string,
+Wrapper.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.element,
+  ]),
+  className: PropTypes.string,
+  direction: PropTypes.string,
+  style: PropTypes.shape({}),
+  type: PropTypes.oneOf([
+    'div',
+    'header',
+    'footer',
+    'section',
+  ]),
+  dataQa: PropTypes.string,
 };
 
 Wrapper.defaultProps = {

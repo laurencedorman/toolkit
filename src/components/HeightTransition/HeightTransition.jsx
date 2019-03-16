@@ -1,12 +1,10 @@
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import { animated, Spring } from 'react-spring';
 import GetMeasure from '../GetMeasure';
 import styles from './HeightTransition.module.scss';
 
-type propTypes = { children: Node };
-
-const HeightTransition = ({ children }: propTypes) => (
+const HeightTransition = ({ children }) => (
   <GetMeasure>
     {({ size, ref }) => (
       <Spring
@@ -30,5 +28,7 @@ const HeightTransition = ({ children }: propTypes) => (
     )}
   </GetMeasure>
 );
+
+HeightTransition.propTypes = { children: PropTypes.element.isRequired };
 
 export default HeightTransition;

@@ -4,7 +4,9 @@ import Sidebar from '../Sidebar';
 
 describe('Sidebar', () => {
   const wrapper = shallow(
-    <Sidebar><p>Sidebar test</p></Sidebar>,
+    <Sidebar width="300px" on>
+      <p>Sidebar test</p>
+    </Sidebar>,
   );
 
   it('should render without crash', () => {
