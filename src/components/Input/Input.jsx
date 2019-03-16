@@ -14,7 +14,6 @@ const Input = ({
   id,
   name,
   value,
-  placeholder,
   disabled,
   required,
   minLength,
@@ -33,8 +32,10 @@ const Input = ({
   max,
   step,
   indicator,
+  valid,
   reset,
   dataQa,
+  autoComplete,
 }) => {
   const container = cn(
     styles.container,
@@ -43,7 +44,7 @@ const Input = ({
 
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
-    [styles.hasSuccess]: !error && value !== '' && !reset,
+    [styles.hasSuccess]: valid,
     [styles.reverse]: reverse && icon,
   });
 
@@ -61,36 +62,33 @@ const Input = ({
     <div className={container}>
       <div className={contentClass}>
         <input
+          id={id}
           className={inputStyle}
           type={type}
-          id={id}
           name={name}
           value={value}
-          placeholder={placeholder}
           required={required}
+          disabled={disabled}
+          hidden={hidden}
           minLength={minLength}
           maxLength={maxLength}
-          disabled={disabled}
           onChange={onChange}
           onFocus={onFocus}
           onKeyDown={onKeyDown}
           onBlur={onBlur}
-          hidden={hidden}
           min={min}
           max={max}
           step={step}
+          autoComplete={autoComplete}
           aria-required={required}
           aria-label={label && label}
           aria-hidden={type === 'hidden'}
           data-qa={dataQa}
         />
-        {label && (
-          <label htmlFor={id} className={labelStyle}>
-            {label}
-          </label>
-        )}
-        {handleIcon(error, value, reverse, reset, icon)}
-        {handleIndicator(indicator, icon)}
+        {label
+          && <label htmlFor={id} className={labelStyle}>{label}</label>}
+        { handleIcon(icon, valid, reset) }
+        { handleIndicator(indicator, icon) }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
@@ -146,13 +144,13 @@ Input.propTypes = {
 Input.defaultProps = {
   className: '',
   value: '',
-  placeholder: '',
   required: false,
   minLength: null,
   maxLength: null,
   disabled: false,
   helper: '',
   error: false,
+  valid: false,
   messageError: '',
   hidden: false,
   onChange: null,
@@ -169,13 +167,15 @@ Input.defaultProps = {
   reset: false,
 };
 
+
 /* eslint-disable no-nested-ternary */
-const handleIcon = (error, value, reverse, reset, icon) =>
-  !error && value !== '' && !reverse && !reset ? (
-    <Icon name="check" size="22" className={styles.icon} />
-  ) : icon ? (
-    <Icon name={icon} size="16" className={styles.icon} />
-  ) : null;
+const handleIcon = (icon, valid, reset) => (
+  valid
+    ? <Icon name="check" size="22" className={styles.icon} />
+    : (icon && !reset)
+      ? <Icon name={icon} size="16" className={styles.icon} />
+      : null
+);
 
 const handleIndicator = (indicator, icon) =>
   indicator && !icon && <span className={styles.indicator}>{indicator}</span>;
