@@ -1,4 +1,3 @@
-
 Toggle Down:
 
   * Toggle Down set hide/show content with smooth animation.

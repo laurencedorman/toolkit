@@ -1,4 +1,3 @@
-
 Input Checkbox without label: 
 ```js
 initialState = { checked: false };

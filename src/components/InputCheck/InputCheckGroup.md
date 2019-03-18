@@ -1,4 +1,3 @@
-
 Input Radio Group Horizontal: 
 ```js
 initialState = {

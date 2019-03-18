@@ -1,4 +1,3 @@
-
 Portal:
 
   * Portal is very usefull to display components directly in other root than main div. Component like Tooltip or Modal used this technique to stop conflict with z-index and overflow.
