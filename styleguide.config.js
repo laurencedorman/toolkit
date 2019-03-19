@@ -103,7 +103,7 @@ module.exports = {
     {
       name: 'Manoolkit Components',
       description: 'Toolkit Library with new graphic chart',
-      components: 'src/components/**/*.jsx',
+      components: 'src/components/*/*.jsx',
       sectionDepth: 1,
       ignore: [
         'src/components/GetMeasure/*.jsx',

@@ -12,6 +12,7 @@ export { default as Button } from './components/Button';
 export { default as Card } from './components/Card';
 export { default as DropDown, OptionContainer } from './components/DropDown';
 export { default as Field } from './components/Field';
+export { default as Flag } from './components/Flag';
 export { default as GetMeasure } from './components/GetMeasure';
 export { default as HeightTransition } from './components/HeightTransition';
 export { default as Hint } from './components/Hint';
@@ -42,3 +43,13 @@ export { default as Toggle } from './components/Toggle';
 export { default as ToggleDown } from './components/ToggleDown';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Wrapper } from './components/Wrapper';
+
+//Flags
+export { default as Belgium } from './components/Flag/Flags/Belgium';
+export { default as France } from './components/Flag/Flags/France';
+export { default as Germany } from './components/Flag/Flags/Germany';
+export { default as Italy } from './components/Flag/Flags/Italy';
+export { default as Netherlands } from './components/Flag/Flags/Netherlands';
+export { default as Spain } from './components/Flag/Flags/Spain';
+export { default as Switzerland } from './components/Flag/Flags/Switzerland';
+export { default as UnitedKingdom } from './components/Flag/Flags/UnitedKingdom';
