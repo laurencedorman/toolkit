@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import France from './Flags/France'
 import styles from './Flag.module.scss';
 
 const Flag = ({
