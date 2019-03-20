@@ -1,5 +1,7 @@
 @import '../../styles/import.scss';
 
+$stepSize: em($doubleSpace); // 32
+
 .container,
 .step {
   position: relative;
@@ -10,7 +12,8 @@
 
 .container {
   flex-flow: column wrap;
-  padding: 0 calc(#{$space} * 2);
+  padding: 0 $stepSize;
+
   .label { text-align: center }
 }
 
@@ -20,7 +23,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-bottom: $space;
+  margin-bottom: em($space);
 
   .content {
     position: relative;
@@ -35,7 +38,7 @@
     position: absolute;
     width: calc(100% - 80px);
     height: 1px;
-    top: calc(32px / 2);
+    top: $stepSize / 2;
     left: 2.4em;
     background-color: $greyDark;
   }
@@ -43,9 +46,9 @@
 
 .step {
   position: relative;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+  width: $stepSize;
+  height: $stepSize;
+  flex: 0 0 $stepSize;
   background-color: $greyDark;
   border-radius: 100%;
   transition: background-color $timeout $in;

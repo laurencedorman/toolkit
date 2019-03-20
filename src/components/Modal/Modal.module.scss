@@ -13,19 +13,20 @@
 
   .icon {
     position: absolute;
-    right: .75rem;
+    right: em(12);
     cursor: pointer;
     transition: hover .15s ease;
     z-index: z($levels, max);
+
     &:hover svg { fill: $hover }
   }
 
   .header {
     h4 { margin-bottom: 0 }
-    & .icon { top: .75em }
+    & .icon { top: em(12) }
 
     &.hasContent {
-      padding-right: 2.2em;
+      padding-right: em($doubleSpace);
       border-bottom: 1px solid $greyMed;
 
       & .icon { top: initial }
@@ -50,12 +51,12 @@
   position: absolute;
   display: flex;
   flex-flow: column noWrap;
-  min-width: 320px;
+  min-width: em(320);
   max-width: 50%;
   max-height: 90vh;
   background: $white;
-  border-radius: $radius;
-  border: $border transparent;
+  border-radius: em($radius);
+  border: em($border-width) $border-style transparent;
   box-sizing: border-box;
   text-align: left;
   cursor: default;

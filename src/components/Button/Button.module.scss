@@ -1,26 +1,27 @@
 @import '../../styles/import.scss';
 
-$smallSpace: .75em;
-
 .button {
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-height: 48px;
-  padding: $smallSpace $space;
+  min-height: em(48);
+  padding: em($smallSpace) em($space);
   text-align: center;
-  border: $border transparent;
-  border-radius: $radius;
+  border: em($border-width) $border-style transparent;
+  border-radius: em($radius);
   background: transparent;
-  font-size: 1.143rem;
+  font-size: em(16);
   line-height: 1.2;
   cursor: pointer;
   transition: background-color .15s ease,
               color .15s ease;
   touch-action: manipulation;
 
-  &.default, &.primary { color: $white }
+  &.default,
+  &.primary {
+    color: $white
+  }
 
   &.default {
     background-color: $balataGreen;
@@ -38,6 +39,7 @@ $smallSpace: .75em;
     color: $squidInk;
     background-color: $white;
     border-color: $greyDarker;
+
     &:hover { background-color: $greyDark }
     &:active {
       background-color: $white;
@@ -49,6 +51,7 @@ $smallSpace: .75em;
     color: $balataGreen;
     background-color: $white;
     border-color: $balataGreen;
+
     &:hover {
       background-color: $balataGreen;
       color: $white;
@@ -71,46 +74,59 @@ $smallSpace: .75em;
     background-color: transparent;
     border: none;
     color: $squidInk;
-    &:hover { background-color: $greyDark }
-    &:active { background-color: $white }
+
+    &:hover {
+      background-color: $greyDark
+    }
+    &:active {
+      background-color: $white
+    }
   }
 
-  &:disabled, &:disabled:hover {
+  &:disabled,
+  &:disabled:hover {
     background-color: $greyDarker !important;
     border-color: $greyDarker !important;
   }
 
   //SIZE SPACE
   &.big {
-    min-height: 56px;
-    padding: $space;
+    min-height: em(56);
+    padding: em($space);
   }
 
   &.small {
-    min-height: 40px;
-    padding: calc(#{$space} / 4) $space;
+    min-height: em(40, 14);
+    padding: calc(#{em($space)} / 4) em($space);
   }
 
   &.xsmall {
-    min-height: 32px;
-    padding: 4px $space;
+    min-height: em(32, 14);
+    padding: em(4, 14) em($space);
   }
 
-  &.small, &.xsmall {
-    font-size: 1rem;
-    svg { width: 12px }
+  &.small,
+  &.xsmall {
+    font-size: em(14);
+    svg {
+      width: em(12, 14)
+    }
   }
 
   //ICON SPACE
-  &.icon svg{ margin-right: $smallSpace }
+  &.icon svg{
+    margin-right: em($smallSpace)
+  }
 
   &.reverse {
     flex-direction: row-reverse;
     svg{
       margin-right: 0;
-      margin-left: $smallSpace;
+      margin-left: em($smallSpace);
     }
   }
 
-  &.onlyIcon svg { margin: 0 }
+  &.onlyIcon svg {
+    margin: 0
+  }
 }

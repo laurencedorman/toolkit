@@ -6,22 +6,6 @@ Input basic :
  * Pass helper message with props helper.
  * Pass reset props at true to disabled icon and have a pure input light
 
-
-Input Light without icon and label
-
-```js
-initialState = {value: ''};
-
-<Input
-  type="text"
-  id="inputLight"
-  name="inputLight"
-  value={state.value}
-  reset
-  onChange={e => setState({ value: e.target.value })}
-/>
-```
-
 Input basic
 
 ```js

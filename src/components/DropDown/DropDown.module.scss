@@ -10,7 +10,7 @@
   }
 
   .iconButton {
-    margin: 1px 0 0 $space;
+    margin: em(1) 0 0 em($space);
     transition: transform $timeout $in;
     &.rotate { transform: rotate(90deg) }
   }
@@ -25,25 +25,30 @@
   position: absolute !important;
   width: auto;
   left: 0;
-  border-radius: $radius;
+  border-radius: em($radius);
   background-color: $white;
   z-index: z($layers, nav);
   transition: box-shadow .4s $in;
 
   &.show {
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14),
-                0 3px 14px 2px rgba(0, 0, 0, .12),
-                0 5px 5px -3px rgba(0, 0, 0, .2);
+    box-shadow: 0 em(8) em(10) em(1) rgba(0, 0, 0, .14),
+                0 em(3) em(14) em(2) rgba(0, 0, 0, .12),
+                0 em(5) em(5) em(-3) rgba(0, 0, 0, .2);
   }
 
-  &.right, &.sideLeft, &.sideRight { left: initial }
+  &.right,
+  &.sideLeft,
+  &.sideRight {
+    left: initial
+  }
 
   &.right {
     right: 0;
     li { text-align: right }
   }
 
-  &.sideLeft, &.sideRight { bottom: 0 }
+  &.sideLeft,
+  &.sideRight { bottom: 0 }
 
   .list {
     display: flex;
@@ -55,12 +60,12 @@
 
   li {
     position: relative;
-    padding: $halfSpace $space;
+    padding: em($halfSpace) em($space);
     white-space: nowrap;
     cursor: pointer;
     transition: background-color $timeout $in;
 
-    &:first-child { border-radius: $radius $radius 0 0 }
+    &:first-child { border-radius: em($radius) em($radius) 0 0 }
 
     &:hover, &.active {
       background-color: $squidInk;

@@ -1,24 +1,24 @@
 @import '../../styles/import.scss';
 
-.rt-td, .-pagination { padding: $space !important }
+.rt-td, .-pagination { padding: em($space) !important }
 .rt-th, .rt-td { border-right: none !important }
 .rt-thead, .-pagination { box-shadow: none !important }
 
 .table {
-  font-size: .85rem !important;
-  border-radius: $radius;
+  font-size: em(14) !important;
+  border-radius: em($radius, 14);
 
   .rt-tr { align-items: center }
 
   .-header {
-    height: 32px;
+    height: em(32, 14);
     background-color: $greyMed;
     text-align: left;
-    border-radius: $radius $radius 0 0;
+    border-radius: em($radius, 14) em($radius, 14) 0 0;
 
     .rt-th {
-      height: 32px;
-      padding: 8px 8px;
+      height: em(32, 14);
+      padding: em(8);
       color: $squidInk !important;
       text-align: left;
       &:focus{ outline: none }
@@ -29,17 +29,17 @@
 
   .-filters {
     justify-content: center;
-    height: 46px;
+    height: em(46, 14);
     background-color: transparent;
-    border-bottom: solid 1px $borderColor !important;
+    border-bottom: em($border-width) $border-style $borderColor !important;
 
     .rt-tr {
-      border-bottom: solid 1px $borderColor;
+      border-bottom: solid em(1, 14) $borderColor;
       box-sizing: border-box;
     }
 
     input, select {
-      height: 36px;
+      height: em(36, 14);
       border-color: $borderColor;
     }
   }
@@ -49,13 +49,13 @@
       align-items: center;
     }
 
-    .rt-tr-group:not(:last-child) { border-bottom: 1px solid $borderColor !important }
+    .rt-tr-group:not(:last-child) { border-bottom: em(1, 14) solid $borderColor !important }
 
     .-odd { background-color: $greyLight !important }
   }
 
   .-pagination {
-    border-top: 1px solid $borderColor !important;
+    border-top: em(1, 14) solid $borderColor !important;
 
     .-btn {
       background-color: $balataGreen !important;
@@ -74,16 +74,16 @@
       .-center {
         position: relative;
         .-pageJump, span, select, input { height: 100% !important }
-        input { border: 1px solid $borderColor !important }
+        input { border: em(1, 14) solid $borderColor !important }
       }
     }
 
 
     .select-wrap {
       select {
-        border: 1px solid $borderColor !important;
-        padding: $halfSpace !important;
-        border-radius: $radius !important;
+        border: em(1, 14) solid $borderColor !important;
+        padding: em($halfSpace) !important;
+        border-radius: em($radius) !important;
       }
     }
   }

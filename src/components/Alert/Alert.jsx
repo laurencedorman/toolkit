@@ -48,7 +48,7 @@ const Alert = ({
           (style => (
             <animated.div
               className={classNames}
-              role="Contentinfo"
+              role="contentinfo"
               style={style}
               onClick={toggle}
               timer={timeout}

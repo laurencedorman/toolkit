@@ -3,9 +3,9 @@
 .card {
   position: relative;
   width: auto;
-  padding: $space;
-  margin-bottom: $space;
+  padding: em($space);
+  margin-bottom: em($space);
   background-color: $white;
-  border: 1px solid $borderColor;
-  border-radius: $radius;
+  border: em(1) solid $borderColor;
+  border-radius: em($radius);
 }

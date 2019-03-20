@@ -1,16 +1,14 @@
 @import '../../styles/import.scss';
 
-$inputCheckboxSize: 24px;
-$bigSpace: 2em;
-$tinySpace: calc(#{$space} / 4);
-$focusShadow: 0 2px 10px 2px rgba(12, 25, 58, .1);
-$radioCheckedInnerShadow: 0 0 0 2px $white inset;
+$inputCheckboxSize: em(24);
+$focusShadow: 0 em(2) em(10) em(2) rgba(12, 25, 58, .1);
+$radioCheckedInnerShadow: 0 0 0 em(2) $white inset;
 
 .container {
   position: relative;
   width: 100%;
 
-  &:not(:last-child) { margin-bottom: $space }
+  &:not(:last-child) { margin-bottom: em($space) }
 }
 
 .inputCheck {
@@ -23,18 +21,18 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $tinySpace;
+      padding-left: $smallSpace;
     }
   }
 
   &:not(:last-child) {
-    margin-right: $bigSpace;
+    margin-right: em($doubleSpace);
   }
 
   label {
     position: relative;
     display: inline-block;
-    padding-left: $inputCheckboxSize + 8px; // 8 $halfSpace in px
+    padding-left: $inputCheckboxSize + em(8); // 8 $halfSpace in px
     cursor: pointer;
     line-height: $inputCheckboxSize;
 
@@ -52,7 +50,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
       will-change: transform, opacity, background-color;
     }
 
-    &::before { border: $border $borderColor }
+    &::before { border: em($border-width) $border-style $borderColor }
 
     &:hover::before { border-color: $balataGreen }
   }
@@ -93,7 +91,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
     }
 
     + label {
-      &::before, &::after { border-radius: $radius }
+      &::before, &::after { border-radius: em($radius) }
     }
 
     &:checked + label::after {
@@ -160,7 +158,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
   display: inline-flex;
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: $bigSpace;
+    margin-bottom: em($doubleSpace);
   }
 
   label { margin-bottom: 0 }
@@ -177,7 +175,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
     & > div {
       margin-bottom: $space;
       &:not(:last-child) {
-        margin-right: $bigSpace;
+        margin-right: em($doubleSpace);
       }
     }
   }
@@ -191,7 +189,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $tinySpace;
+      padding-left: $smallSpace;
     }
   }
 
@@ -199,7 +197,7 @@ $radioCheckedInnerShadow: 0 0 0 2px $white inset;
     display: block;
     width: 100%;
     color: $cocoCorail;
-    font-size: 0.75rem;
+    font-size: em(12);
     text-align: left;
   }
 }

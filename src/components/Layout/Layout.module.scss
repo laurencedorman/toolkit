@@ -4,16 +4,16 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: $space;
+  padding: em($space);
   background-color: $white;
 
   &.row { flex-flow: row wrap }
   &.column { flex-flow: column wrap }
 
   &.guide {
-    padding: 0 $space;
+    padding: 0 em($space);
 
     &.row { align-items: flex-end }
-    &.row > * { margin-right: $space }
+    &.row > * { margin-right: em($space) }
   }
 }

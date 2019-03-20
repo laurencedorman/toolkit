@@ -5,14 +5,14 @@
   display: flex;
 
   &.big {
-    width: 48px;
-    height: 48px;
+    width: em(48);
+    height: em(48);
     clip-path: url(#maskAvatarBig);
   }
 
   &.small {
-    width: 32px;
-    height: 32px;
+    width: em(32);
+    height: em(32);
     clip-path: url(#maskAvatarSmall);
   }
 
