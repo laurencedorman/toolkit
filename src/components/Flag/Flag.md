@@ -1,5 +1,7 @@
 Flag
 
+  * Format SVG
+
 ```js
 import Belgium from './Flags/Belgium';
 import France from './Flags/France';
@@ -10,7 +12,7 @@ import Spain from './Flags/Spain';
 import Switzerland from './Flags/Switzerland';
 import UnitedKingdom from './Flags/UnitedKingdom';
 
-<div>
+<div style={{ display: 'flex', width: 400, justifyContent: 'space-around' }}>
   <Flag component={Belgium} />
   <Flag component={France} />
   <Flag component={Germany} />
