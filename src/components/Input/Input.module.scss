@@ -1,6 +1,6 @@
 @import '../../styles/import.scss';
 
-$iconSpace: em(40, 14);
+$iconSpace: em(42, 14);
 
 .container {
   position: relative;
@@ -50,7 +50,7 @@ $iconSpace: em(40, 14);
     position: relative;
     display: block;
     width: 100%;
-    padding: em(20, 14) em($space, 14) em($space, 14);
+    padding: em(19, 14) em($space, 14) em($space, 14); // higher padding top to compensate floating label, as in inVision spec
     background-color: $white;
     background-clip: padding-box;
     border: em($border-width) $border-style $borderColor;
@@ -98,7 +98,6 @@ $iconSpace: em(40, 14);
 
   &.reverse {
     input {
-      padding: em($space, 14);
       padding-left: $iconSpace;
     }
     label { transform: translate(em(24, 14), 0) }
@@ -119,6 +118,6 @@ $iconSpace: em(40, 14);
 
 .inputLight {
   input {
-    padding: em(8, 14) em(12, 14) !important;
+    padding: em(16, 14) em(12, 14) !important;
   }
 }
