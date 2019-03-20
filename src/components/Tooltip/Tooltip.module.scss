@@ -1,6 +1,6 @@
 @import '../../styles/import.scss';
 
-$marginArrow: -10px;
+$marginArrow: em(-10);
 
 .tooltip {
   position: fixed;
@@ -12,9 +12,9 @@ $marginArrow: -10px;
 
     & > div {
       position: relative;
-      max-width: 220px;
-      padding: calc(#{$space} / 2) $space;
-      border-radius: $radius;
+      max-width: em(220);
+      padding: em($halfSpace) em($space);
+      border-radius: em($radius);
       color: $white !important;
       text-align: center;
       backface-visibility: hidden;
@@ -27,11 +27,11 @@ $marginArrow: -10px;
   .content, .spanContent {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: .9rem;
+    font-size: em(14);
     white-space: normal;
     word-break: break-word;
     color: $white;
-    opacity: 1.01;
+    opacity: 1;
   }
 }
 

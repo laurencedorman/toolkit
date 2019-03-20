@@ -1,13 +1,11 @@
 @import '../../styles/import.scss';
 
-$tinySpace: calc(#{$space} / 4);
-
 .container {
   position: relative;
   width: 100%;
 
   &:not(:last-child) {
-    margin-bottom: $space
+    margin-bottom: em($space);
   }
 
   .helper, .error {
@@ -15,7 +13,7 @@ $tinySpace: calc(#{$space} / 4);
     width: 100%;
     margin: 0;
     color: $greyDarker;
-    font-size: 0.75rem;
+    font-size: em(12);
     text-align: left
   }
 
@@ -25,7 +23,7 @@ $tinySpace: calc(#{$space} / 4);
     content: "*";
     display: inline-block;
     color: $cocoCorail;
-    padding-left: $tinySpace
+    padding-left: em($smallSpace)
   }
 }
 

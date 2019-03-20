@@ -1,19 +1,20 @@
 @import '../../styles/import.scss';
 
-$tinySpace: calc(#{$space} / 4);
-$iconSpace: 40px;
+$iconSpace: em(40, 14);
 
 .container {
   position: relative;
   width: 100%;
-  &:not(:last-child) { margin-bottom: $space }
 
-  .helper, .error {
+  &:not(:last-child) { margin-bottom: em($space) }
+
+  .helper,
+  .error {
     display: block;
     width: 100%;
-    margin: .25em 0 0 0;
+    margin-top: em($smallSpace, 12);
     color: $greyMedDarker;
-    font-size: 0.75rem;
+    font-size: em(12);
     text-align: left
   }
 
@@ -30,10 +31,9 @@ $iconSpace: 40px;
   label {
     display: block;
     position: absolute;
-    top: 50%; left: 0;
-    margin-left: $space;
+    margin-left: em($space, 14);
     color: $greyMedDarker;
-    transform: translate(0, -50%) scale(1);
+    font-size: em(14);
     transform-origin: 0 50%;
     transition: transform .10s linear;
     will-change: transform;
@@ -42,7 +42,7 @@ $iconSpace: 40px;
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $tinySpace
+      padding-left: em($smallSpace);
     }
   }
 
@@ -50,38 +50,41 @@ $iconSpace: 40px;
     position: relative;
     display: block;
     width: 100%;
-    height: calc(#{$space} * 4);
-    padding: $tinySpace $iconSpace $tinySpace $space;
+    padding: em(20, 14) em($space, 14) em($space, 14);
     background-color: $white;
     background-clip: padding-box;
-    border: $border $borderColor;
-    border-radius: $radius;
+    border: em($border-width) $border-style $borderColor;
+    border-radius: em($radius, 14);
     box-sizing: border-box;
-    font: 1rem/1.618 'Open Sans';
+    font: em(14) 'Open Sans';
+    line-height: 1;
     will-change: transform;
 
     &.hasError { border-color: $cocoCorail }
 
-    &.hasIndicator { padding-right: calc(30% + 2em) }
+    &.hasIndicator { padding-right: calc(30% + em(28, 14)) }
   }
 
   input:focus { outline-color: $borderColor }
 
-  input:focus + label, &.hasValue input + label {
-    transform: translate(1px, -27px) scale(.75);
+  input:focus + label,
+  &.hasValue input + label {
+    transform: translate(em(1,14), em(-16, 14)) scale(.8);
   }
 
-  input:disabled, input:disabled + label {
+  input:disabled,
+  input:disabled + label {
     background-color: $greyLight;
     cursor: not-allowed
   }
 
-  .icon, .indicator {
+  .icon,
+  .indicator {
     position: absolute;
     display: flex;
     align-items: center;
     height: 100%;
-    top: 0; right: $space;
+    top: 0; right: em($space);
     color: $greyDarker;
     svg { fill: $greyDarker }
   }
@@ -94,16 +97,20 @@ $iconSpace: 40px;
   &.hasSuccess svg { fill: $kaktus }
 
   &.reverse {
-    input { padding: $tinySpace $space $tinySpace $iconSpace }
-    label { transform: translate(24px, -50%) }
+    input {
+      padding: em($space, 14);
+      padding-left: $iconSpace;
+    }
+    label { transform: translate(em(24, 14), 0) }
 
-    input:focus + label, &.hasValue input + label {
-      transform: translate(27px, -27px) scale(.75);
+    input:focus + label,
+    &.hasValue input + label {
+      transform: translate(em(27, 14), em(-16, 14)) scale(.75);
     }
 
     .icon {
       right: initial;
-      left: $space;
+      left: em($space);
     }
 
     &.hasSuccess svg { fill: $greyDarker }
@@ -112,12 +119,6 @@ $iconSpace: 40px;
 
 .inputLight {
   input {
-    height: 36px !important;
-    padding: 8px !important;
-    font-size: .85rem !important;
+    padding: em(8, 14) em(12, 14) !important;
   }
-}
-
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 100px white inset;
 }

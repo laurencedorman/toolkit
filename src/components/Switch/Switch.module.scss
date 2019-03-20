@@ -8,13 +8,13 @@ $fastTimeout: 150ms;
   align-items: center;
   justify-content: flex-start;
   width: auto;
-  &:not(:last-child) { margin-bottom: calc(#{$space} * 2) }
+  &:not(:last-child) { margin-bottom: em($doubleSpace) }
 
   &.reset { margin-bottom: 0 }
 }
 
 .title {
-  margin-left: calc(#{$space} / 2);
+  margin-left: em($halfSpace);
   font-weight: 400;
   cursor: pointer;
 }
@@ -27,14 +27,15 @@ $fastTimeout: 150ms;
   visibility: hidden;
 }
 
+// All labels are reseted to font-size 14 in index.scss
 .label {
   display: inline-flex;
   align-items: center;
   position: relative;
-  width: 3em;
-  height: 1.9em;
+  width: em(44, 14);
+  height: em(28, 14);
   background-color: $greyDarker;
-  border-radius: 30px;
+  border-radius: em(30, 14);
   cursor: pointer;
   transition: background $fastTimeout $in;
 
@@ -43,12 +44,12 @@ $fastTimeout: 150ms;
   &::after {
     content: '';
     position: absolute;
-    width: 1.625em;
-    height: 1.625em;
-    left: .125em;
+    width: em(24, 14);
+    height: em(24, 14);
+    left: em(2, 14);
     background-color: $white;
     border-radius: 100%;
-    box-shadow: 0 1px 1px 1px rgba(0,0,0,.20);
+    box-shadow: 0 em(1, 14) em(1, 14) em(1, 14) rgba(0,0,0,.20);
   }
 
   &.active {
@@ -56,7 +57,7 @@ $fastTimeout: 150ms;
 
     &::after {
       content: '';
-      transform: translateX(15px)
+      transform: translateX(em(16, 14))
     }
   }
 }

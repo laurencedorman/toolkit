@@ -1,7 +1,7 @@
 @import '../../styles/import.scss';
 
 .prediction {
-  padding: 4px;
+  padding: em($smallSpace) em($space);
   cursor: pointer;
   user-select: none;
 
