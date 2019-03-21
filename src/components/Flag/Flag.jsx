@@ -71,7 +71,6 @@ Flag.defaultProps = {
   className: '',
   size: 32,
   fill: '#0c193a',
-  stroke: '#0c193a',
   dataQa: '',
 };
 

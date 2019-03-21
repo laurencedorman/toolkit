@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Flag from '../Flag';
+import Belgium from '../Flags/Belgium';
 import France from '../Flags/France';
 
 describe('Flag', () => {
-  let wrapper;
-
-  wrapper = shallow(<Flag name="document" />);
+  const wrapper = shallow(<Flag component={Belgium} />);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
@@ -18,6 +17,6 @@ describe('Flag', () => {
   });
 
   it('should render different svg with special name', () => {
-    wrapper = shallow(<Flag component={France} />);
+    wrapper.setProps({ component: France });
   });
 });
