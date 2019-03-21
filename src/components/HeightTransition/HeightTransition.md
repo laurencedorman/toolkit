@@ -1,3 +1,5 @@
+HeightTransition :
+
 ```js
 <Toggle>
   {({ on, toggle }) => (

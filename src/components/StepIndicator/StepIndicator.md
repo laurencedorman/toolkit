@@ -1,3 +1,4 @@
+
 ```js
 <StepIndicator>
   <div step="1" label="One" />

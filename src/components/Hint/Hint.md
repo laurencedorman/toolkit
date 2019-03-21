@@ -1,4 +1,3 @@
-
 Default theme :
 ```js
 <Hint

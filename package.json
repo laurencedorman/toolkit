@@ -2,6 +2,8 @@
   "name": "@manomano/toolkit",
   "version": "0.1.0",
   "description": "mano-toolkit component library",
+  "author": "Colibri SAS - ManoMano",
+  "license": "MIT",
   "private": true,
   "sideEffects": false,
   "main": "dist/index.js",
@@ -11,8 +13,6 @@
     "dist/*",
     "src/*"
   ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
