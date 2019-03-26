@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-export function isArray(value: any) {
+export function isArray(value) {
   return Array.isArray(value);
 }

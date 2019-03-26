@@ -4,10 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-
 import { isPlainObject, isString } from 'helpers/validators';
-import type { unmaskPhoneNumberOptions } from './maskPhoneNumberTypes.flow';
 import ZERO from './constantPhoneNumber';
 
 const REPLACER = {
@@ -15,20 +12,25 @@ const REPLACER = {
   NORMAL: new RegExp('\\D', 'g'),
 };
 
-function unmaskPhoneNumber(value: string, options: unmaskPhoneNumberOptions) {
+/**
+ *
+ * @param {string} value
+ * @param {{ ext: string, zero: boolean, anonymized: boolean, maxLength: number }} options
+ */
+
+function unmaskPhoneNumber(value, options) {
   if (!isString(value)) {
-    throw new TypeError('Invalid value for the parameter `value`: must be a string!');
+    throw new TypeError(
+      'Invalid value for the parameter `value`: must be a string!'
+    );
   }
   if (!isPlainObject(options)) {
-    throw new TypeError('Invalid value for the parameter `options`: must be an object!');
+    throw new TypeError(
+      'Invalid value for the parameter `options`: must be an object!'
+    );
   }
 
-  const {
-    ext,
-    zero,
-    anonymized,
-    maxLength,
-  } = options;
+  const { ext, zero, anonymized, maxLength } = options;
 
   let v = value.trim();
   if (!v || !v.length) {
@@ -40,7 +42,10 @@ function unmaskPhoneNumber(value: string, options: unmaskPhoneNumberOptions) {
   }
 
   v = v.replace(ZERO, zero === true ? '0' : '');
-  v = v.replace(anonymized === true ? REPLACER.ANONYMIZED : REPLACER.NORMAL, '');
+  v = v.replace(
+    anonymized === true ? REPLACER.ANONYMIZED : REPLACER.NORMAL,
+    ''
+  );
 
   if (zero === true && v.length && !v.startsWith('0')) {
     v = `0${v}`;

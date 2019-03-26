@@ -4,8 +4,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loader from '../Loader';
 import styles from './Status.module.scss';
 
@@ -15,9 +15,15 @@ export const STATUS = {
   NO_RESULT: 'NO_RESULT',
 };
 
-const Status = ({ status, translations }: PropTypes) => {
+const Status = ({
+  status,
+  translations = {
+    keepTyping: 'Keep typing ✍️',
+    noResult: 'No result 😞',
+  },
+}) => {
   // Have default values
-  const { keepTyping, noResult } = (translations : any);
+  const { keepTyping, noResult } = translations;
   let content;
 
   switch (status) {
@@ -37,19 +43,12 @@ const Status = ({ status, translations }: PropTypes) => {
   return <div className={styles.status}>{content}</div>;
 };
 
-type PropTypes = {
-  status: string,
-  translations?: {
-    keepTyping: string,
-    noResult: string,
-  },
-};
-
-Status.defaultProps = {
-  translations: {
-    keepTyping: 'Keep typing ✍️',
-    noResult: 'No result 😞',
-  },
+Status.propTypes = {
+  status: PropTypes.string,
+  translations: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
 };
 
 export default Status;

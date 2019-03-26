@@ -4,57 +4,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { KEYMAP } from '../../constants/keymap';
 import Input from '../Input';
-import type { InputProps } from '../Input';
 import {
   BLUR_CLOSING_DELAY,
   HIGHLIGHT_TOP_MARGIN,
   MIN_NUMBER_OF_CHARACTERS,
   PREDICT_DEBOUNCE_DELAY,
 } from './constants';
-import type { PredictionType } from './prediction-type';
 import Predictions from './Predictions';
 import Status, { STATUS } from './Status';
 import styles from './InputAutoComplete.module.scss';
 
-type PrivateType = {
-  predictionElemMap: { [predictionIndex: number]: HTMLElement },
-  predictionsContainerRef: { current: null | HTMLDivElement },
-  predictTimeout: number | null,
-};
-
-type PropTypes = InputProps & {
-  className?: string,
-  onChange?: (value: string) => void,
-  predict: PredictionType[] | (() => Promise<PredictionType[]>),
-  translations?: {
-    keepTyping: string,
-    noResult: string,
-    unableToPredict: string,
-  },
-  transNoResult?: string,
-  type: 'email' | 'number' | 'search' | 'tel' | 'text' | 'url',
-  value?: string,
-};
-
-type StateType = {
-  errorMessage: string | null,
-  highlightedPrediction: PredictionType | null,
-  loading: boolean,
-  showPredictions: boolean,
-  predictions: PredictionType[],
-  selectedPrediction: PredictionType | null,
-  value: string,
-};
-
 /**
  * @visibleName InputAutoComplete
  */
-export default class InputAutoComplete extends Component<PropTypes, StateType> {
+export default class InputAutoComplete extends Component {
   static defaultProps = {
     className: '',
     onChange: undefined,
@@ -67,13 +35,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     value: '',
   };
 
-  // eslint-disable-next-line react/sort-comp
-  private: PrivateType;
-
-  // eslint-disable-next-line react/sort-comp
-  state: StateType;
-
-  constructor(props: PropTypes) {
+  constructor(props) {
     super(props);
 
     this.private = {
@@ -93,7 +55,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     };
   }
 
-  get status(): string | null {
+  get status() {
     const { loading, predictions, value } = this.state;
 
     if (value.length < MIN_NUMBER_OF_CHARACTERS) {
@@ -109,7 +71,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     return null;
   }
 
-  getPredictionTopOffset(prediction: PredictionType): number {
+  getPredictionTopOffset(prediction) {
     const { predictions } = this.state;
     const predictionIndex = predictions.indexOf(prediction);
     const predictionElem = this.private.predictionElemMap[predictionIndex];
@@ -120,7 +82,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     return predictionElem.offsetTop;
   }
 
-  handleFocusIn = (): void => {
+  handleFocusIn = () => {
     const { value } = this.state;
 
     if (value.length > 0) {
@@ -128,7 +90,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  handleFocusOut = (): void => {
+  handleFocusOut = () => {
     const { showPredictions } = this.state;
 
     if (showPredictions) {
@@ -137,7 +99,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  handleKeydown = (event: SyntheticKeyboardEvent<HTMLInputElement>): void => {
+  handleKeydown = event => {
     const { showPredictions } = this.state;
     const key = event.charCode || event.keyCode;
 
@@ -208,8 +170,8 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  handleInput = (event: SyntheticEvent<HTMLInputElement>): Promise<void> => {
-    const { target }: any = event;
+  handleInput = event => {
+    const { target } = event;
 
     if (target.value === undefined) {
       throw new Error('Invalid event target');
@@ -262,11 +224,11 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       });
   };
 
-  handlePredictionMouseOver = (prediction: PredictionType): void => {
+  handlePredictionMouseOver = prediction => {
     this.highlightPrediction(prediction, false);
   };
 
-  selectPrediction = (selectedPrediction: PredictionType): void => {
+  selectPrediction = selectedPrediction => {
     const { onChange } = this.props;
     const { value } = selectedPrediction;
 
@@ -277,10 +239,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     }
   };
 
-  highlightPrediction(
-    prediction: PredictionType,
-    scroll: boolean = true
-  ): void {
+  highlightPrediction(prediction, scroll = true) {
     const scrollToPrediction = scroll
       ? () => this.scrollToPrediction(prediction)
       : undefined;
@@ -288,7 +247,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     this.setState({ highlightedPrediction: prediction }, scrollToPrediction);
   }
 
-  open(): void {
+  open() {
     const { predictions, value } = this.state;
 
     this.setState({ showPredictions: true }, () => {
@@ -302,7 +261,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     });
   }
 
-  predict(value: string): Promise<string[]> {
+  predict(value) {
     const { predict } = this.props;
     let predictionPromise = Promise.resolve([]);
 
@@ -334,7 +293,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     return predictionPromise;
   }
 
-  scrollToPrediction(prediction: PredictionType): void {
+  scrollToPrediction(prediction) {
     const container = this.private.predictionsContainerRef.current;
 
     if (container === null) {
@@ -345,7 +304,7 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
       this.getPredictionTopOffset(prediction) - HIGHLIGHT_TOP_MARGIN;
   }
 
-  scrollToTop(): void {
+  scrollToTop() {
     const container = this.private.predictionsContainerRef.current;
 
     if (container === null) {
@@ -355,11 +314,11 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     container.scrollTop = 0;
   }
 
-  close(): void {
+  close() {
     this.setState({ showPredictions: false });
   }
 
-  shouldRenderPredictions(): boolean {
+  shouldRenderPredictions() {
     const { predictions, showPredictions } = this.state;
 
     return (
@@ -438,3 +397,25 @@ export default class InputAutoComplete extends Component<PropTypes, StateType> {
     );
   }
 }
+
+InputAutoComplete.propTypes = {
+  className: PropTypes.string,
+  onChange: PropTypes.func,
+  predict: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string,
+      })
+    ),
+  ]),
+  translations: PropTypes.shape({
+    keepTyping: PropTypes.string,
+    noResult: PropTypes.string,
+    unableToPredict: PropTypes.string,
+  }),
+  transNoResult: PropTypes.string,
+  type: PropTypes.oneOf(['email', 'number', 'search', 'tel', 'text', 'url']),
+  value: PropTypes.string,
+};

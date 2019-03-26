@@ -4,9 +4,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 import { isNumber } from './isNumber';
 
-export function isInteger(value: any) {
+export function isInteger(value) {
   return isNumber(value) && value % 1 === 0;
 }

@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-export function isBoolean(value: any) {
+export function isBoolean(value) {
   return typeof value === 'boolean';
 }

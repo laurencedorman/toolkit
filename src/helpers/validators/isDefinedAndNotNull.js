@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-export function isDefinedAndNotNull(value: any) {
+export function isDefinedAndNotNull(value) {
   return value !== undefined && value !== null;
 }

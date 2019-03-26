@@ -61,9 +61,6 @@
   "eslintConfig": {
     "extends": "@manomano/eslint-config"
   },
-  "eslintIgnore": [
-    "flow-typed/**"
-  ],
   "manoConfig": {
     "alias": {
       "components": "src",

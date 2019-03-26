@@ -4,8 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-
 const ZERO = '(0)';
 
 export default ZERO;
