@@ -9,7 +9,6 @@ const Flag = ({
   className,
   size,
   fill,
-  stroke,
   dataQa,
   component: Component,
 }) => {
@@ -51,10 +50,6 @@ Flag.propTypes = {
     PropTypes.number,
   ]),
   fill: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
-  stroke: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
   ]),
