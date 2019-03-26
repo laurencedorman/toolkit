@@ -4,21 +4,31 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-
 import { isPlainObject, isString } from 'helpers/validators';
-import type { MaskOptions } from './maskTypes.flow';
 
-function mask(value: string, options: MaskOptions) {
+/**
+ *
+ * @param {string} value
+ * @param {{ format: string, formatChar: string, trimmed: boolean }} options
+ */
+
+function mask(value, options) {
   if (!isString(value)) {
-    throw new TypeError('Invalid value for the parameter `value`: must be a string!');
+    throw new TypeError(
+      'Invalid value for the parameter `value`: must be a string!'
+    );
   }
   if (!isPlainObject(options)) {
-    throw new TypeError('Invalid value for the parameter `options`: must be an object!');
+    throw new TypeError(
+      'Invalid value for the parameter `options`: must be an object!'
+    );
   }
 
   const { formatChar, format, trimmed = true } = options;
-  const maxLength = format && typeof format === 'string' ? format.split(formatChar).length - 1 : 0;
+  const maxLength =
+    format && typeof format === 'string'
+      ? format.split(formatChar).length - 1
+      : 0;
   if (!maxLength) {
     return '';
   }
@@ -36,9 +46,9 @@ function mask(value: string, options: MaskOptions) {
   }
 
   if (
-    trimmed !== true
-    && explodedValue.length === 0
-    && explodedFormat[explodedFormatIndex] !== formatChar
+    trimmed !== true &&
+    explodedValue.length === 0 &&
+    explodedFormat[explodedFormatIndex] !== formatChar
   ) {
     let char = explodedFormat[explodedFormatIndex];
     while (explodedFormatIndex < explodedFormat.length && char !== formatChar) {

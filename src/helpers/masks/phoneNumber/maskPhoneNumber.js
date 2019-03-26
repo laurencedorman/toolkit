@@ -4,20 +4,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-
 import { isPlainObject, isString } from 'helpers/validators';
-import type { maskPhoneNumberOptions } from './maskPhoneNumberTypes.flow';
 import unmaskPhoneNumber from './unmaskPhoneNumber';
 import ZERO from './constantPhoneNumber';
 import mask from '../mask';
 
-function maskPhoneNumber(value: string, options: maskPhoneNumberOptions) {
+/**
+ *
+ * @param {string}  value
+ * @param {object}  options
+ * @param {string}  options.ext
+ * @param {boolean} options.zero
+ * @param {boolean} options.anonymized
+ * @param {string}  options.separator
+ * @param {string}  options.format
+ * @param {string}  options.formatChar
+ * @param {boolean} options.trimmed
+ */
+
+function maskPhoneNumber(value, options) {
   if (!isString(value)) {
-    throw new TypeError('Invalid value for the parameter `value`: must be a string!');
+    throw new TypeError(
+      'Invalid value for the parameter `value`: must be a string!'
+    );
   }
   if (!isPlainObject(options)) {
-    throw new TypeError('Invalid value for the parameter `options`: must be an object!');
+    throw new TypeError(
+      'Invalid value for the parameter `options`: must be an object!'
+    );
   }
 
   let { format } = options;
@@ -29,7 +43,10 @@ function maskPhoneNumber(value: string, options: maskPhoneNumberOptions) {
     separator = ' ',
     trimmed = true,
   } = options;
-  const maxLength = format && typeof format === 'string' ? format.split(formatChar).length - 1 : 0;
+  const maxLength =
+    format && typeof format === 'string'
+      ? format.split(formatChar).length - 1
+      : 0;
 
   let v = unmaskPhoneNumber(value, {
     ext,

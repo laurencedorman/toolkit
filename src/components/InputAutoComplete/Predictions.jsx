@@ -4,63 +4,66 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import Prediction from './Prediction';
-import type { PredictionType } from './prediction-type';
 
 const Predictions = ({
-  highlightedPrediction, highlightValue, onClick, onMouseOver, predictions, refCallback,
+  highlightedPrediction,
+  highlightValue,
+  onClick,
+  onMouseOver,
+  predictions = [],
+  refCallback,
   selectedPrediction,
-}: PropTypes) => (
+}) => (
   <ul>
-    {
-      // Flow does not manage default props
-      ((predictions: any): PredictionType[]).map((prediction) => {
-        const { label, value } = prediction;
-        const highlighted = prediction === highlightedPrediction;
-        const onClickHandler = () => onClick && onClick(prediction);
-        const onMouseOverHandler = () => onMouseOver && onMouseOver(prediction);
-        const refCallbackHandler = elem => refCallback && refCallback(prediction, elem);
-        const selected = prediction === selectedPrediction;
+    {predictions.map(prediction => {
+      const { label, value } = prediction;
+      const highlighted = prediction === highlightedPrediction;
+      const onClickHandler = () => onClick && onClick(prediction);
+      const onMouseOverHandler = () => onMouseOver && onMouseOver(prediction);
+      const refCallbackHandler = elem =>
+        refCallback && refCallback(prediction, elem);
+      const selected = prediction === selectedPrediction;
 
-        return (
-          // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
-          <Prediction
-            highlighted={highlighted}
-            highlightValue={highlightValue}
-            key={value}
-            label={label}
-            onClick={onClickHandler}
-            onMouseOver={onMouseOverHandler}
-            refCallback={refCallbackHandler}
-            selected={selected}
-            value={value}
-          />
-        );
-      })
-    }
+      return (
+        // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+        <Prediction
+          highlighted={highlighted}
+          highlightValue={highlightValue}
+          key={value}
+          label={label}
+          onClick={onClickHandler}
+          onMouseOver={onMouseOverHandler}
+          refCallback={refCallbackHandler}
+          selected={selected}
+          value={value}
+        />
+      );
+    })}
   </ul>
 );
 
-type PropTypes = {
-  highlightedPrediction?: PredictionType,
-  highlightValue?: string,
-  onClick?: (prediction: PredictionType) => void,
-  onMouseOver?: (predictionIndex: number) => void,
-  predictions?: PredictionType[],
-  refCallback?: (prediction: PredictionType, element: HTMLElement) => void,
-  selectedPrediction?: PredictionType,
-};
-
-Predictions.defaultProps = {
-  highlightValue: undefined,
-  highlightedPrediction: undefined,
-  onClick: undefined,
-  onMouseOver: undefined,
-  predictions: [],
-  refCallback: undefined,
-  selectedPrediction: undefined,
+Predictions.propTypes = {
+  highlightedPrediction: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
+  highlightValue: PropTypes.string,
+  onClick: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  predictions: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })
+  ),
+  refCallback: PropTypes.func,
+  selectedPrediction: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
 };
 
 export default Predictions;

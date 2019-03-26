@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-export function isString(value: any) {
+export function isString(value) {
   return typeof value === 'string';
 }

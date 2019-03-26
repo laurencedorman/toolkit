@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 import { isArray } from './isArray';
 import { isDefinedAndNotNull } from './isDefinedAndNotNull';
 import { isPlainObject } from './isPlainObject';
@@ -12,7 +11,7 @@ import { isString } from './isString';
 
 const EMPTY_STRING_REGEXP = /^\s*$/;
 
-export function isEmpty(value: any) {
+export function isEmpty(value) {
   if (!isDefinedAndNotNull(value)) {
     return true;
   }

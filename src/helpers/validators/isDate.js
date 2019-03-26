@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
-export function isDate(value: any) {
+export function isDate(value) {
   return value instanceof Date;
 }

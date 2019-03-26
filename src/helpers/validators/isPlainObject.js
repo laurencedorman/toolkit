@@ -4,7 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-// @flow
 export function isPlainObject(value: any) {
   return Object.prototype.toString.call(value) === '[object Object]';
 }
