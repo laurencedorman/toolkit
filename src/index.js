@@ -44,12 +44,11 @@ export { default as ToggleDown } from './components/ToggleDown';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Wrapper } from './components/Wrapper';
 
-//Flags
-export { default as Belgium } from './components/Flag/Flags/Belgium';
-export { default as France } from './components/Flag/Flags/France';
-export { default as Germany } from './components/Flag/Flags/Germany';
-export { default as Italy } from './components/Flag/Flags/Italy';
-export { default as Netherlands } from './components/Flag/Flags/Netherlands';
-export { default as Spain } from './components/Flag/Flags/Spain';
-export { default as Switzerland } from './components/Flag/Flags/Switzerland';
-export { default as UnitedKingdom } from './components/Flag/Flags/UnitedKingdom';
+export { default as BelgiumFlag } from './components/Flag/Flags/Belgium';
+export { default as FranceFlag } from './components/Flag/Flags/France';
+export { default as GermanyFlag } from './components/Flag/Flags/Germany';
+export { default as ItalyFlag } from './components/Flag/Flags/Italy';
+export { default as NetherlandsFlag } from './components/Flag/Flags/Netherlands';
+export { default as SpainFlag } from './components/Flag/Flags/Spain';
+export { default as SwitzerlandFlag } from './components/Flag/Flags/Switzerland';
+export { default as UnitedKingdomFlag } from './components/Flag/Flags/UnitedKingdom';
