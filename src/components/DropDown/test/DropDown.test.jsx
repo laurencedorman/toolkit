@@ -24,7 +24,7 @@ describe('DropDown', () => {
   );
 
   it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+    expect(wrapper).toMatchSnapshot()
   });
 
   it('should render one children', () => {
