@@ -33,30 +33,35 @@
     "@manomano/eslint-config": "0.0.13",
     "@manomano/macgyver": "0.0.13",
     "@manomano/prettier-config": "0.0.13",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
+    "@semantic-release/gitlab": "^3.1.2",
+    "@semantic-release/npm": "^5.1.4",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
     "husky": "1.1.4",
     "react": "16.8.4",
     "react-dom": "16.8.4",
-    "react-styleguidist": "9.0.4"
+    "react-styleguidist": "9.0.4",
+    "semantic-release": "^15.13.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint && npm run test:coverage"
+      "pre-commit": "npm run lint"
     }
   },
   "scripts": {
-    "start": "styleguidist server",
-    "lint": "eslint ./src --ext .js --ext .jsx",
-    "build:lib": "macgyver rollup -c",
-    "prepare": "yarn build:lib",
-    "test": "macgyver test",
-    "test:coverage": "macgyver test --coverage",
-    "styleguide": "styleguidist build",
     "build:demo": "styleguidist build",
+    "build:lib": "macgyver rollup -c",
+    "build:preprod": "styleguidist build",
     "build:prod": "styleguidist build",
-    "build:preprod": "styleguidist build"
+    "lint": "eslint ./src --ext .js --ext .jsx",
+    "prepare": "yarn build:lib",
+    "semantic-release": "npx semantic-release",
+    "start": "styleguidist server",
+    "styleguide": "styleguidist build",
+    "test": "macgyver test",
+    "test:coverage": "macgyver test --coverage"
   },
   "eslintConfig": {
     "extends": "@manomano/eslint-config"

@@ -1,0 +1,43 @@
+# Using the node alpine image to build the React app
+image: node:10.15.2
+# Cache node modules - speeds up future builds
+
+#TODO fix cache that may not be working
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .yarn
+
+stages:
+  - install
+  - semantic-release
+  - test
+  - build
+
+# JOBS
+Install:
+  stage: install
+  script:
+    - yarn
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules/
+      - .yarn
+
+Test:
+  stage: test
+  script:
+    - yarn lint
+    - yarn test:coverage
+
+Build:
+  stage: build
+  script:
+    - yarn build:demo
+
+Semantic-Release:
+  stage: semantic-release
+  script:
+    - yarn semantic-release
