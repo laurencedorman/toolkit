@@ -4,6 +4,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export function isPlainObject(value: any) {
+export function isPlainObject(value) {
   return Object.prototype.toString.call(value) === '[object Object]';
 }

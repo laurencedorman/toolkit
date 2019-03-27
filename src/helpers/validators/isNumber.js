@@ -4,7 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export function isNumber(value: any) {
+export function isNumber(value) {
   // Is it ok to return true for Infinity ?
   return typeof value === 'number' && !Number.isNaN(value);
 }
