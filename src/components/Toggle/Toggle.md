@@ -15,6 +15,9 @@ toggleOut | func | Action to set on (force false)
 ###### Info: ToggleOut func is bind to escape keyboard. 
 
 ```js
+import Button from '../Button';
+import Toggle from '../Toggle';
+
 <Toggle>
 {({ on, toggle }) => (
  <div>
@@ -30,6 +33,9 @@ toggleOut | func | Action to set on (force false)
 Toggle force :
 
 ```js
+import Card from '../Card';
+import Toggle from '../Toggle';
+
  <Toggle>
    {({ on, toggleIn, toggleOut }) => (
      <div onMouseEnter={toggleIn} onMouseLeave={toggleOut}>

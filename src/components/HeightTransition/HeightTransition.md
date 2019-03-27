@@ -1,6 +1,9 @@
 HeightTransition :
 
 ```js
+import Button from '../Button';
+import Toggle from '../Toggle';
+
 <Toggle>
   {({ on, toggle }) => (
     <HeightTransition>

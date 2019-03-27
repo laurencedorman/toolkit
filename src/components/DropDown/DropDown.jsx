@@ -10,6 +10,7 @@ import cn from 'classnames';
 
 import Button from '../Button';
 import Icon from '../Icon';
+import ChevronRight from '../Icon/Icons/IconChevronRight';
 import GetMeasure from '../GetMeasure';
 import OptionContainer from './OptionContainer';
 
@@ -58,7 +59,7 @@ const DropDown = ({
             {renderTitle(title)}
             {icon && (
               <Icon
-                name="chevron-right"
+                component={ChevronRight}
                 size="16"
                 className={iconButton}
                 fill={fill}

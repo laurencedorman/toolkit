@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
+import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './StepIndicator.module.scss';
 
 
@@ -32,7 +33,7 @@ const Step = ({
       <div className={classNames}>
         {step}
         {done ? (
-          <Icon name="check" fill="#fff" className={icon} size={18} />
+          <Icon component={IconCheck} fill="#fff" className={icon} size={18} />
         ) : null}
       </div>
       <span className={styles.label}>{label}</span>

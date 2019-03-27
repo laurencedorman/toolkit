@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
+import Check from '../Icon/Icons/IconCheck';
 import styles from './InputCheck.module.scss';
 
 /**
@@ -52,7 +53,7 @@ const InputCheck = ({
       <label htmlFor={value}>
         {label && label}
         {checked && type === 'checkbox' ? (
-          <Icon name="check" className={styles.icon} size="18" />
+          <Icon component={Check} className={styles.icon} size="18" />
         ) : null}
       </label>
     </div>

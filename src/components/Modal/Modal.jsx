@@ -13,6 +13,7 @@ import cn from 'classnames';
 
 import Button from '../Button';
 import Icon from '../Icon';
+import IconClose from '../Icon/Icons/IconClose';
 import Portal from '../Portal';
 import Wrapper from '../Wrapper';
 import styles from './Modal.module.scss';
@@ -82,7 +83,7 @@ const Modal = ({
                   <Wrapper className={headerStyle} data-qa={dataQa}>
                     {renderHeader(header)}
                     <Icon
-                      name="close"
+                      component={IconClose}
                       size="12"
                       onClick={toggle}
                       className={styles.icon}

@@ -4,6 +4,12 @@ Toggle Down:
   * Toggle Down component need to be wrap with <b>Toggle</b> component like in exemple. Read <b>Toggle</b> section to get more informations.
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import ToggleDown from '../ToggleDown';
+
+
 <Layout direction="column" styleGuidist>
  <Toggle>
  {({ on, toggle }) => (

@@ -8,10 +8,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
+import IconAlertCircle from '../Icon/Icons/IconAlertCircle';
 import styles from './Hint.module.scss';
 
 const Hint = ({
-  theme, textAlert, icon, iconWidth, className, dataQa,
+  theme, textAlert, iconComponent, iconWidth, className, dataQa,
 }) => {
   const classNames = cn(
     styles.hint,
@@ -22,7 +23,7 @@ const Hint = ({
   return (
     <div className={classNames} data-qa={dataQa}>
       <div className={styles.img}>
-        <Icon name={icon} size={iconWidth} />
+        <Icon component={iconComponent} size={iconWidth} />
       </div>
       <div>
         <p>{textAlert}</p>
@@ -43,7 +44,11 @@ Hint.propTypes = {
     PropTypes.func,
     PropTypes.any,
   ]).isRequired,
-  icon: PropTypes.string,
+  iconComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+    PropTypes.node,
+  ]),
   iconWidth: PropTypes.number,
   className: PropTypes.string,
   dataQa: PropTypes.string,
@@ -51,7 +56,7 @@ Hint.propTypes = {
 
 Hint.defaultProps = {
   theme: 'default',
-  icon: 'alert-circle',
+  iconComponent: IconAlertCircle,
   iconWidth: 32,
   className: '',
   dataQa: '',

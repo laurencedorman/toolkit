@@ -11,6 +11,11 @@ Tips:
 
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Wrapper from '../Wrapper';
+
 <Layout direction="column" styleGuidist>
   <h4>Modal with Header as string and default footer</h4>
  <Toggle>
@@ -29,6 +34,11 @@ Tips:
 ```
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Wrapper from '../Wrapper';
+
 const renderComp = () => 'Header title render as a function';
 
 <Layout direction="column" styleGuidist>
@@ -49,6 +59,12 @@ const renderComp = () => 'Header title render as a function';
 ```
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Wrapper from '../Wrapper';
+
+
 <Layout direction="column" styleGuidist>
   <h4>Modal without Header and Footer</h4>
  <Toggle>
@@ -67,6 +83,11 @@ const renderComp = () => 'Header title render as a function';
 ```
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Wrapper from '../Wrapper';
+
 <Layout direction="column" styleGuidist>
   <h4>Modal with big body content</h4>
  <Toggle>
@@ -93,6 +114,12 @@ const renderComp = () => 'Header title render as a function';
 ```
 
 ```js
+import Button from '../Button';
+import Iframe from '../Iframe';
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+
+
 <Layout direction="column" styleGuidist>
   <h4>Modal with iframe content</h4>
  <Toggle>
@@ -111,6 +138,3 @@ const renderComp = () => 'Header title render as a function';
     </Toggle>
 </Layout>
 ```
-
-
-

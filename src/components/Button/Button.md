@@ -1,6 +1,9 @@
 Default Button:
 
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+
 <Layout styleGuidist direction="row">
   <Button marginBottom={16}>default Button</Button>
   <Button marginBottom={16} theme="primary"> primary Button</Button>
@@ -14,6 +17,9 @@ Default Button:
 
 Button Size:
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+
 <Layout styleGuidist direction="row">
     <Button size="big">big button</Button>
     <Button>default button</Button> 
@@ -24,6 +30,9 @@ Button Size:
 
 Icon Button:
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+
 <Layout styleGuidist direction="row">
     <Button size="big" icon="edit">Button</Button>
     <Button icon="edit">Button</Button>  
@@ -34,6 +43,9 @@ Icon Button:
 
 Icon Reverse Button:
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+
 <Layout styleGuidist direction="row">
     <Button theme="primary" size="big" icon="edit" reverse>Button</Button>
     <Button theme="primary" icon="edit" reverse>Button</Button>  
@@ -44,6 +56,9 @@ Icon Reverse Button:
 
 Icon only Button:
 ```js
+import Button from '../Button';
+import Layout from '../Layout';
+
 <Layout styleGuidist direction="row">
     <Button size="big" icon="edit" />
     <Button icon="edit" />

@@ -6,6 +6,9 @@ Custom light dropDown :
   * Add props 'right' at true to changed alignement container options.
 
 ```js
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
@@ -57,6 +60,9 @@ initialState = {
 ```
 
 ```js
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
@@ -99,6 +105,11 @@ initialState = {
 ```
 
 ```js
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Icon from '../Icon';
+import IconDotMenu from '../Icon/Icons/IconDotMenu';
+
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
@@ -121,7 +132,7 @@ initialState = {
   ],
 };
 
-renderTitleWithIcon = () => <IconComponent name="dotMenu" size="18" fill="#fff" />;
+renderTitleWithIcon = () => <Icon component={IconDotMenu} size="18" fill="#fff" />;
 
 <Layout direction="column" styleGuidist>
     <h4>DropDown with sideLeft options</h4>
@@ -143,6 +154,12 @@ renderTitleWithIcon = () => <IconComponent name="dotMenu" size="18" fill="#fff" 
 ```
 
 ```js
+import Layout from '../Layout';
+import Toggle from '../Toggle';
+import Icon from '../Icon';
+import IconDotMenu from '../Icon/Icons/IconDotMenu';
+
+
 initialState = {
   defaultValue: 'Default Value',
   currentValue: '',
@@ -165,7 +182,7 @@ initialState = {
   ],
 };
 
-renderTitle = () => <IconComponent name="dotMenu" size={18} fill="#000" />;
+renderTitle = () => <Icon component={IconDotMenu} size={18} fill="#000" />;
 
 <Layout direction="column" styleGuidist>
     <h4>DropDown with sideRight options</h4>

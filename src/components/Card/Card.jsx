@@ -28,7 +28,7 @@ Card.propTypes = {
     PropTypes.element,
     PropTypes.func,
     PropTypes.node,
-  ]).isRequired,
+  ]),
   className: PropTypes.string,
   dataQa: PropTypes.string,
 };
