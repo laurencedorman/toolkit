@@ -19,7 +19,7 @@ import styles from './Alert.module.scss';
  * @visibleName Alert
  */
 const Alert = ({
-  on, className, toggle, theme, textAlert, icon, iconWidth, timeout, position, dataQa,
+  on, className, toggle, theme, textAlert, timeout, position, dataQa,
 }) => {
   const classNames = cn(
     styles.alert,
@@ -63,8 +63,6 @@ const Alert = ({
               <Hint
                 textAlert={textAlert}
                 theme={theme}
-                icon={icon}
-                iconWidth={iconWidth}
                 dataQa={dataQa}
               />
             </animated.div>
@@ -99,8 +97,6 @@ Alert.propTypes = {
     PropTypes.string,
     PropTypes.func,
   ]).isRequired,
-  icon: PropTypes.string,
-  iconWidth: PropTypes.number,
   className: PropTypes.string,
   timeout: PropTypes.number,
   position: PropTypes.oneOf([
@@ -114,8 +110,6 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   theme: 'default',
-  icon: 'alert-circle',
-  iconWidth: 32,
   className: '',
   timeout: undefined,
   position: 'topRight',

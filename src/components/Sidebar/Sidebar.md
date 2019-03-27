@@ -5,6 +5,10 @@ Sidebar:
 
 
 ```js
+import Button from '../Button';
+import Overlay from '../Overlay';
+import Toggle from '../Toggle';
+
 <Toggle>
     {({ on, toggle }) => (
      <div>
@@ -12,8 +16,10 @@ Sidebar:
         <Button onClick={toggle}>sidebar</Button>
         <Overlay onClick={toggle} on={on} />
         <Sidebar on={on} toggle={toggle} width="200px">
+          <div style={{ padding: 16 }}>
             <h4>Sidebar width 200px</h4>
             <Button onClick={toggle}>Close trigger</Button>
+          </div>    
         </Sidebar>  
       </div>          
     )}
@@ -21,6 +27,10 @@ Sidebar:
 ```
     
 ```js
+import Button from '../Button';
+import Toggle from '../Toggle';
+import Overlay from '../Overlay';
+
 <Toggle>
   {({ on, toggle }) => (
     <div>
@@ -28,8 +38,10 @@ Sidebar:
       <h4>Sidebar Right</h4>
         <Button onClick={toggle}>Sidebar</Button>
         <Sidebar  on={on} toggle={toggle} width="50%" position="right">
-          <h4>Sidebar width 50% </h4>
-          <Button onClick={toggle}>Close trigger</Button>
+          <div style={{ padding: 16 }}>
+            <h4>Sidebar width 50% </h4>
+            <Button onClick={toggle}>Close trigger</Button>
+          </div>
         </Sidebar>  
     </div>
   )}

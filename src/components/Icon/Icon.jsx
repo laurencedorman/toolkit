@@ -8,16 +8,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import iconAssets from '../../assets/setIcons';
 import styles from './Icon.module.scss';
 
 /**
  * @visibleName Icon
  */
 
-/* eslint-disable */
-const IconComponent = ({
-  onClick, className, name, size, fill, stroke, dataQa,
+const Icon = ({
+  onClick,
+  onKeyPress,
+  className,
+  name,
+  size,
+  fill,
+  stroke,
+  dataQa,
+  component: Component,
 }) => {
   const classNames = cn(
     styles.container,
@@ -28,47 +34,30 @@ const IconComponent = ({
     <div
       className={classNames}
       onClick={onClick}
-      onKeyPress={onClick}
-      role={onClick ? 'button' : 'image'}
+      onKeyPress={onKeyPress}
+      role={onClick ? 'button' : 'img'}
       data-qa={dataQa}
     >
-      {Object.prototype.hasOwnProperty.call(iconAssets, name) && (
-        <svg
-          className={styles.svg}
-          width={`${String(size)}px`}
-          height={`${String(size)}px`}
-          viewBox="0 0 32 32"
-          aria-describedby={name}
-          fill={fill}
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-        >
-          {name.includes('chevron')
-            ? <g fill="none">
-                <path
-                  stroke={stroke}
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={iconAssets[name]}
-                />
-              </g>
-            : <path d={iconAssets[name]} />
-          }
-        </svg>
-      )}
+      <svg
+        className={styles.svg}
+        width={`${String(size)}px`}
+        height={`${String(size)}px`}
+        viewBox="0 0 32 32"
+        role="img"
+        fill={fill}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {Component && <Component />}
+      </svg>
     </div>
   );
 };
 
-/* eslint-enable */
-IconComponent.propTypes = {
+
+Icon.propTypes = {
   onClick: PropTypes.func,
+  onKeyPress: PropTypes.func,
   className: PropTypes.string,
-  name: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]).isRequired,
   size: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -82,10 +71,15 @@ IconComponent.propTypes = {
     PropTypes.func,
   ]),
   dataQa: PropTypes.string,
+  component: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
 };
 
-IconComponent.defaultProps = {
+Icon.defaultProps = {
   onClick: null,
+  onKeyPress: null,
   className: '',
   size: 32,
   fill: '#0c193a',
@@ -93,4 +87,4 @@ IconComponent.defaultProps = {
   dataQa: '',
 };
 
-export default IconComponent;
+export default Icon;

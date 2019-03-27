@@ -9,6 +9,8 @@ GetMeasure:
   
 
 ```js
+import Layout from '../Layout';
+
 <Layout direction="column" styleGuidist>
   <GetMeasure>
     {({ size, ref }) => (

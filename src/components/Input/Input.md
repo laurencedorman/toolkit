@@ -128,6 +128,7 @@ initialState = {value: 'Value is valid !'};
 
 Input with icon :
 ```js
+import IconLock from '../Icon/Icons/IconLock';
 initialState = {value: ''};
 
 <Input
@@ -135,7 +136,7 @@ initialState = {value: ''};
   type="text"
   id="Icon"
   name="Icon"
-  icon="lock"
+  iconComponent={IconLock}
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
 />
@@ -158,14 +159,15 @@ initialState = {value: ''};
 
 Input with icon left :
 ```js
-initialState = {value: ''};
+ import IconLock from '../Icon/Icons/IconLock';
+ initialState = {value: ''};
 
 <Input
   label="Input with icon"
   type="text"
   id="IconReverse"
   name="Icon reverse"
-  icon="lock"
+  iconComponent={IconLock}
   reverse
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
@@ -173,7 +175,8 @@ initialState = {value: ''};
 ```
 
 Input Light :
-```js
+```jsx
+import InputLight from './InputLight';
 initialState = {value: ''};
 
 <InputLight

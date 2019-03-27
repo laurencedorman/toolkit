@@ -44,7 +44,9 @@ const predict = () => Promise.reject(new Error('💣'));
 
 disabled
 ```js
-const initialState = { disabled: true };
+import InputCheck from '../InputCheck';
+
+initialState = { disabled: true };
 const predict = Array.from(new Array(20), (v, i) => ({ label: 'Paris', value: (75001 + i).toString() }));
 
 <div>

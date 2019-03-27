@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon';
+import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './Input.module.scss';
 
 /**
@@ -32,7 +33,7 @@ const Input = ({
   error,
   messageError,
   hidden,
-  icon,
+  iconComponent,
   reverse,
   min,
   max,
@@ -51,7 +52,7 @@ const Input = ({
   const contentClass = cn(styles.content, {
     [styles.hasValue]: value !== '',
     [styles.hasSuccess]: valid,
-    [styles.reverse]: reverse && icon,
+    [styles.reverse]: reverse && iconComponent,
   });
 
   const labelStyle = cn({
@@ -93,8 +94,8 @@ const Input = ({
         />
         {label
           && <label htmlFor={id} className={labelStyle}>{label}</label>}
-        { handleIcon(icon, valid, reset) }
-        { handleIndicator(indicator, icon) }
+        { handleIcon(iconComponent, valid, reset) }
+        { handleIndicator(indicator, iconComponent) }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
@@ -103,8 +104,21 @@ const Input = ({
   );
 };
 
+/* eslint-disable no-nested-ternary */
+const handleIcon = (iconComponent, valid, reset) => (
+  valid
+    ? <Icon component={IconCheck} size="22" className={styles.icon} />
+    : (iconComponent && !reset)
+      ? <Icon component={iconComponent} size="16" className={styles.icon} />
+      : null
+);
+
+const handleIndicator = (indicator, iconComponent) =>
+  indicator && !iconComponent && <span className={styles.indicator}>{indicator}</span>;
+/* eslint-enable no-nested-ternary */
+
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   type: PropTypes.oneOf([
     'text',
     'email',
@@ -149,6 +163,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   className: '',
+  label: '',
   value: '',
   required: false,
   minLength: null,
@@ -172,19 +187,5 @@ Input.defaultProps = {
   dataQa: '',
   reset: false,
 };
-
-
-/* eslint-disable no-nested-ternary */
-const handleIcon = (icon, valid, reset) => (
-  valid
-    ? <Icon name="check" size="22" className={styles.icon} />
-    : (icon && !reset)
-      ? <Icon name={icon} size="16" className={styles.icon} />
-      : null
-);
-
-const handleIndicator = (indicator, icon) =>
-  indicator && !icon && <span className={styles.indicator}>{indicator}</span>;
-/* eslint-enable no-nested-ternary */
 
 export default Input;

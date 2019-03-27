@@ -24,6 +24,12 @@ Stepper with StepControler and Toggle components exemple :
   * Check StepControler and Toggle section to read methods and use case.
 
 ```js
+import Button from '../Button';
+import Modal from '../Modal';
+import Toggle from '../Toggle';
+import StepControler from '../StepControler';
+import Wrapper from '../Wrapper';
+
 const click = (next, toggle, lastStep) => {
   lastStep && toggle();
   next();
@@ -86,6 +92,9 @@ const click = (next, toggle, lastStep) => {
 Stepper with controler extension and step initilization  :
 
 ```js
+import Button from '../Button';
+import StepControler from '../StepControler';
+
 <StepControler getActiveStep={2}>
   {({ prevStep, nextStep, activeStep, setTotalStep, direction }) => (
     <div>

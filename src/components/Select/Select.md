@@ -1,5 +1,6 @@
 Select :
 ```js
+import Select from './Select';
 initialState = {
   options: [
     { value: 'ocean', label: 'Ocean' },
@@ -19,6 +20,7 @@ initialState = {
 
 Select with helper :
 ```js
+import Select from './Select';
 initialState = {
   options: [
     { value: 'ocean', label: 'Ocean' },
@@ -38,6 +40,7 @@ initialState = {
 
 Select with error :
 ```js
+import Select from './Select';
 initialState = {
   options: [
     { value: 'ocean', label: 'Ocean' },
@@ -57,6 +60,7 @@ initialState = {
 
 Select with multiple value :
 ```js
+import Select from './Select';
 initialState = {
   options: [
     { value: 'ocean', label: 'Ocean' },
@@ -83,6 +87,7 @@ initialState = {
 
 Select with small size :
 ```js
+import Select from './Select';
 initialState = {
   options: [
     { value: 'ocean', label: 'Ocean' },

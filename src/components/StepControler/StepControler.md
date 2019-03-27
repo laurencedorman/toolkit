@@ -16,6 +16,10 @@ totalStep | number | return total step (use setTotalStep before to set number)
 
 
 ```js
+import Button from '../Button';
+import Card from '../Card';
+import Wrapper from '../Wrapper';
+
 <StepControler>
   {({ prevStep, nextStep, activeStep, setTotalStep }) => (
     <Wrapper direction="row" style={{ alignItems: 'center', justifyContent: 'space-around' }}>

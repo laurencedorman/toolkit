@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Field = ({ validate, normalize, component: Component, ...props, }) =>
+const Field = ({ validate, normalize, component: Component, ...props, }) => (
   React.Children.only(
     <Component
       valid={validate}
@@ -16,11 +16,12 @@ const Field = ({ validate, normalize, component: Component, ...props, }) =>
       error={!validate}
       {...props}
     />,
-  );
+  )
+);
 
 Field.propTypes = {
   validate: PropTypes.bool,
-  normalize: PropTypes.shape({}),
+  normalize: PropTypes.func,
   component: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
@@ -29,7 +30,7 @@ Field.propTypes = {
 
 Field.defaultProps = {
   validate: false,
-  normalize: {},
+  normalize: null,
 };
 
 export default Field;
