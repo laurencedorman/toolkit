@@ -1,8 +1,11 @@
 Tag default:
+
 ```js
 <div style={{ padding: 20 }}>
   <Tag>Tag</Tag>
-  <Tag theme="primary">Tag</Tag>
+  <Tag theme="primary" onClick={() => alert('hello')}>
+    Tag
+  </Tag>
   <Tag theme="secondary">Tag</Tag>
   <Tag theme="tertiary">Tag</Tag>
   <Tag theme="artic">Tag</Tag>
@@ -12,9 +15,10 @@ Tag default:
 </div>
 ```
 
-Tag disabled: 
+Tag disabled:
+
 ```js
 <div style={{ padding: 20 }}>
-    <Tag disabled>Tag</Tag>
+  <Tag disabled>Tag</Tag>
 </div>
 ```
