@@ -20,33 +20,68 @@
   transition: background-color $timeout ease;
   cursor: default;
   white-space: nowrap;
-  &:not(:last-child) { margin-right: em($space) }
-
-  &:active { background-color: $manoBlack }
-
-  &.primary, &.secondary, &:active, &.disabled, &.purplerain { color: $white }
-
-  &.default { border-color: $borderColor }
-
-  &.primary, &.balata {
-    background-color: $balataGreen;
-    &:active { background-color: $squidInk }
+  &:not(:last-child) {
+    margin-right: em($space);
   }
 
-  &.secondary, &.secondary:active, &.bellanotte { background-color: $bellaNotte }
+  &.clickable {
+    cursor: pointer;
+  }
 
-  &.tertiary, &.tertiary:active, &.playa { background-color: $vaALaPlaya }
+  &:active {
+    background-color: $manoBlack;
+  }
 
-  &.artic { background-color: $articCitric }
+  &.primary,
+  &.secondary,
+  &:active,
+  &.disabled,
+  &.purplerain {
+    color: $white;
+  }
 
-  &.hellblau { background-color: $hellblau }
+  &.default {
+    border-color: $borderColor;
+  }
 
-  &.purplerain { background-color: $purpleRain }
+  &.primary,
+  &.balata {
+    background-color: $balataGreen;
+    &:active {
+      background-color: $squidInk;
+    }
+  }
 
-  &.kaktus { background-color: $kaktus }
+  &.secondary,
+  &.secondary:active,
+  &.bellanotte {
+    background-color: $bellaNotte;
+  }
+
+  &.tertiary,
+  &.tertiary:active,
+  &.playa {
+    background-color: $vaALaPlaya;
+  }
+
+  &.artic {
+    background-color: $articCitric;
+  }
+
+  &.hellblau {
+    background-color: $hellblau;
+  }
+
+  &.purplerain {
+    background-color: $purpleRain;
+  }
+
+  &.kaktus {
+    background-color: $kaktus;
+  }
 
   &.disabled {
     background-color: $greyDark;
-    cursor: not-allowed
+    cursor: not-allowed;
   }
 }

@@ -9,18 +9,16 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Tag.module.scss';
 
-const Tag = ({
-  className, theme, children, disabled, dataQa,
-}) => {
+const Tag = ({ className, theme, children, disabled, dataQa, onClick }) => {
   const tagClass = cn(
     styles.tag,
     styles[theme],
-    { [styles.disabled]: disabled },
-    className,
+    { [styles.disabled]: disabled, [styles.clickable]: !!onClick },
+    className
   );
 
   return (
-    <span className={tagClass} data-qa={dataQa}>
+    <span className={tagClass} data-qa={dataQa} onClick={onClick}>
       {children}
     </span>
   );
@@ -42,12 +40,10 @@ Tag.propTypes = {
     'purplerain',
     'kaktus',
   ]),
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   disabled: PropTypes.bool,
   dataQa: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Tag.defaultProps = {
