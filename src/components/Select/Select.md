@@ -1,4 +1,5 @@
 Select :
+
 ```js
 import Select from './Select';
 initialState = {
@@ -6,7 +7,7 @@ initialState = {
     { value: 'ocean', label: 'Ocean' },
     { value: 'mountain', label: 'Mountain' },
     { value: 'campagn', label: 'Campagn' },
-  ]
+  ],
 };
 
 <Select
@@ -15,10 +16,11 @@ initialState = {
   name="name"
   options={state.options}
   placeholder="placeholder"
-/>
+/>;
 ```
 
 Select with helper :
+
 ```js
 import Select from './Select';
 initialState = {
@@ -26,7 +28,7 @@ initialState = {
     { value: 'ocean', label: 'Ocean' },
     { value: 'mountain', label: 'Mountain' },
     { value: 'campagn', label: 'Campagn' },
-  ]
+  ],
 };
 
 <Select
@@ -34,11 +36,12 @@ initialState = {
   name="name"
   options={state.options}
   placeholder="placeholder"
-  helper="An helper to display some informations!"
-/>
+  helper="An helper to display some information!"
+/>;
 ```
 
 Select with error :
+
 ```js
 import Select from './Select';
 initialState = {
@@ -46,7 +49,7 @@ initialState = {
     { value: 'ocean', label: 'Ocean' },
     { value: 'mountain', label: 'Mountain' },
     { value: 'campagn', label: 'Campagn' },
-  ]
+  ],
 };
 
 <Select
@@ -55,10 +58,11 @@ initialState = {
   options={state.options}
   placeholder="placeholder"
   error="Error"
-/>
+/>;
 ```
 
 Select with multiple value :
+
 ```js
 import Select from './Select';
 initialState = {
@@ -72,7 +76,7 @@ initialState = {
     { value: 'four', label: 'four' },
     { value: 'five', label: 'five' },
     { value: 'six', label: 'six' },
-  ]
+  ],
 };
 
 <Select
@@ -81,11 +85,21 @@ initialState = {
   options={state.options}
   placeholder="placeholder"
   isMulti
-  defaultValue={[state.options[0], state.options[1], state.options[2], state.options[3], state.options[4], state.options[5], state.options[6], state.options[7]]}
-/>
+  defaultValue={[
+    state.options[0],
+    state.options[1],
+    state.options[2],
+    state.options[3],
+    state.options[4],
+    state.options[5],
+    state.options[6],
+    state.options[7],
+  ]}
+/>;
 ```
 
 Select with small size :
+
 ```js
 import Select from './Select';
 initialState = {
@@ -93,7 +107,7 @@ initialState = {
     { value: 'ocean', label: 'Ocean' },
     { value: 'mountain', label: 'Mountain' },
     { value: 'campagn', label: 'Campagn' },
-  ]
+  ],
 };
 
 <Select
@@ -101,7 +115,7 @@ initialState = {
   label="Light Select"
   name="light"
   options={state.options}
-  theme='light'
+  theme="light"
   placeholder="Select with small size"
-/>
+/>;
 ```
