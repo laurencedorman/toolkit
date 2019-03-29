@@ -1,15 +1,15 @@
 Input basic :
 
- * Input is a controlled input.
- * Check error or valid format with props error as boolean.
- * Pass error message with props messageError.
- * Pass helper message with props helper.
- * Pass reset props at true to disabled icon and have a pure input light
+- Input is a controlled input.
+- Check error or valid format with props error as boolean.
+- Pass error message with props messageError.
+- Pass helper message with props helper.
+- Pass reset props at true to disabled icon and have a pure input light
 
 Input basic
 
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input text"
@@ -18,27 +18,29 @@ initialState = {value: ''};
   name="name"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input with helper :
+
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input text with helper"
   type="text"
   id="idHelper"
   name="name"
-  helper="An helper to display some informations!"
+  helper="An helper to display some information!"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input with error :
+
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input mail with error"
@@ -49,12 +51,13 @@ initialState = {value: ''};
   onChange={e => setState({ value: e.target.value })}
   error
   messageError="error was found"
-/>
+/>;
 ```
 
 Input with set value :
+
 ```js
-initialState = {value: 'I have set value'};
+initialState = { value: 'I have set value' };
 
 <Input
   label="Input with value"
@@ -63,42 +66,45 @@ initialState = {value: 'I have set value'};
   name="withValue"
   onChange={e => setState({ value: e.target.value })}
   value={state.value}
-/>
+/>;
 ```
 
 Input with helper and error :
+
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
-    label="Input with helper and error"
-    type="text"
-    id="withHelperError"
-    name="withHelperError"
-    helper="An helper to display some informations!"
-    value={state.value}
-    onChange={e => setState({ value: e.target.value })}
-    error
-    messageError="error was found"
-/>
+  label="Input with helper and error"
+  type="text"
+  id="withHelperError"
+  name="withHelperError"
+  helper="An helper to display some information!"
+  value={state.value}
+  onChange={e => setState({ value: e.target.value })}
+  error
+  messageError="error was found"
+/>;
 ```
 
 Disabled Input :
-```js
-initialState = {value: ''};
 
- <Input
+```js
+initialState = { value: '' };
+
+<Input
   label="Disabled Input"
   type="text"
   id="disabled"
   name="disabled"
   disabled
-/>
+/>;
 ```
 
 Required Input :
+
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input text Required"
@@ -108,12 +114,13 @@ initialState = {value: ''};
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
   required
-/>
+/>;
 ```
 
 Validated Input :
+
 ```js
-initialState = {value: 'Value is valid !'};
+initialState = { value: 'Value is valid !' };
 
 <Input
   label="Validated Input"
@@ -123,13 +130,14 @@ initialState = {value: 'Value is valid !'};
   valid
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input with icon :
+
 ```js
 import IconLock from '../Icon/Icons/IconLock';
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input with icon"
@@ -139,12 +147,13 @@ initialState = {value: ''};
   iconComponent={IconLock}
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input with indicator :
+
 ```js
-initialState = {value: ''};
+initialState = { value: '' };
 
 <Input
   label="Input with icon"
@@ -154,13 +163,14 @@ initialState = {value: ''};
   indicator="Indicator"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input with icon left :
+
 ```js
- import IconLock from '../Icon/Icons/IconLock';
- initialState = {value: ''};
+import IconLock from '../Icon/Icons/IconLock';
+initialState = { value: '' };
 
 <Input
   label="Input with icon"
@@ -171,13 +181,14 @@ Input with icon left :
   reverse
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```
 
 Input Light :
+
 ```jsx
 import InputLight from './InputLight';
-initialState = {value: ''};
+initialState = { value: '' };
 
 <InputLight
   type="text"
@@ -185,5 +196,5 @@ initialState = {value: ''};
   name="inputLight"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-/>
+/>;
 ```

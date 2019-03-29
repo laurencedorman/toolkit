@@ -1,31 +1,86 @@
-Tooltip: 
+Warning
 
-  * <b>Tooltip</b> use <b>Portal</b> component who need some adding to work. Read Portal section to get more informations.
-  * Tooltip work fine with version of react >= <b>16.4</b>
-  * content can be render a string or function.
+- It includes react-spring as dependency (31.79KB)
 
+Tooltip:
 
-Tooltip default : 
+- <b>Tooltip</b> uses <b>Portal</b> component who need some adding to work. Read Portal section to get more information.
+- Tooltip works fine with version of react >= <b>16.4</b>
+- content can be render a string or function.
+
+Tooltip default:
+
 ```js
-<p>This is a text with tooltip, <b><Tooltip content="Awesome, i'm in Portal so no z-index and overflow conflict">hover me</Tooltip></b></p> 
+<p>
+  This is a text with tooltip,
+  <b>
+    <Tooltip content="Awesome, i'm in Portal so no z-index and overflow conflict">
+      hover me
+    </Tooltip>
+  </b>
+</p>
 ```
 
-Tooltip bottom : 
+Tooltip bottom :
+
 ```js
-<p>This is a text with tooltip,  <b><Tooltip position="bottom" content="Awesome, You can add long sentence,  You can add long sentence,  You can add long sentence,">hover me</Tooltip></b></p> 
+<p>
+  This is a text with tooltip,
+  <b>
+    <Tooltip
+      position="bottom"
+      content="Awesome, You can add long sentence,  You can add long sentence,  You can add long sentence,"
+    >
+      hover me
+    </Tooltip>
+  </b>
+</p>
 ```
 
-Tooltip left : 
+Tooltip left :
+
 ```js
-<p><b><Tooltip position="left" content="Awesome, i'm in Portal so no z-index and overflow conflict">hover me</Tooltip></b> to try tooltip </p> 
+<p>
+  <b>
+    <Tooltip
+      position="left"
+      content="Awesome, i'm in Portal so no z-index and overflow conflict"
+    >
+      hover me
+    </Tooltip>
+  </b>
+  to try tooltip
+</p>
 ```
 
-Tooltip right : 
+Tooltip right :
+
 ```js
-<p>This is a text with tooltip,  <b><Tooltip position="right" content="Awesome, i'm in Portal so no z-index and overflow conflict">hover me</Tooltip></b></p> 
+<p>
+  This is a text with tooltip,
+  <b>
+    <Tooltip
+      position="right"
+      content="Awesome, i'm in Portal so no z-index and overflow conflict"
+    >
+      hover me
+    </Tooltip>
+  </b>
+</p>
 ```
 
-Tooltip bottom : 
+Tooltip bottom :
+
 ```js
-<p>This is a text with tooltip,  <b><Tooltip position="bottom" content="Awesome, You can add long sentence,  You can add long sentence,  You can add long sentence,">hover me</Tooltip></b></p> 
+<p>
+  This is a text with tooltip,
+  <b>
+    <Tooltip
+      position="bottom"
+      content="Awesome, You can add long sentence,  You can add long sentence,  You can add long sentence,"
+    >
+      hover me
+    </Tooltip>
+  </b>
+</p>
 ```
