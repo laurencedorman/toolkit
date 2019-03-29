@@ -14,31 +14,33 @@
     "src/*"
   ],
   "dependencies": {
-    "classnames": "2.2.6",
-    "prop-types": "15.7.2",
-    "react-router-dom": "4.3.1",
-    "react-select": "2.1.2",
-    "react-spring": "6.1.8",
-    "react-table": "6.8.6",
-    "resize-observer-polyfill": "1.5.1"
+    "classnames": "^2.2.6",
+    "resize-observer-polyfill": "^1.5.1",
+    "webpack": "^4.0.0"
   },
   "peerDependencies": {
-    "react": "16.4.2",
-    "react-dom": "16.5.2",
-    "react-select": "2.1.2",
-    "react-spring": "6.1.8",
-    "react-table": "6.8.6"
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-select": "^2.1.2",
+    "react-spring": "^6.1.8",
+    "react-table": "^6.8.6"
   },
   "devDependencies": {
-    "@manomano/eslint-config": "0.0.13",
-    "@manomano/macgyver": "0.0.13",
-    "@manomano/prettier-config": "0.0.13",
-    "enzyme": "3.6.0",
-    "enzyme-adapter-react-16": "1.5.0",
-    "husky": "1.1.4",
-    "react": "16.8.4",
-    "react-dom": "16.8.4",
-    "react-styleguidist": "9.0.4"
+    "@manomano/eslint-config": "^0.0.21",
+    "@manomano/macgyver": "^0.0.21",
+    "@manomano/prettier-config": "^0.0.21",
+    "core-js": "^3.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "husky": "^1.3.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-router-dom": "^5.0.0",
+    "react-select": "^2.1.2",
+    "react-spring": "^6.1.8",
+    "react-styleguidist": "^9.0.5",
+    "react-table": "^6.8.6"
   },
   "husky": {
     "hooks": {
