@@ -15,7 +15,6 @@ describe('Stepper', () => {
         <h4>step 1 container</h4>
         <p>This is step One container</p>
       </div>
-
       <div step="2" label="Two">
         <h4>step 2 container</h4>
         <p>This is step Two container</p>

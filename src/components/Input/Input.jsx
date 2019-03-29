@@ -128,7 +128,7 @@ Input.propTypes = {
     'search',
     'hidden',
   ]).isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   value: PropTypes.string,
@@ -163,6 +163,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   className: '',
+  id: null,
   label: '',
   value: '',
   required: false,

@@ -42,6 +42,13 @@ Wrapper.propTypes = {
     PropTypes.string,
     PropTypes.func,
     PropTypes.element,
+    PropTypes.elementType,
+    PropTypes.node,
+    PropTypes.arrayOf([
+      PropTypes.element,
+      PropTypes.elementType,
+      PropTypes.node,
+    ]),
   ]),
   className: PropTypes.string,
   direction: PropTypes.string,

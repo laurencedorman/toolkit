@@ -337,6 +337,7 @@ export default class InputAutoComplete extends Component {
       predict,
       translations,
       value,
+      type,
       ...rest
     } = this.props;
     const { state, status } = this;
@@ -385,6 +386,8 @@ export default class InputAutoComplete extends Component {
         )}
         <Input
           {...rest}
+          name={`${type}-autocomplete`}
+          type={type}
           error={!!errorMessage}
           onBlur={this.handleFocusOut}
           onChange={this.handleInput}
