@@ -1,0 +1,66 @@
+# Using the node alpine image to build the React app
+image: node:10.15.2
+# Cache node modules - speeds up future builds
+
+#TODO fix cache that may not be working
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .yarn
+
+stages:
+  - install
+  - test
+  - build
+  - semantic-release
+  - publish
+
+# JOBS
+Install:
+  stage: install
+  script:
+    - yarn
+  except:
+    - tags
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules/
+      - .yarn
+
+Test:
+  stage: test
+  except:
+    - tags
+  script:
+    - yarn lint
+    - yarn test:coverage
+
+Build:
+  stage: build
+  except:
+    - tags
+  script:
+    - yarn build:demo
+  cache:
+    key: ${CI_BUILD_REF_NAME}
+    paths:
+      - node_modules/
+      - .yarn
+      - dist
+
+Semantic-Release:
+  stage: semantic-release
+  only:
+    - master
+  script:
+    - yarn semantic-release
+
+Publish-On-NPM:
+  stage: publish
+  only:
+    - tags
+  script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish --access public

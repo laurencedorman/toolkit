@@ -17,15 +17,13 @@
 <br />
 
 ### Installation
-
-- Go to your package.json and add in dependencies:
-
-`"mano-toolkit": "git+ssh://git@bitbucket.org:mano_mano/toolkit.manomano-lan.com.git"`
-
-- Next, in your terminal execute:
-
-`yarn install`
-
+  
+  `yarn add @manomano/toolkit`
+  
+  or 
+  
+  `npm install @manomano/toolkit --save`
+  
 <br/>
 
 ### Usage
