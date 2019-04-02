@@ -12,7 +12,6 @@ export { default as Button } from './components/Button';
 export { default as Card } from './components/Card';
 export { default as DropDown, OptionContainer } from './components/DropDown';
 export { default as Field } from './components/Field';
-export { default as Flag } from './components/Flag';
 export { default as GetMeasure } from './components/GetMeasure';
 export { default as HeightTransition } from './components/HeightTransition';
 export { default as Hint } from './components/Hint';
@@ -134,11 +133,11 @@ export { default as IconWateringCan } from './components/Icon/Icons/IconWatering
 export { default as IconWheel } from './components/Icon/Icons/IconWheel';
 export { default as IconYoutube } from './components/Icon/Icons/IconYoutube';
 
-export { default as BelgiumFlag } from './components/Flag/Flags/Belgium';
-export { default as FranceFlag } from './components/Flag/Flags/France';
-export { default as GermanyFlag } from './components/Flag/Flags/Germany';
-export { default as ItalyFlag } from './components/Flag/Flags/Italy';
-export { default as NetherlandsFlag } from './components/Flag/Flags/Netherlands';
-export { default as SpainFlag } from './components/Flag/Flags/Spain';
-export { default as SwitzerlandFlag } from './components/Flag/Flags/Switzerland';
-export { default as UnitedKingdomFlag } from './components/Flag/Flags/UnitedKingdom';
+export { default as IconBelgium } from './components/Icon/Icons/IconBelgium';
+export { default as IconFrance } from './components/Icon/Icons/IconFrance';
+export { default as IconGermany } from './components/Icon/Icons/IconGermany';
+export { default as IconItaly } from './components/Icon/Icons/IconItaly';
+export { default as IconNetherlands } from './components/Icon/Icons/IconNetherlands';
+export { default as IconSpain } from './components/Icon/Icons/IconSpain';
+export { default as IconSwitzerland } from './components/Icon/Icons/IconSwitzerland';
+export { default as IconUnitedKingdom } from './components/Icon/Icons/IconUnitedKingdom';

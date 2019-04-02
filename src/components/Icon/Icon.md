@@ -104,6 +104,15 @@ import IconWateringCan from './Icons/IconWateringCan';
 import IconWheel from './Icons/IconWheel';
 import IconYoutube from './Icons/IconYoutube';
 
+import IconBelgium from './Icons/IconBelgium';
+import IconFrance from './Icons/IconFrance';
+import IconGermany from './Icons/IconGermany';
+import IconItaly from './Icons/IconItaly';
+import IconNetherlands from './Icons/IconNetherlands';
+import IconSpain from './Icons/IconSpain';
+import IconSwitzerland from './Icons/IconSwitzerland';
+import IconUnitedKingdom from './Icons/IconUnitedKingdom';
+
 const icons = [
   IconAbTest,
   IconAccount, 
@@ -193,6 +202,14 @@ const icons = [
   IconWateringCan,
   IconWheel,
   IconYoutube,
+  IconBelgium,
+  IconFrance,
+  IconGermany,
+  IconItaly,
+  IconNetherlands,
+  IconSpain,
+  IconSwitzerland,
+  IconUnitedKingdom,
 ];
 
 const style = {
