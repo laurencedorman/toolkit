@@ -42,7 +42,7 @@ Build:
   except:
     - tags
   script:
-    - yarn build:demo
+    - yarn build:lib
   cache:
     key: ${CI_BUILD_REF_NAME}
     paths:
