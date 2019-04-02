@@ -1,3 +1,10 @@
+## [1.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.0...v1.0.1) (2019-04-02)
+
+
+### Bug Fixes
+
+* **95:** no need to run CI when semantic release commits ([651660a](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/651660a))
+
 # [1.0.0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v0.4.0...v1.0.0) (2019-04-02)
 
 
