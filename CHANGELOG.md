@@ -1,3 +1,10 @@
+## [1.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.1...v1.0.2) (2019-04-02)
+
+
+### Bug Fixes
+
+* **95:** no skipping ci on release and remove github deploy ([7e3f1f7](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/7e3f1f7))
+
 ## [1.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.0...v1.0.1) (2019-04-02)
 
 
