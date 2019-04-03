@@ -23,7 +23,7 @@ describe('DropDown', () => {
     />
   );
 
-  it('should render without crash', () => {
+  it('should match snapshot', () => {
     expect(wrapper.dive()).toMatchSnapshot()
   });
 
