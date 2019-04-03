@@ -62,8 +62,8 @@
     "semantic-release": "npx semantic-release",
     "start": "styleguidist server",
     "styleguide": "styleguidist build",
-    "test": "macgyver test",
-    "test:coverage": "macgyver test --coverage"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "eslintConfig": {
     "extends": "@manomano/eslint-config"
