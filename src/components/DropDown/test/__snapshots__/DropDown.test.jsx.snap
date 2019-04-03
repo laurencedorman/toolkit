@@ -1,3 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropDown should render without crash 1`] = `ShallowWrapper {}`;
+exports[`DropDown should render without crash 1`] = `
+<div
+  className="wrapper"
+>
+  <button
+    className="button"
+    dataQa=""
+    disabled={false}
+    fill="#ffffff"
+    icon=""
+    marginBottom="0"
+    onClick={null}
+    reverse={false}
+    size="default"
+    style={
+      Object {
+        "backgroundColor": "#29b9ad",
+      }
+    }
+    theme="default"
+    title=""
+    type="button"
+  >
+    test
+    <Icon
+      className="iconButton rotate"
+      component={[Function]}
+      dataQa=""
+      fill="#ffffff"
+      onClick={null}
+      onKeyPress={null}
+      size="16"
+      stroke="#ffffff"
+    />
+  </button>
+  <OptionContainer
+    active={null}
+    className=""
+    disabled={false}
+    on={true}
+    onClick={null}
+    options={
+      Array [
+        Object {
+          "label": "test",
+          "value": "test",
+        },
+      ]
+    }
+    right={false}
+    sideLeft={false}
+    sideRight={false}
+    size={Object {}}
+    toggle={null}
+  />
+</div>
+`;
