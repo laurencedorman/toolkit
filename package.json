@@ -63,7 +63,7 @@
     "start": "styleguidist server",
     "styleguide": "styleguidist build",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --watch --coverage"
   },
   "eslintConfig": {
     "extends": "@manomano/eslint-config"
