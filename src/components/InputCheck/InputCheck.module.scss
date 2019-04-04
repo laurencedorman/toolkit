@@ -27,7 +27,7 @@ $radioCheckedInnerShadow: 0 0 0 em(2) $white inset;
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $smallSpace;
+      padding-left: em($smallSpace);
     }
   }
 
@@ -172,14 +172,14 @@ $radioCheckedInnerShadow: 0 0 0 em(2) $white inset;
   &.vertical {
     flex-flow: column wrap;
     & > div:not(:last-child) {
-      margin-bottom: $space;
+      margin-bottom: em($space);
     }
   }
 
   &.horizontal{
     flex-flow: row wrap;
     & > div {
-      margin-bottom: $space;
+      margin-bottom: em($space);
       &:not(:last-child) {
         margin-right: em($doubleSpace);
       }
@@ -189,13 +189,13 @@ $radioCheckedInnerShadow: 0 0 0 em(2) $white inset;
   span {
     display: block;
     width: 100%;
-    margin-bottom: $space;
+    margin-bottom: em($space);
 
     &.required::after {
       content: "*";
       display: inline-block;
       color: $cocoCorail;
-      padding-left: $smallSpace;
+      padding-left: em($smallSpace);
     }
   }
 
