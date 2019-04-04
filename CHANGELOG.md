@@ -1,3 +1,10 @@
+## [1.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.2...v1.0.3) (2019-04-04)
+
+
+### Bug Fixes
+
+* **dependencies:** Change needed peerDependencies to dependencies so front doesn't crash. ([bc46ea3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/bc46ea3))
+
 ## [1.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.1...v1.0.2) (2019-04-02)
 
 
