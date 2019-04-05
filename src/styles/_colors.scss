@@ -1,3 +1,4 @@
+// Color Palette
 $squidInk:          #0c193a !default;
 $blueMood:          #0397a7 !default;
 $balataGreen:       #29b9ad !default;
@@ -11,6 +12,8 @@ $hellblau:          #5ad7ef !default;
 $purpleRain:        #6455c8 !default;
 $menthealeau:       #5aefbe !default;
 $kaktus:            #5ac869 !default;
+
+// Greys
 $manoBlack:         #424242 !default;
 $greyMedDarker:     #7C7C7C !default;
 $greyDarker:        #b4b4b4 !default;
@@ -18,12 +21,18 @@ $greyDark:          #d4d4d4 !default;
 $greyMed:           #e8e8e8 !default;
 $greyLight:         #fafafa !default;
 
+// Not colors
 $black:             #000000 !default;
 $white:             #ffffff !default;
 
-$primary:             $squidInk !default;
+// Uses
+$brand-primary:       $squidInk !default;
+$brand-secondary:     $balataGreen !default;
+$danger:               $cocoCorail !default;
+$dangerLight:          lighten($danger, 30%) !default;
+$success:             $kaktus;
+$successLight:        lighten($success, 30%) !default;
 $borderColor:         $greyDark !default;
-
 $hover:               $articCitric !default;
 $indicateur:        #2684FF !default;
 

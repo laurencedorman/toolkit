@@ -6,170 +6,105 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactSelect from 'react-select';
 import cn from 'classnames';
-
-import colors from '../../styles/colors';
 import styles from './Select.module.scss';
 
-/**
- * @visibleName Select
- */
 const Select = ({
+  className,
   options,
   placeholder,
-  value,
-  inputValue,
-  onChange,
-  onBlur,
-  onFocus,
   helper,
   error,
   label,
-  isMulti,
-  defaultValue,
-  name,
   disabled,
   required,
-  theme,
-  dataQa,
-  ...props
+  themeLight,
+  value,
+  ...selectProps
 }) => {
-  const select = cn(
+  const classNames = cn(
     styles.select,
-    styles[theme],
+    styles[className],
     {
+      [styles.noOptionSelected]: !value && placeholder,
+      [styles.light]: themeLight,
       [styles.hasError]: error,
       [styles.disabled]: disabled,
     },
   );
 
-  const labelStyle = cn({
-    [styles.required]: required,
-  });
-
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        {
-          /* eslint-disable */
-          label && <label className={labelStyle}>{label}</label>
-          /* eslint-enable */
+    <div className={classNames}>
+      <label>
+        {label &&
+          <span className={styles.label}>
+            {label}{required && <sup>*</sup>}
+          </span>
         }
-        <ReactSelect
-          {...props}
-          className={select}
-          styles={customStyles}
-          name={name}
-          onChange={onChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          defaultValue={defaultValue}
-          options={options}
-          inputValue={inputValue}
-          value={value}
-          isMulti={isMulti}
-          matchPos="start"
-          placeholder={placeholder}
-          isDisabled={disabled}
-          theme={theme}
-          data-qa={dataQa}
-        />
-      </div>
-      {helper && <span className={styles.helper}>{helper}</span>}
-      {error && <span className={styles.error}>{error}</span>}
+        <span className={styles.mask}>
+          <select
+            {...selectProps}
+            aria-required={required}
+            className={styles.control}
+            disabled={disabled}
+            required={required}
+            defaultValue={value}
+          >
+            {placeholder &&
+              <option
+                disabled
+                value=""
+              >
+                {placeholder}
+              </option>
+            }
+            {options.map((option, index) => (
+              <option
+                value={option.value}
+                key={`${index}-${option.value}`}
+                disabled={option.disabled}
+              >
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <span className={styles.arrow} />
+        </span>
+      </label>
+      {helper && <span className={cn(styles.message, styles.helperMessage)}>{helper}</span>}
+      {error && <span className={cn(styles.message, styles.errorMessage)}>{error}</span>}
     </div>
-  );
-};
+  )
+}
 
-const customStyles = {
-  option: (style, state) => ({
-    ...style,
-    backgroundColor: state.isSelected && '#0c193a',
-    borderColor: colors.greyDark,
-    cursor: 'pointer',
-    zIndex: 9999,
-    '&:hover': {
-      backgroundColor: '#e8e8e8',
-    },
-  }),
-  control: (style, state) => ({
-    ...style,
-    borderRadius: 3,
-    boxShadow: 'none',
-    maxHeight: state.selectProps.theme === 'light' ? 36 : 56,
-    minHeight: state.selectProps.theme === 'light' ? 36 : 56,
-    borderColor:
-      state.selectProps.className.includes('hasError')
-        ? colors.cocoCorail
-        : colors.greyDark,
-    '&:hover': {
-      borderColor:
-        state.selectProps.className.includes('hasError')
-          ? colors.cocoCorail
-          : colors.greyDark,
-    },
-  }),
-  input: () => ({
-    padding: 0,
-    borderWidth: 1,
-    boxSizing: 'border-box',
-  }),
-  valueContainer: (style, state) => ({
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    maxWidth: 'calc(100% - 115px)',
-    minHeight: state.selectProps.theme === 'light' ? 36 : 56,
-    padding: state.selectProps.theme === 'light' ? '8px' : '8px 16px',
-  }),
-  indicatorSeparator: style => ({
-    ...style,
-    alignSelf: 'center',
-  }),
-  multiValueRemove: style => ({
-    ...style,
-    '&:hover': {
-      backgroundColor: '#0c193a',
-      color: '#fff',
-      cursor: 'pointer',
-    },
-  }),
-};
 
 Select.propTypes = {
+  className: PropTypes.string,
   disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  defaultValue: PropTypes.arrayOf(PropTypes.shape()),
-  options: PropTypes.arrayOf(PropTypes.shape()),
-  helper: PropTypes.string,
   error: PropTypes.string,
-  isMulti: PropTypes.bool,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  theme: PropTypes.string,
-  dataQa: PropTypes.string,
+  helper: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  options:  PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+    disabled: PropTypes.bool,
+  })).isRequired,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  themeLight: PropTypes.bool,
+  value: PropTypes.string.isRequired,
 };
 
 Select.defaultProps = {
+  className: '',
   disabled: false,
-  required: false,
+  error: '',
+  helper: '',
   label: '',
   placeholder: '',
-  defaultValue: null,
-  helper: '',
-  error: '',
-  isMulti: false,
-  onChange: null,
-  onFocus: null,
-  onBlur: null,
-  theme: null,
-  dataQa: '',
+  required: false,
+  themeLight: false,
 };
-
 
 export default Select;

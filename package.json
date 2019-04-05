@@ -23,7 +23,6 @@
   "peerDependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-select": "^2.1.2",
     "react-spring": "^6.1.8",
     "react-table": "^6.8.6"
   },
@@ -44,7 +43,6 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0",
-    "react-select": "^2.1.2",
     "react-spring": "^6.1.8",
     "react-styleguidist": "^9.0.5",
     "react-table": "^6.8.6",
