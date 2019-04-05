@@ -1,3 +1,10 @@
+## [1.0.4](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.3...v1.0.4) (2019-04-05)
+
+
+### Bug Fixes
+
+* **npm-release:** allow npm to run scripts, so dist can be released on npm ([1e967db](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/1e967db))
+
 ## [1.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.2...v1.0.3) (2019-04-04)
 
 
