@@ -24,10 +24,6 @@ module.exports = {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css?family=Open+Sans',
         },
-        {
-          rel: 'stylesheet',
-          href: './src/index.scss',
-        },
       ],
     },
     body: {

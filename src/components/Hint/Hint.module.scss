@@ -24,10 +24,10 @@
   }
 
   &.danger {
-    color: $cocoCorail;
-    background-color: lighten($cocoCorail, 30%);
-    border-color: $cocoCorail;
-    svg { fill: $cocoCorail }
+    color: $danger;
+    background-color: $dangerLight;
+    border-color: $danger;
+    svg { fill: $danger }
   }
 
   &.light {
@@ -39,9 +39,9 @@
 
   &.menthe {
     color: $squidInk;
-    background-color: lighten($kaktus, 30%);
-    border-color: $kaktus;
-    svg { fill: $kaktus }
+    background-color: $successLight;
+    border-color: $success;
+    svg { fill: $success }
   }
 
   .img {

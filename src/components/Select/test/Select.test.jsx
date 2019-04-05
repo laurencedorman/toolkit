@@ -9,20 +9,127 @@ import { shallow } from 'enzyme';
 import Select from '../Select';
 
 describe('Select', () => {
-  let wrapper;
-  const options = [{ value: 'jeanjean' }, { label: 'Jean Jean' }];
+  const options = [
+    { value: 'visa', label: 'Visa' },
+    { value: 'master', label: 'MasterCard' },
+    { value: 'amex', label: 'American Express', disabled: true },
+    { value: 'cash', label: 'Cash' },
+    { value: 'other', label: 'Other' },
+  ];
 
-  beforeEach(() => {
-    wrapper = shallow(
+  it('should render correctly', () => {
+    const wrapper = shallow(
       <Select
+        label="This is a label"
         options={options}
         name="testName"
-        placeholder="placeholder"
+        id="testId"
+        className="test-class"
+        onChange={() => {}}
+        value=""
       />,
     );
+
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+  it('should render required elements', () => {
+    const wrapper = shallow(
+      <Select
+        label="This is a label"
+        options={options}
+        required
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('.label').text()).toBe('This is a label*');
+    expect(wrapper.find('select').prop('required')).toBe(true);
+  });
+
+  it('should render disabled elements', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        disabled
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('.select.disabled')).toHaveLength(1);
+    expect(wrapper.find('select').prop('disabled')).toBe(true);
+  });
+
+  it('should render helper correctly', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        helper="This is a helper"
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('span.message')).toHaveLength(1);
+    expect(wrapper.find('span.helperMessage').text()).toBe('This is a helper');
+  });
+
+  it('should render error correctly', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        error="You have an error"
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('.select.hasError')).toHaveLength(1);
+    expect(wrapper.find('span.message')).toHaveLength(1);
+    expect(wrapper.find('span.errorMessage').text()).toBe('You have an error');
+  });
+
+  it('should render themeLight', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        themeLight
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('.select.light')).toHaveLength(1);
+  });
+
+  it('should render with placeholder', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        placeholder="Choose"
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('option')).toHaveLength(6);
+    expect(wrapper.find('option:first-child').text()).toBe('Choose');
+    expect(wrapper.find('option:first-child').prop('value')).toBe('');
+    expect(wrapper.find('.select.noOptionSelected')).toHaveLength(1);
+  });
+
+  it('should render extra selectProps correctly', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        autoComplete="cc-type"
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('.control').prop('autoComplete')).toEqual('cc-type');
   });
 });

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should render correctly 1`] = `"<div class=\\"select test-class\\"><label><span class=\\"label\\">This is a label</span><span class=\\"mask\\"><select name=\\"testName\\" id=\\"testId\\" aria-required=\\"false\\" class=\\"control\\"><option value=\\"visa\\">Visa</option><option value=\\"master\\">MasterCard</option><option value=\\"amex\\" disabled=\\"\\">American Express</option><option value=\\"cash\\">Cash</option><option value=\\"other\\">Other</option></select><span class=\\"arrow\\"></span></span></label></div>"`;
