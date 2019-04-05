@@ -13,8 +13,6 @@ Install:
   stage: install
   script:
     - yarn
-  except:
-    - tags
   artifacts:
     paths:
       - node_modules/
@@ -22,16 +20,12 @@ Install:
 
 Test:
   stage: test
-  except:
-    - tags
   script:
     - yarn lint
     - yarn test:coverage
 
 Build:
   stage: build
-  except:
-    - tags
   script:
     - yarn build:lib
   artifacts:
@@ -52,4 +46,5 @@ Publish-On-NPM:
     - tags
   script:
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm config set unsafe-perm true
     - npm publish --access public
