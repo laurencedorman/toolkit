@@ -1,3 +1,10 @@
+## [1.0.5](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.4...v1.0.5) (2019-04-08)
+
+
+### Bug Fixes
+
+* **ci:** optimise and fix pipeline by removing not necessary jobs and updating lockfiles ([1b607d3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/1b607d3))
+
 ## [1.0.4](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.3...v1.0.4) (2019-04-05)
 
 
