@@ -1,3 +1,10 @@
+## [1.0.6](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.5...v1.0.6) (2019-04-08)
+
+
+### Bug Fixes
+
+* **ci:** install needed for npm release ([d664e68](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/d664e68))
+
 ## [1.0.5](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.4...v1.0.5) (2019-04-08)
 
 
