@@ -43,6 +43,8 @@ $iconSpace: em(42, 14);
     transform-origin: 0 50%;
     transition: transform .10s linear;
     will-change: transform;
+    
+    pointer-events: none;
 
     &.required::after {
       content: "*";
