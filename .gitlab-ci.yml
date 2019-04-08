@@ -13,6 +13,8 @@ Install:
   stage: install
   script:
     - yarn
+  except:
+    - tags
   artifacts:
     paths:
       - node_modules/
@@ -20,12 +22,16 @@ Install:
 
 Test:
   stage: test
+  except:
+    - tags
   script:
     - yarn lint
     - yarn test:coverage
 
 Build:
   stage: build
+  except:
+    - tags
   script:
     - yarn build:lib
   artifacts:
