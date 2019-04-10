@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match snapshot 1`] = `
+<button
+  className="button default default onlyIcon"
+  data-qa=""
+  disabled={false}
+  onClick={null}
+  style={
+    Object {
+      "marginBottom": "0",
+    }
+  }
+  type="button"
+/>
+`;

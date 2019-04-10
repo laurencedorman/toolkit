@@ -7,45 +7,40 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import OptionContainer from '../OptionContainer';
+import DropDown from "../DropDown";
+import Button from "../../Button";
 
 describe('OptionContainer', () => {
-  const onClick = jest.fn();
-  const toggle = jest.fn();
+  let wrapper;
 
   const props = {
-    onClick,
-    toggle,
-    size: {
-      height: 40,
-      width: 40,
-    },
     options: [{
       label: 'test',
       value: 'test',
     }],
   };
 
-  const wrapper = shallow(
-    <OptionContainer {...props} on />,
-  );
-
-  it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+  beforeEach(() => {
+    wrapper = shallow(
+      <OptionContainer {...props} on={false} />,
+    );
   });
 
-  it('should render an overlay if on', () => {
-    wrapper.setProps({ on: true });
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
   });
 
-  it('should have onClick action', () => {
-    wrapper.find('li').simulate('click');
-    wrapper.find('li').simulate('keyPress');
-    expect(onClick).toHaveBeenCalled();
+  it('should render container if props on is true', () => {
+    //when
+    wrapper = shallow(<OptionContainer {...props} on />);
+    //then
+    expect(wrapper.find('ul')).toHaveLength(1);
   });
 
-  it('should have onClick action', () => {
-    wrapper.find('span').simulate('click');
-    wrapper.find('span').simulate('keyPress');
-    expect(toggle).toHaveBeenCalled();
+  it('should render overlay if props on is true', () => {
+    //when
+    wrapper = shallow(<OptionContainer {...props} on />);
+    //then
+    expect(wrapper.find('.closeTarget')).toHaveLength(1);
   });
 });

@@ -44,18 +44,14 @@ const OptionContainer = ({
   const space = 8;
 
   const setPosition = {
-    top: !sideLeft && !sideRight && `${size.height + space}px`,
-    right: sideLeft && !sideRight && `${size.width + space}px`,
-    left: sideRight && `${size.width + space}px`,
+    top: size && !sideLeft && !sideRight && `${size.height + space}px`,
+    right: size && sideLeft && !sideRight && `${size.width + space}px`,
+    left: size && sideRight && `${size.width + space}px`,
   };
 
   return (
     <>
-      {on
-        /* eslint-disable */
-        && <div className={styles.closeTarget} onClick={toggle} />
-        /* eslint-enable */
-      }
+      {on && <div className={styles.closeTarget} onClick={toggle} />}
       <ToggleDown
         on={on}
         className={container}
@@ -92,8 +88,8 @@ const OptionContainer = ({
 
 OptionContainer.propTypes = {
   on: PropTypes.bool.isRequired,
-  toggle: PropTypes.func,
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  toggle: PropTypes.func,
   right: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
