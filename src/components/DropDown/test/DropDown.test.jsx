@@ -6,22 +6,29 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import Button from '../../Button';
 import DropDown from '../DropDown';
+import Icon from '../../Icon';
 
 describe('DropDown', () => {
+  let wrapper;
+
   const props = {
     options: [
-      { value: 'test', label: 'test' },
+      { value: 'valueTest', label: 'labelTest' },
     ],
   };
 
-  const wrapper = shallow(
-    <DropDown
-      on
-      title="test"
-      {...props}
-    />
-  );
+  beforeEach(() => {
+    wrapper = shallow(
+      <DropDown
+        on
+        title="titleTest"
+        dataQa="testQa"
+        {...props}
+      />
+    );
+  });
 
   it('should match snapshot', () => {
     expect(wrapper.dive()).toMatchSnapshot()
@@ -31,8 +38,76 @@ describe('DropDown', () => {
     expect(wrapper.children().length).toEqual(1);
   });
 
-  it('should render animated width', () => {
-    const renderWidth = jest.fn(() => 'x');
-    expect(renderWidth('x')).toEqual('x');
+  it('should call toggle method when button has been clicked', () => {
+    //given
+    const mock = jest.fn();
+    wrapper = shallow(
+      <DropDown
+        on={false}
+        toggle={mock}
+        {...props}
+      />
+    );
+    //when
+    wrapper.dive().find(Button).simulate('click');
+    // then
+    expect(mock).toHaveBeenCalledWith();
+  });
+
+  it('should render no title and no icon when no props title and icon', () => {
+    //when
+    wrapper = shallow(
+      <DropDown
+        on={false}
+        icon={false}
+        {...props}
+      />
+    );
+    // then
+    expect(wrapper.dive().find(Button).text()).toEqual('');
+  });
+
+  it('should render just an icon with no title', () => {
+    //when
+    wrapper = shallow(
+      <DropDown
+        on={false}
+        {...props}
+      />
+    );
+
+    // then
+    expect(wrapper.dive().find(Button).find(Icon)).toHaveLength(1);
+  });
+
+  it('should render just title with no icon', () => {
+    //when
+    wrapper = shallow(
+      <DropDown
+        on={false}
+        icon={false}
+        title="titleTest"
+        {...props}
+      />
+    );
+
+    // then
+    expect(wrapper.dive().find(Button).text()).toEqual('titleTest');
+    expect(wrapper.dive().find(Button).find(Icon)).toHaveLength(0);
+  });
+
+  it('should render title as function', () => {
+    //when
+    wrapper = shallow(
+      <DropDown
+        on={false}
+        icon={false}
+        title={() => 'titleTest'}
+        {...props}
+      />
+    );
+
+    // then
+    expect(wrapper.dive().find(Button).text()).toEqual('titleTest');
   });
 });

@@ -37,6 +37,7 @@ const DropDown = ({
   right,
   active,
   onClick,
+  dataQa,
 }) => {
   const wrapper = cn(
     styles.wrapper,
@@ -55,6 +56,7 @@ const DropDown = ({
             className={styles.button}
             disabled={disabled}
             style={{ backgroundColor }}
+            dataQa={dataQa}
           >
             {renderTitle(title)}
             {icon && (
@@ -84,21 +86,21 @@ const DropDown = ({
     </GetMeasure>
   );
 };
-/* eslint-disable */
+
 const renderTitle = title =>
   typeof title === 'string'
     ? title
     : typeof title === 'function'
       ? title()
       : null;
-/* eslint-enable */
+
 
 DropDown.propTypes = {
   title: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
     PropTypes.element,
-  ]).isRequired,
+  ]),
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   on: PropTypes.bool.isRequired,
   onClick: PropTypes.func,
@@ -113,9 +115,11 @@ DropDown.propTypes = {
   sideRight: PropTypes.bool,
   fill: PropTypes.string,
   stroke: PropTypes.string,
+  dataQa: PropTypes.string,
 };
 
 DropDown.defaultProps = {
+  title: '',
   right: false,
   disabled: false,
   active: null,
@@ -127,6 +131,7 @@ DropDown.defaultProps = {
   toggle: null,
   fill: colors.white,
   stroke: colors.white,
+  dataQa: '',
 };
 
 export default DropDown;

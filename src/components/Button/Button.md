@@ -31,39 +31,42 @@ import Layout from '../Layout';
 Icon Button:
 ```js
 import Button from '../Button';
+import IconEdit from '../Icon/Icons/IconEdit';
 import Layout from '../Layout';
 
 <Layout styleGuidist direction="row">
-    <Button size="big" icon="edit">Button</Button>
-    <Button icon="edit">Button</Button>  
-    <Button size="small" icon="edit">Button</Button>  
-    <Button size="xsmall" icon="edit">Button</Button>   
+    <Button size="big" iconComponent={IconEdit}>Button</Button>
+    <Button iconComponent={IconEdit}>Button</Button>  
+    <Button size="small" iconComponent={IconEdit}>Button</Button>  
+    <Button size="xsmall" iconComponent={IconEdit}>Button</Button>   
 </Layout>
 ```
 
 Icon Reverse Button:
 ```js
 import Button from '../Button';
+import IconEdit from '../Icon/Icons/IconEdit';
 import Layout from '../Layout';
 
 <Layout styleGuidist direction="row">
-    <Button theme="primary" size="big" icon="edit" reverse>Button</Button>
-    <Button theme="primary" icon="edit" reverse>Button</Button>  
-    <Button theme="primary"size="small" icon="edit" reverse>Button</Button>  
-    <Button theme="primary" size="xsmall" icon="edit" reverse>Button</Button>   
+    <Button theme="primary" size="big" iconComponent={IconEdit} reverse>Button</Button>
+    <Button theme="primary" iconComponent={IconEdit} reverse>Button</Button>  
+    <Button theme="primary"size="small" iconComponent={IconEdit} reverse>Button</Button>  
+    <Button theme="primary" size="xsmall" iconComponent={IconEdit} reverse>Button</Button>   
 </Layout>
 ```
 
 Icon only Button:
 ```js
 import Button from '../Button';
+import IconEdit from '../Icon/Icons/IconEdit';
 import Layout from '../Layout';
 
 <Layout styleGuidist direction="row">
-    <Button size="big" icon="edit" />
-    <Button icon="edit" />
-    <Button icon="edit" theme="reset" fill="#424242" />
-    <Button size="small" icon="edit" />
-    <Button size="xsmall" icon="edit" />  
+    <Button size="big" iconComponent={IconEdit} />
+    <Button iconComponent={IconEdit} />
+    <Button iconComponent={IconEdit} theme="reset" fill="#424242" />
+    <Button size="small" iconComponent={IconEdit} />
+    <Button size="xsmall" iconComponent={IconEdit} />  
 </Layout>
 ```

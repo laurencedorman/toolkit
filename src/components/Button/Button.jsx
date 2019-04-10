@@ -21,7 +21,7 @@ const Button = React.forwardRef(({
   theme,
   disabled,
   type,
-  icon,
+  iconComponent,
   reverse,
   onClick,
   dataQa,
@@ -36,22 +36,12 @@ const Button = React.forwardRef(({
     styles[size],
     styles[theme],
     {
-      [styles.icon]: icon,
+      [styles.icon]: iconComponent,
       [styles.reverse]: reverse,
-      [styles.onlyIcon]: !children,
+      [styles.onlyIcon]: !children && !title,
     },
     className,
   );
-
-  /* eslint-disable no-nested-ternary */
-  const setFill = () => (
-    theme === 'default' || theme === 'primary'
-      ? `${colors.white}`
-      : theme === 'secondary'
-        ? `${colors.manoBlack}`
-        : fill
-  );
-  /* eslint-enable no-nested-ternary */
 
   /* eslint-disable react/button-has-type */
   return (
@@ -67,8 +57,8 @@ const Button = React.forwardRef(({
         ...style,
       }}
     >
-      {icon
-        && <Icon name={icon} size="16" fill={setFill()} />}
+      {iconComponent
+        && <Icon component={iconComponent} size="16" fill={fill} />}
       {children && children}
       {title && title}
     </button>
@@ -91,8 +81,9 @@ Button.propTypes = {
   ]),
   size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
   type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
-  icon: PropTypes.oneOfType([
-    PropTypes.string,
+  iconComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
     PropTypes.bool,
   ]),
   reverse: PropTypes.bool,
@@ -118,7 +109,7 @@ Button.defaultProps = {
   theme: 'default',
   size: 'default',
   type: 'button',
-  icon: '',
+  iconComponent: null,
   reverse: false,
   disabled: false,
   onClick: null,

@@ -6,10 +6,10 @@ exports[`DropDown should match snapshot 1`] = `
 >
   <button
     className="button"
-    dataQa=""
+    dataQa="testQa"
     disabled={false}
     fill="#ffffff"
-    icon=""
+    iconComponent={null}
     marginBottom="0"
     onClick={null}
     reverse={false}
@@ -23,7 +23,7 @@ exports[`DropDown should match snapshot 1`] = `
     title=""
     type="button"
   >
-    test
+    titleTest
     <Icon
       className="iconButton rotate"
       component={[Function]}
@@ -44,8 +44,8 @@ exports[`DropDown should match snapshot 1`] = `
     options={
       Array [
         Object {
-          "label": "test",
-          "value": "test",
+          "label": "labelTest",
+          "value": "valueTest",
         },
       ]
     }
