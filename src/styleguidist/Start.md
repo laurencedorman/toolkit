@@ -1,32 +1,49 @@
--------------------------------
+- Copyright (c) Colibri SAS - ManoMano
+- This source code is licensed under the MIT license found in the
+  LICENSE file in the root directory of this source tree.
 
-### Manoolkit Components and Utilities
-#####  version 0.1.0
+## Manoolkit
 
--------------------------------
+---
 
-<br/>
 ### Minimum Requirements
 
 | React | React-DOM | Node |
 | ----- | --------- | ---- |
-| 16.4 | 16.4 | 8.9 |
+| 16.4  | 16.4      | 8.9  |
 
-<br /> 
+<br />
 
 ### Installation
-
-  + Go to your package.json and add in dependencies:
   
-  `"mano-toolkit": "git+ssh://git@git.manomano.tech:component-react/toolkit.manomano-lan.com.git"`
+  `yarn add @manomano/toolkit`
   
-  + Next in your terminal execute:
+  or 
   
-  `yarn install`
+  `npm install @manomano/toolkit --save`
   
 <br/>
 
-### Utilisation
+### Usage
 
-  `import { component } from 'mano-toolkit';`
+`import { component } from '@manomano/toolkit';`
 
+### Warning
+
+Some components have external dependencies that increase the final bundle size.
+
+- React-table(41.29KB)
+
+  - Table
+
+- React-Spring(31.79KB)
+  - Alert
+  - HeightTransition
+  - Modal
+  - OptionContainer
+  - Overlay
+  - Stepper
+  - TabBody
+  - Tabs
+  - ToggleDown
+  - Tooltip

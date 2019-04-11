@@ -28,7 +28,7 @@
 
 ### Usage
 
-`import { component } from 'mano-toolkit';`
+`import { component } from '@manomano/toolkit';`
 
 ### Warning
 
