@@ -35,7 +35,6 @@ const InputCheck = ({
   );
 
   return (
-    /* eslint-disable jsx-a11y/label-has-for */
     <div className={classNames}>
       <input
         type={type}
@@ -57,7 +56,6 @@ const InputCheck = ({
         ) : null}
       </label>
     </div>
-    /* eslint-enable jsx-a11y/label-has-for */
   );
 };
 

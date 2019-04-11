@@ -14,7 +14,7 @@ Tooltip default:
 <p>
   This is a text with tooltip,
   <b>
-    <Tooltip content="Awesome, i'm in Portal so no z-index and overflow conflict">
+    <Tooltip content="Awesome, i'm in Portal so no z-index and overflow conflict, Awesome, i'm in Portal so no z-index and overflow conflict, Awesome, i'm in Portal so no z-index and overflow conflict, Awesome, i'm in Portal so no z-index and overflow conflict">
       hover me
     </Tooltip>
   </b>
@@ -29,7 +29,7 @@ Tooltip bottom :
   <b>
     <Tooltip
       position="bottom"
-      content="Awesome, You can add long sentence,  You can add long sentence,  You can add long sentence,"
+      content="Awesome"
     >
       hover me
     </Tooltip>
@@ -46,10 +46,9 @@ Tooltip left :
       position="left"
       content="Awesome, i'm in Portal so no z-index and overflow conflict"
     >
-      hover me
+      hover me 
     </Tooltip>
   </b>
-  to try tooltip
 </p>
 ```
 

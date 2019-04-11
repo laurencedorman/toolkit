@@ -15,6 +15,7 @@ describe('InputLight', () => {
       label="text"
       id="id"
       name="name"
+      value="value"
     />,
   );
 

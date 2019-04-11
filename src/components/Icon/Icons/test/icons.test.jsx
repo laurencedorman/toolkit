@@ -16,7 +16,7 @@ describe('Icons', () => {
   const files = fs.readdirSync(iconsDir);
 
   files
-    .filter(filename => filename.includes('.'))
+    .filter(filename => filename.includes('.jsx'))
     .forEach(icon => {
       const iconName = icon.split('.')[0];
 

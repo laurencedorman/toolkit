@@ -7,8 +7,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import OptionContainer from '../OptionContainer';
-import DropDown from "../DropDown";
-import Button from "../../Button";
 
 describe('OptionContainer', () => {
   let wrapper;

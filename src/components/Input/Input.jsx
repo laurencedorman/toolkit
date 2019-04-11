@@ -64,7 +64,6 @@ const Input = ({
     [styles.hasIndicator]: indicator,
   });
 
-  /* eslint-disable jsx-a11y/label-has-for */
   return (
     <div className={container}>
       <div className={contentClass}>
@@ -100,11 +99,10 @@ const Input = ({
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
     </div>
-    /* eslint-enable jsx-a11y/label-has-for */
   );
 };
 
-/* eslint-disable no-nested-ternary */
+
 const handleIcon = (iconComponent, valid, reset) => (
   valid
     ? <Icon component={IconCheck} size="22" className={styles.icon} />
@@ -115,7 +113,7 @@ const handleIcon = (iconComponent, valid, reset) => (
 
 const handleIndicator = (indicator, iconComponent) =>
   indicator && !iconComponent && <span className={styles.indicator}>{indicator}</span>;
-/* eslint-enable no-nested-ternary */
+
 
 Input.propTypes = {
   label: PropTypes.string,
@@ -131,7 +129,10 @@ Input.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   minLength: PropTypes.number,
@@ -159,13 +160,13 @@ Input.propTypes = {
   ]),
   dataQa: PropTypes.string,
   reset: PropTypes.bool,
+  valid: PropTypes.bool,
 };
 
 Input.defaultProps = {
   className: '',
   id: null,
   label: '',
-  value: '',
   required: false,
   minLength: null,
   maxLength: null,
