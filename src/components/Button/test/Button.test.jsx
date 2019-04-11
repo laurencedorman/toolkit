@@ -7,38 +7,31 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Button from '../Button';
-import Icon from '../../Icon';
-import IconEdit from '../../Icon/Icons/IconEdit';
 
 describe('Button', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<Button />);
-  });
+  const wrapper = shallow(<Button />);
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
+  it('should render without crash', () => {
+    expect(wrapper.length).toEqual(1);
+  });
+
   it('should render a icon if props is true', () => {
-    //given
-    wrapper = shallow(<Button iconComponent={IconEdit} />);
-    // then
-    expect(wrapper.find(Icon)).toHaveLength(1);
+    wrapper.setProps({ icon: true });
   });
 
-  it('should render a title', () => {
-    //given
-    wrapper = shallow(<Button title="titleTest" />);
-    // then
-    expect(wrapper.text()).toEqual('titleTest');
+  it('should render a children if props is true', () => {
+    wrapper.setProps({ title: 'test' });
   });
 
-  it('should render children', () => {
-    //given
-    wrapper = shallow(<Button>children</Button>);
-    // then
-    expect(wrapper.text()).toEqual('children');
+  it('should render a different theme', () => {
+    wrapper.setProps({ theme: 'primary' });
+  });
+
+  it('should render a different theme', () => {
+    wrapper.setProps({ theme: 'secondary' });
   });
 });

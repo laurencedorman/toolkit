@@ -5,7 +5,7 @@
  */
 
 const space = 16;
-const requiredSpace = 100;
+const requiredSpace = 200;
 
 export const tooltipPosition = (ref, position) => {
   const {
@@ -15,7 +15,7 @@ export const tooltipPosition = (ref, position) => {
   const leftSpace = left + width / 2 + window.scrollX;
 
   switch (true) {
-    case (window.innerHeight - bottom < requiredSpace) && position === 'bottom':
+    case (window.innerHeight - bottom < requiredSpace):
     case position === 'top' && top > requiredSpace:
       return {
         class: 'top',

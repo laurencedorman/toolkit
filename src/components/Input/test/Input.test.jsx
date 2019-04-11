@@ -16,6 +16,7 @@ describe('Input', () => {
       name="name"
       label="label"
       helper="helper"
+      value="value"
     />,
   );
 

@@ -18,7 +18,9 @@ $marginArrow: em(-10);
 
     & > div {
       position: relative;
-      max-width: em(220);
+      min-width: em(100);
+      max-width: em(300);
+      max-height: em(200);
       padding: em($halfSpace) em($space);
       border-radius: em($radius);
       color: $white !important;

@@ -97,6 +97,7 @@ initialState = { value: '' };
   type="text"
   id="disabled"
   name="disabled"
+  value={state.value}
   disabled
 />;
 ```

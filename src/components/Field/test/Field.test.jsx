@@ -17,6 +17,7 @@ describe('Field', () => {
       type="text"
       id="test"
       name="test"
+      value="value"
     />
   );
 

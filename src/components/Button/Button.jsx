@@ -16,6 +16,7 @@ import styles from './Button.module.scss';
  * @visibleName Button
  */
 const Button = React.forwardRef(({
+  id,
   children,
   size,
   theme,
@@ -46,6 +47,7 @@ const Button = React.forwardRef(({
   /* eslint-disable react/button-has-type */
   return (
     <button
+      id={id}
       disabled={disabled}
       onClick={onClick}
       type={type}
@@ -67,6 +69,7 @@ const Button = React.forwardRef(({
 });
 
 Button.propTypes = {
+  id: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
@@ -105,6 +108,7 @@ Button.propTypes = {
 Button.displayName = 'button';
 
 Button.defaultProps = {
+  id: undefined,
   children: null,
   theme: 'default',
   size: 'default',
