@@ -59,7 +59,6 @@
     "build:preprod": "styleguidist build",
     "build:prod": "styleguidist build",
     "lint": "eslint ./src --ext .js --ext .jsx",
-    "prepare": "yarn build:lib",
     "semantic-release": "npx semantic-release",
     "start": "styleguidist server",
     "styleguide": "styleguidist build",

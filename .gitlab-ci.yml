@@ -28,8 +28,6 @@ Test:
 
 Build:
   stage: build
-  except:
-    - tags
   script:
     - yarn build:lib
   artifacts:
