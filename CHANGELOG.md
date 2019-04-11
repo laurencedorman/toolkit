@@ -1,3 +1,10 @@
+## [1.0.7](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.6...v1.0.7) (2019-04-11)
+
+
+### Bug Fixes
+
+* **readme:** Change readme usage method ([821bb98](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/821bb98))
+
 ## [1.0.6](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.5...v1.0.6) (2019-04-08)
 
 
