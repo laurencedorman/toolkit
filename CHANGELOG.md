@@ -1,3 +1,10 @@
+## [1.0.8](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.7...v1.0.8) (2019-04-11)
+
+
+### Bug Fixes
+
+* **style:** add missing props + custom graphical improvements on Tooltip, Button, InputCheck and Input ([dc34204](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/dc34204))
+
 ## [1.0.7](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.6...v1.0.7) (2019-04-11)
 
 
