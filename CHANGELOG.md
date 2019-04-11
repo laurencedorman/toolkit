@@ -1,3 +1,10 @@
+## [1.0.9](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.8...v1.0.9) (2019-04-11)
+
+
+### Bug Fixes
+
+* **ci:** remove prepare scripts ([dc7913a](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/dc7913a))
+
 ## [1.0.8](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.7...v1.0.8) (2019-04-11)
 
 
