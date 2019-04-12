@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropDown should match snapshot 1`] = `
+exports[`DropDown template should match snapshot 1`] = `
 <div
-  className="wrapper"
+  className="wrapper my class name"
 >
   <button
     className="button"
     dataQa="testQa"
-    disabled={false}
+    disabled={true}
     fill="#ffffff"
     iconComponent={null}
     marginBottom="0"
@@ -16,7 +16,7 @@ exports[`DropDown should match snapshot 1`] = `
     size="default"
     style={
       Object {
-        "backgroundColor": "#29b9ad",
+        "backgroundColor": "#fff",
       }
     }
     theme="default"
@@ -28,16 +28,16 @@ exports[`DropDown should match snapshot 1`] = `
       className="iconButton rotate"
       component={[Function]}
       dataQa=""
-      fill="#ffffff"
+      fill="#666"
       onClick={null}
       onKeyPress={null}
       size="16"
-      stroke="#ffffff"
+      stroke="#555"
     />
   </button>
   <OptionContainer
-    active={null}
-    className=""
+    active="active"
+    className="my class name"
     disabled={false}
     on={true}
     onClick={null}
@@ -49,9 +49,9 @@ exports[`DropDown should match snapshot 1`] = `
         },
       ]
     }
-    right={false}
-    sideLeft={false}
-    sideRight={false}
+    right={true}
+    sideLeft={true}
+    sideRight={true}
     size={Object {}}
     toggle={null}
   />
