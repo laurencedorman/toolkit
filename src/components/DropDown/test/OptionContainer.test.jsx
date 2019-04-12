@@ -29,14 +29,14 @@ describe('OptionContainer', () => {
   });
 
   it('should render container if props on is true', () => {
-    //when
+    // When
     wrapper = shallow(<OptionContainer {...props} on />);
     //then
     expect(wrapper.find('ul')).toHaveLength(1);
   });
 
   it('should render overlay if props on is true', () => {
-    //when
+    // When
     wrapper = shallow(<OptionContainer {...props} on />);
     //then
     expect(wrapper.find('.closeTarget')).toHaveLength(1);
