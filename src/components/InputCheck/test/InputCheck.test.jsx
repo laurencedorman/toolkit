@@ -14,6 +14,7 @@ describe('InputCheck', () => {
       type="radio"
       value="test"
       name="name"
+      id="name"
       label="label"
     />,
   );
@@ -24,6 +25,10 @@ describe('InputCheck', () => {
 
   it('should render a input', () => {
     expect(wrapper.find('input').length).toEqual(1);
+  });
+
+  it('should have its id attribute set correctly', () => {
+    expect(wrapper.find('input').prop('id')).toEqual('name');
   });
 
   it('should render a label', () => {

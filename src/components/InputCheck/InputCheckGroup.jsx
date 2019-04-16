@@ -3,7 +3,6 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -40,13 +39,14 @@ const InputCheckGroup = ({
   return (
     <div className={classNames}>
       {inputGroupTitle && <span className={labelStyle}>{inputGroupTitle}</span>}
-      {options && options.map((option) => {
+      {options && options.map((option, index) => {
         const value = option.value ? option.value : option.label;
         return React.cloneElement(
           <InputCheck
             type={type}
             key={value}
             name={name}
+            id={`${name}-${index}`}
             label={option.label}
             value={value}
             checked={type === 'radio' ? selectedOption === value : selectedOption.indexOf(value) > -1}
