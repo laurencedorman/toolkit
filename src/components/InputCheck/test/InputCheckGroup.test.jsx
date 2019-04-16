@@ -46,6 +46,12 @@ describe('InputCheckGroup', () => {
     expect(wrapper.find(InputCheck).length).toEqual(3);
   });
 
+  it('should render input children with correct id attributes', () => {
+    expect(wrapper.find(InputCheck).at(0).prop('id')).toEqual('name-0');
+    expect(wrapper.find(InputCheck).at(1).prop('id')).toEqual('name-1');
+    expect(wrapper.find(InputCheck).at(2).prop('id')).toEqual('name-2');
+  });
+
   it('should render value if value exist', () => {
     props = {
       selected: 'mp3',
