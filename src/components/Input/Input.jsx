@@ -59,7 +59,7 @@ const Input = React.forwardRef(({
   });
 
   const inputStyle = cn({
-    [styles.hasError]: error,
+    [styles.hasError]: error && error.length > 0,
     [styles.hasIndicator]: indicator,
   });
 
@@ -97,7 +97,7 @@ const Input = React.forwardRef(({
         { handleIndicator(indicator, iconComponent) }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
-      {error && <span className={styles.error}>{messageError}</span>}
+      {error && error.length > 0 && <span className={styles.error}>{error}</span>}
     </div>
   );
 });
@@ -118,7 +118,7 @@ Input.propTypes = {
   className: PropTypes.string,
   dataQa: PropTypes.string,
   disabled: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   helper: PropTypes.string,
   hidden: PropTypes.bool,
   icon: PropTypes.oneOfType([
@@ -133,7 +133,6 @@ Input.propTypes = {
   label: PropTypes.string,
   max: PropTypes.number,
   maxLength: PropTypes.number,
-  messageError: PropTypes.string,
   min: PropTypes.number,
   minLength: PropTypes.number,
   name: PropTypes.string.isRequired,
@@ -156,6 +155,7 @@ Input.propTypes = {
     'search',
     'hidden',
   ]).isRequired,
+  valid: PropTypes.bool,
   value: PropTypes.string,
 };
 
@@ -163,7 +163,7 @@ Input.defaultProps = {
   className: undefined,
   dataQa: '',
   disabled: false,
-  error: false,
+  error: '',
   helper: '',
   hidden: false,
   icon: '',
@@ -172,7 +172,6 @@ Input.defaultProps = {
   label: '',
   max: null,
   maxLength: null,
-  messageError: '',
   min: null,
   minLength: null,
   onBlur: null,
@@ -183,7 +182,7 @@ Input.defaultProps = {
   reset: false,
   reverse: false,
   step: null,
-  touched: true,
+  touched: false,
   valid: false,
   value: '',
 };
