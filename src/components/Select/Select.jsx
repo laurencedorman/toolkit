@@ -11,16 +11,17 @@ import styles from './Select.module.scss';
 
 const Select = ({
   className,
+  dataQa,
+  disabled,
+  error,
+  helper,
+  label,
   options,
   placeholder,
-  helper,
-  error,
-  label,
-  disabled,
   required,
   themeLight,
+  touched,
   value,
-  dataQa,
   ...selectProps
 }) => {
   const classNames = cn(
@@ -94,12 +95,14 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   themeLight: PropTypes.bool,
+  touched: PropTypes.bool,
   value: PropTypes.string.isRequired,
   dataQa: PropTypes.string,
 };
 
 Select.defaultProps = {
   className: undefined,
+  dataQa: undefined,
   disabled: false,
   error: '',
   helper: '',
@@ -107,7 +110,7 @@ Select.defaultProps = {
   placeholder: '',
   required: false,
   themeLight: false,
-  dataQa: undefined,
+  touched: false,
 };
 
 export default Select;
