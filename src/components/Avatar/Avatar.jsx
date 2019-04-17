@@ -61,7 +61,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
-  className: '',
+  className: undefined,
   size: 'big',
   dataQa: '',
 };

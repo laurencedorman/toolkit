@@ -27,7 +27,6 @@ const Sidebar = ({
     <Portal>
       <div
         className={classNames}
-        position={position}
         style={{ width }}
         data-qa={dataQa}
       >
@@ -51,7 +50,7 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
-  className: '',
+  className: undefined,
   position: 'left',
   dataQa: '',
 };

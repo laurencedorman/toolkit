@@ -9,9 +9,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Textarea.module.scss';
 
-/**
- * @visibleName Textarea
- */
 const Textarea = ({
   placeholder,
   label,
@@ -49,7 +46,7 @@ const Textarea = ({
   const labelCn = cn({
     [styles.required]: required,
   });
-  /* eslint-disable jsx-a11y/label-has-for */
+
   return (
     <div className={container}>
       <div className={content}>
@@ -75,7 +72,6 @@ const Textarea = ({
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}
     </div>
-    /* eslint-enable jsx-a11y/label-has-for */
   );
 };
 
@@ -112,7 +108,7 @@ Textarea.defaultProps = {
   disabled: false,
   onChange: null,
   form: '',
-  className: '',
+  className: undefined,
   dataQa: '',
   valid: false,
   error: false,

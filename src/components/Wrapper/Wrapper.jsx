@@ -27,6 +27,7 @@ const Wrapper = ({
   return React.createElement(
     type,
     {
+
       className: classNames,
       type,
       direction,
@@ -63,7 +64,7 @@ Wrapper.propTypes = {
 };
 
 Wrapper.defaultProps = {
-  className: '',
+  className: undefined,
   direction: 'column',
   style: {},
   type: 'div',

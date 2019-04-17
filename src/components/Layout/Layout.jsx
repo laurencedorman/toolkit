@@ -25,7 +25,6 @@ const Layout = ({
   return (
     <div
       className={classNames}
-      direction={direction}
       style={style}
       data-qa={dataQa}
     >
@@ -48,7 +47,7 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  className: '',
+  className: undefined,
   direction: 'row',
   styleGuidist: false,
   style: {},

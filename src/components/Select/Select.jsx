@@ -20,6 +20,7 @@ const Select = ({
   required,
   themeLight,
   value,
+  dataQa,
   ...selectProps
 }) => {
   const classNames = cn(
@@ -34,7 +35,7 @@ const Select = ({
   );
 
   return (
-    <div className={classNames}>
+    <div className={classNames} data-qa={dataQa}>
       <label>
         {label &&
           <span className={styles.label}>
@@ -75,7 +76,7 @@ const Select = ({
       {error && <span className={cn(styles.message, styles.errorMessage)}>{error}</span>}
     </div>
   )
-}
+};
 
 
 Select.propTypes = {
@@ -94,10 +95,11 @@ Select.propTypes = {
   required: PropTypes.bool,
   themeLight: PropTypes.bool,
   value: PropTypes.string.isRequired,
+  dataQa: PropTypes.string,
 };
 
 Select.defaultProps = {
-  className: '',
+  className: undefined,
   disabled: false,
   error: '',
   helper: '',
@@ -105,6 +107,7 @@ Select.defaultProps = {
   placeholder: '',
   required: false,
   themeLight: false,
+  dataQa: undefined,
 };
 
 export default Select;

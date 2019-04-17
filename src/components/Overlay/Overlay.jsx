@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { animated, Transition } from 'react-spring';
 import styles from './Overlay.module.scss';
 
-/* eslint-disable */
+
 const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
   <Transition
     native
@@ -35,7 +35,6 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
     }
   </Transition>
 );
-/* eslint enable: */
 
 Overlay.propTypes = {
   onClick: PropTypes.func,

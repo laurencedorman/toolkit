@@ -22,13 +22,8 @@ const Switch = ({
     [styles.active]: checked,
   });
 
-  /* eslint-disable jsx-a11y/label-has-for */
-  /* eslint-disable jsx-a11y/label-has-associated-control */
   return (
-    <div
-      className={container}
-      reset={reset ? 1 : 0}
-    >
+    <div className={container}>
       <input
         className={styles.switch}
         type="checkbox"
@@ -50,8 +45,6 @@ const Switch = ({
         && <label htmlFor={id} className={styles.title}>{label}</label>}
     </div>
   );
-  /* eslint-enable jsx-a11y/label-has-associated-control */
-  /* eslint-enable jsx-a11y/label-has-for */
 };
 
 Switch.propTypes = {
@@ -68,7 +61,7 @@ Switch.propTypes = {
 
 Switch.defaultProps = {
   itemId: '',
-  className: '',
+  className: undefined,
   dataQa: '',
   label: '',
   reset: false,

@@ -17,9 +17,6 @@ import OptionContainer from './OptionContainer';
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
 
-/**
- * @visibleName DropDown
- */
 
 const DropDown = ({
   title,
@@ -125,7 +122,7 @@ DropDown.defaultProps = {
   active: null,
   icon: true,
   backgroundColor: colors.balataGreen,
-  className: '',
+  className: undefined,
   sideLeft: false,
   sideRight: false,
   toggle: null,
