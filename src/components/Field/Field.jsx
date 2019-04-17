@@ -22,7 +22,8 @@ const Field = ({ validate, normalize, component: Component, ...props, }) => (
 Field.propTypes = {
   validate: PropTypes.bool,
   normalize: PropTypes.func,
-  component: PropTypes.oneOfType([
+  Component: PropTypes.oneOfType([
+    PropTypes.node,
     PropTypes.element,
     PropTypes.func,
   ]),

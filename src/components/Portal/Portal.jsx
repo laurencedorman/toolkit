@@ -9,9 +9,6 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import styles from './Portal.module.scss';
 
-/**
- * @visibleName Portal
- */
 export default class Portal extends PureComponent {
   constructor(props) {
     super(props);

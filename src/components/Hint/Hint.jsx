@@ -58,7 +58,7 @@ Hint.defaultProps = {
   theme: 'default',
   iconComponent: IconAlertCircle,
   iconWidth: 32,
-  className: '',
+  className: undefined,
   dataQa: '',
 };
 

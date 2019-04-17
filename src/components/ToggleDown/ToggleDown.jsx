@@ -10,9 +10,7 @@ import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
 
-/**
- * @visibleName ToggleDown
- */
+
 const ToggleDown = ({
   on, children, className, style,
 }) => {

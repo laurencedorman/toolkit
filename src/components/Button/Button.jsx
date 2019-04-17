@@ -12,9 +12,7 @@ import Icon from '../Icon';
 import colors from '../../styles/colors';
 import styles from './Button.module.scss';
 
-/**
- * @visibleName Button
- */
+
 const Button = React.forwardRef(({
   id,
   children,
@@ -44,7 +42,6 @@ const Button = React.forwardRef(({
     className,
   );
 
-  /* eslint-disable react/button-has-type */
   return (
     <button
       id={id}
@@ -65,7 +62,6 @@ const Button = React.forwardRef(({
       {title && title}
     </button>
   );
-  /* eslint-enable react/button-has-type */
 });
 
 Button.propTypes = {
@@ -118,7 +114,7 @@ Button.defaultProps = {
   disabled: false,
   onClick: null,
   dataQa: '',
-  className: '',
+  className: undefined,
   title: '',
   fill: colors.white,
   marginBottom: '0',

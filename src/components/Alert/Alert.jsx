@@ -15,9 +15,6 @@ import Hint from '../Hint';
 import Portal from '../Portal';
 import styles from './Alert.module.scss';
 
-/**
- * @visibleName Alert
- */
 const Alert = ({
   on, className, toggle, theme, textAlert, timeout, position, dataQa,
 }) => {
@@ -38,7 +35,6 @@ const Alert = ({
     timer(toggle, timeout);
   }
 
-  /* eslint-disable */
   return (
     <Portal>
       <Transition
@@ -70,7 +66,6 @@ const Alert = ({
         }
       </Transition>
     </Portal>
-    /* eslint-enable */
   );
 };
 
@@ -110,7 +105,7 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   theme: 'default',
-  className: '',
+  className: undefined,
   timeout: undefined,
   position: 'topRight',
   toggle: null,

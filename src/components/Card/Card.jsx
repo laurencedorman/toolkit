@@ -16,7 +16,10 @@ const Card = ({ children, className, dataQa }) => {
   );
 
   return (
-    <div className={classNames} data-qa={dataQa}>
+    <div
+      className={classNames}
+      data-qa={dataQa}
+    >
       {children}
     </div>
   );
@@ -34,7 +37,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  className: '',
+  className: undefined,
   dataQa: '',
 };
 

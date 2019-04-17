@@ -11,10 +11,8 @@ import Icon from '../Icon';
 import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './Input.module.scss';
 
-/**
- * @visibleName Input
- */
-const Input = ({
+
+const Input = React.forwardRef(({
   className,
   label,
   type,
@@ -43,7 +41,7 @@ const Input = ({
   reset,
   dataQa,
   autoComplete,
-}) => {
+}, ref) => {
   const container = cn(
     styles.container,
     className,
@@ -65,7 +63,7 @@ const Input = ({
   });
 
   return (
-    <div className={container}>
+    <div className={container} ref={ref}>
       <div className={contentClass}>
         <input
           id={id}
@@ -100,8 +98,7 @@ const Input = ({
       {error && <span className={styles.error}>{messageError}</span>}
     </div>
   );
-};
-
+});
 
 const handleIcon = (iconComponent, valid, reset) => (
   valid
@@ -164,7 +161,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  className: '',
+  className: undefined,
   id: null,
   label: '',
   required: false,

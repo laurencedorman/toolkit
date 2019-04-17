@@ -20,7 +20,6 @@ import styles from './Tooltip.module.scss';
 let addTooltipPosition = {};
 
 
-/* eslint-disable */
 export default class Tooltip extends PureComponent {
   static defaultProps = {
     position: 'top',
@@ -129,10 +128,9 @@ const renderContent = (content, className) => (
   typeof content === 'string'
     ? <span className={className}>{content}</span>
     : typeof content === 'function'
-    ? content()
-    : null
+      ? content()
+      : null
 );
-/* eslint-enable */
 
 Tooltip.propTypes = {
   children: PropTypes.oneOfType([

@@ -114,7 +114,7 @@ describe('DropDown', () => {
       expect(DropDown.defaultProps).toEqual({
           "active": null,
           "backgroundColor": "#29b9ad",
-          "className": "",
+          "className": undefined,
           "dataQa": "",
           "disabled": false,
           "fill": "#ffffff",

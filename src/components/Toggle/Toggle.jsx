@@ -7,9 +7,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-/**
- * @visibleName Toggle
- */
 export default class Toggle extends PureComponent {
   constructor(props) {
     super(props);
@@ -30,7 +27,6 @@ export default class Toggle extends PureComponent {
 
   handleKey = (e) => {
     const { on } = this.state;
-    /* eslint-disable */
     if (this.ismounted) {
       const keys = {
         Escape: () => {
@@ -42,7 +38,6 @@ export default class Toggle extends PureComponent {
       };
       if (keys[e.key]) keys[e.key]();
     }
-    /* eslint-enable */
   };
 
   toggle = () => this.setState(prevState => ({ on: !prevState.on }));

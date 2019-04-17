@@ -97,7 +97,7 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
   theme: 'color',
-  className: '',
+  className: undefined,
   dataQa: '',
   mini: false,
 };

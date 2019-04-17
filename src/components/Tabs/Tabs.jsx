@@ -15,9 +15,8 @@ import Wrapper from '../Wrapper';
 import styles from './Tabs.module.scss';
 
 
-/* eslint no-shadow:  */
 export default class Tabs extends PureComponent {
-  static defaultProps = { className: '' };
+  static defaultProps = { className: undefined };
 
   constructor(props) {
     super(props);
@@ -87,7 +86,6 @@ export default class Tabs extends PureComponent {
     );
   }
 }
-/* eslint shadow:  */
 
 Tabs.propTypes = {
   className: PropTypes.string,

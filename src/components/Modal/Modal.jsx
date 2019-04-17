@@ -18,11 +18,7 @@ import Portal from '../Portal';
 import Wrapper from '../Wrapper';
 import styles from './Modal.module.scss';
 
-/**
- * @visibleName Modal
- */
 
-/* eslint-disable */
 const Modal = ({
   on,
   toggle,
@@ -64,7 +60,7 @@ const Modal = ({
               <animated.div
                 onClick={toggle}
                 className={styles.modal}
-                role="Dialog"
+                role="dialog"
                 style={{
                   opacity: o.interpolate(o => o),
                 }}
@@ -72,7 +68,7 @@ const Modal = ({
                 <animated.div
                   className={classNames}
                   onClick={e => e.stopPropagation()}
-                  role="Contentinfo"
+                  role="contentinfo"
                   style={{
                     transform: interpolate(
                       [s, y],
@@ -120,7 +116,6 @@ const renderHeader = header => (
       ? <h4>{header()}</h4>
       : null
 );
-/* eslint-enable */
 
 Modal.propTypes = {
   on: PropTypes.bool.isRequired,
@@ -143,7 +138,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  className: '',
+  className: undefined,
   header: null,
   buttonTitle: 'close',
   noFooter: false,

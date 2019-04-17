@@ -79,7 +79,7 @@ InputCheck.defaultProps = {
   disabled: false,
   onChange: null,
   label: '',
-  className: '',
+  className: undefined,
   dataQa: '',
   itemId: '',
 };

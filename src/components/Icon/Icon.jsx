@@ -10,9 +10,6 @@ import cn from 'classnames';
 
 import styles from './Icon.module.scss';
 
-/**
- * @visibleName Icon
- */
 
 const Icon = ({
   onClick,
@@ -80,7 +77,7 @@ Icon.propTypes = {
 Icon.defaultProps = {
   onClick: null,
   onKeyPress: null,
-  className: '',
+  className: undefined,
   size: 32,
   fill: '#0c193a',
   stroke: '#0c193a',
