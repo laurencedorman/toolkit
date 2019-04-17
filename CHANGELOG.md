@@ -1,3 +1,15 @@
+# [2.0.0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.9...v2.0.0) (2019-04-17)
+
+
+### Features
+
+* **ref:** Add forward ref on each component ([d80042a](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/d80042a))
+
+
+### BREAKING CHANGES
+
+* **ref:** InputAutoComplete has been removed.
+
 ## [1.0.9](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.8...v1.0.9) (2019-04-11)
 
 
