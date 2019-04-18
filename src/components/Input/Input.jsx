@@ -59,7 +59,7 @@ const Input = React.forwardRef(({
   });
 
   const inputStyle = cn({
-    [styles.hasError]: error && error.length > 0,
+    [styles.hasError]: touched && (error && error.length > 0),
     [styles.hasIndicator]: indicator,
   });
 
@@ -97,7 +97,7 @@ const Input = React.forwardRef(({
         { handleIndicator(indicator, iconComponent) }
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
-      {error && error.length > 0 && <span className={styles.error}>{error}</span>}
+      {touched && error && error.length > 0 && <span className={styles.error}>{error}</span>}
     </div>
   );
 });
@@ -182,7 +182,7 @@ Input.defaultProps = {
   reset: false,
   reverse: false,
   step: null,
-  touched: false,
+  touched: true,
   valid: false,
   value: '',
 };

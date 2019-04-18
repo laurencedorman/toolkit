@@ -30,7 +30,7 @@ const Select = ({
     {
       [styles.noOptionSelected]: !value && placeholder,
       [styles.light]: themeLight,
-      [styles.hasError]: error,
+      [styles.hasError]: touched && error && error.length > 0,
       [styles.disabled]: disabled,
     },
   );
@@ -74,7 +74,7 @@ const Select = ({
         </span>
       </label>
       {helper && <span className={cn(styles.message, styles.helperMessage)}>{helper}</span>}
-      {error && <span className={cn(styles.message, styles.errorMessage)}>{error}</span>}
+      {touched && error && <span className={cn(styles.message, styles.errorMessage)}>{error}</span>}
     </div>
   )
 };
@@ -110,7 +110,7 @@ Select.defaultProps = {
   placeholder: '',
   required: false,
   themeLight: false,
-  touched: false,
+  touched: true,
 };
 
 export default Select;

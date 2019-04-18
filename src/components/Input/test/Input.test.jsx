@@ -53,6 +53,6 @@ describe('Input', () => {
   });
 
   it('should render an error span', () => {
-    wrapper.setProps({ error: true });
+    wrapper.setProps({ error: 'Oh no an error!' });
   });
 });
