@@ -1,3 +1,10 @@
+## [2.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.0...v2.0.1) (2019-04-18)
+
+
+### Bug Fixes
+
+* **input:** Change ref input target - wrapper to input ([993adcd](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/993adcd))
+
 # [2.0.0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v1.0.9...v2.0.0) (2019-04-17)
 
 
