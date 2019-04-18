@@ -63,9 +63,10 @@ const Input = React.forwardRef(({
   });
 
   return (
-    <div className={container} ref={ref}>
+    <div className={container}>
       <div className={contentClass}>
         <input
+          ref={ref}
           id={id}
           className={inputStyle}
           type={type}
