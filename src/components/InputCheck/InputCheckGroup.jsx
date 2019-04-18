@@ -13,18 +13,18 @@ import styles from './InputCheck.module.scss';
  * @visibleName CheckBox & Radio Group
  */
 const InputCheckGroup = ({
-  inputGroupTitle,
-  direction,
-  options,
-  type,
-  name,
-  selectedOption,
-  required,
-  disabled,
-  onChange,
   className,
+  direction,
+  disabled,
   error,
-  messageError,
+  inputGroupTitle,
+  name,
+  onChange,
+  options,
+  required,
+  selectedOption,
+  touched,
+  type,
 }) => {
   const classNames = cn(
     styles.CheckGroup,
@@ -55,39 +55,39 @@ const InputCheckGroup = ({
           />,
         );
       })}
-      {error && <span className={styles.error}>{messageError}</span>}
+      {touched && error && error.length > 0 && <span className={styles.error}>{error}</span>}
     </div>
   );
 };
 
 InputCheckGroup.propTypes = {
-  inputGroupTitle: PropTypes.string,
+  className: PropTypes.string,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
-  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
+  inputGroupTitle: PropTypes.string,
   name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  required: PropTypes.bool,
   selectedOption: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf([PropTypes.string]),
   ]),
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  onChange: PropTypes.func,
-  className: PropTypes.string,
-  error: PropTypes.bool,
-  messageError: PropTypes.string,
+  touched: PropTypes.bool,
+  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
 };
 
 InputCheckGroup.defaultProps = {
-  inputGroupTitle: '',
-  direction: 'horizontal',
-  selectedOption: '',
-  disabled: false,
-  required: false,
-  onChange: null,
   className: '',
-  error: false,
-  messageError: '',
+  direction: 'horizontal',
+  disabled: false,
+  error: '',
+  inputGroupTitle: '',
+  onChange: null,
+  required: false,
+  selectedOption: '',
+  touched: true,
 };
 
 export default InputCheckGroup;

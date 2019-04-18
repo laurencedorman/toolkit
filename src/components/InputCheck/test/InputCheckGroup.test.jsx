@@ -79,6 +79,6 @@ describe('InputCheckGroup', () => {
   });
 
   it('should render error message if error', () => {
-    wrapper.setProps({ error: true });
+    wrapper.setProps({ error: 'Oh no an error!' });
   });
 });

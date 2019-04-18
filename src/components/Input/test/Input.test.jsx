@@ -56,8 +56,7 @@ describe('Input', () => {
         type="text"
         name="name"
         value="value"
-        error
-        messageError="error"
+        error="error"
       />,
     );
     expect(wrapper.find('span').text()).toEqual('error');
