@@ -5,13 +5,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import ToggleDown from '../ToggleDown';
 
 describe('ToggleDown', () => {
-  const wrapper = shallow(
+  const wrapper = mount(
     <ToggleDown on={false}>
-      <div>children</div>
+      some children
     </ToggleDown>,
   );
 
@@ -21,5 +21,6 @@ describe('ToggleDown', () => {
 
   it('should render an height transition if on is true', () => {
     wrapper.setProps({ on: true });
+    expect(wrapper.props().on).toBe(true);
   });
 });

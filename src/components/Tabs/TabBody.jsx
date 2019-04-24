@@ -8,7 +8,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { animated, Transition } from 'react-spring';
 
-/* eslint-disable */
 const TabBody = ({ children, activeTab }) => {
   const setChildren = React.Children.toArray(children);
 
@@ -47,15 +46,16 @@ const TabBody = ({ children, activeTab }) => {
     );
   })
 };
-/* eslint-enable */
 
 TabBody.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
     PropTypes.arrayOf([PropTypes.node])
-  ]),
+  ]).isRequired,
   activeTab: PropTypes.string,
 };
+
+TabBody.defaultProps = { activeTab: undefined };
 
 export default TabBody;

@@ -5,12 +5,12 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import HeightTransition from '../HeightTransition';
 
 
 describe('HeightTransition', () => {
-  const wrapper = shallow(
+  const wrapper = mount(
     <HeightTransition>
       <div>test</div>
     </HeightTransition>,
@@ -22,5 +22,6 @@ describe('HeightTransition', () => {
 
   it('should render animation height if props is on', () => {
     wrapper.setProps({ on: true });
+    expect(wrapper.props().on).toBe(true);
   });
 });

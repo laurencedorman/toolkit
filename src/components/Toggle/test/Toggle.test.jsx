@@ -5,14 +5,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Toggle from '../Toggle';
 
 describe('Toggle', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(
+    wrapper = mount(
       <Toggle>
         {() => (
           <div>

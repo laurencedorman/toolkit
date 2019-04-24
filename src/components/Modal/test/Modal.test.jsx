@@ -5,19 +5,58 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import Modal from '../Modal';
 
-describe('Modal', () => {
-  const wrapper = shallow(
-    <Modal on><p>Modal test</p></Modal>,
-  );
 
-  it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+describe('Modal', () => {
+  let wrapper;
+  const mock = jest.fn();
+
+  beforeEach(() => {
+    wrapper = shallow(
+      <Modal on={false}>
+        Modal content
+      </Modal>,
+    );
+  });
+
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render modal if props is on', () => {
-    wrapper.setProps({ on: true });
+    wrapper = mount(
+      <Modal on={true}>
+        Modal content
+      </Modal>,
+    );
+    expect(wrapper.props().on).toBe(true);
+  });
+
+  it('should render header', () => {
+    wrapper = mount(
+      <Modal on header="header">
+        Modal content
+      </Modal>,
+    );
+    expect(wrapper.props().header).toEqual('header');
+  });
+
+  it('should render header with function', () => {
+    wrapper = mount(
+      <Modal on header={() => 'header'} />,
+    );
+    expect(wrapper.find('h4').text()).toEqual('header');
+  });
+
+  it('should stop propagation on div className "content" click', () => {
+    wrapper = mount(
+      <Modal on onClick={mock}>
+        Modal content
+      </Modal>,
+    );
+    wrapper.find('.content').at(1).simulate('click');
+    expect(mock).not.toHaveBeenCalled();
   });
 });

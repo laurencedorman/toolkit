@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { animated, Transition } from 'react-spring';
 import styles from './Overlay.module.scss';
 
-
 const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
   <Transition
     native

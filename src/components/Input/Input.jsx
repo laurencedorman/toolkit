@@ -144,9 +144,10 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
   onBlur: PropTypes.func,
-  icon: PropTypes.oneOfType([
+  iconComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
     PropTypes.bool,
-    PropTypes.string,
   ]),
   reverse: PropTypes.bool,
   min: PropTypes.number,
@@ -178,7 +179,7 @@ Input.defaultProps = {
   onFocus: null,
   onKeyDown: null,
   onBlur: null,
-  icon: '',
+  iconComponent: null,
   reverse: false,
   min: null,
   max: null,

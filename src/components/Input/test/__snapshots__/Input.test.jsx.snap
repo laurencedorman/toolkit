@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should match snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="content hasValue"
+  >
+    <input
+      aria-hidden={false}
+      aria-label="label"
+      aria-required={false}
+      className=""
+      data-qa=""
+      disabled={false}
+      hidden={false}
+      id="id"
+      max={null}
+      maxLength={null}
+      min={null}
+      minLength={null}
+      name="name"
+      onBlur={null}
+      onChange={null}
+      onFocus={null}
+      onKeyDown={null}
+      required={false}
+      step={null}
+      type="text"
+      value="value"
+    />
+    <label
+      className=""
+      htmlFor="id"
+    >
+      label
+    </label>
+  </div>
+  <span
+    className="helper"
+  >
+    helper
+  </span>
+</div>
+`;
