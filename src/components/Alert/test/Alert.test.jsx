@@ -5,54 +5,66 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
-import { animated } from 'react-spring';
+import { shallow, mount } from 'enzyme';
 import Alert, { translate } from '../Alert';
 
 
 describe('Alert', () => {
+  let wrapper;
   const toggle = jest.fn();
-  const TestAnimated = new animated();
 
-  const wrapper = mount(
-    <Alert
-      on={false}
-      toggle={toggle}
-      textAlert="test"
-      theme="danger"
-    />,
-  );
+  beforeEach(() => {
+    wrapper = shallow(
+      <Alert
+        on={false}
+        toggle={toggle}
+        textAlert="test"
+        theme="danger"
+      />,
+    )
+  });
+
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('instantiates', () => {
-    expect(TestAnimated).toBeTruthy()
-  });
-
   it('should render alert if props on is true', () => {
-    wrapper.setProps({ on: true });
+    wrapper = mount(
+      <Alert on textAlert="test" />,
+    );
+    expect(wrapper.props().on).toBe(true);
   });
 
   it('should render timeout close function if props timeout is declared', () => {
-    wrapper.setProps({ timeout: 300 });
+    wrapper = mount(
+      <Alert on timeout={300} textAlert="test" />,
+    );
+    expect(wrapper.props().timeout).toEqual(300);
   });
 
   it('should set position on bottom right if position is changed', () => {
-    wrapper.setProps({ position: 'bottomRight' });
+    wrapper = mount(
+      <Alert on position="bottomRight" textAlert="test" />,
+    );
+    expect(wrapper.props().position).toEqual('bottomRight');
   });
 
   it('should set position on top left if position is changed', () => {
-    wrapper.setProps({ position: 'topLeft' });
+    wrapper = mount(
+      <Alert on position="topLeft" textAlert="test" />,
+    );
+    expect(wrapper.props().position).toEqual('topLeft');
   });
 
   it('should set position on bottom left if position is changed', () => {
-    wrapper.setProps({ position: 'bottomLeft' });
-  });
-
-  it('instantiates', () => {
-    expect(TestAnimated).toBeTruthy();
+    wrapper = mount(
+      <Alert on position="bottomLeft" textAlert="test" />,
+    );
+    expect(wrapper.props().position).toEqual('bottomLeft');
   });
 
   test('translate', () => {

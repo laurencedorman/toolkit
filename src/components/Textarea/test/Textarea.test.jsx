@@ -9,18 +9,69 @@ import { shallow } from 'enzyme';
 import Textarea from '../Textarea';
 
 describe('Textarea', () => {
-  const wrapper = shallow(
-    <Textarea
-      name="name"
-      placeholder="placeholder"
-    />,
-  );
+  let wrapper;
 
-  it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+  beforeEach(() => {
+    wrapper = shallow(
+      <Textarea
+        name="name"
+        placeholder="placeholder"
+      />,
+    )
   });
 
-  it('should render a Textarea', () => {
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
+  });
+
+  it('should render a Textarea element', () => {
     expect(wrapper.find('textarea').length).toEqual(1);
+  });
+
+  it('should have no label', () => {
+    expect(wrapper.find('label').length).toEqual(0);
+  });
+
+  it('should render label', () => {
+    //when
+    wrapper = shallow(
+      <Textarea
+        name="name"
+        placeholder="placeholder"
+        label='label'
+      />,
+    );
+    // then
+    expect(wrapper.find('label').length).toEqual(1);
+    expect(wrapper.find('label').text()).toEqual('label');
+  });
+
+  it('should render an helper', () => {
+    //when
+    wrapper = shallow(
+      <Textarea
+        name="name"
+        placeholder="placeholder"
+        helper="helper"
+      />,
+    );
+    // then
+    expect(wrapper.find('span').length).toEqual(1);
+    expect(wrapper.find('span').text()).toEqual('helper');
+  });
+
+  it('should render an error', () => {
+    //when
+    wrapper = shallow(
+      <Textarea
+        name="name"
+        placeholder="placeholder"
+        error
+        messageError="error"
+      />,
+    );
+    // then
+    expect(wrapper.find('span').length).toEqual(1);
+    expect(wrapper.find('span').text()).toEqual('error');
   });
 });

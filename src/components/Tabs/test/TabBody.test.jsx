@@ -6,30 +6,20 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import GetMeasure from '../GetMeasure';
+import TabBody from "../TabBody";
 
-describe('GetMeasure', () => {
+describe('TabBody', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <GetMeasure>
-        {({ size }) => size}
-      </GetMeasure>,
-    );
-  });
-
-  afterEach(() => {
-    wrapper.unmount();
+      <TabBody activeTab={undefined}>
+        <div>test</div>
+      </TabBody>
+    )
   });
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should setState', () => {
-    const observer = jest.fn(() => 'test');
-    wrapper.setState({ size: observer });
-    expect(wrapper.state().size).toEqual(observer);
   });
 });

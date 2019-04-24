@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea should match snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="content"
+  >
+    <textarea
+      aria-multiline="true"
+      aria-required={false}
+      className="textarea"
+      cols="20"
+      data-qa=""
+      disabled={false}
+      form=""
+      id=""
+      name="name"
+      onChange={null}
+      placeholder="placeholder"
+      required={false}
+      rows="5"
+      value=""
+    />
+  </div>
+</div>
+`;
