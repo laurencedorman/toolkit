@@ -49,7 +49,7 @@ const Select = ({
             className={styles.control}
             disabled={disabled}
             required={required}
-            defaultValue={value}
+            value={value}
           >
             {placeholder &&
               <option

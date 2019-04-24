@@ -33,6 +33,18 @@ describe('Select', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
+  it('should not have a defaultValue, it makes the component not to update correctly to immidiate value changes after first render', () => {
+    const wrapper = shallow(
+      <Select
+        options={options}
+        onChange={() => {}}
+        value=""
+      />,
+    );
+
+    expect(wrapper.find('select').prop('defaultValue')).toBe(undefined);
+  });
+
   it('should render required elements', () => {
     const wrapper = shallow(
       <Select
@@ -131,5 +143,23 @@ describe('Select', () => {
     );
 
     expect(wrapper.find('.control').prop('autoComplete')).toEqual('cc-type');
+  });
+
+  it('should change value when new value prop is passed', () => {
+    const wrapper = shallow(
+      <Select
+        label="This is a label"
+        options={options}
+        required
+        onChange={(newValue) => {
+          wrapper.setProps({ value: newValue });
+        }}
+        value=''
+      />,
+    );
+
+    expect(wrapper.find('select').prop('value')).toBe('');
+    wrapper.find('select').simulate('change', 'New Test Value');
+    expect(wrapper.find('select').prop('value')).toBe('New Test Value');
   });
 });

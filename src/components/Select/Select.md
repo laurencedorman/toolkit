@@ -41,7 +41,7 @@ initialState = {
     { value: 'banana', label: 'Bananas' },
     { value: 'strawberry', label: 'Strawberries' },
   ],
-  value: 'apple',
+  value: 'orange',
 };
 
 <Select
@@ -146,6 +146,5 @@ initialState = {
   placeholder="Select with small size"
   onChange={(event) => setState({value: event.target.value})}
   value={state.value}
-  defaultValue=""
 />;
 ```
