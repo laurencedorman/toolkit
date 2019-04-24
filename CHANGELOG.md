@@ -1,3 +1,10 @@
+## [2.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.1...v2.0.2) (2019-04-24)
+
+
+### Bug Fixes
+
+* **select:** changed defaultValue prop for value to fix select not updating correctly in some use cases ([c69ec10](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/c69ec10))
+
 ## [2.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.0...v2.0.1) (2019-04-18)
 
 
