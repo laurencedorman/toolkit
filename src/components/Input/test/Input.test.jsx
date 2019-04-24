@@ -17,11 +17,11 @@ describe('Input', () => {
       label="label"
       helper="helper"
       value="value"
-    />,
+    />
   );
 
   it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a input', () => {
@@ -54,5 +54,12 @@ describe('Input', () => {
 
   it('should render an error span', () => {
     wrapper.setProps({ error: 'Oh no an error!' });
+
+    const returnedError = wrapper
+      .find('span')
+      .at(2)
+      .text();
+
+    expect(returnedError).toEqual('Oh no an error!');
   });
 });

@@ -26,11 +26,7 @@ const InputCheckGroup = ({
   touched,
   type,
 }) => {
-  const classNames = cn(
-    styles.CheckGroup,
-    styles[direction],
-    className,
-  );
+  const classNames = cn(styles.CheckGroup, styles[direction], className);
 
   const labelStyle = cn({
     [styles.required]: required,
@@ -39,23 +35,30 @@ const InputCheckGroup = ({
   return (
     <div className={classNames}>
       {inputGroupTitle && <span className={labelStyle}>{inputGroupTitle}</span>}
-      {options && options.map((option, index) => {
-        const value = option.value ? option.value : option.label;
-        return React.cloneElement(
-          <InputCheck
-            type={type}
-            key={value}
-            name={name}
-            id={`${name}-${index}`}
-            label={option.label}
-            value={value}
-            checked={type === 'radio' ? selectedOption === value : selectedOption.indexOf(value) > -1}
-            disabled={disabled}
-            onChange={onChange}
-          />,
-        );
-      })}
-      {touched && error && error.length > 0 && <span className={styles.error}>{error}</span>}
+      {options &&
+        options.map((option, index) => {
+          const value = option.value ? option.value : option.label;
+          return React.cloneElement(
+            <InputCheck
+              type={type}
+              key={value}
+              name={name}
+              id={`${name}-${index}`}
+              label={option.label}
+              value={value}
+              checked={
+                type === 'radio'
+                  ? selectedOption === value
+                  : selectedOption.indexOf(value) > -1
+              }
+              disabled={disabled}
+              onChange={onChange}
+            />
+          );
+        })}
+      {touched && error && error.length > 0 && (
+        <span className={styles.error}>{error}</span>
+      )}
     </div>
   );
 };

@@ -10,13 +10,7 @@ import InputCheck from '../InputCheck';
 
 describe('InputCheck', () => {
   const wrapper = shallow(
-    <InputCheck
-      type="radio"
-      value="test"
-      name="name"
-      id="name"
-      label="label"
-    />,
+    <InputCheck type="radio" value="test" name="name" id="id" label="label" />
   );
 
   it('should render without crash', () => {
@@ -28,7 +22,7 @@ describe('InputCheck', () => {
   });
 
   it('should have its id attribute set correctly', () => {
-    expect(wrapper.find('input').prop('id')).toEqual('name');
+    expect(wrapper.find('input').prop('id')).toEqual('id');
   });
 
   it('should render a label', () => {
