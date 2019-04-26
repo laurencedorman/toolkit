@@ -11,108 +11,117 @@ import Icon from '../Icon';
 import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './Input.module.scss';
 
+const Input = React.forwardRef(
+  (
+    {
+      autoComplete,
+      autoCorrect,
+      className,
+      dataQa,
+      disabled,
+      error,
+      helper,
+      hidden,
+      iconComponent,
+      id,
+      indicator,
+      label,
+      max,
+      maxLength,
+      messageError,
+      min,
+      minLength,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      onKeyDown,
+      required,
+      reset,
+      reverse,
+      spellCheck,
+      step,
+      touched,
+      type,
+      valid,
+      value,
+    },
+    ref
+  ) => {
+    const container = cn(styles.container, className);
 
-const Input = React.forwardRef(({
-  autoComplete,
-  className,
-  dataQa,
-  disabled,
-  error,
-  helper,
-  hidden,
-  iconComponent,
-  id,
-  indicator,
-  label,
-  max,
-  maxLength,
-  messageError,
-  min,
-  minLength,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  required,
-  reset,
-  reverse,
-  step,
-  touched,
-  type,
-  valid,
-  value,
-}, ref) => {
-  const container = cn(
-    styles.container,
-    className,
-  );
+    const contentClass = cn(styles.content, {
+      [styles.hasValue]: value !== '',
+      [styles.hasSuccess]: valid,
+      [styles.reverse]: reverse && iconComponent,
+    });
 
-  const contentClass = cn(styles.content, {
-    [styles.hasValue]: value !== '',
-    [styles.hasSuccess]: valid,
-    [styles.reverse]: reverse && iconComponent,
-  });
+    const labelStyle = cn({
+      [styles.required]: required,
+    });
 
-  const labelStyle = cn({
-    [styles.required]: required,
-  });
+    const inputStyle = cn({
+      [styles.hasError]: touched && (error && error.length > 0),
+      [styles.hasIndicator]: indicator,
+    });
 
-  const inputStyle = cn({
-    [styles.hasError]: touched && (error && error.length > 0),
-    [styles.hasIndicator]: indicator,
-  });
-
-  return (
-    <div className={container}>
-      <div className={contentClass}>
-        <input
-          ref={ref}
-          id={id}
-          className={inputStyle}
-          type={type}
-          name={name}
-          value={value}
-          required={required}
-          disabled={disabled}
-          hidden={hidden}
-          minLength={minLength}
-          maxLength={maxLength}
-          onChange={onChange}
-          onFocus={onFocus}
-          onKeyDown={onKeyDown}
-          onBlur={onBlur}
-          min={min}
-          max={max}
-          step={step}
-          autoComplete={autoComplete}
-          aria-required={required}
-          aria-label={label && label}
-          aria-hidden={type === 'hidden'}
-          data-qa={dataQa}
-        />
-        {label
-          && <label htmlFor={id} className={labelStyle}>{label}</label>}
-        { handleIcon(iconComponent, valid, reset, touched) }
-        { handleIndicator(indicator, iconComponent) }
+    return (
+      <div className={container}>
+        <div className={contentClass}>
+          <input
+            ref={ref}
+            id={id}
+            className={inputStyle}
+            type={type}
+            name={name}
+            value={value}
+            required={required}
+            disabled={disabled}
+            hidden={hidden}
+            minLength={minLength}
+            maxLength={maxLength}
+            onChange={onChange}
+            onFocus={onFocus}
+            onKeyDown={onKeyDown}
+            onBlur={onBlur}
+            min={min}
+            max={max}
+            step={step}
+            autoCorrect={autoCorrect}
+            spellCheck={spellCheck}
+            autoComplete={autoComplete}
+            aria-required={required}
+            aria-label={label && label}
+            aria-hidden={type === 'hidden'}
+            data-qa={dataQa}
+          />
+          {label && (
+            <label htmlFor={id} className={labelStyle}>
+              {label}
+            </label>
+          )}
+          {handleIcon(iconComponent, valid, reset, touched)}
+          {handleIndicator(indicator, iconComponent)}
+        </div>
+        {helper && <span className={styles.helper}>{helper}</span>}
+        {touched && error && error.length > 0 && (
+          <span className={styles.error}>{error}</span>
+        )}
       </div>
-      {helper && <span className={styles.helper}>{helper}</span>}
-      {touched && error && error.length > 0 && <span className={styles.error}>{error}</span>}
-    </div>
-  );
-});
-
-const handleIcon = (iconComponent, valid, reset, touched) => (
-  valid && touched
-    ? <Icon component={IconCheck} size="22" className={styles.icon} />
-    : (iconComponent && !reset)
-      ? <Icon component={iconComponent} size="16" className={styles.icon} />
-      : null
+    );
+  }
 );
 
-const handleIndicator = (indicator, iconComponent) =>
-  indicator && !iconComponent && <span className={styles.indicator}>{indicator}</span>;
+const handleIcon = (iconComponent, valid, reset, touched) =>
+  valid && touched ? (
+    <Icon component={IconCheck} size="22" className={styles.icon} />
+  ) : iconComponent && !reset ? (
+    <Icon component={iconComponent} size="16" className={styles.icon} />
+  ) : null;
 
+const handleIndicator = (indicator, iconComponent) =>
+  indicator &&
+  !iconComponent && <span className={styles.indicator}>{indicator}</span>;
 
 Input.propTypes = {
   className: PropTypes.string,
@@ -125,13 +134,9 @@ Input.propTypes = {
     PropTypes.element,
     PropTypes.func,
     PropTypes.bool,
-  ]),s.bool,
   ]),
   id: PropTypes.string,
-  indicator: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
+  indicator: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   label: PropTypes.string,
   max: PropTypes.number,
   maxLength: PropTypes.number,
