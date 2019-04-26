@@ -68,13 +68,5 @@
   },
   "eslintConfig": {
     "extends": "@manomano/eslint-config"
-  },
-  "manoConfig": {
-    "alias": {
-      "components": "src",
-      "constants": "src/constants",
-      "helpers": "src/helpers",
-      "styles": "src/styles"
-    }
   }
 }
