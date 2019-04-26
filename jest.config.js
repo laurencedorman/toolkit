@@ -6,9 +6,9 @@ module.exports = Object.assign({}, mmConfig, {
   coverageThreshold: {
     global: {
       branches: 70,
-      functions: 45,
-      lines: 65,
-      statements: 65,
+      functions: 80,
+      lines: 85,
+      statements: 85,
     },
   },
 });
