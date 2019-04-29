@@ -37,6 +37,7 @@ Build:
 
 Semantic-Release:
   stage: semantic-release
+  when: manual
   only:
     - master
   script:

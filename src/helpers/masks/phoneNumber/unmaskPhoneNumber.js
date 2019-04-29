@@ -4,7 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { isPlainObject, isString } from 'helpers/validators';
+import { isPlainObject, isString } from '../../validators';
 import ZERO from './constantPhoneNumber';
 
 const REPLACER = {
