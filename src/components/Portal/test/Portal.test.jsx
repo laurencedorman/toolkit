@@ -10,7 +10,6 @@ import Portal from '../Portal';
 
 describe('Portal', () => {
   let wrapper;
-  let ismounted;
   const root = global.document.createElement('div');
   root.setAttribute('id', 'portalRoot');
 
@@ -21,14 +20,14 @@ describe('Portal', () => {
   root.appendChild(el);
 
   beforeEach(() => {
-    ismounted = true;
-    if (ismounted) {
-      wrapper = shallow(<Portal><div>children</div></Portal>);
-    }
+    wrapper = shallow(
+      <Portal>
+        <div>children</div>
+      </Portal>
+    );
   });
 
   afterEach(() => {
-    ismounted = false;
     wrapper.unmount();
   });
 

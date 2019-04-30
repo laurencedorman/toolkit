@@ -14,7 +14,6 @@ import TabLabel from './TabLabel';
 import Wrapper from '../Wrapper';
 import styles from './Tabs.module.scss';
 
-
 export default class Tabs extends PureComponent {
   static defaultProps = { className: undefined };
 
@@ -24,10 +23,9 @@ export default class Tabs extends PureComponent {
   }
 
   componentDidMount() {
-    this.ismounted = true;
     const { children } = this.props;
 
-    if (this.ismounted && React.Children.count(children) > 1) {
+    if (React.Children.count(children) > 1) {
       React.Children.map(children, child =>
         child.props.defaultActive
           ? this.onClickTabItem(child.props.label)
@@ -48,10 +46,6 @@ export default class Tabs extends PureComponent {
           : this.onClickTabItem(children[0].props.label)
       );
     }
-  }
-
-  componentWillUnmount() {
-    this.ismounted = false;
   }
 
   onClickTabItem = labelTab => this.setState({ activeTab: labelTab });
@@ -92,6 +86,6 @@ Tabs.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
-    PropTypes.arrayOf([PropTypes.node])
+    PropTypes.arrayOf([PropTypes.node]),
   ]),
 };

@@ -12,7 +12,6 @@ import StepIndicator from '../StepIndicator';
 import Wrapper from '../Wrapper';
 import styles from './Stepper.module.scss';
 
-
 export default class Stepper extends PureComponent {
   static defaultProps = {
     className: '',
@@ -21,41 +20,30 @@ export default class Stepper extends PureComponent {
   };
 
   componentDidMount() {
-    this.ismounted = true;
     const { getLength, children } = this.props;
-    if (this.ismounted) {
-      getLength(React.Children.count(children));
-    }
+    getLength(React.Children.count(children));
   }
 
   componentDidUpdate(prevProps) {
     const { getLength, children } = this.props;
-    if (React.Children.count(prevProps.children) !== React.Children.count(children)) {
+    if (
+      React.Children.count(prevProps.children) !==
+      React.Children.count(children)
+    ) {
       getLength(React.Children.count(children));
     }
   }
 
-  componentWillUnmount() {
-    this.ismounted = false;
-  }
-
   render() {
-    const {
-      children, className, activeStep, direction,
-    } = this.props;
+    const { children, className, activeStep, direction } = this.props;
 
-    const classNames = cn(
-      styles.stepper,
-      className,
-    );
+    const classNames = cn(styles.stepper, className);
 
     const up = direction === 'up';
 
     return (
       <Wrapper className={classNames}>
-        <StepIndicator activeStep={activeStep}>
-          {children}
-        </StepIndicator>
+        <StepIndicator activeStep={activeStep}>{children}</StepIndicator>
 
         <div className={styles.bodyStepper}>
           {bodyStepper(children, activeStep, up)}
@@ -75,7 +63,10 @@ const bodyStepper = (children, activeStep, up) => {
       unique
       reset
       config={{
-        tension: 280, friction: 15, mass: 0.2, precision: 1,
+        tension: 280,
+        friction: 15,
+        mass: 0.2,
+        precision: 1,
       }}
       items={activeStep}
       from={{ t: up ? 100 : -100 }}
