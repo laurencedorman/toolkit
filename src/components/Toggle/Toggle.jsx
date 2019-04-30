@@ -15,9 +15,7 @@ export default class Toggle extends PureComponent {
 
   componentDidMount() {
     this.ismounted = true;
-    if (this.ismounted) {
-      document.addEventListener('keydown', this.handleKey);
-    }
+    document.addEventListener('keydown', this.handleKey);
   }
 
   componentWillUnmount() {
@@ -25,15 +23,13 @@ export default class Toggle extends PureComponent {
     document.removeEventListener('keydown', this.handleKey);
   }
 
-  handleKey = (e) => {
+  handleKey = e => {
     const { on } = this.state;
     if (this.ismounted) {
       const keys = {
         Escape: () => {
           e.preventDefault();
-          !on
-            ? e.stopPropagation()
-            : this.toggle();
+          !on ? e.stopPropagation() : this.toggle();
         },
       };
       if (keys[e.key]) keys[e.key]();
@@ -60,8 +56,5 @@ export default class Toggle extends PureComponent {
 }
 
 Toggle.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.func,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };

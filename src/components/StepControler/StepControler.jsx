@@ -7,7 +7,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-
 export default class StepControler extends PureComponent {
   static defaultProps = { getActiveStep: undefined };
 
@@ -22,15 +21,8 @@ export default class StepControler extends PureComponent {
   }
 
   componentDidMount() {
-    this.ismounted = true;
     const { getActiveStep } = this.props;
-    if (this.ismounted) {
-      if (getActiveStep) this.setActiveStep(getActiveStep);
-    }
-  }
-
-  componentWillUnmount() {
-    this.ismounted = false;
+    if (getActiveStep) this.setActiveStep(getActiveStep);
   }
 
   setActiveStep = activeStep => this.setState({ activeStep });
@@ -42,9 +34,7 @@ export default class StepControler extends PureComponent {
 
     this.setState(prevState => ({
       direction: 'down',
-      activeStep: prevState.activeStep === 0
-        ? 0
-        : prevState.activeStep - 1,
+      activeStep: prevState.activeStep === 0 ? 0 : prevState.activeStep - 1,
       lastStep: prevState.activeStep !== totalStep - 1 && false,
     }));
   };
@@ -54,18 +44,17 @@ export default class StepControler extends PureComponent {
 
     this.setState(prevState => ({
       direction: 'up',
-      activeStep: prevState.activeStep === totalStep - 1
-        ? totalStep - 1
-        : prevState.activeStep + 1,
+      activeStep:
+        prevState.activeStep === totalStep - 1
+          ? totalStep - 1
+          : prevState.activeStep + 1,
       lastStep: prevState.activeStep === totalStep - 1 && true,
     }));
   };
 
   render() {
     const { children } = this.props;
-    const {
-      activeStep, direction, lastStep, totalStep,
-    } = this.state;
+    const { activeStep, direction, lastStep, totalStep } = this.state;
 
     return children({
       prevStep: this.prevStep,
@@ -80,12 +69,6 @@ export default class StepControler extends PureComponent {
 }
 
 StepControler.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.func,
-  ]),
-  getActiveStep: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.func,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  getActiveStep: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
 };
