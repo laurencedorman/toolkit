@@ -8,30 +8,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Field = ({ validate, normalize, component: Component, ...props, }) => (
+const Field = ({ valid, normalize, error, component: Component, ...props, }) => (
   React.Children.only(
     <Component
-      valid={validate}
+      error={error}
       normalize={normalize}
-      error={!validate}
+      valid={valid}
       {...props}
     />,
   )
 );
 
 Field.propTypes = {
-  validate: PropTypes.bool,
-  normalize: PropTypes.func,
   Component: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
     PropTypes.func,
   ]),
+  error: PropTypes.string,
+  normalize: PropTypes.func,
+  valid: PropTypes.bool,
 };
 
 Field.defaultProps = {
-  validate: false,
   normalize: null,
+  valid: false,
 };
 
 export default Field;

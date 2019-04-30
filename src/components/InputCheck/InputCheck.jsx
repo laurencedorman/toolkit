@@ -14,19 +14,19 @@ import styles from './InputCheck.module.scss';
 /**
  * @visibleName Checkbox & Radio
  */
-
 const InputCheck = ({
+  checked,
+  className,
+  dataQa,
+  disabled,
+  id,
+  itemId,
+  label,
+  name,
+  onChange,
+  required,
   type,
   value,
-  name,
-  disabled,
-  required,
-  checked,
-  onChange,
-  label,
-  className,
-  itemId,
-  dataQa,
 }) => {
   const classNames = cn(
     styles.inputCheck,
@@ -37,19 +37,19 @@ const InputCheck = ({
   return (
     <div className={classNames}>
       <input
-        type={type}
-        id={value}
-        value={value}
-        name={name}
+        aria-describedby={label}
         checked={checked}
-        required={required}
-        disabled={disabled}
-        onChange={onChange}
         data-itemid={itemId}
         data-qa={dataQa}
-        aria-describedby={label}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onChange={onChange}
+        required={required}
+        type={type}
+        value={value}
       />
-      <label htmlFor={value}>
+      <label htmlFor={id}>
         {label && label}
         {checked && type === 'checkbox' ? (
           <Icon component={Check} className={styles.icon} size="18" />
@@ -60,28 +60,29 @@ const InputCheck = ({
 };
 
 InputCheck.propTypes = {
-  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
-  value: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
-  required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  label: PropTypes.string,
   className: PropTypes.string,
   dataQa: PropTypes.string,
+  disabled: PropTypes.bool,
+  id: PropTypes.string,
   itemId: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  required: PropTypes.bool,
+  type: PropTypes.oneOf(['radio', 'checkbox']).isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 InputCheck.defaultProps = {
   checked: false,
-  required: false,
-  disabled: false,
-  onChange: null,
-  label: '',
   className: undefined,
   dataQa: '',
+  disabled: false,
   itemId: '',
+  label: '',
+  onChange: null,
+  required: false,
 };
 
 export default InputCheck;

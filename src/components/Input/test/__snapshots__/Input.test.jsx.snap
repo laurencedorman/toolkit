@@ -10,7 +10,6 @@ exports[`Input should match snapshot 1`] = `
     <input
       aria-hidden={false}
       aria-label="label"
-      aria-required={false}
       className=""
       data-qa=""
       disabled={false}
@@ -25,7 +24,6 @@ exports[`Input should match snapshot 1`] = `
       onChange={null}
       onFocus={null}
       onKeyDown={null}
-      required={false}
       step={null}
       type="text"
       value="value"
