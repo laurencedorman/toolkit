@@ -9,8 +9,11 @@ stages:
   - publish
 
 # JOBS
-Install:
+
+"Install":
   stage: install
+  except:
+    - master
   script:
     - yarn
   artifacts:
@@ -18,7 +21,18 @@ Install:
       - node_modules/
     expire_in: 10 minutes
 
-Test:
+"Install and save artifacts":
+  stage: install
+  only:
+    - master
+  script:
+    - yarn
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 week
+
+"Test":
   stage: test
   except:
     - tags
@@ -26,7 +40,7 @@ Test:
     - yarn lint
     - yarn test:coverage
 
-Build:
+"Build":
   stage: build
   script:
     - yarn build:lib
@@ -35,7 +49,7 @@ Build:
       - dist
     expire_in: 10 minutes
 
-Semantic-Release:
+"Semantic-Release":
   stage: semantic-release
   when: manual
   only:
@@ -43,7 +57,7 @@ Semantic-Release:
   script:
     - yarn semantic-release
 
-Publish-On-NPM:
+"Publish on NPM":
   stage: publish
   only:
     - tags
