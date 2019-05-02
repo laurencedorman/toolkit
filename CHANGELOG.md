@@ -1,3 +1,10 @@
+## [2.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.2...v2.0.3) (2019-05-02)
+
+
+### Bug Fixes
+
+* **ci:** artifacts will expire in one week for master branch, as we can deploy them later ([2af188f](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/2af188f))
+
 ## [2.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.1...v2.0.2) (2019-04-24)
 
 
