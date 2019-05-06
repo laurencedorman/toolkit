@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should display a button tag if onClick in props 1`] = `
+<button
+  className="Link"
+  onClick={[Function]}
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Link should display an anchor tag if href in props 1`] = `
+<a
+  className="Link"
+  href="http://google.fr"
+>
+  Google
+</a>
+`;
