@@ -10,7 +10,6 @@ import cn from 'classnames';
 
 import styles from './Icon.module.scss';
 
-
 const Icon = ({
   onClick,
   onKeyPress,
@@ -22,10 +21,7 @@ const Icon = ({
   dataQa,
   component: Component,
 }) => {
-  const classNames = cn(
-    styles.container,
-    className,
-  );
+  const classNames = cn(styles.container, className);
 
   return (
     <div
@@ -50,28 +46,15 @@ const Icon = ({
   );
 };
 
-
 Icon.propTypes = {
   onClick: PropTypes.func,
   onKeyPress: PropTypes.func,
   className: PropTypes.string,
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  fill: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
-  stroke: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  fill: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   dataQa: PropTypes.string,
-  component: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.func,
-  ]),
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
 
 Icon.defaultProps = {

@@ -74,8 +74,10 @@ describe('isEmpty', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isEmpty(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isEmpty(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isEmpty(test.test)).toBe(test.expected);
     });
   });

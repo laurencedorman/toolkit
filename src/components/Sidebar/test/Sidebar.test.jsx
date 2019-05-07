@@ -12,7 +12,7 @@ describe('Sidebar', () => {
   const wrapper = shallow(
     <Sidebar width="300px" on>
       <p>Sidebar test</p>
-    </Sidebar>,
+    </Sidebar>
   );
 
   it('should render without crash', () => {

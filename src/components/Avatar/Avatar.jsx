@@ -9,21 +9,11 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './Avatar.module.scss';
 
-const Avatar = ({
-  className, src, alt, size, dataQa,
-}) => {
-  const classNames = cn(
-    styles.avatar,
-    styles[size],
-    className,
-  );
+const Avatar = ({ className, src, alt, size, dataQa }) => {
+  const classNames = cn(styles.avatar, styles[size], className);
 
   return (
-    <div
-      role="img"
-      aria-label="Avatar"
-      className={classNames}
-    >
+    <div role="img" aria-label="Avatar" className={classNames}>
       <svg viewBox="0 0 32.1 30.3">
         <defs>
           <clipPath id="maskAvatarSmall">
@@ -40,11 +30,7 @@ const Avatar = ({
         </defs>
       </svg>
 
-      <img
-        src={src}
-        alt={alt}
-        data-qa={dataQa}
-      />
+      <img src={src} alt={alt} data-qa={dataQa} />
     </div>
   );
 };
@@ -53,10 +39,7 @@ Avatar.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
-  size: PropTypes.oneOf([
-    'big',
-    'small',
-  ]),
+  size: PropTypes.oneOf(['big', 'small']),
   dataQa: PropTypes.string,
 };
 

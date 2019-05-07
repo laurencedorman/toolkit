@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 
 export default class GetMeasure extends Component {
-  myObserver = new ResizeObserver((element) => {
+  myObserver = new ResizeObserver(element => {
     if (this.ismounted && element) {
       this.setState({
         size: element[0].target.getBoundingClientRect(),
@@ -52,8 +52,5 @@ export default class GetMeasure extends Component {
 }
 
 GetMeasure.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.func,
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
 };

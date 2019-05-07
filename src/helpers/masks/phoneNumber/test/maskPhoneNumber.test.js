@@ -123,14 +123,20 @@ describe('maskPhoneNumber', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    const opts = test.options ? `options (${JSON.stringify(test.options)})` : 'no option';
+  tests.forEach(test => {
+    const opts = test.options
+      ? `options (${JSON.stringify(test.options)})`
+      : 'no option';
     if (test.expected === TypeError) {
-      it(`"${JSON.stringify(test.test)}" with ${opts} should throw an error`, () => {
+      it(`"${JSON.stringify(
+        test.test
+      )}" with ${opts} should throw an error`, () => {
         expect(() => maskPhoneNumber(test.test, test.options)).toThrow();
       });
     } else {
-      it(`"${JSON.stringify(test.test)}" with ${opts} should return "${test.expected}"`, () => {
+      it(`"${JSON.stringify(test.test)}" with ${opts} should return "${
+        test.expected
+      }"`, () => {
         expect(maskPhoneNumber(test.test, test.options)).toBe(test.expected);
       });
     }

@@ -11,7 +11,7 @@ import { animated, Transition } from 'react-spring';
 const TabBody = ({ children, activeTab }) => {
   const setChildren = React.Children.toArray(children);
 
-  return React.Children.map(setChildren, (child) => {
+  return React.Children.map(setChildren, child => {
     const { label } = child.props;
 
     if (!Array.isArray(children)) return child.props.children;
@@ -30,28 +30,27 @@ const TabBody = ({ children, activeTab }) => {
         enter={{ o: 1 }}
         leave={{ o: 0 }}
       >
-        {isOn => isOn
-          && (
-            ({ o }) => (
-              <animated.div
-                key={label}
-                style={{ opacity: o.interpolate(o => o) }}
-              >
-                {child.props.children}
-              </animated.div>
-            )
-          )
+        {isOn =>
+          isOn &&
+          (({ o }) => (
+            <animated.div
+              key={label}
+              style={{ opacity: o.interpolate(o => o) }}
+            >
+              {child.props.children}
+            </animated.div>
+          ))
         }
       </Transition>
     );
-  })
+  });
 };
 
 TabBody.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
-    PropTypes.arrayOf([PropTypes.node])
+    PropTypes.arrayOf([PropTypes.node]),
   ]).isRequired,
   activeTab: PropTypes.string,
 };

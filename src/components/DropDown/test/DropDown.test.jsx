@@ -13,9 +13,7 @@ import OptionContainer from '../OptionContainer';
 
 describe('DropDown', () => {
   const defaultProps = {
-    options: [
-      { value: 'valueTest', label: 'labelTest' },
-    ],
+    options: [{ value: 'valueTest', label: 'labelTest' }],
   };
 
   describe('template', () => {
@@ -27,13 +25,13 @@ describe('DropDown', () => {
           title="titleTest"
           right={true}
           disabled={true}
-          active='active'
-          backgroundColor='#fff'
-          className='my class name'
+          active="active"
+          backgroundColor="#fff"
+          className="my class name"
           sideLeft={true}
           sideRight={true}
-          fill='#666'
-          stroke='#555'
+          fill="#666"
+          stroke="#555"
           dataQa="testQa"
           {...defaultProps}
         />
@@ -46,11 +44,7 @@ describe('DropDown', () => {
     it('should render no title and no icon when no props title and icon', () => {
       // When
       const wrapper = shallow(
-        <DropDown
-          on={false}
-          icon={false}
-          {...defaultProps}
-        />
+        <DropDown on={false} icon={false} {...defaultProps} />
       );
 
       // Then
@@ -60,27 +54,20 @@ describe('DropDown', () => {
 
     it('should render just an icon with no title', () => {
       // When
-      const wrapper = shallow(
-        <DropDown
-          on={false}
-          {...defaultProps}
-        />
-      );
+      const wrapper = shallow(<DropDown on={false} {...defaultProps} />);
 
       // Then
-      const icon = wrapper.dive().find(Button).find(Icon);
+      const icon = wrapper
+        .dive()
+        .find(Button)
+        .find(Icon);
       expect(icon).toHaveLength(1);
     });
 
     it('should render just title with no icon', () => {
       // When
       const wrapper = shallow(
-        <DropDown
-          on={false}
-          icon={false}
-          title="titleTest"
-          {...defaultProps}
-        />
+        <DropDown on={false} icon={false} title="titleTest" {...defaultProps} />
       );
 
       // Then
@@ -112,22 +99,20 @@ describe('DropDown', () => {
     it('should have default props', () => {
       // Then
       expect(DropDown.defaultProps).toEqual({
-          "active": null,
-          "backgroundColor": "#29b9ad",
-          "className": undefined,
-          "dataQa": "",
-          "disabled": false,
-          "fill": "#ffffff",
-          "icon": true,
-          "right": false,
-          "sideLeft": false,
-          "sideRight": false,
-          "stroke": "#ffffff",
-          "title": "",
-          "toggle": null
-        }
-      );
-
+        active: null,
+        backgroundColor: '#29b9ad',
+        className: undefined,
+        dataQa: '',
+        disabled: false,
+        fill: '#ffffff',
+        icon: true,
+        right: false,
+        sideLeft: false,
+        sideRight: false,
+        stroke: '#ffffff',
+        title: '',
+        toggle: null,
+      });
     });
   });
 
@@ -137,11 +122,7 @@ describe('DropDown', () => {
         // Given
         const onClickMock = jest.fn();
         const wrapper = shallow(
-          <DropDown
-            on={false}
-            toggle={onClickMock}
-            {...defaultProps}
-          />
+          <DropDown on={false} toggle={onClickMock} {...defaultProps} />
         );
         const button = wrapper.dive().find(Button);
 
@@ -158,11 +139,7 @@ describe('DropDown', () => {
         // Given
         const onClickMock = jest.fn();
         const wrapper = shallow(
-          <DropDown
-            on={false}
-            onClick={onClickMock}
-            {...defaultProps}
-          />
+          <DropDown on={false} onClick={onClickMock} {...defaultProps} />
         );
         const optionContainer = wrapper.dive().find(OptionContainer);
 

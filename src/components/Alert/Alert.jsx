@@ -6,9 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Transition, animated, config,
-} from 'react-spring';
+import { Transition, animated, config } from 'react-spring';
 import cn from 'classnames';
 
 import Hint from '../Hint';
@@ -16,7 +14,14 @@ import Portal from '../Portal';
 import styles from './Alert.module.scss';
 
 const Alert = ({
-  on, className, toggle, theme, textAlert, timeout, position, dataQa,
+  on,
+  className,
+  toggle,
+  theme,
+  textAlert,
+  timeout,
+  position,
+  dataQa,
 }) => {
   const classNames = cn(
     styles.alert,
@@ -56,11 +61,7 @@ const Alert = ({
               timer={timeout}
               position={position}
             >
-              <Hint
-                textAlert={textAlert}
-                theme={theme}
-                dataQa={dataQa}
-              />
+              <Hint textAlert={textAlert} theme={theme} dataQa={dataQa} />
             </animated.div>
           ))
         }
@@ -88,10 +89,7 @@ Alert.propTypes = {
   on: PropTypes.bool.isRequired,
   toggle: PropTypes.func,
   theme: PropTypes.oneOf(['default', 'light', 'danger', 'menthe']),
-  textAlert: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]).isRequired,
+  textAlert: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   className: PropTypes.string,
   timeout: PropTypes.number,
   position: PropTypes.oneOf([

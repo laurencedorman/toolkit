@@ -10,20 +10,17 @@ import { Spring, animated } from 'react-spring';
 import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
 
-
-const ToggleDown = ({
-  on, children, className, style,
-}) => {
-  const classNames = cn(
-    styles.toggleDown,
-    className,
-  );
+const ToggleDown = ({ on, children, className, style }) => {
+  const classNames = cn(styles.toggleDown, className);
 
   return (
     <Spring
       force
       config={{
-        tension: 300, friction: 17, mass: 0.2, precision: 1,
+        tension: 300,
+        friction: 17,
+        mass: 0.2,
+        precision: 1,
       }}
       from={{ height: 0 }}
       to={{ height: on ? 'auto' : 0 }}
@@ -36,9 +33,7 @@ const ToggleDown = ({
             ...style,
           }}
         >
-          <div>
-            {children}
-          </div>
+          <div>{children}</div>
         </animated.div>
       )}
     </Spring>

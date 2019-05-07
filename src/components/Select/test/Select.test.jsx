@@ -27,7 +27,7 @@ describe('Select', () => {
         className="test-class"
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.html()).toMatchSnapshot();
@@ -35,11 +35,7 @@ describe('Select', () => {
 
   it('should not have a defaultValue, it makes the component not to update correctly to immidiate value changes after first render', () => {
     const wrapper = shallow(
-      <Select
-        options={options}
-        onChange={() => {}}
-        value=""
-      />,
+      <Select options={options} onChange={() => {}} value="" />
     );
 
     expect(wrapper.find('select').prop('defaultValue')).toBe(undefined);
@@ -53,7 +49,7 @@ describe('Select', () => {
         required
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.find('.label').text()).toBe('This is a label*');
@@ -62,12 +58,7 @@ describe('Select', () => {
 
   it('should render disabled elements', () => {
     const wrapper = shallow(
-      <Select
-        options={options}
-        disabled
-        onChange={() => {}}
-        value=""
-      />,
+      <Select options={options} disabled onChange={() => {}} value="" />
     );
 
     expect(wrapper.find('.select.disabled')).toHaveLength(1);
@@ -81,7 +72,7 @@ describe('Select', () => {
         helper="This is a helper"
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.find('span.message')).toHaveLength(1);
@@ -95,7 +86,7 @@ describe('Select', () => {
         error="You have an error"
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.find('.select.hasError')).toHaveLength(1);
@@ -105,12 +96,7 @@ describe('Select', () => {
 
   it('should render themeLight', () => {
     const wrapper = shallow(
-      <Select
-        options={options}
-        themeLight
-        onChange={() => {}}
-        value=""
-      />,
+      <Select options={options} themeLight onChange={() => {}} value="" />
     );
 
     expect(wrapper.find('.select.light')).toHaveLength(1);
@@ -123,7 +109,7 @@ describe('Select', () => {
         placeholder="Choose"
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.find('option')).toHaveLength(6);
@@ -139,7 +125,7 @@ describe('Select', () => {
         autoComplete="cc-type"
         onChange={() => {}}
         value=""
-      />,
+      />
     );
 
     expect(wrapper.find('.control').prop('autoComplete')).toEqual('cc-type');
@@ -151,11 +137,11 @@ describe('Select', () => {
         label="This is a label"
         options={options}
         required
-        onChange={(newValue) => {
+        onChange={newValue => {
           wrapper.setProps({ value: newValue });
         }}
-        value=''
-      />,
+        value=""
+      />
     );
 
     expect(wrapper.find('select').prop('value')).toBe('');

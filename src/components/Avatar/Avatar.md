@@ -1,8 +1,8 @@
-Avatar big: 
+Avatar big:
 
 ```js
 <Avatar
-  src="https://cdn.dribbble.com/users/769929/screenshots/4482240/distractions-dribbble.gif" 
+  src="https://cdn.dribbble.com/users/769929/screenshots/4482240/distractions-dribbble.gif"
   alt="avatar"
 />
 ```
@@ -16,5 +16,3 @@ Avatar Small:
   alt="avatar"
 />
 ```
-
-

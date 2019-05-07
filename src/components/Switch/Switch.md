@@ -9,7 +9,7 @@ initialState = { checked: false };
   value="id"
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
-/>
+/>;
 ```
 
 Switch with label:
@@ -25,5 +25,5 @@ initialState = { checked: false };
   reset
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
-/>
+/>;
 ```

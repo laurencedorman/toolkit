@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import TabBody from "../TabBody";
+import TabBody from '../TabBody';
 
 describe('TabBody', () => {
   let wrapper;
@@ -16,7 +16,7 @@ describe('TabBody', () => {
       <TabBody activeTab={undefined}>
         <div>test</div>
       </TabBody>
-    )
+    );
   });
 
   it('should match snapshot', () => {

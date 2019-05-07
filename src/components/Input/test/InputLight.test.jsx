@@ -10,13 +10,7 @@ import InputLight from '../InputLight';
 
 describe('InputLight', () => {
   const wrapper = shallow(
-    <InputLight
-      type="text"
-      label="text"
-      id="id"
-      name="name"
-      value="value"
-    />,
+    <InputLight type="text" label="text" id="id" name="name" value="value" />
   );
 
   it('should render without crash', () => {

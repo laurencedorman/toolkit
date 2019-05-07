@@ -74,8 +74,10 @@ describe('isDefinedAndNotNull', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isDefinedAndNotNull(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isDefinedAndNotNull(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isDefinedAndNotNull(test.test)).toBe(test.expected);
     });
   });

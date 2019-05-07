@@ -18,11 +18,7 @@ const Tag = ({ className, theme, children, disabled, dataQa, onClick }) => {
   );
 
   return (
-    <span
-      className={tagClass}
-      data-qa={dataQa}
-      onClick={onClick}
-    >
+    <span className={tagClass} data-qa={dataQa} onClick={onClick}>
       {children}
     </span>
   );

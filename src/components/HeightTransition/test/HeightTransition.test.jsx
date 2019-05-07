@@ -8,12 +8,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import HeightTransition from '../HeightTransition';
 
-
 describe('HeightTransition', () => {
   const wrapper = mount(
     <HeightTransition>
       <div>test</div>
-    </HeightTransition>,
+    </HeightTransition>
   );
 
   it('should render without crash with layoutContainer', () => {

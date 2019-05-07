@@ -28,20 +28,14 @@ const Textarea = ({
   valid,
   helper,
 }) => {
-  const container = cn(
-    styles.container,
-    className,
-  );
+  const container = cn(styles.container, className);
 
   const content = cn(styles.content, {
     [styles.hasValue]: value !== '',
     [styles.hasSuccess]: valid,
   });
 
-  const textarea = cn(
-    styles.textarea,
-    { [styles.hasError]: error },
-  );
+  const textarea = cn(styles.textarea, { [styles.hasError]: error });
 
   const labelCn = cn({
     [styles.required]: required,
@@ -66,8 +60,11 @@ const Textarea = ({
           aria-required={required}
           data-qa={dataQa}
         />
-        {label
-          && <label htmlFor={id} className={labelCn}>{label}</label>}
+        {label && (
+          <label htmlFor={id} className={labelCn}>
+            {label}
+          </label>
+        )}
       </div>
       {helper && <span className={styles.helper}>{helper}</span>}
       {error && <span className={styles.error}>{messageError}</span>}

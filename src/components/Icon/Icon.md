@@ -1,19 +1,20 @@
 Icon:
 
-  * Import component icon with props <b>component</b>.
-  * You need to import Icon component and IconName.
-  * Icon was in SVG.
-  * Ask you're MR if you need new icon.
-  
-  <br />
-    
-Import example:
-```jsx static
-import { Icon, IconAcount } from 'ToolkitPath' 
+- Import component icon with props <b>component</b>.
+- You need to import Icon component and IconName.
+- Icon was in SVG.
+- Ask you're MR if you need new icon.
 
-<Icon component={IconAcount} />
+  <br />
+
+Import example:
+
+```jsx static
+import { Icon, IconAcount } from 'ToolkitPath';
+
+<Icon component={IconAcount} />;
 ```
-  
+
 ```js
 import IconAbTest from './Icons/IconAbTest';
 import IconAccount from './Icons/IconAccount';
@@ -115,12 +116,12 @@ import IconUnitedKingdom from './Icons/IconUnitedKingdom';
 
 const icons = [
   IconAbTest,
-  IconAccount, 
+  IconAccount,
   IconAlertCircle,
   IconAnalyse,
   IconArrowFullDown,
   IconArrowFullLeft,
-  IconArrowFullRight, 
+  IconArrowFullRight,
   IconArrowFullUp,
   IconAward,
   IconBankTransfert,
@@ -160,10 +161,10 @@ const icons = [
   IconFeatureFlag,
   IconFilter,
   IconFlash,
-  IconFreeDelivery ,
+  IconFreeDelivery,
   IconHeart,
   IconHeartFull,
-  IconHelpCircle ,
+  IconHelpCircle,
   IconHistoricalSearch,
   IconHood,
   IconInformationCircle,
@@ -213,102 +214,102 @@ const icons = [
 ];
 
 const iconsName = [
-  "IconAbTest",
-  "IconAccount", 
-  "IconAlertCircle",
-  "IconAnalyse",
-  "IconArrowFullDown",
-  "IconArrowFullLeft",
-  "IconArrowFullRight",
-  "IconArrowFullUp",
-  "IconAward",
-  "IconBankTransfert",
-  "IconBarredEye",
-  "IconBasket",
-  "IconBathTub",
-  "IconBigDrill",
-  "IconBox",
-  "IconBoxes",
-  "IconBrush",
-  "IconBurgerMenu",
-  "IconCalendar",
-  "IconCamera",
-  "IconCheck",
-  "IconChevronDown",
-  "IconChevronLeft",
-  "IconChevronRight",
-  "IconChevronUp",
-  "IconCircleMinus",
-  "IconCirclePlus",
-  "IconClock",
-  "IconClose",
-  "IconCloseCircle",
-  "IconContent",
-  "IconCreditCard",
-  "IconDeliveryForm",
-  "IconDocument",
-  "IconDotMenu",
-  "IconDownload",
-  "IconDragNdrop",
-  "IconDrill",
-  "IconEdit",
-  "IconExtra",
-  "IconEye",
-  "IconFacebook",
-  "IconFaucetWater",
-  "IconFeatureFlag",
-  "IconFilter",
-  "IconFlash",
-  "IconFreeDelivery",
-  "IconHeart",
-  "IconHeartFull",
-  "IconHelpCircle",
-  "IconHistoricalSearch",
-  "IconHood",
-  "IconInformationCircle",
-  "IconInstagram",
-  "IconLabel",
-  "IconLamp",
-  "IconLaunch",
-  "IconLink",
-  "IconLock",
-  "IconLogOut",
-  "IconMail",
-  "IconMapPin",
-  "IconMarketing",
-  "IconMessage",
-  "IconMessageCircle",
-  "IconPhone",
-  "IconPiggyBank",
-  "IconPinterest",
-  "IconPlay",
-  "IconPrinter",
-  "IconProduct",
-  "IconPromo",
-  "IconScrew",
-  "IconSearch",
-  "IconStarEmpty",
-  "IconStarFull",
-  "IconStop",
-  "IconTagPromo",
-  "IconThumbDown",
-  "IconTrash",
-  "IconTrending",
-  "IconTrucks",
-  "IconTwitter",
-  "IconVote",
-  "IconWall",
-  "IconWateringCan",
-  "IconWheel",
-  "IconYoutube",
-  "IconBelgium",
-  "IconFrance",
-  "IconGermany",
-  "IconItaly",
-  "IconNetherlands",
-  "IconSpain",
-  "IconSwitzerland",
-  "IconUnitedKingdom",
+  'IconAbTest',
+  'IconAccount',
+  'IconAlertCircle',
+  'IconAnalyse',
+  'IconArrowFullDown',
+  'IconArrowFullLeft',
+  'IconArrowFullRight',
+  'IconArrowFullUp',
+  'IconAward',
+  'IconBankTransfert',
+  'IconBarredEye',
+  'IconBasket',
+  'IconBathTub',
+  'IconBigDrill',
+  'IconBox',
+  'IconBoxes',
+  'IconBrush',
+  'IconBurgerMenu',
+  'IconCalendar',
+  'IconCamera',
+  'IconCheck',
+  'IconChevronDown',
+  'IconChevronLeft',
+  'IconChevronRight',
+  'IconChevronUp',
+  'IconCircleMinus',
+  'IconCirclePlus',
+  'IconClock',
+  'IconClose',
+  'IconCloseCircle',
+  'IconContent',
+  'IconCreditCard',
+  'IconDeliveryForm',
+  'IconDocument',
+  'IconDotMenu',
+  'IconDownload',
+  'IconDragNdrop',
+  'IconDrill',
+  'IconEdit',
+  'IconExtra',
+  'IconEye',
+  'IconFacebook',
+  'IconFaucetWater',
+  'IconFeatureFlag',
+  'IconFilter',
+  'IconFlash',
+  'IconFreeDelivery',
+  'IconHeart',
+  'IconHeartFull',
+  'IconHelpCircle',
+  'IconHistoricalSearch',
+  'IconHood',
+  'IconInformationCircle',
+  'IconInstagram',
+  'IconLabel',
+  'IconLamp',
+  'IconLaunch',
+  'IconLink',
+  'IconLock',
+  'IconLogOut',
+  'IconMail',
+  'IconMapPin',
+  'IconMarketing',
+  'IconMessage',
+  'IconMessageCircle',
+  'IconPhone',
+  'IconPiggyBank',
+  'IconPinterest',
+  'IconPlay',
+  'IconPrinter',
+  'IconProduct',
+  'IconPromo',
+  'IconScrew',
+  'IconSearch',
+  'IconStarEmpty',
+  'IconStarFull',
+  'IconStop',
+  'IconTagPromo',
+  'IconThumbDown',
+  'IconTrash',
+  'IconTrending',
+  'IconTrucks',
+  'IconTwitter',
+  'IconVote',
+  'IconWall',
+  'IconWateringCan',
+  'IconWheel',
+  'IconYoutube',
+  'IconBelgium',
+  'IconFrance',
+  'IconGermany',
+  'IconItaly',
+  'IconNetherlands',
+  'IconSpain',
+  'IconSwitzerland',
+  'IconUnitedKingdom',
 ];
 
 const style = {
@@ -331,12 +332,18 @@ const span = {
   textAlign: 'center',
 };
 
-<div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'flex-start'}}>
+<div
+  style={{
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'flex-start',
+  }}
+>
   {icons.map((icon, index) => (
     <div key={index} style={style}>
       <Icon component={icon} key={index} />
       <span style={span}>{iconsName[index]}</span>
     </div>
   ))}
-</div>
+</div>;
 ```

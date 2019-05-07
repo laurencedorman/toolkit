@@ -4,4 +4,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default } from './Logo'; 
+export { default } from './Logo';

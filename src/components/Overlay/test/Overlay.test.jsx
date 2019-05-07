@@ -15,12 +15,10 @@ describe('Overlay', () => {
   const props = {
     zIndex: 8000,
     backgroundColor: '#000',
-    onclick: onClick
+    onclick: onClick,
   };
 
-  wrapper = mount(
-    <Overlay on={false} {...props} />,
-  );
+  wrapper = mount(<Overlay on={false} {...props} />);
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
@@ -32,14 +30,10 @@ describe('Overlay', () => {
   });
 
   it('should have pointer cursor if component has props onClick', () => {
-    wrapper = mount(
-      <Overlay
-        on={true}
-        onClick={onClick}
-        {...props}
-      />,
+    wrapper = mount(<Overlay on={true} onClick={onClick} {...props} />);
+    expect(wrapper.find('div').prop('style')).toHaveProperty(
+      'cursor',
+      'pointer'
     );
-    expect(wrapper.find('div').prop('style')).toHaveProperty('cursor', 'pointer');
   });
 });
-

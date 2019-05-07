@@ -12,57 +12,62 @@ import Icon from '../Icon';
 import colors from '../../styles/colors';
 import styles from './Button.module.scss';
 
-
-const Button = React.forwardRef(({
-  id,
-  children,
-  size,
-  theme,
-  disabled,
-  type,
-  iconComponent,
-  reverse,
-  onClick,
-  dataQa,
-  className,
-  style,
-  title,
-  fill,
-  marginBottom,
-}, ref) => {
-  const classNames = cn(
-    styles.button,
-    styles[size],
-    styles[theme],
+const Button = React.forwardRef(
+  (
     {
-      [styles.icon]: iconComponent,
-      [styles.reverse]: reverse,
-      [styles.onlyIcon]: !children && !title,
+      id,
+      children,
+      size,
+      theme,
+      disabled,
+      type,
+      iconComponent,
+      reverse,
+      onClick,
+      dataQa,
+      className,
+      style,
+      title,
+      fill,
+      marginBottom,
     },
-    className,
-  );
+    ref
+  ) => {
+    const classNames = cn(
+      styles.button,
+      styles[size],
+      styles[theme],
+      {
+        [styles.icon]: iconComponent,
+        [styles.reverse]: reverse,
+        [styles.onlyIcon]: !children && !title,
+      },
+      className
+    );
 
-  return (
-    <button
-      id={id}
-      disabled={disabled}
-      onClick={onClick}
-      type={type}
-      className={classNames}
-      data-qa={dataQa}
-      ref={ref}
-      style={{
-        marginBottom,
-        ...style,
-      }}
-    >
-      {iconComponent
-        && <Icon component={iconComponent} size="16" fill={fill} />}
-      {children && children}
-      {title && title}
-    </button>
-  );
-});
+    return (
+      <button
+        id={id}
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        className={classNames}
+        data-qa={dataQa}
+        ref={ref}
+        style={{
+          marginBottom,
+          ...style,
+        }}
+      >
+        {iconComponent && (
+          <Icon component={iconComponent} size="16" fill={fill} />
+        )}
+        {children && children}
+        {title && title}
+      </button>
+    );
+  }
+);
 
 Button.propTypes = {
   id: PropTypes.string,
@@ -71,13 +76,7 @@ Button.propTypes = {
     PropTypes.element,
     PropTypes.node,
   ]),
-  theme: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'ghost',
-    'reset',
-  ]),
+  theme: PropTypes.oneOf(['default', 'primary', 'secondary', 'ghost', 'reset']),
   size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
   type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
   iconComponent: PropTypes.oneOfType([
@@ -90,15 +89,9 @@ Button.propTypes = {
   onClick: PropTypes.func,
   dataQa: PropTypes.string,
   className: PropTypes.string,
-  title: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   fill: PropTypes.string,
-  marginBottom: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Button.displayName = 'button';

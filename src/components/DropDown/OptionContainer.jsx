@@ -25,21 +25,19 @@ const OptionContainer = ({
   sideLeft,
   sideRight,
 }) => {
-  const container = cn(
-    styles.container,
-    {
-      [styles.show]: on,
-      [styles.right]: right,
-      [styles.sideLeft]: sideLeft,
-      [styles.sideRight]: sideRight,
-    },
-  );
+  const container = cn(styles.container, {
+    [styles.show]: on,
+    [styles.right]: right,
+    [styles.sideLeft]: sideLeft,
+    [styles.sideRight]: sideRight,
+  });
 
-  const itemOption = item => cn(
-    className,
-    { [styles.disabled]: item.disabled },
-    { [styles.active]: (item.value || item.id) === active },
-  );
+  const itemOption = item =>
+    cn(
+      className,
+      { [styles.disabled]: item.disabled },
+      { [styles.active]: (item.value || item.id) === active }
+    );
 
   const space = 8;
 
@@ -52,11 +50,7 @@ const OptionContainer = ({
   return (
     <>
       {on && <div className={styles.closeTarget} onClick={toggle} />}
-      <ToggleDown
-        on={on}
-        className={container}
-        style={setPosition}
-      >
+      <ToggleDown on={on} className={container} style={setPosition}>
         <ul className={styles.list}>
           {options.map((item, index) => {
             const key = item.id ? item.id.toString() : index;

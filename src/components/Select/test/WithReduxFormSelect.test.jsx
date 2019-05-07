@@ -19,11 +19,7 @@ describe('Card', () => {
     },
   };
 
-  const wrapper = shallow(
-    <WithReduxFormSelect
-      {...props}
-    />,
-  );
+  const wrapper = shallow(<WithReduxFormSelect {...props} />);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);

@@ -12,16 +12,11 @@ describe('Textarea', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(
-      <Textarea
-        name="name"
-        placeholder="placeholder"
-      />,
-    )
+    wrapper = shallow(<Textarea name="name" placeholder="placeholder" />);
   });
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a Textarea element', () => {
@@ -35,11 +30,7 @@ describe('Textarea', () => {
   it('should render label', () => {
     //when
     wrapper = shallow(
-      <Textarea
-        name="name"
-        placeholder="placeholder"
-        label='label'
-      />,
+      <Textarea name="name" placeholder="placeholder" label="label" />
     );
     // then
     expect(wrapper.find('label').length).toEqual(1);
@@ -49,11 +40,7 @@ describe('Textarea', () => {
   it('should render an helper', () => {
     //when
     wrapper = shallow(
-      <Textarea
-        name="name"
-        placeholder="placeholder"
-        helper="helper"
-      />,
+      <Textarea name="name" placeholder="placeholder" helper="helper" />
     );
     // then
     expect(wrapper.find('span').length).toEqual(1);
@@ -68,7 +55,7 @@ describe('Textarea', () => {
         placeholder="placeholder"
         error
         messageError="error"
-      />,
+      />
     );
     // then
     expect(wrapper.find('span').length).toEqual(1);

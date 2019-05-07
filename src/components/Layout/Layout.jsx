@@ -10,7 +10,12 @@ import cn from 'classnames';
 import styles from './Layout.module.scss';
 
 const Layout = ({
-  children, className, styleGuidist, direction, style, dataQa,
+  children,
+  className,
+  styleGuidist,
+  direction,
+  style,
+  dataQa,
 }) => {
   const classNames = cn(
     styles.layout,
@@ -19,15 +24,11 @@ const Layout = ({
       [styles.row]: direction === 'row',
       [styles.column]: direction === 'column',
     },
-    className,
+    className
   );
 
   return (
-    <div
-      className={classNames}
-      style={style}
-      data-qa={dataQa}
-    >
+    <div className={classNames} style={style} data-qa={dataQa}>
       {children}
     </div>
   );

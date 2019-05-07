@@ -24,12 +24,7 @@ const bar = [
 ];
 
 const Loader = ({ fill, dataQa }) => (
-  <div
-    className={styles.loader}
-    role="alert"
-    aria-busy="true"
-    data-qa={dataQa}
-  >
+  <div className={styles.loader} role="alert" aria-busy="true" data-qa={dataQa}>
     <svg
       role="img"
       xmlns="http://www.w3.org/2000/svg"

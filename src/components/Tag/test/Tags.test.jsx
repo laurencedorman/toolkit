@@ -10,7 +10,11 @@ import Tag from '../Tag';
 
 describe('Tag', () => {
   let wrapper;
-  wrapper = shallow(<Tag><p>Tag</p></Tag>);
+  wrapper = shallow(
+    <Tag>
+      <p>Tag</p>
+    </Tag>
+  );
 
   it('should render without crash', () => {
     expect(wrapper.length).toEqual(1);

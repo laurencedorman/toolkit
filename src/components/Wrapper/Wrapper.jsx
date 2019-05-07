@@ -12,29 +12,26 @@ import styles from './Wrapper.module.scss';
 /**
  * @visibleName Wrapper/Header/Footer
  */
-const Wrapper = ({
-  children, className, direction, type, style, dataQa,
-}) => {
+const Wrapper = ({ children, className, direction, type, style, dataQa }) => {
   const classNames = cn(
     styles.wrapper,
     {
       [styles.row]: direction === 'row',
       [styles.column]: direction === 'column',
     },
-    className,
+    className
   );
 
   return React.createElement(
     type,
     {
-
       className: classNames,
       type,
       direction,
       style,
       'data-qa': dataQa,
     },
-    children,
+    children
   );
 };
 
@@ -54,12 +51,7 @@ Wrapper.propTypes = {
   className: PropTypes.string,
   direction: PropTypes.string,
   style: PropTypes.shape({}),
-  type: PropTypes.oneOf([
-    'div',
-    'header',
-    'footer',
-    'section',
-  ]),
+  type: PropTypes.oneOf(['div', 'header', 'footer', 'section']),
   dataQa: PropTypes.string,
 };
 

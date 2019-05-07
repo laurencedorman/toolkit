@@ -15,13 +15,13 @@
 <br />
 
 ### Installation
-  
-  `yarn add @manomano/toolkit`
-  
-  or 
-  
-  `npm install @manomano/toolkit --save`
-  
+
+`yarn add @manomano/toolkit`
+
+or
+
+`npm install @manomano/toolkit --save`
+
 <br/>
 
 ### Usage

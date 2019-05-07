@@ -11,14 +11,7 @@ import Icon from '../Icon';
 import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './StepIndicator.module.scss';
 
-
-const Step = ({
-  className,
-  step,
-  active,
-  label,
-  done,
-}) => {
+const Step = ({ className, step, active, label, done }) => {
   const classNames = cn(
     styles.step,
     { [styles.active]: active },
@@ -46,10 +39,7 @@ Step.propTypes = {
   step: PropTypes.string,
   label: PropTypes.string,
   active: PropTypes.bool,
-  done: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.number,
-  ]),
+  done: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
 };
 
 Step.defaultProps = {

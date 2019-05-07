@@ -7,8 +7,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Input from '../Input';
-import Icon from "../../Icon";
-import IconEdit from "../../Icon/Icons/IconEdit";
+import Icon from '../../Icon';
+import IconEdit from '../../Icon/Icons/IconEdit';
 
 describe('Input', () => {
   let wrapper;
@@ -22,12 +22,12 @@ describe('Input', () => {
         label="label"
         helper="helper"
         value="value"
-      />,
+      />
     );
   });
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a input', () => {
@@ -40,36 +40,21 @@ describe('Input', () => {
 
   it('should render an helper span', () => {
     wrapper = shallow(
-      <Input
-        type="text"
-        name="name"
-        value="value"
-        helper="helper"
-      />,
+      <Input type="text" name="name" value="value" helper="helper" />
     );
     expect(wrapper.find('span').text()).toEqual('helper');
   });
 
   it('should render an error span', () => {
     wrapper = shallow(
-      <Input
-        type="text"
-        name="name"
-        value="value"
-        error="error"
-      />,
+      <Input type="text" name="name" value="value" error="error" />
     );
     expect(wrapper.find('span').text()).toEqual('error');
   });
 
   it('should render an indicator', () => {
     wrapper = shallow(
-      <Input
-        type="text"
-        name="name"
-        value="value"
-        indicator="indicator"
-      />,
+      <Input type="text" name="name" value="value" indicator="indicator" />
     );
     expect(wrapper.find('span').text()).toEqual('indicator');
   });
@@ -82,11 +67,10 @@ describe('Input', () => {
         value="value"
         iconComponent={IconEdit}
         reverse
-      />,
+      />
     );
     expect(wrapper.find(Icon)).toHaveLength(1);
   });
-
 
   it('should render icon validation if props valid is true', () => {
     //when
@@ -99,7 +83,7 @@ describe('Input', () => {
         helper="helper"
         value="value"
         valid
-      />,
+      />
     );
 
     // then
@@ -118,7 +102,7 @@ describe('Input', () => {
         value="value"
         iconComponent={IconEdit}
         reset={false}
-      />,
+      />
     );
 
     // then

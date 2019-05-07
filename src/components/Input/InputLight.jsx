@@ -13,14 +13,7 @@ const InputLight = ({ type, label, id, name, value, className, ...props }) => {
   const classNames = cn(className, styles.inputLight);
 
   return React.cloneElement(
-    <Input
-      reset
-      type={type}
-      label={label}
-      id={id}
-      name={name}
-      value={value}
-    />,
+    <Input reset type={type} label={label} id={id} name={name} value={value} />,
     {
       ...props,
       className: classNames,

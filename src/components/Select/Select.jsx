@@ -24,25 +24,22 @@ const Select = ({
   value,
   ...selectProps
 }) => {
-  const classNames = cn(
-    styles.select,
-    styles[className],
-    {
-      [styles.noOptionSelected]: !value && placeholder,
-      [styles.light]: themeLight,
-      [styles.hasError]: touched && error && error.length > 0,
-      [styles.disabled]: disabled,
-    },
-  );
+  const classNames = cn(styles.select, styles[className], {
+    [styles.noOptionSelected]: !value && placeholder,
+    [styles.light]: themeLight,
+    [styles.hasError]: touched && error && error.length > 0,
+    [styles.disabled]: disabled,
+  });
 
   return (
     <div className={classNames} data-qa={dataQa}>
       <label>
-        {label &&
+        {label && (
           <span className={styles.label}>
-            {label}{required && <sup>*</sup>}
+            {label}
+            {required && <sup>*</sup>}
           </span>
-        }
+        )}
         <span className={styles.mask}>
           <select
             {...selectProps}
@@ -52,14 +49,11 @@ const Select = ({
             required={required}
             value={value}
           >
-            {placeholder &&
-              <option
-                disabled
-                value=""
-              >
+            {placeholder && (
+              <option disabled value="">
                 {placeholder}
               </option>
-            }
+            )}
             {options.map((option, index) => (
               <option
                 value={option.value}
@@ -73,12 +67,17 @@ const Select = ({
           <span className={styles.arrow} />
         </span>
       </label>
-      {helper && <span className={cn(styles.message, styles.helperMessage)}>{helper}</span>}
-      {touched && error && <span className={cn(styles.message, styles.errorMessage)}>{error}</span>}
+      {helper && (
+        <span className={cn(styles.message, styles.helperMessage)}>
+          {helper}
+        </span>
+      )}
+      {touched && error && (
+        <span className={cn(styles.message, styles.errorMessage)}>{error}</span>
+      )}
     </div>
-  )
+  );
 };
-
 
 Select.propTypes = {
   className: PropTypes.string,
@@ -87,11 +86,13 @@ Select.propTypes = {
   helper: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  options:  PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string,
-    label: PropTypes.string,
-    disabled: PropTypes.bool,
-  })).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string,
+      disabled: PropTypes.bool,
+    })
+  ).isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   themeLight: PropTypes.bool,

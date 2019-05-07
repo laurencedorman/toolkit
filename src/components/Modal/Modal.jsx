@@ -6,9 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Transition, animated, interpolate,
-} from 'react-spring';
+import { Transition, animated, interpolate } from 'react-spring';
 import cn from 'classnames';
 
 import Button from '../Button';
@@ -17,7 +15,6 @@ import IconClose from '../Icon/Icons/IconClose';
 import Portal from '../Portal';
 import Wrapper from '../Wrapper';
 import styles from './Modal.module.scss';
-
 
 const Modal = ({
   on,
@@ -28,7 +25,7 @@ const Modal = ({
   buttonTitle,
   noFooter,
   hasIframe,
-  dataQa
+  dataQa,
 }) => {
   const classNames = cn(
     styles.content,
@@ -36,13 +33,12 @@ const Modal = ({
       [styles.noFooter]: noFooter,
       [styles.iframe]: hasIframe,
     },
-    className,
+    className
   );
 
-  const headerStyle = cn(
-    styles.header,
-    { [styles.hasContent]: header !== null },
-  );
+  const headerStyle = cn(styles.header, {
+    [styles.hasContent]: header !== null,
+  });
 
   return (
     <Portal>
@@ -54,68 +50,64 @@ const Modal = ({
         enter={{ o: 1, s: 1, y: '0' }}
         leave={{ o: 0, s: 0.75, y: '33vh' }}
       >
-        {on => on
-          && (
-            ({ o, s, y }) => (
+        {on =>
+          on &&
+          (({ o, s, y }) => (
+            <animated.div
+              onClick={toggle}
+              className={styles.modal}
+              role="dialog"
+              style={{
+                opacity: o.interpolate(o => o),
+              }}
+            >
               <animated.div
-                onClick={toggle}
-                className={styles.modal}
-                role="dialog"
+                className={classNames}
+                onClick={e => e.stopPropagation()}
+                role="contentinfo"
                 style={{
-                  opacity: o.interpolate(o => o),
+                  transform: interpolate(
+                    [s, y],
+                    (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`
+                  ),
                 }}
               >
-                <animated.div
-                  className={classNames}
-                  onClick={e => e.stopPropagation()}
-                  role="contentinfo"
-                  style={{
-                    transform: interpolate(
-                      [s, y],
-                      (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`,
-                    ),
-                  }}
-                >
-                  <Wrapper className={headerStyle} data-qa={dataQa}>
-                    {renderHeader(header)}
-                    <Icon
-                      component={IconClose}
-                      size="12"
+                <Wrapper className={headerStyle} data-qa={dataQa}>
+                  {renderHeader(header)}
+                  <Icon
+                    component={IconClose}
+                    size="12"
+                    onClick={toggle}
+                    className={styles.icon}
+                  />
+                </Wrapper>
+
+                <Wrapper className={styles.body}>{children}</Wrapper>
+
+                {!noFooter && (
+                  <Wrapper className={styles.footer} direction="row">
+                    <Button
+                      title={buttonTitle}
                       onClick={toggle}
-                      className={styles.icon}
+                      theme="secondary"
                     />
                   </Wrapper>
-
-                  <Wrapper className={styles.body}>
-                    {children}
-                  </Wrapper>
-
-                  {!noFooter &&
-                    <Wrapper className={styles.footer} direction="row">
-                      <Button
-                        title={buttonTitle}
-                        onClick={toggle}
-                        theme="secondary"
-                      />
-                    </Wrapper>
-                  }
-                </animated.div>
+                )}
               </animated.div>
-            )
-          )
+            </animated.div>
+          ))
         }
       </Transition>
     </Portal>
   );
 };
 
-const renderHeader = header => (
-  typeof header === 'string'
-    ? <h4>{header}</h4>
-    : typeof header === 'function'
-      ? <h4>{header()}</h4>
-      : null
-);
+const renderHeader = header =>
+  typeof header === 'string' ? (
+    <h4>{header}</h4>
+  ) : typeof header === 'function' ? (
+    <h4>{header()}</h4>
+  ) : null;
 
 Modal.propTypes = {
   on: PropTypes.bool.isRequired,

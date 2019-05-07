@@ -74,8 +74,10 @@ describe('isDate', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isDate(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isDate(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isDate(test.test)).toBe(test.expected);
     });
   });

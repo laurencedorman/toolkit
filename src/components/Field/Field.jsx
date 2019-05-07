@@ -7,17 +7,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const Field = ({ valid, normalize, error, component: Component, ...props, }) => (
+const Field = ({ valid, normalize, error, component: Component, ...props }) =>
   React.Children.only(
-    <Component
-      error={error}
-      normalize={normalize}
-      valid={valid}
-      {...props}
-    />,
-  )
-);
+    <Component error={error} normalize={normalize} valid={valid} {...props} />
+  );
 
 Field.propTypes = {
   Component: PropTypes.oneOfType([

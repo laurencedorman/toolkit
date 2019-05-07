@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-const WithReduxFormSelect = (WrappedComponent) => {
+const WithReduxFormSelect = WrappedComponent => {
   class Component extends React.PureComponent {
     constructor(props) {
       super(props);
@@ -14,19 +14,20 @@ const WithReduxFormSelect = (WrappedComponent) => {
     }
 
     /* eslint-disable */
-    handleChange = (option) => {
+    handleChange = option => {
       const {
         onCustomChange,
         input: { onChange },
       } = this.props;
 
-      onChange && option != null
-        ? onChange(option)
-        : onChange(null);
+      onChange && option != null ? onChange(option) : onChange(null);
 
-      this.setState({
-        getValue: option.value,
-      }, () => onCustomChange && onCustomChange(option.value));
+      this.setState(
+        {
+          getValue: option.value,
+        },
+        () => onCustomChange && onCustomChange(option.value)
+      );
     };
     /* eslint-enable */
 

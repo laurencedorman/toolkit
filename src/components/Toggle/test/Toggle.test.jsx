@@ -12,15 +12,7 @@ describe('Toggle', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(
-      <Toggle>
-        {() => (
-          <div>
-            test
-          </div>
-        )}
-      </Toggle>,
-    );
+    wrapper = mount(<Toggle>{() => <div>test</div>}</Toggle>);
   });
 
   afterEach(() => {
