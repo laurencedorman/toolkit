@@ -19,7 +19,7 @@ describe('Stepper', () => {
         <h4>step 2 container</h4>
         <p>This is step Two container</p>
       </div>
-    </Stepper>,
+    </Stepper>
   );
 
   it('should render without crash with layoutContainer', () => {

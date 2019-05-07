@@ -16,7 +16,7 @@ describe('StepControler', () => {
     wrapper = shallow(
       <StepControler getActiveStep={renderMock}>
         {({ props }) => props}
-      </StepControler>,
+      </StepControler>
     );
   });
 
@@ -32,7 +32,7 @@ describe('StepControler', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should set state on mount', (done) => {
+  it('should set state on mount', done => {
     setImmediate(() => {
       expect(wrapper.state('activeStep')).toEqual(renderMock);
       done();
@@ -41,11 +41,11 @@ describe('StepControler', () => {
 
   it('should set direction state', () => {
     wrapper.setState({ direction: 'down' });
-    expect(wrapper.state('direction')).toEqual("down");
+    expect(wrapper.state('direction')).toEqual('down');
   });
 
   it('should set lastStep state', () => {
     wrapper.setState({ lastStep: '5' });
-    expect(wrapper.state('lastStep')).toEqual("5");
+    expect(wrapper.state('lastStep')).toEqual('5');
   });
 });

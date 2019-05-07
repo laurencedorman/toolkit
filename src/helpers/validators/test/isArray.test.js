@@ -74,8 +74,10 @@ describe('isArray', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isArray(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isArray(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isArray(test.test)).toBe(test.expected);
     });
   });

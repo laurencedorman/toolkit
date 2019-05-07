@@ -1,11 +1,11 @@
 Default theme :
+
 ```js
-<Hint
-  textAlert="My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is."
-/>
+<Hint textAlert="My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is." />
 ```
 
 Light theme :
+
 ```js
 <Hint
   theme="light"
@@ -14,6 +14,7 @@ Light theme :
 ```
 
 Danger theme :
+
 ```js
 <Hint
   theme="danger"
@@ -22,6 +23,7 @@ Danger theme :
 ```
 
 Menthe theme :
+
 ```js
 <Hint
   theme="menthe"

@@ -10,12 +10,8 @@ import Table from '../Table';
 
 describe('Table', () => {
   const props = {
-    data: [
-      { firstName: 'Mano', lastName: 'Mano' },
-    ],
-    columns: [
-      { Header: 'First Name', accessor: 'firstName' },
-    ],
+    data: [{ firstName: 'Mano', lastName: 'Mano' }],
+    columns: [{ Header: 'First Name', accessor: 'firstName' }],
     defaultPageSize: 5,
   };
 

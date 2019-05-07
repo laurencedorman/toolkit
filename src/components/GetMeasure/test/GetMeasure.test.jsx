@@ -12,11 +12,7 @@ describe('GetMeasure', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(
-      <GetMeasure>
-        {({ size }) => size}
-      </GetMeasure>,
-    );
+    wrapper = shallow(<GetMeasure>{({ size }) => size}</GetMeasure>);
   });
 
   afterEach(() => {

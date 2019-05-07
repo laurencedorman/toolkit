@@ -74,8 +74,10 @@ describe('isBoolean', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isBoolean(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isBoolean(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isBoolean(test.test)).toBe(test.expected);
     });
   });

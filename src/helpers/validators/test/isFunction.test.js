@@ -74,8 +74,10 @@ describe('isFunction', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isFunction(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isFunction(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isFunction(test.test)).toBe(test.expected);
     });
   });

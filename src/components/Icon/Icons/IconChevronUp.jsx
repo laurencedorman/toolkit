@@ -16,10 +16,7 @@ const IconChevronUp = ({ stroke }) => (
 );
 
 IconChevronUp.propTypes = {
-  stroke: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 IconChevronUp.defaultProps = {

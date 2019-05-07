@@ -19,16 +19,13 @@ export default class TabLabel extends PureComponent {
 
   onClick = () => {
     const { label, onClick } = this.props;
-    onClick(label)
+    onClick(label);
   };
 
   render() {
     const { activeTab, label, className } = this.props;
 
-    const classNames = cn(
-      className,
-      { [styles.active]: activeTab === label },
-    );
+    const classNames = cn(className, { [styles.active]: activeTab === label });
 
     return (
       <li className={styles.tabLabel}>
@@ -41,16 +38,13 @@ export default class TabLabel extends PureComponent {
           {typeof label === 'function' ? label() : label}
         </span>
       </li>
-    )
+    );
   }
 }
 /* eslint-enable */
 
 TabLabel.propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   activeTab: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,

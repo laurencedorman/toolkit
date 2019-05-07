@@ -1,4 +1,5 @@
-Input Checkbox without label: 
+Input Checkbox without label:
+
 ```js
 initialState = { checked: false };
 
@@ -8,10 +9,11 @@ initialState = { checked: false };
   name="exempleWithoutLabel"
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
-/>
+/>;
 ```
 
-Input Checkbox: 
+Input Checkbox:
+
 ```js
 initialState = { checked: false };
 
@@ -22,30 +24,31 @@ initialState = { checked: false };
   name="exempleOne"
   checked={state.checked}
   onChange={() => setState({ checked: !state.checked })}
-/>
+/>;
 ```
 
-Input radio: 
+Input radio:
+
 ```js
-initialState = {selected: 'valueRadioOne'};
+initialState = { selected: 'valueRadioOne' };
 onChange = e => setState({ selected: e.target.value });
 
 <div style={{ display: 'flex' }}>
-    <InputCheck
-      type="radio"
-      label="Choice Onetheroadagain"
-      value="valueRadioOne"
-      name="exempleTwo"
-      checked={state.selected === "valueRadioOne"}
-      onChange={onChange}
-    />
-    <InputCheck
-      type="radio"
-      label="Choice Two"
-      value="valueRadioTwo"
-      name="exempleTwo"
-      checked={state.selected === "valueRadioTwo"}
-      onChange={onChange}
-    />
-</div>
+  <InputCheck
+    type="radio"
+    label="Choice Onetheroadagain"
+    value="valueRadioOne"
+    name="exempleTwo"
+    checked={state.selected === 'valueRadioOne'}
+    onChange={onChange}
+  />
+  <InputCheck
+    type="radio"
+    label="Choice Two"
+    value="valueRadioTwo"
+    name="exempleTwo"
+    checked={state.selected === 'valueRadioTwo'}
+    onChange={onChange}
+  />
+</div>;
 ```

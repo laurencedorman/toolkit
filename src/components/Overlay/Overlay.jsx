@@ -12,14 +12,15 @@ import styles from './Overlay.module.scss';
 const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
   <Transition
     native
-    config={{ precision: .9 }}
+    config={{ precision: 0.9 }}
     items={on}
     from={{ o: 0 }}
     enter={{ o: 0.5 }}
     leave={{ o: 0 }}
   >
-    {on => on
-      && (({ o }) => (
+    {on =>
+      on &&
+      (({ o }) => (
         <animated.div
           className={styles.overlay}
           onClick={onClick}

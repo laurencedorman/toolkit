@@ -74,8 +74,10 @@ describe('isPlainObject', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isPlainObject(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isPlainObject(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isPlainObject(test.test)).toBe(test.expected);
     });
   });

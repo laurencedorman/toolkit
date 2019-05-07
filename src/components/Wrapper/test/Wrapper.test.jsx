@@ -18,7 +18,11 @@ describe('Wrapper', () => {
   });
 
   it('should render a children', () => {
-    wrapper = shallow(<Wrapper><h1>children</h1></Wrapper>);
+    wrapper = shallow(
+      <Wrapper>
+        <h1>children</h1>
+      </Wrapper>
+    );
     expect(wrapper.text()).toEqual('children');
   });
 });

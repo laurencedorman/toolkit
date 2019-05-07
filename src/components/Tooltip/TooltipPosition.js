@@ -9,13 +9,18 @@ const requiredSpace = 200;
 
 export const tooltipPosition = (ref, position) => {
   const {
-    top, left, right, bottom, width, height,
+    top,
+    left,
+    right,
+    bottom,
+    width,
+    height,
   } = ref.getBoundingClientRect();
 
   const leftSpace = left + width / 2 + window.scrollX;
 
   switch (true) {
-    case (window.innerHeight - bottom < requiredSpace):
+    case window.innerHeight - bottom < requiredSpace:
     case position === 'top' && top > requiredSpace:
       return {
         class: 'top',
@@ -30,7 +35,7 @@ export const tooltipPosition = (ref, position) => {
       return {
         class: 'left',
         style: {
-          top: top + (height / 2),
+          top: top + height / 2,
           right: document.body.clientWidth - left + window.scrollX + space,
         },
       };
@@ -40,7 +45,7 @@ export const tooltipPosition = (ref, position) => {
       return {
         class: 'right',
         style: {
-          top: top + (height / 2),
+          top: top + height / 2,
           left: right + space,
         },
       };
@@ -50,7 +55,7 @@ export const tooltipPosition = (ref, position) => {
       return {
         class: 'bottom',
         style: {
-          top: bottom + (space * 2),
+          top: bottom + space * 2,
           left: leftSpace,
         },
       };

@@ -12,13 +12,14 @@ import IconAlertCircle from '../Icon/Icons/IconAlertCircle';
 import styles from './Hint.module.scss';
 
 const Hint = ({
-  theme, textAlert, iconComponent, iconWidth, className, dataQa,
+  theme,
+  textAlert,
+  iconComponent,
+  iconWidth,
+  className,
+  dataQa,
 }) => {
-  const classNames = cn(
-    styles.hint,
-    styles[theme],
-    className,
-  );
+  const classNames = cn(styles.hint, styles[theme], className);
 
   return (
     <div className={classNames} data-qa={dataQa}>
@@ -33,12 +34,7 @@ const Hint = ({
 };
 
 Hint.propTypes = {
-  theme: PropTypes.oneOf([
-    'default',
-    'light',
-    'danger',
-    'menthe',
-  ]),
+  theme: PropTypes.oneOf(['default', 'light', 'danger', 'menthe']),
   textAlert: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,

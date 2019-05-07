@@ -6,9 +6,7 @@
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Transition, animated,
-} from 'react-spring';
+import { Transition, animated } from 'react-spring';
 import cn from 'classnames';
 
 import Portal from '../Portal';
@@ -18,7 +16,6 @@ import tooltipPosition from './TooltipPosition';
 import styles from './Tooltip.module.scss';
 
 let addTooltipPosition = {};
-
 
 export default class Tooltip extends PureComponent {
   static defaultProps = {
@@ -44,10 +41,7 @@ export default class Tooltip extends PureComponent {
   render() {
     const { children, className, dataQa, content, bgColor } = this.props;
 
-    const classNames = cn(
-      styles.transmitter,
-      className,
-    );
+    const classNames = cn(styles.transmitter, className);
 
     return (
       <Toggle>
@@ -84,53 +78,55 @@ const renderTooltip = (display, content, bgColor) => {
         enter={{ o: 1, s: 1 }}
         leave={{ o: 0, s: 0.6 }}
       >
-        {display => display
-          ? (
-            ({ o, s }) => (
-              <div
-                className={styles.tooltip}
-                style={addTooltipPosition.style}
-              >
-                <div className={styles[addTooltipPosition.class]}>
-                  <animated.div
-                    style={{
-                      opacity: o.interpolate(o => o),
-                      transform: s.interpolate(s => `scale(${s})`),
-                      backgroundColor: bgColor,
-                      color: '#fff',
-                    }}
-                  >
-                    <div className={styles.svg}>
-                      <svg xmlns="http://www.w3.org/2000/svg"
-                           viewBox="0 0 18.39 7.96"
-                           width="16"
-                           height="16"
-                      >
-                        <path d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z" fill={bgColor} />
-                      </svg>
-                    </div>
-                    <div className={styles.content}>
-                      {renderContent(content, styles.spanContent)}
-                    </div>
-                  </animated.div>
+        {display =>
+          display
+            ? ({ o, s }) => (
+                <div
+                  className={styles.tooltip}
+                  style={addTooltipPosition.style}
+                >
+                  <div className={styles[addTooltipPosition.class]}>
+                    <animated.div
+                      style={{
+                        opacity: o.interpolate(o => o),
+                        transform: s.interpolate(s => `scale(${s})`),
+                        backgroundColor: bgColor,
+                        color: '#fff',
+                      }}
+                    >
+                      <div className={styles.svg}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 18.39 7.96"
+                          width="16"
+                          height="16"
+                        >
+                          <path
+                            d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z"
+                            fill={bgColor}
+                          />
+                        </svg>
+                      </div>
+                      <div className={styles.content}>
+                        {renderContent(content, styles.spanContent)}
+                      </div>
+                    </animated.div>
+                  </div>
                 </div>
-              </div>
-            )
-          )
-          : () => null
+              )
+            : () => null
         }
       </Transition>
     </Portal>
   );
 };
 
-const renderContent = (content, className) => (
-  typeof content === 'string'
-    ? <span className={className}>{content}</span>
-    : typeof content === 'function'
-      ? content()
-      : null
-);
+const renderContent = (content, className) =>
+  typeof content === 'string' ? (
+    <span className={className}>{content}</span>
+  ) : typeof content === 'function' ? (
+    content()
+  ) : null;
 
 Tooltip.propTypes = {
   children: PropTypes.oneOfType([
@@ -143,12 +139,7 @@ Tooltip.propTypes = {
     PropTypes.func,
     PropTypes.element,
   ]).isRequired,
-  position: PropTypes.oneOf([
-    'top',
-    'right',
-    'bottom',
-    'left',
-  ]),
+  position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   className: PropTypes.string,
   bgColor: PropTypes.string,
   dataQa: PropTypes.string,

@@ -12,20 +12,20 @@ describe('OptionContainer', () => {
   let wrapper;
 
   const props = {
-    options: [{
-      label: 'test',
-      value: 'test',
-    }],
+    options: [
+      {
+        label: 'test',
+        value: 'test',
+      },
+    ],
   };
 
   beforeEach(() => {
-    wrapper = shallow(
-      <OptionContainer {...props} on={false} />,
-    );
+    wrapper = shallow(<OptionContainer {...props} on={false} />);
   });
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render container if props on is true', () => {

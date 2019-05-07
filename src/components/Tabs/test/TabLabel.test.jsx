@@ -4,7 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- import React from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 import TabLabel from '../TabLabel';
 
@@ -13,11 +13,7 @@ describe('TabLabel', () => {
   const renderMock = jest.fn();
 
   wrapper = shallow(
-    <TabLabel
-      onClick={renderMock}
-      label="test"
-      activeTab="test"
-    />,
+    <TabLabel onClick={renderMock} label="test" activeTab="test" />
   );
 
   it('should render without crash with layoutContainer', () => {
@@ -33,11 +29,7 @@ describe('TabLabel', () => {
     const label = () => 'test';
 
     wrapper = shallow(
-      <TabLabel
-        onClick={renderMock}
-        label={label}
-        activeTab="test"
-      />,
+      <TabLabel onClick={renderMock} label={label} activeTab="test" />
     );
   });
 });

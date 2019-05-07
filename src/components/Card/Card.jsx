@@ -10,16 +10,10 @@ import cn from 'classnames';
 import styles from './Card.module.scss';
 
 const Card = ({ children, className, dataQa }) => {
-  const classNames = cn(
-    styles.card,
-    className,
-  );
+  const classNames = cn(styles.card, className);
 
   return (
-    <div
-      className={classNames}
-      data-qa={dataQa}
-    >
+    <div className={classNames} data-qa={dataQa}>
       {children}
     </div>
   );

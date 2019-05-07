@@ -74,8 +74,10 @@ describe('isNumber', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isNumber(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isNumber(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isNumber(test.test)).toBe(test.expected);
     });
   });

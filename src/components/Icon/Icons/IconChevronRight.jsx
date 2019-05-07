@@ -16,10 +16,7 @@ const IconChevronRight = ({ stroke }) => (
 );
 
 IconChevronRight.propTypes = {
-  stroke: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
 IconChevronRight.defaultProps = {

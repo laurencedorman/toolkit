@@ -10,13 +10,17 @@ import cn from 'classnames';
 import styles from './Switch.module.scss';
 
 const Switch = ({
-  name, id, checked, onChange, className, dataQa, label, reset, itemId,
+  name,
+  id,
+  checked,
+  onChange,
+  className,
+  dataQa,
+  label,
+  reset,
+  itemId,
 }) => {
-  const container = cn(
-    styles.container,
-    { [styles.reset]: reset },
-    className,
-  );
+  const container = cn(styles.container, { [styles.reset]: reset }, className);
 
   const labelClass = cn(styles.label, {
     [styles.active]: checked,
@@ -37,12 +41,12 @@ const Switch = ({
         aria-checked={checked}
         aria-describedby={id}
       />
-      <label
-        htmlFor={id}
-        className={labelClass}
-      />
-      {label
-        && <label htmlFor={id} className={styles.title}>{label}</label>}
+      <label htmlFor={id} className={labelClass} />
+      {label && (
+        <label htmlFor={id} className={styles.title}>
+          {label}
+        </label>
+      )}
     </div>
   );
 };

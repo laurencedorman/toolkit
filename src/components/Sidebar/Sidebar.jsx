@@ -10,9 +10,7 @@ import cn from 'classnames';
 import Portal from '../Portal';
 import styles from './Sidebar.module.scss';
 
-const Sidebar = ({
-  on, children, className, position, width, dataQa,
-}) => {
+const Sidebar = ({ on, children, className, position, width, dataQa }) => {
   const classNames = cn(
     styles.sidebar,
     {
@@ -25,11 +23,7 @@ const Sidebar = ({
 
   return (
     <Portal>
-      <div
-        className={classNames}
-        style={{ width }}
-        data-qa={dataQa}
-      >
+      <div className={classNames} style={{ width }} data-qa={dataQa}>
         {children}
       </div>
     </Portal>

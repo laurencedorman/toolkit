@@ -1,4 +1,5 @@
-Input Radio Group Horizontal: 
+Input Radio Group Horizontal:
+
 ```js
 initialState = {
   selected: 'mp3',
@@ -15,7 +16,7 @@ initialState = {
       label: 'Mp3',
       value: 'mp3',
     },
-  ]
+  ],
 };
 
 <InputCheckGroup
@@ -26,10 +27,11 @@ initialState = {
   name="radioGroupHorizontal"
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
-/>
+/>;
 ```
 
-Input Radio Group Vertical: 
+Input Radio Group Vertical:
+
 ```js
 initialState = {
   selected: 'magneto',
@@ -46,7 +48,7 @@ initialState = {
       label: 'MiniDisc',
       value: 'minidisc',
     },
-  ]
+  ],
 };
 
 <InputCheckGroup
@@ -57,11 +59,11 @@ initialState = {
   name="radioGroupVertical"
   selectedOption={state.selected}
   onChange={e => setState({ selected: e.currentTarget.value })}
-/>
-
+/>;
 ```
 
-Input checkbox Group Vertical: 
+Input checkbox Group Vertical:
+
 ```js
 initialState = {
   selected: ['osx-xxx_x', 'linux'],
@@ -82,7 +84,7 @@ initialState = {
       label: 'Linux',
       value: 'linux',
     },
-  ]
+  ],
 };
 
 <InputCheckGroup
@@ -90,19 +92,20 @@ initialState = {
   error
   messageError="Display error message"
   inputGroupTitle="this is Checkbox Group :"
-  type="checkbox" 
+  type="checkbox"
   direction="horizontal"
   options={state.options}
   name="checkboxGroup"
   selectedOption={state.selected}
-
   onChange={e => {
     const isChecked = state.selected.indexOf(e.currentTarget.value) > -1;
-    !isChecked ?
-      setState({ selected: [...state.selected, e.currentTarget.value] }) :
-      setState({ selected: state.selected.filter(option => option !== e.currentTarget.value) })
+    !isChecked
+      ? setState({ selected: [...state.selected, e.currentTarget.value] })
+      : setState({
+          selected: state.selected.filter(
+            option => option !== e.currentTarget.value
+          ),
+        });
   }}
-/>
-
+/>;
 ```
-

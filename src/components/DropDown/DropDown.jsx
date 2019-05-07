@@ -17,7 +17,6 @@ import OptionContainer from './OptionContainer';
 import colors from '../../styles/colors';
 import styles from './DropDown.module.scss';
 
-
 const DropDown = ({
   title,
   on,
@@ -36,10 +35,7 @@ const DropDown = ({
   onClick,
   dataQa,
 }) => {
-  const wrapper = cn(
-    styles.wrapper,
-    className,
-  );
+  const wrapper = cn(styles.wrapper, className);
 
   const iconButton = cn(styles.iconButton, { [styles.rotate]: on });
 
@@ -88,9 +84,8 @@ const renderTitle = title =>
   typeof title === 'string'
     ? title
     : typeof title === 'function'
-      ? title()
-      : null;
-
+    ? title()
+    : null;
 
 DropDown.propTypes = {
   title: PropTypes.oneOfType([

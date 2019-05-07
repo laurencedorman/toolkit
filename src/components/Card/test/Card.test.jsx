@@ -18,7 +18,11 @@ describe('Card', () => {
   });
 
   it('should render a children', () => {
-    wrapper = shallow(<Card><h1>children</h1></Card>);
+    wrapper = shallow(
+      <Card>
+        <h1>children</h1>
+      </Card>
+    );
     expect(wrapper.text()).toEqual('children');
   });
 });

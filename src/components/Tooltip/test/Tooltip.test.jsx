@@ -11,22 +11,14 @@ import Tooltip from '../Tooltip';
 describe('Tooltip', () => {
   let wrapper;
 
-  wrapper = mount(
-    <Tooltip content="test">
-      test
-    </Tooltip>,
-  );
+  wrapper = mount(<Tooltip content="test">test</Tooltip>);
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render content', () => {
-    wrapper = mount(
-      <Tooltip content="content">
-        test
-      </Tooltip>,
-    );
+    wrapper = mount(<Tooltip content="content">test</Tooltip>);
     expect(wrapper.props().content).toEqual('content');
   });
 

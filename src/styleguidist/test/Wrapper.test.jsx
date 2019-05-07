@@ -19,7 +19,11 @@ describe('Wrapper', () => {
   });
 
   it('should render a children', () => {
-    wrapper = shallow(<Wrapper><Router /></Wrapper>);
+    wrapper = shallow(
+      <Wrapper>
+        <Router />
+      </Wrapper>
+    );
     expect(wrapper.find(Router).length).toEqual(2);
   });
 });

@@ -8,13 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Iframe.module.scss';
 
-const Iframe = ({
-  id, src, title, dataQa,
-}) => (
-  <div
-    className={styles.container}
-    data-qa={dataQa}
-  >
+const Iframe = ({ id, src, title, dataQa }) => (
+  <div className={styles.container} data-qa={dataQa}>
     <iframe
       id={id}
       title={title}

@@ -1,15 +1,17 @@
-Step indicator: 
+Step indicator:
 
 ```js
 <Step step="1" label="One" />
 ```
 
-Step active indicator: 
+Step active indicator:
+
 ```js
 <Step step="1" label="One" active />
 ```
 
-Step done indicator: 
+Step done indicator:
+
 ```js
 <Step step="1" label="One" done />
 ```

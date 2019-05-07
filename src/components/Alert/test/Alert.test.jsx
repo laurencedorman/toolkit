@@ -8,20 +8,14 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Alert, { translate } from '../Alert';
 
-
 describe('Alert', () => {
   let wrapper;
   const toggle = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
-      <Alert
-        on={false}
-        toggle={toggle}
-        textAlert="test"
-        theme="danger"
-      />,
-    )
+      <Alert on={false} toggle={toggle} textAlert="test" theme="danger" />
+    );
   });
 
   it('should match snapshot', () => {
@@ -33,37 +27,27 @@ describe('Alert', () => {
   });
 
   it('should render alert if props on is true', () => {
-    wrapper = mount(
-      <Alert on textAlert="test" />,
-    );
+    wrapper = mount(<Alert on textAlert="test" />);
     expect(wrapper.props().on).toBe(true);
   });
 
   it('should render timeout close function if props timeout is declared', () => {
-    wrapper = mount(
-      <Alert on timeout={300} textAlert="test" />,
-    );
+    wrapper = mount(<Alert on timeout={300} textAlert="test" />);
     expect(wrapper.props().timeout).toEqual(300);
   });
 
   it('should set position on bottom right if position is changed', () => {
-    wrapper = mount(
-      <Alert on position="bottomRight" textAlert="test" />,
-    );
+    wrapper = mount(<Alert on position="bottomRight" textAlert="test" />);
     expect(wrapper.props().position).toEqual('bottomRight');
   });
 
   it('should set position on top left if position is changed', () => {
-    wrapper = mount(
-      <Alert on position="topLeft" textAlert="test" />,
-    );
+    wrapper = mount(<Alert on position="topLeft" textAlert="test" />);
     expect(wrapper.props().position).toEqual('topLeft');
   });
 
   it('should set position on bottom left if position is changed', () => {
-    wrapper = mount(
-      <Alert on position="bottomLeft" textAlert="test" />,
-    );
+    wrapper = mount(<Alert on position="bottomLeft" textAlert="test" />);
     expect(wrapper.props().position).toEqual('bottomLeft');
   });
 

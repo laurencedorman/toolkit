@@ -1,7 +1,7 @@
 Tab:
 
-  * Put Tab component as child of Tabs component.
-  * Label props define automatically TabLabel selector.
+- Put Tab component as child of Tabs component.
+- Label props define automatically TabLabel selector.
 
 ```js
 <Tab label="tabOne">

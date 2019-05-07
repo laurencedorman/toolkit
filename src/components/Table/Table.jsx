@@ -11,15 +11,13 @@ import cn from 'classnames';
 import defaultStyles from 'react-table/react-table.css';
 import './Table.scss';
 
-const Table = ({
-  className, columns, data, defaultPageSize, loading,
-}) => {
+const Table = ({ className, columns, data, defaultPageSize, loading }) => {
   const classNames = cn(
     defaultStyles,
     className,
     'table',
     '-striped',
-    '-highlight',
+    '-highlight'
   );
 
   return (

@@ -74,8 +74,10 @@ describe('isInteger', () => {
     },
   ];
 
-  tests.forEach((test) => {
-    it(`isInteger(${JSON.stringify(test.test)}) should return "${test.expected}"`, () => {
+  tests.forEach(test => {
+    it(`isInteger(${JSON.stringify(test.test)}) should return "${
+      test.expected
+    }"`, () => {
       expect(isInteger(test.test)).toBe(test.expected);
     });
   });

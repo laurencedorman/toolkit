@@ -8,17 +8,12 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import Modal from '../Modal';
 
-
 describe('Modal', () => {
   let wrapper;
   const mock = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(
-      <Modal on={false}>
-        Modal content
-      </Modal>,
-    );
+    wrapper = shallow(<Modal on={false}>Modal content</Modal>);
   });
 
   it('should match snapshot', () => {
@@ -26,11 +21,7 @@ describe('Modal', () => {
   });
 
   it('should render modal if props is on', () => {
-    wrapper = mount(
-      <Modal on={true}>
-        Modal content
-      </Modal>,
-    );
+    wrapper = mount(<Modal on={true}>Modal content</Modal>);
     expect(wrapper.props().on).toBe(true);
   });
 
@@ -38,15 +29,13 @@ describe('Modal', () => {
     wrapper = mount(
       <Modal on header="header">
         Modal content
-      </Modal>,
+      </Modal>
     );
     expect(wrapper.props().header).toEqual('header');
   });
 
   it('should render header with function', () => {
-    wrapper = mount(
-      <Modal on header={() => 'header'} />,
-    );
+    wrapper = mount(<Modal on header={() => 'header'} />);
     expect(wrapper.find('h4').text()).toEqual('header');
   });
 
@@ -54,9 +43,12 @@ describe('Modal', () => {
     wrapper = mount(
       <Modal on onClick={mock}>
         Modal content
-      </Modal>,
+      </Modal>
     );
-    wrapper.find('.content').at(1).simulate('click');
+    wrapper
+      .find('.content')
+      .at(1)
+      .simulate('click');
     expect(mock).not.toHaveBeenCalled();
   });
 });

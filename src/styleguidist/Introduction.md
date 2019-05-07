@@ -1,11 +1,8 @@
--------------------------------
-
+---
 ### Be creative...
+
 ###### This project targets perfect components library with ease of use and to be used in every ManoMano's project.
-
-_____________
-
-
+---
 
 In every sections you will find demonstrations of components to show you many ways to use them.
 <br/>
@@ -22,4 +19,4 @@ Enjoy !
 <br/>
 
 Slack: Maxime Modolo<br/>
-Team: FT Core 
+Team: FT Core

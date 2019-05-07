@@ -27,10 +27,7 @@ Tooltip bottom :
 <p>
   This is a text with tooltip,
   <b>
-    <Tooltip
-      position="bottom"
-      content="Awesome"
-    >
+    <Tooltip position="bottom" content="Awesome">
       hover me
     </Tooltip>
   </b>
@@ -46,7 +43,7 @@ Tooltip left :
       position="left"
       content="Awesome, i'm in Portal so no z-index and overflow conflict"
     >
-      hover me 
+      hover me
     </Tooltip>
   </b>
 </p>
