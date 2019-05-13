@@ -1,8 +1,16 @@
 # Using the node alpine image to build the React app
 image: node:10.15.2
 
+# Cache modules between all pipelines in project
+cache:
+  key: ${CI_PROJECT_NAME}
+  paths:
+  - .yarn-cache
+
+before_script:
+  - yarn install --cache-folder .yarn-cache
+
 stages:
-  - install
   - test
   - build
   - semantic-release
@@ -10,29 +18,7 @@ stages:
 
 # JOBS
 
-"Install":
-  stage: install
-  except:
-    - master
-  script:
-    - yarn
-  artifacts:
-    paths:
-      - node_modules/
-    expire_in: 10 minutes
-
-"Install and save artifacts":
-  stage: install
-  only:
-    - master
-  script:
-    - yarn
-  artifacts:
-    paths:
-      - node_modules/
-    expire_in: 1 week
-
-"Test":
+Test:
   stage: test
   except:
     - tags
@@ -40,28 +26,28 @@ stages:
     - yarn lint
     - yarn test:coverage
 
-"Build":
+Build:
   stage: build
+  except:
+    - tags
   script:
     - yarn build:lib
-  artifacts:
-    paths:
-      - dist
-    expire_in: 10 minutes
 
-"Semantic-Release":
+Semantic Release:
   stage: semantic-release
   when: manual
+  allow_failure: false
   only:
     - master
   script:
     - yarn semantic-release
 
-"Publish on NPM":
+Publish on NPM:
   stage: publish
   only:
     - tags
   script:
+    - yarn build:lib
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
     - npm config set unsafe-perm true
     - npm publish --access public
