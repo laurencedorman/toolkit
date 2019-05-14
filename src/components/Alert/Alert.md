@@ -39,23 +39,24 @@ import Toggle from '../Toggle';
 
 ```js
 import Button from '../Button';
-import Toggle from '../Toggle';
 
-<Toggle>
-  {({ on, toggle, toggleOut }) => (
-    <div>
-      <h4>Alert theme "default" position "bottomRight"</h4>
-      <Button onClick={toggle}>Click</Button>
-      <Alert
-        on={on}
-        toggle={toggleOut}
-        textAlert="Lorizzle break it down dolor sit amizzle, bling bling adipiscing bling bling."
-        timeout={3000}
-        position="bottomRight"
-      />
-    </div>
-  )}
-</Toggle>;
+initialState = {
+  on: false,
+};
+
+<div>
+  <h4>
+    Alert theme "default" position "bottomRight" without using Toggle component
+  </h4>
+  <Button onClick={() => setState({ on: true })}>Click</Button>
+  <Alert
+    on={state.on}
+    toggle={() => setState({ on: false })}
+    textAlert="Lorizzle break it down dolor sit amizzle, bling bling adipiscing bling bling."
+    timeout={3000}
+    position="bottomRight"
+  />
+</div>;
 ```
 
 ```js

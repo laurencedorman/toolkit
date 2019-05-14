@@ -86,11 +86,14 @@ export const translate = value => {
 const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
 
 Alert.propTypes = {
+  /** display alert */
   on: PropTypes.bool.isRequired,
-  toggle: PropTypes.func,
+  /** Required function to set props.on (display) */
+  toggle: PropTypes.func.isRequired,
   theme: PropTypes.oneOf(['default', 'light', 'danger', 'menthe']),
   textAlert: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   className: PropTypes.string,
+  /** Set timer in ms to remove automatically alert */
   timeout: PropTypes.number,
   position: PropTypes.oneOf([
     'topLeft',
@@ -106,7 +109,6 @@ Alert.defaultProps = {
   className: undefined,
   timeout: undefined,
   position: 'topRight',
-  toggle: null,
   dataQa: '',
 };
 
