@@ -38,7 +38,7 @@ describe('DropDown', () => {
       );
 
       // Then
-      expect(wrapper.dive()).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
 
     it('should render no title and no icon when no props title and icon', () => {
@@ -48,7 +48,7 @@ describe('DropDown', () => {
       );
 
       // Then
-      const button = wrapper.dive().find(Button);
+      const button = wrapper.find(Button);
       expect(button.text()).toEqual('');
     });
 
@@ -57,10 +57,7 @@ describe('DropDown', () => {
       const wrapper = shallow(<DropDown on={false} {...defaultProps} />);
 
       // Then
-      const icon = wrapper
-        .dive()
-        .find(Button)
-        .find(Icon);
+      const icon = wrapper.find(Button).find(Icon);
       expect(icon).toHaveLength(1);
     });
 
@@ -71,7 +68,7 @@ describe('DropDown', () => {
       );
 
       // Then
-      const button = wrapper.dive().find(Button);
+      const button = wrapper.find(Button);
       expect(button.text()).toEqual('titleTest');
 
       const icon = button.find(Icon);
@@ -90,7 +87,7 @@ describe('DropDown', () => {
       );
 
       // Then
-      const button = wrapper.dive().find(Button);
+      const button = wrapper.find(Button);
       expect(button.text()).toEqual('titleTest');
     });
   });
@@ -124,7 +121,7 @@ describe('DropDown', () => {
         const wrapper = shallow(
           <DropDown on={false} toggle={onClickMock} {...defaultProps} />
         );
-        const button = wrapper.dive().find(Button);
+        const button = wrapper.find(Button);
 
         // When
         button.simulate('click');
@@ -141,7 +138,7 @@ describe('DropDown', () => {
         const wrapper = shallow(
           <DropDown on={false} onClick={onClickMock} {...defaultProps} />
         );
-        const optionContainer = wrapper.dive().find(OptionContainer);
+        const optionContainer = wrapper.find(OptionContainer);
 
         // When
         optionContainer.simulate('click');
@@ -160,7 +157,6 @@ describe('DropDown', () => {
         );
 
         const optionContainer = wrapper
-          .dive()
           .find(OptionContainer)
           .dive()
           .find({ onClick: toggleMock });

@@ -5,3 +5,4 @@
  */
 
 export { default } from './GetMeasure';
+export { default as useMeasure } from './hook';

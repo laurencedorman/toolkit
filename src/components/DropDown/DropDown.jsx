@@ -11,7 +11,7 @@ import cn from 'classnames';
 import Button from '../Button';
 import Icon from '../Icon';
 import ChevronRight from '../Icon/Icons/IconChevronRight';
-import GetMeasure from '../GetMeasure';
+import { useMeasure } from '../GetMeasure';
 import OptionContainer from './OptionContainer';
 
 import colors from '../../styles/colors';
@@ -38,45 +38,42 @@ const DropDown = ({
   const wrapper = cn(styles.wrapper, className);
 
   const iconButton = cn(styles.iconButton, { [styles.rotate]: on });
+  const [size, ref] = useMeasure();
 
   return (
-    <GetMeasure>
-      {({ size, ref }) => (
-        <div className={wrapper}>
-          <Button
-            ref={ref}
-            onClick={toggle}
-            className={styles.button}
-            disabled={disabled}
-            style={{ backgroundColor }}
-            dataQa={dataQa}
-          >
-            {renderTitle(title)}
-            {icon && (
-              <Icon
-                component={ChevronRight}
-                size="16"
-                className={iconButton}
-                fill={fill}
-                stroke={stroke}
-              />
-            )}
-          </Button>
-          <OptionContainer
-            on={on}
-            toggle={toggle}
-            size={size}
-            options={options}
-            right={right}
-            className={className}
-            onClick={onClick}
-            active={active}
-            sideLeft={sideLeft}
-            sideRight={sideRight}
+    <div className={wrapper}>
+      <Button
+        ref={ref}
+        onClick={toggle}
+        className={styles.button}
+        disabled={disabled}
+        style={{ backgroundColor }}
+        dataQa={dataQa}
+      >
+        {renderTitle(title)}
+        {icon && (
+          <Icon
+            component={ChevronRight}
+            size="16"
+            className={iconButton}
+            fill={fill}
+            stroke={stroke}
           />
-        </div>
-      )}
-    </GetMeasure>
+        )}
+      </Button>
+      <OptionContainer
+        on={on}
+        toggle={toggle}
+        size={size}
+        options={options}
+        right={right}
+        className={className}
+        onClick={onClick}
+        active={active}
+        sideLeft={sideLeft}
+        sideRight={sideRight}
+      />
+    </div>
   );
 };
 
