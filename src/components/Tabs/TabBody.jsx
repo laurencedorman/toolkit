@@ -9,23 +9,19 @@ import PropTypes from 'prop-types';
 import { animated, Transition } from 'react-spring';
 
 const TabBody = ({ children, activeTab }) => {
-  const setChildren = React.Children.toArray(children);
-
-  return React.Children.map(setChildren, child => {
+  return React.Children.map(children, child => {
     const { label } = child.props;
 
     if (!Array.isArray(children)) return child.props.children;
 
     if (label !== activeTab) return undefined;
 
-    const isOn = label === activeTab;
-
     return (
       <Transition
         native
         unique
         reset
-        items={isOn}
+        items={true}
         from={{ o: 0 }}
         enter={{ o: 1 }}
         leave={{ o: 0 }}

@@ -5,27 +5,34 @@
  */
 
 import React from 'react';
+
 import { shallow } from 'enzyme';
 import GetMeasure from '../GetMeasure';
 
+jest.mock('../index', () => {
+  return {
+    useMeasure() {
+      return [{ height: 300, width: 8000 }, { current: null }];
+    },
+  };
+});
+
 describe('GetMeasure', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<GetMeasure>{({ size }) => size}</GetMeasure>);
-  });
-
-  afterEach(() => {
-    wrapper.unmount();
-  });
-
   it('should match snapshot', () => {
+    const wrapper = shallow(<GetMeasure>{({ size }) => size}</GetMeasure>);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should setState', () => {
-    const observer = jest.fn(() => 'test');
-    wrapper.setState({ size: observer });
-    expect(wrapper.state().size).toEqual(observer);
+  it('should pass proper props to children', async () => {
+    const children = jest.fn(({ size, ref }) => (
+      <div ref={ref}>Dumb component</div>
+    ));
+
+    shallow(<GetMeasure>{children}</GetMeasure>);
+
+    expect(children).toHaveBeenCalledWith({
+      size: { width: 8000, height: 300 },
+      ref: { current: null },
+    });
   });
 });
