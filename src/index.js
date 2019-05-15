@@ -11,7 +11,6 @@ export { default as Avatar } from './components/Avatar';
 export { default as Button } from './components/Button';
 export { default as Card } from './components/Card';
 export { default as DropDown, OptionContainer } from './components/DropDown';
-export { default as Field } from './components/Field';
 export { default as GetMeasure } from './components/GetMeasure';
 export { default as HeightTransition } from './components/HeightTransition';
 export { default as Hint } from './components/Hint';
