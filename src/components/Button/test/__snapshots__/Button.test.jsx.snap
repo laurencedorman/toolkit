@@ -6,11 +6,6 @@ exports[`Button should match snapshot 1`] = `
   data-qa=""
   disabled={false}
   onClick={null}
-  style={
-    Object {
-      "marginBottom": "0",
-    }
-  }
   type="button"
 />
 `;

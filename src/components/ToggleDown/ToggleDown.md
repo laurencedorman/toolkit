@@ -17,7 +17,7 @@ import ToggleDown from '../ToggleDown';
   <Toggle>
     {({ on, toggle }) => (
       <div>
-        <Button onClick={toggle} marginBottom="16px">
+        <Button onClick={toggle} style={{ marginBottom: '16px' }}>
           Trigger
         </Button>
         <ToggleDown on={on}>

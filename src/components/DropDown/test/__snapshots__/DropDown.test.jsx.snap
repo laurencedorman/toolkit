@@ -10,7 +10,6 @@ exports[`DropDown template should match snapshot 1`] = `
     disabled={true}
     fill="#ffffff"
     iconComponent={null}
-    marginBottom="0"
     onClick={null}
     reverse={false}
     size="default"
