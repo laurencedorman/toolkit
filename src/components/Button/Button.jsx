@@ -29,7 +29,6 @@ const Button = React.forwardRef(
       style,
       title,
       fill,
-      marginBottom,
     },
     ref
   ) => {
@@ -54,10 +53,7 @@ const Button = React.forwardRef(
         className={classNames}
         data-qa={dataQa}
         ref={ref}
-        style={{
-          marginBottom,
-          ...style,
-        }}
+        style={style}
       >
         {iconComponent && (
           <Icon component={iconComponent} size="16" fill={fill} />
@@ -91,7 +87,6 @@ Button.propTypes = {
   className: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   fill: PropTypes.string,
-  marginBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Button.displayName = 'button';
@@ -110,7 +105,6 @@ Button.defaultProps = {
   className: undefined,
   title: '',
   fill: colors.white,
-  marginBottom: '0',
 };
 
 export default Button;
