@@ -14,9 +14,13 @@ $fastTimeout: 150ms;
   align-items: center;
   justify-content: flex-start;
   width: auto;
-  &:not(:last-child) { margin-bottom: em($doubleSpace) }
+  &:not(:last-child) {
+    margin-bottom: em($doubleSpace);
+  }
 
-  &.reset { margin-bottom: 0 }
+  &.reset {
+    margin-bottom: 0;
+  }
 }
 
 .title {
@@ -45,9 +49,12 @@ $fastTimeout: 150ms;
   cursor: pointer;
   transition: background $fastTimeout $in;
 
-  &::after, &.active::after { transition: transform $fastTimeout $in }
+  &:after,
+  &.active:after {
+    transition: transform $fastTimeout $in;
+  }
 
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     width: em(24, 14);
@@ -55,15 +62,15 @@ $fastTimeout: 150ms;
     left: em(2, 14);
     background-color: $white;
     border-radius: 100%;
-    box-shadow: 0 em(1, 14) em(1, 14) em(1, 14) rgba(0,0,0,.20);
+    box-shadow: 0 em(1, 14) em(1, 14) em(1, 14) rgba(0, 0, 0, 0.2);
   }
 
   &.active {
     background-color: $balataGreen;
 
-    &::after {
+    &:after {
       content: '';
-      transform: translateX(em(16, 14))
+      transform: translateX(em(16, 14));
     }
   }
 }

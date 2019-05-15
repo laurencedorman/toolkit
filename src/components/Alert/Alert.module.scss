@@ -12,8 +12,16 @@
   cursor: pointer;
   z-index: z($layers, modal);
 
-  &.right { right: em($space) }
-  &.left { left: em($space) }
-  &.top { top: em($space) }
-  &.bottom { bottom: em($space) }
+  &.right {
+    right: em($space);
+  }
+  &.left {
+    left: em($space);
+  }
+  &.top {
+    top: em($space);
+  }
+  &.bottom {
+    bottom: em($space);
+  }
 }
