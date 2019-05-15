@@ -26,8 +26,8 @@
     "react-table": "^6.10.0"
   },
   "devDependencies": {
-    "@manomano/eslint-config": "^2.2.0",
-    "@manomano/macgyver": "^2.2.0",
+    "@manomano/eslint-config": "^2.3.1",
+    "@manomano/macgyver": "^2.3.1",
     "@manomano/prettier-config": "^2.0.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
