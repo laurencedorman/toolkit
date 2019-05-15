@@ -5,11 +5,11 @@ Warning
 Stepper:
 
 - Stepper with automatic transition.
-- Need function to increment/decrement activeStep props (You can use <b>StepControler</b> component).
+- Need function to increment/decrement activeStep props (You can use <b>StepController</b> component).
 - Set step and label on every children to display automatically step indicator.
 - Step has props to pass validation design (Check step component).
 
-Stepper without controler :
+Stepper without controller :
 
 ```js
 <Stepper>
@@ -20,16 +20,16 @@ Stepper without controler :
 </Stepper>
 ```
 
-Stepper with StepControler and Toggle components exemple :
+Stepper with StepController and Toggle components example :
 
-- I combine Stepper, StepControler, Toggle and differents tricks to show some possibilities. You can reproduce or choose an other way
-- Check StepControler and Toggle section to read methods and use case.
+- I combine Stepper, StepController, Toggle and different tricks to show some possibilities. You can reproduce or choose an other way
+- Check StepController and Toggle section to read methods and use case.
 
 ```js
 import Button from '../Button';
 import Modal from '../Modal';
 import Toggle from '../Toggle';
-import StepControler from '../StepControler';
+import StepController from '../StepController';
 import Wrapper from '../Wrapper';
 
 const click = (next, toggle, lastStep) => {
@@ -39,7 +39,7 @@ const click = (next, toggle, lastStep) => {
 
 <Toggle>
   {({ on, toggle }) => (
-    <StepControler>
+    <StepController>
       {({
         prevStep,
         nextStep,
@@ -104,18 +104,18 @@ const click = (next, toggle, lastStep) => {
           </Modal>
         </div>
       )}
-    </StepControler>
+    </StepController>
   )}
 </Toggle>;
 ```
 
-Stepper with controler extension and step initilization :
+Stepper with controller extension and step initialization :
 
 ```js
 import Button from '../Button';
-import StepControler from '../StepControler';
+import StepController from '../StepController';
 
-<StepControler getActiveStep={2}>
+<StepController getActiveStep={2}>
   {({ prevStep, nextStep, activeStep, setTotalStep, direction }) => (
     <div>
       <Stepper
@@ -156,5 +156,5 @@ import StepControler from '../StepControler';
       </div>
     </div>
   )}
-</StepControler>;
+</StepController>;
 ```

@@ -7,7 +7,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export default class StepControler extends PureComponent {
+export default class StepController extends PureComponent {
   static defaultProps = { getActiveStep: undefined };
 
   constructor(props) {
@@ -68,7 +68,7 @@ export default class StepControler extends PureComponent {
   }
 }
 
-StepControler.propTypes = {
+StepController.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   getActiveStep: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
 };
