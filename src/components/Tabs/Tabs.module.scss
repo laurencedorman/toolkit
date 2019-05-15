@@ -11,7 +11,7 @@
 
   .tabList {
     display: flex;
-    flex-flow: row noWrap;
+    flex-flow: row nowrap;
     justify-content: flex-start;
     width: 100%;
     padding: 0;
@@ -29,7 +29,8 @@
     border-bottom: em(4) solid $squidInk;
     cursor: pointer;
 
-    & > span, & > a {
+    & > span,
+    & > a {
       position: relative;
       display: inline-flex;
       justify-content: center;
@@ -41,7 +42,9 @@
       text-decoration: none;
       transition: color $fastTimeout $in;
 
-      &:first-letter { text-transform: uppercase }
+      &:first-letter {
+        text-transform: uppercase;
+      }
 
       &:hover {
         text-decoration: none;
@@ -53,13 +56,16 @@
         position: absolute;
         width: 0;
         height: 4px;
-        left: 0; bottom: em(-4);
+        left: 0;
+        bottom: em(-4);
         background-color: $blueMood;
         transition: width $timeout $out;
         will-change: width;
       }
 
-      &.active:after { width: 100% }
+      &.active:after {
+        width: 100%;
+      }
     }
   }
 
@@ -76,4 +82,3 @@
     }
   }
 }
-

@@ -12,18 +12,24 @@
 
   .button {
     white-space: nowrap;
-    &:disabled { background-color: $greyDarker !important }
+    &:disabled {
+      background-color: $greyDarker !important;
+    }
   }
 
   .iconButton {
     margin: em(1) 0 0 em($space);
     transition: transform $timeout $in;
-    &.rotate { transform: rotate(90deg) }
+    &.rotate {
+      transform: rotate(90deg);
+    }
   }
 
   &.dark svg {
     fill: $squidInk !important;
-    &:hover { fill: $balataGreen !important }
+    &:hover {
+      fill: $balataGreen !important;
+    }
   }
 }
 
@@ -34,27 +40,31 @@
   border-radius: em($radius);
   background-color: $white;
   z-index: z($layers, nav);
-  transition: box-shadow .4s $in;
+  transition: box-shadow 0.4s $in;
 
   &.show {
-    box-shadow: 0 em(8) em(10) em(1) rgba(0, 0, 0, .14),
-                0 em(3) em(14) em(2) rgba(0, 0, 0, .12),
-                0 em(5) em(5) em(-3) rgba(0, 0, 0, .2);
+    box-shadow: 0 em(8) em(10) em(1) rgba(0, 0, 0, 0.14),
+      0 em(3) em(14) em(2) rgba(0, 0, 0, 0.12),
+      0 em(5) em(5) em(-3) rgba(0, 0, 0, 0.2);
   }
 
   &.right,
   &.sideLeft,
   &.sideRight {
-    left: initial
+    left: initial;
   }
 
   &.right {
     right: 0;
-    li { text-align: right }
+    li {
+      text-align: right;
+    }
   }
 
   &.sideLeft,
-  &.sideRight { bottom: 0 }
+  &.sideRight {
+    bottom: 0;
+  }
 
   .list {
     display: flex;
@@ -62,7 +72,9 @@
     overflow-y: auto;
   }
 
-  & > div { padding: 0.125em 0; }
+  & > div {
+    padding: 0.125em 0;
+  }
 
   li {
     position: relative;
@@ -71,9 +83,12 @@
     cursor: pointer;
     transition: background-color $timeout $in;
 
-    &:first-child { border-radius: em($radius) em($radius) 0 0 }
+    &:first-child {
+      border-radius: em($radius) em($radius) 0 0;
+    }
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       background-color: $squidInk;
       color: $white;
     }
@@ -82,7 +97,9 @@
       background-color: $greyDark;
       color: $white;
       cursor: not-allowed;
-      &:hover { background-color: $greyDark }
+      &:hover {
+        background-color: $greyDark;
+      }
     }
 
     span {
@@ -90,7 +107,10 @@
       &:before {
         content: '';
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     }
   }
@@ -98,8 +118,10 @@
 
 .closeTarget {
   position: fixed;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: transparent;
   z-index: 1;
 }
-

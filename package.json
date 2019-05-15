@@ -46,8 +46,10 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-styleguidist": "^9.0.9",
-    "react-table": "^6.8.6",
-    "semantic-release": "^15.13.12"
+    "semantic-release": "^15.13.12",
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-scss": "^3.6.1"
   },
   "husky": {
     "hooks": {
@@ -59,8 +61,12 @@
       "eslint --fix",
       "git add"
     ],
-    "*.{js,jsx,md,json}": [
+    "*.{js,jsx,md,scss,json}": [
       "prettier --write",
+      "git add"
+    ],
+    "*.{scss}": [
+      "stylelint --fix",
       "git add"
     ]
   },
@@ -73,6 +79,7 @@
     "semantic-release": "npx semantic-release",
     "start": "styleguidist server",
     "styleguide": "styleguidist build",
+    "stylelint": "stylelint src/**/**/*.scss",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },

@@ -9,11 +9,14 @@
 .modal {
   position: fixed;
   display: flex;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
-  background-color: rgba($black, .5);
-  z-index: z($layers, fullScreen);
+  background-color: rgba($black, 0.5);
+  z-index: z($layers, fullscreen);
   will-change: opacity;
   cursor: pointer;
 
@@ -21,21 +24,29 @@
     position: absolute;
     right: em(12);
     cursor: pointer;
-    transition: hover .15s ease;
+    transition: hover 0.15s ease;
     z-index: z($levels, max);
 
-    &:hover svg { fill: $hover }
+    &:hover svg {
+      fill: $hover;
+    }
   }
 
   .header {
-    h4 { margin-bottom: 0 }
-    & .icon { top: em(12) }
+    h4 {
+      margin-bottom: 0;
+    }
+    & .icon {
+      top: em(12);
+    }
 
     &.hasContent {
       padding-right: em($doubleSpace);
       border-bottom: 1px solid $greyMed;
 
-      & .icon { top: initial }
+      & .icon {
+        top: initial;
+      }
     }
   }
 
@@ -50,13 +61,16 @@
     border-top: 1px solid $greyMed;
   }
 
-  .header, .footer { flex: 0 0 auto }
+  .header,
+  .footer {
+    flex: 0 0 auto;
+  }
 }
 
 .content {
   position: absolute;
   display: flex;
-  flex-flow: column noWrap;
+  flex-flow: column nowrap;
   min-width: em(320);
   max-width: 50%;
   max-height: 90vh;
@@ -70,9 +84,11 @@
   z-index: z($levels, max);
   will-change: transform, opacity;
 
-  &.noFooter { padding-bottom: 2em }
+  &.noFooter {
+    padding-bottom: 2em;
+  }
   &.iframe {
     width: 90vw;
-    height: 90vh
+    height: 90vh;
   }
 }

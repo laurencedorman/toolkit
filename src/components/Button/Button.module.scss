@@ -20,25 +20,32 @@
   font-size: em(16);
   line-height: 1.2;
   cursor: pointer;
-  transition: background-color .15s ease,
-              color .15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   touch-action: manipulation;
 
   &.default,
   &.primary {
-    color: $white
+    color: $white;
   }
 
   &.default {
     background-color: $balataGreen;
-    &:hover { background-color: $articCitric }
-    &:active { background-color: $balataGreen }
+    &:hover {
+      background-color: $articCitric;
+    }
+    &:active {
+      background-color: $balataGreen;
+    }
   }
 
   &.primary {
     background-color: $bellaNotte;
-    &:hover { background-color: #2952B1 }
-    &:active { background-color: $bellaNotte }
+    &:hover {
+      background-color: #2952b1;
+    }
+    &:active {
+      background-color: $bellaNotte;
+    }
   }
 
   &.secondary {
@@ -46,7 +53,9 @@
     background-color: $white;
     border-color: $greyDarker;
 
-    &:hover { background-color: $greyDark }
+    &:hover {
+      background-color: $greyDark;
+    }
     &:active {
       background-color: $white;
       border-color: $greyDarker;
@@ -82,10 +91,10 @@
     color: $squidInk;
 
     &:hover {
-      background-color: $greyDark
+      background-color: $greyDark;
     }
     &:active {
-      background-color: $white
+      background-color: $white;
     }
   }
 
@@ -115,24 +124,24 @@
   &.xsmall {
     font-size: em(14);
     svg {
-      width: em(12, 14)
+      width: em(12, 14);
     }
   }
 
   //ICON SPACE
-  &.icon svg{
-    margin-right: em($smallSpace)
+  &.icon svg {
+    margin-right: em($smallSpace);
   }
 
   &.reverse {
     flex-direction: row-reverse;
-    svg{
+    svg {
       margin-right: 0;
       margin-left: em($smallSpace);
     }
   }
 
   &.onlyIcon svg {
-    margin: 0
+    margin: 0;
   }
 }

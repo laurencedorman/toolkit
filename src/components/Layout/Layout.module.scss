@@ -13,13 +13,21 @@
   padding: em($space);
   background-color: $white;
 
-  &.row { flex-flow: row wrap }
-  &.column { flex-flow: column wrap }
+  &.row {
+    flex-flow: row wrap;
+  }
+  &.column {
+    flex-flow: column wrap;
+  }
 
   &.guide {
     padding: 0 em($space);
 
-    &.row { align-items: flex-end }
-    &.row > * { margin-right: em($space) }
+    &.row {
+      align-items: flex-end;
+    }
+    &.row > * {
+      margin-right: em($space);
+    }
   }
 }

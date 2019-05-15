@@ -20,7 +20,9 @@ $stepSize: em($doubleSpace); // 32
   flex-flow: column wrap;
   padding: 0 $stepSize;
 
-  .label { text-align: center }
+  .label {
+    text-align: center;
+  }
 }
 
 .stepIndicatorContainer {
@@ -74,8 +76,13 @@ $stepSize: em($doubleSpace); // 32
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 }
 
-.label { font-size: .85rem }
+.label {
+  font-size: 0.85rem;
+}

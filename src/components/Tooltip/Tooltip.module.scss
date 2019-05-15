@@ -28,11 +28,18 @@ $marginArrow: em(-10);
       backface-visibility: hidden;
     }
 
-    &.top, &.bottom { transform: translateX(-50%) }
-    &.left, &.right { transform: translateY(-50%) }
+    &.top,
+    &.bottom {
+      transform: translateX(-50%);
+    }
+    &.left,
+    &.right {
+      transform: translateY(-50%);
+    }
   }
 
-  .content, .spanContent {
+  .content,
+  .spanContent {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: em(14);
@@ -46,25 +53,37 @@ $marginArrow: em(-10);
 .svg {
   position: absolute;
   display: inline-flex;
-  width: 100%; height: 100%;
-  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   z-index: -1;
 
-  svg { position: absolute }
+  svg {
+    position: absolute;
+  }
 
-  .top &, .bottom & { justify-content: center }
-  .left &, .right & { align-items: center }
+  .top &,
+  .bottom & {
+    justify-content: center;
+  }
+  .left &,
+  .right & {
+    align-items: center;
+  }
 
   .top & {
     align-items: flex-end;
-    svg { bottom: $marginArrow }
+    svg {
+      bottom: $marginArrow;
+    }
   }
 
   .bottom & {
     align-items: flex-start;
     svg {
       top: $marginArrow;
-      transform: rotate(180deg)
+      transform: rotate(180deg);
     }
   }
 
@@ -72,7 +91,7 @@ $marginArrow: em(-10);
     justify-content: flex-end;
     svg {
       right: $marginArrow;
-      transform: rotate(-90deg)
+      transform: rotate(-90deg);
     }
   }
 
@@ -80,7 +99,7 @@ $marginArrow: em(-10);
     justify-content: flex-start;
     svg {
       left: $marginArrow;
-      transform: rotate(90deg)
+      transform: rotate(90deg);
     }
   }
 }
