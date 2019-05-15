@@ -5,7 +5,7 @@
  */
 
 import PropTypes from 'prop-types';
-import { useMeasure } from './index';
+import useMeasure from './hook';
 
 const GetMeasure = ({ children }) => {
   const [size, ref] = useMeasure();

@@ -9,12 +9,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import GetMeasure from '../GetMeasure';
 
-jest.mock('../index', () => {
-  return {
-    useMeasure() {
-      return [{ height: 300, width: 8000 }, { current: null }];
-    },
-  };
+jest.mock('../hook', () => {
+  return () => [{ height: 300, width: 8000 }, { current: null }];
 });
 
 describe('GetMeasure', () => {
