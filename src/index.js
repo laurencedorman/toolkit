@@ -30,7 +30,7 @@ export { default as Portal } from './components/Portal';
 export { default as Select } from './components/Select';
 export { default as Sidebar } from './components/Sidebar';
 export { default as StepIndicator, Step } from './components/StepIndicator';
-export { default as StepControler } from './components/StepControler';
+export { default as StepController } from './components/StepController';
 export { default as Stepper } from './components/Stepper';
 export { default as Switch } from './components/Switch';
 export { default as Table } from './components/Table';

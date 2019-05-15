@@ -6,26 +6,18 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import StepControler from '../StepControler';
+import StepController from '../StepController';
 
-describe('StepControler', () => {
+describe('StepController', () => {
   const renderMock = jest.fn();
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <StepControler getActiveStep={renderMock}>
+      <StepController getActiveStep={renderMock}>
         {({ props }) => props}
-      </StepControler>
+      </StepController>
     );
-  });
-
-  afterEach(() => {
-    wrapper.unmount();
-  });
-
-  it('should render without crash with layoutContainer', () => {
-    expect(wrapper.length).toEqual(1);
   });
 
   it('should match snapshot', () => {
