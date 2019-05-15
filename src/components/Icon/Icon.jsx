@@ -40,7 +40,7 @@ const Icon = ({
         fill={fill}
         xmlns="http://www.w3.org/2000/svg"
       >
-        {Component && <Component />}
+        {Component && <Component stroke={stroke} />}
       </svg>
     </div>
   );
