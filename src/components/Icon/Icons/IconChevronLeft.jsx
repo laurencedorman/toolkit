@@ -1,24 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const IconChevronLeft = ({ stroke }) => (
-  <g fill="none">
-    <path
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      stroke={stroke}
-      d="M19.8404 8.72l-7.2808 7.2808 7.2818 7.2817"
-    />
-  </g>
+
+const IconChevronLeft = () => (
+  <path d="M20.54847 22.57544c.39052.39053.39052 1.02369 0 1.41421-.39053.39053-1.0237.39053-1.41422 0L11.8525 16.7079c-.39053-.39053-.39053-1.0237 0-1.41422l7.28079-7.28079c.39052-.39052 1.02369-.39052 1.41421 0 .39053.39053.39053 1.0237 0 1.41422l-6.57368 6.57368 6.57465 6.57465z" />
 );
-
-IconChevronLeft.propTypes = {
-  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-};
-
-IconChevronLeft.defaultProps = {
-  stroke: '#0c193a',
-};
 
 export default IconChevronLeft;

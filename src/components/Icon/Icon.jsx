@@ -16,7 +16,6 @@ const Icon = ({
   className,
   size,
   fill,
-  stroke,
   dataQa,
   component: Component,
 }) => {
@@ -39,7 +38,7 @@ const Icon = ({
         fill={fill}
         xmlns="http://www.w3.org/2000/svg"
       >
-        {Component && <Component stroke={stroke} />}
+        <Component />
       </svg>
     </div>
   );
@@ -53,16 +52,15 @@ Icon.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   fill: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   dataQa: PropTypes.string,
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
 };
 
 Icon.defaultProps = {
   className: '',
   size: 32,
   fill: '#0c193a',
-  stroke: '#0c193a',
   dataQa: '',
 };
 
