@@ -14,7 +14,6 @@ const Icon = ({
   onClick,
   onKeyPress,
   className,
-  name,
   size,
   fill,
   stroke,
@@ -46,6 +45,8 @@ const Icon = ({
   );
 };
 
+Icon.displayName = 'Icon';
+
 Icon.propTypes = {
   onClick: PropTypes.func,
   onKeyPress: PropTypes.func,
@@ -58,9 +59,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  onClick: null,
-  onKeyPress: null,
-  className: undefined,
+  className: '',
   size: 32,
   fill: '#0c193a',
   stroke: '#0c193a',

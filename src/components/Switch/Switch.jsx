@@ -51,6 +51,8 @@ const Switch = ({
   );
 };
 
+Switch.displayName = 'Switch';
+
 Switch.propTypes = {
   id: PropTypes.string.isRequired,
   itemId: PropTypes.string,
@@ -65,7 +67,7 @@ Switch.propTypes = {
 
 Switch.defaultProps = {
   itemId: '',
-  className: undefined,
+  className: '',
   dataQa: '',
   label: '',
   reset: false,

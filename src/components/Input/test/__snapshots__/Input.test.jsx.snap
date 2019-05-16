@@ -15,16 +15,7 @@ exports[`Input should match snapshot 1`] = `
       disabled={false}
       hidden={false}
       id="id"
-      max={null}
-      maxLength={null}
-      min={null}
-      minLength={null}
       name="name"
-      onBlur={null}
-      onChange={null}
-      onFocus={null}
-      onKeyDown={null}
-      step={null}
       type="text"
       value="value"
     />

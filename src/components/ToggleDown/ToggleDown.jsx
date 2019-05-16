@@ -40,6 +40,8 @@ const ToggleDown = ({ on, children, className, style }) => {
   );
 };
 
+ToggleDown.displayName = 'ToggleDown';
+
 ToggleDown.propTypes = {
   on: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([

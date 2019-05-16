@@ -27,4 +27,6 @@ export default class Portal extends PureComponent {
   }
 }
 
+Portal.displayName = 'Portal';
+
 Portal.propTypes = { children: PropTypes.element.isRequired };

@@ -34,6 +34,8 @@ const Layout = ({
   );
 };
 
+Layout.displayName = 'Layout';
+
 Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -48,10 +50,9 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
-  className: undefined,
+  className: '',
   direction: 'row',
   styleGuidist: false,
-  style: {},
   dataQa: '',
 };
 

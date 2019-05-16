@@ -10,13 +10,7 @@ import cn from 'classnames';
 
 import styles from './Tabs.module.scss';
 
-/* eslint-disable */
 export default class TabLabel extends PureComponent {
-  static defaultProps = {
-    className: '',
-    activeTab: '',
-  };
-
   onClick = () => {
     const { label, onClick } = this.props;
     onClick(label);
@@ -28,24 +22,29 @@ export default class TabLabel extends PureComponent {
     const classNames = cn(className, { [styles.active]: activeTab === label });
 
     return (
-      <li className={styles.tabLabel}>
-        <span
-          className={classNames}
-          onClick={this.onClick}
-          aria-selected={activeTab === label}
-          role="button"
-        >
+      <li
+        className={styles.tabLabel}
+        aria-selected={activeTab === label}
+        role="tab"
+      >
+        <span className={classNames} onClick={this.onClick}>
           {typeof label === 'function' ? label() : label}
         </span>
       </li>
     );
   }
 }
-/* eslint-enable */
+
+TabLabel.displayName = 'TabLabel';
 
 TabLabel.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   activeTab: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
+};
+
+TabLabel.defaultProps = {
+  className: '',
+  activeTab: '',
 };

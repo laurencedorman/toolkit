@@ -19,6 +19,8 @@ const Card = ({ children, className, dataQa }) => {
   );
 };
 
+Card.displayName = 'Card';
+
 Card.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -31,7 +33,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  className: undefined,
+  className: '',
   dataQa: '',
 };
 

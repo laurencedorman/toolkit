@@ -68,6 +68,8 @@ export default class StepController extends PureComponent {
   }
 }
 
+StepController.displayName = 'StepController';
+
 StepController.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   getActiveStep: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),

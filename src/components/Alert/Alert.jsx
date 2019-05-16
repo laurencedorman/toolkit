@@ -85,6 +85,8 @@ export const translate = value => {
 
 const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
 
+Alert.displayName = 'Alert';
+
 Alert.propTypes = {
   /** display alert */
   on: PropTypes.bool.isRequired,
@@ -106,8 +108,7 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   theme: 'default',
-  className: undefined,
-  timeout: undefined,
+  className: '',
   position: 'topRight',
   dataQa: '',
 };

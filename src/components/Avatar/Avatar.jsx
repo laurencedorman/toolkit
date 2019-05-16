@@ -35,6 +35,8 @@ const Avatar = ({ className, src, alt, size, dataQa }) => {
   );
 };
 
+Avatar.displayName = 'Avatar';
+
 Avatar.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
@@ -44,7 +46,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
-  className: undefined,
+  className: '',
   size: 'big',
   dataQa: '',
 };

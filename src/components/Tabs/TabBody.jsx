@@ -42,6 +42,8 @@ const TabBody = ({ children, activeTab }) => {
   });
 };
 
+TabBody.displayName = 'TabBody';
+
 TabBody.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
@@ -50,7 +52,5 @@ TabBody.propTypes = {
   ]).isRequired,
   activeTab: PropTypes.string,
 };
-
-TabBody.defaultProps = { activeTab: undefined };
 
 export default TabBody;

@@ -5,7 +5,6 @@ exports[`Button should match snapshot 1`] = `
   className="button default default onlyIcon"
   data-qa=""
   disabled={false}
-  onClick={null}
   type="button"
 />
 `;

@@ -11,14 +11,9 @@ import cn from 'classnames';
 import StepIndicator from '../StepIndicator';
 import Wrapper from '../Wrapper';
 import styles from './Stepper.module.scss';
+import { NOOP } from '../../helpers';
 
 export default class Stepper extends PureComponent {
-  static defaultProps = {
-    className: '',
-    activeStep: 0,
-    getLength: () => null,
-  };
-
   componentDidMount() {
     const { getLength, children } = this.props;
     getLength(React.Children.count(children));
@@ -53,7 +48,6 @@ export default class Stepper extends PureComponent {
   }
 }
 
-/* eslint-disable  */
 const bodyStepper = (children, activeStep, up) => {
   if (React.Children.count(children) === 1) return children;
 
@@ -89,6 +83,8 @@ const bodyStepper = (children, activeStep, up) => {
   );
 };
 
+Stepper.displayName = 'Stepper';
+
 Stepper.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -105,4 +101,9 @@ Stepper.propTypes = {
   getLength: PropTypes.func,
   direction: PropTypes.oneOf(['up', 'down']),
 };
-/* eslint-enable  */
+
+Stepper.defaultProps = {
+  className: '',
+  activeStep: 0,
+  getLength: NOOP,
+};

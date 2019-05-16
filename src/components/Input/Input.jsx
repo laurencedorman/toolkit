@@ -28,7 +28,6 @@ const Input = React.forwardRef(
       label,
       max,
       maxLength,
-      messageError,
       min,
       minLength,
       name,
@@ -123,6 +122,8 @@ const handleIndicator = (indicator, iconComponent) =>
   indicator &&
   !iconComponent && <span className={styles.indicator}>{indicator}</span>;
 
+Input.displayName = 'Input';
+
 Input.propTypes = {
   className: PropTypes.string,
   dataQa: PropTypes.string,
@@ -167,27 +168,13 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  className: undefined,
   dataQa: '',
   disabled: false,
   error: '',
   helper: '',
   hidden: false,
-  iconComponent: null,
-  id: null,
-  indicator: null,
   label: '',
-  max: null,
-  maxLength: null,
-  min: null,
-  minLength: null,
-  onBlur: null,
-  onChange: null,
-  onFocus: null,
-  onKeyDown: null,
-
   reverse: false,
-  step: null,
   touched: true,
   valid: false,
   value: '',

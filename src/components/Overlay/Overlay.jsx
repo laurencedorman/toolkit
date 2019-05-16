@@ -36,6 +36,8 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
   </Transition>
 );
 
+Overlay.displayName = 'Overlay';
+
 Overlay.propTypes = {
   onClick: PropTypes.func,
   on: PropTypes.bool.isRequired,
@@ -44,7 +46,6 @@ Overlay.propTypes = {
 };
 
 Overlay.defaultProps = {
-  onClick: null,
   zIndex: 8000,
   backgroundColor: '#000',
 };

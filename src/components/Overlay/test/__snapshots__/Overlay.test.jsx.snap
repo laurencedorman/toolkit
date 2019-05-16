@@ -4,8 +4,7 @@ exports[`Overlay should match snapshot 1`] = `
 <Overlay
   backgroundColor="#000"
   on={false}
-  onClick={null}
-  onclick={[MockFunction]}
+  onClick={[MockFunction]}
   zIndex={8000}
 >
   <Transition

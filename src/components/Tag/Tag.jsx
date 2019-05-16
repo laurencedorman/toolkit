@@ -24,6 +24,8 @@ const Tag = ({ className, theme, children, disabled, dataQa, onClick }) => {
   );
 };
 
+Tag.displayName = 'Tag';
+
 Tag.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.oneOf([
@@ -47,7 +49,7 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  className: undefined,
+  className: '',
   theme: 'default',
   dataQa: '',
   disabled: false,

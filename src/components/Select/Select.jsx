@@ -79,6 +79,8 @@ const Select = ({
   );
 };
 
+Select.displayName = 'Select';
+
 Select.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
@@ -102,8 +104,8 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  className: undefined,
-  dataQa: undefined,
+  className: '',
+  dataQa: '',
   disabled: false,
   error: '',
   helper: '',

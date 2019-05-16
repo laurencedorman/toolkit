@@ -89,20 +89,16 @@ Button.propTypes = {
   fill: PropTypes.string,
 };
 
-Button.displayName = 'button';
+Button.displayName = 'Button';
 
 Button.defaultProps = {
-  id: undefined,
-  children: null,
   theme: 'default',
   size: 'default',
   type: 'button',
-  iconComponent: null,
   reverse: false,
   disabled: false,
-  onClick: null,
   dataQa: '',
-  className: undefined,
+  className: '',
   title: '',
   fill: colors.white,
 };

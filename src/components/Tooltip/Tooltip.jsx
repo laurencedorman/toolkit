@@ -18,13 +18,6 @@ import styles from './Tooltip.module.scss';
 let addTooltipPosition = {};
 
 export default class Tooltip extends PureComponent {
-  static defaultProps = {
-    position: 'top',
-    className: '',
-    bgColor: '#0c193a',
-    dataQa: '',
-  };
-
   constructor(props) {
     super(props);
     this.transmitter = React.createRef();
@@ -128,6 +121,8 @@ const renderContent = (content, className) =>
     content()
   ) : null;
 
+Tooltip.displayName = 'Tooltip';
+
 Tooltip.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -143,4 +138,11 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   bgColor: PropTypes.string,
   dataQa: PropTypes.string,
+};
+
+Tooltip.defaultProps = {
+  position: 'top',
+  className: '',
+  bgColor: '#0c193a',
+  dataQa: '',
 };

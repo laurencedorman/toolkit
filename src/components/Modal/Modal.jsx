@@ -109,6 +109,8 @@ const renderHeader = header =>
     <h4>{header()}</h4>
   ) : null;
 
+Modal.dislayName = 'Modal';
+
 Modal.propTypes = {
   on: PropTypes.bool.isRequired,
   toggle: PropTypes.func,
@@ -130,12 +132,11 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  className: undefined,
+  className: '',
   header: null,
   buttonTitle: 'close',
   noFooter: false,
   hasIframe: false,
-  toggle: null,
   dataQa: '',
 };
 

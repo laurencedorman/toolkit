@@ -1,3 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select should render correctly 1`] = `"<div class=\\"select test-class\\"><label><span class=\\"label\\">This is a label</span><span class=\\"mask\\"><select name=\\"testName\\" id=\\"testId\\" aria-required=\\"false\\" class=\\"control\\"><option value=\\"visa\\">Visa</option><option value=\\"master\\">MasterCard</option><option value=\\"amex\\" disabled=\\"\\">American Express</option><option value=\\"cash\\">Cash</option><option value=\\"other\\">Other</option></select><span class=\\"arrow\\"></span></span></label></div>"`;
+exports[`Select should render correctly 1`] = `
+<div
+  className="select test-class"
+  data-qa=""
+>
+  <label>
+    <span
+      className="label"
+    >
+      This is a label
+    </span>
+    <span
+      className="mask"
+    >
+      <select
+        aria-required={false}
+        className="control"
+        disabled={false}
+        id="testId"
+        name="testName"
+        onChange={[Function]}
+        required={false}
+        value=""
+      >
+        <option
+          key="0-visa"
+          value="visa"
+        >
+          Visa
+        </option>
+        <option
+          key="1-master"
+          value="master"
+        >
+          MasterCard
+        </option>
+        <option
+          disabled={true}
+          key="2-amex"
+          value="amex"
+        >
+          American Express
+        </option>
+        <option
+          key="3-cash"
+          value="cash"
+        >
+          Cash
+        </option>
+        <option
+          key="4-other"
+          value="other"
+        >
+          Other
+        </option>
+      </select>
+      <span
+        className="arrow"
+      />
+    </span>
+  </label>
+</div>
+`;

@@ -30,6 +30,8 @@ const Sidebar = ({ on, children, className, position, width, dataQa }) => {
   );
 };
 
+Sidebar.displayName = 'Sidebar';
+
 Sidebar.propTypes = {
   on: PropTypes.bool.isRequired,
   width: PropTypes.string.isRequired,
@@ -44,7 +46,7 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
-  className: undefined,
+  className: '',
   position: 'left',
   dataQa: '',
 };

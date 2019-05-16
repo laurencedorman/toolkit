@@ -4,13 +4,11 @@ exports[`DropDown template should match snapshot 1`] = `
 <div
   className="wrapper my class name"
 >
-  <button
+  <Button
     className="button"
     dataQa="testQa"
     disabled={true}
     fill="#ffffff"
-    iconComponent={null}
-    onClick={null}
     reverse={false}
     size="default"
     style={
@@ -28,12 +26,10 @@ exports[`DropDown template should match snapshot 1`] = `
       component={[Function]}
       dataQa=""
       fill="#666"
-      onClick={null}
-      onKeyPress={null}
       size="16"
       stroke="#555"
     />
-  </button>
+  </Button>
   <OptionContainer
     active="active"
     className="my class name"

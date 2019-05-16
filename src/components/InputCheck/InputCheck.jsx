@@ -59,6 +59,8 @@ const InputCheck = ({
   );
 };
 
+InputCheck.displayName = 'InputCheck';
+
 InputCheck.propTypes = {
   checked: PropTypes.bool,
   className: PropTypes.string,
@@ -76,12 +78,11 @@ InputCheck.propTypes = {
 
 InputCheck.defaultProps = {
   checked: false,
-  className: undefined,
+  className: '',
   dataQa: '',
   disabled: false,
   itemId: '',
   label: '',
-  onChange: null,
   required: false,
 };
 

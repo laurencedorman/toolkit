@@ -72,6 +72,8 @@ const Textarea = ({
   );
 };
 
+Textarea.displayName = 'Textarea';
+
 Textarea.propTypes = {
   placeholder: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -103,9 +105,8 @@ Textarea.defaultProps = {
   rows: '5',
   required: false,
   disabled: false,
-  onChange: null,
   form: '',
-  className: undefined,
+  className: '',
   dataQa: '',
   valid: false,
   error: false,

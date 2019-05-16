@@ -77,6 +77,8 @@ const DropDown = ({
   );
 };
 
+DropDown.displayName = 'Dropdown';
+
 const renderTitle = title =>
   typeof title === 'string'
     ? title
@@ -111,13 +113,11 @@ DropDown.defaultProps = {
   title: '',
   right: false,
   disabled: false,
-  active: null,
   icon: true,
   backgroundColor: colors.balataGreen,
   className: undefined,
   sideLeft: false,
   sideRight: false,
-  toggle: null,
   fill: colors.white,
   stroke: colors.white,
   dataQa: '',
