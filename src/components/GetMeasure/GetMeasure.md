@@ -39,9 +39,6 @@ import Layout from '../Layout';
 
 Hook useMeasure
 
-TODO: Enable it when react-styleguidist supports hooks.
-
-<!--
 ```jsx
 import Layout from '../Layout';
 import { useMeasure } from './index';
@@ -66,4 +63,4 @@ const [size, ref] = useMeasure();
   <br />
   <pre>Measure of this content: {JSON.stringify(size, null, 2)}</pre>
 </Layout>;
-``` -->
+```
