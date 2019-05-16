@@ -143,59 +143,27 @@ exports[`Icons IconCheck should match snapshot 1`] = `
 `;
 
 exports[`Icons IconChevronDown should match snapshot 1`] = `
-<g
-  fill="none"
->
-  <path
-    d="M8.7192 12.1192L16 19.4l7.2818-7.2818"
-    stroke="#0c193a"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-  />
-</g>
+<path
+  d="M16 17.98579l6.57465-6.57465c.39052-.39053 1.02369-.39053 1.41421 0 .39053.39052.39053 1.02369 0 1.41421l-7.28175 7.28176c-.39053.39052-1.0237.39052-1.41422 0L8.0121 12.8263c-.39052-.39052-.39052-1.02368 0-1.4142.39053-.39053 1.0237-.39053 1.41422 0L16 17.98578z"
+/>
 `;
 
 exports[`Icons IconChevronLeft should match snapshot 1`] = `
-<g
-  fill="none"
->
-  <path
-    d="M19.8404 8.72l-7.2808 7.2808 7.2818 7.2817"
-    stroke="#0c193a"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-  />
-</g>
+<path
+  d="M20.54847 22.57544c.39052.39053.39052 1.02369 0 1.41421-.39053.39053-1.0237.39053-1.41422 0L11.8525 16.7079c-.39053-.39053-.39053-1.0237 0-1.41422l7.28079-7.28079c.39052-.39052 1.02369-.39052 1.41421 0 .39053.39053.39053 1.0237 0 1.41422l-6.57368 6.57368 6.57465 6.57465z"
+/>
 `;
 
 exports[`Icons IconChevronRight should match snapshot 1`] = `
-<g
-  fill="none"
->
-  <path
-    d="M12.1606 8.72l7.2808 7.2808-7.2818 7.2817"
-    stroke="#0c193a"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-  />
-</g>
+<path
+  d="M18.02715 16.0008l-6.57465 6.57464c-.39053.39053-.39053 1.02369 0 1.41421.39052.39053 1.02369.39053 1.41421 0l7.28176-7.28175c.39052-.39053.39052-1.0237 0-1.41422l-7.2808-7.28079c-.39052-.39052-1.02368-.39052-1.4142 0-.39053.39053-.39053 1.0237 0 1.41422l6.57368 6.57368z"
+/>
 `;
 
 exports[`Icons IconChevronUp should match snapshot 1`] = `
-<g
-  fill="none"
->
-  <path
-    d="M8.7192 19.799L16 12.5182 23.2818 19.8"
-    stroke="#0c193a"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-  />
-</g>
+<path
+  d="M22.57465 20.5071c.39052.39053 1.02369.39053 1.41421 0 .39053-.39052.39053-1.02368 0-1.4142l-7.28175-7.28176c-.39053-.39053-1.0237-.39053-1.41422 0L8.0121 19.09193c-.39052.39052-.39052 1.02369 0 1.41421.39053.39052 1.0237.39052 1.41422 0L16 13.93246l6.57465 6.57465z"
+/>
 `;
 
 exports[`Icons IconCircleMinus should match snapshot 1`] = `
