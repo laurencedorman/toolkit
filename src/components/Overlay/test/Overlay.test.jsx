@@ -10,12 +10,11 @@ import Overlay from '../Overlay';
 
 describe('Overlay', () => {
   let wrapper;
-  const onClick = jest.fn();
 
   const props = {
     zIndex: 8000,
     backgroundColor: '#000',
-    onclick: onClick,
+    onClick: jest.fn(),
   };
 
   wrapper = mount(<Overlay on={false} {...props} />);
@@ -30,7 +29,7 @@ describe('Overlay', () => {
   });
 
   it('should have pointer cursor if component has props onClick', () => {
-    wrapper = mount(<Overlay on={true} onClick={onClick} {...props} />);
+    wrapper = mount(<Overlay on={true} {...props} />);
     expect(wrapper.find('div').prop('style')).toHaveProperty(
       'cursor',
       'pointer'

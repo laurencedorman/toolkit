@@ -96,7 +96,6 @@ describe('DropDown', () => {
     it('should have default props', () => {
       // Then
       expect(DropDown.defaultProps).toEqual({
-        active: null,
         backgroundColor: '#29b9ad',
         className: undefined,
         dataQa: '',
@@ -108,7 +107,6 @@ describe('DropDown', () => {
         sideRight: false,
         stroke: '#ffffff',
         title: '',
-        toggle: null,
       });
     });
   });

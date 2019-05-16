@@ -13,6 +13,8 @@ const GetMeasure = ({ children }) => {
   return children({ size, ref });
 };
 
+GetMeasure.displayName = 'GetMeasure';
+
 GetMeasure.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
 };

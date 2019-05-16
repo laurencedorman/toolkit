@@ -34,6 +34,8 @@ const StepIndicator = ({ children, className, activeStep, lastStep }) => {
   );
 };
 
+StepIndicator.displayName = 'StepIndicator';
+
 StepIndicator.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -47,7 +49,6 @@ StepIndicator.propTypes = {
 
 StepIndicator.defaultProps = {
   className: '',
-  lastStep: undefined,
 };
 
 export default StepIndicator;

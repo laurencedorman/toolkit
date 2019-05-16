@@ -15,8 +15,6 @@ import Wrapper from '../Wrapper';
 import styles from './Tabs.module.scss';
 
 export default class Tabs extends PureComponent {
-  static defaultProps = { className: undefined };
-
   constructor(props) {
     super(props);
     this.state = { activeTab: undefined };
@@ -58,7 +56,7 @@ export default class Tabs extends PureComponent {
 
     return (
       <Wrapper className={classNames}>
-        <ul className={styles.tabList}>
+        <ul className={styles.tabList} role="tablist">
           {React.Children.map(children, child => {
             const { label } = child.props;
             return React.cloneElement(
@@ -81,6 +79,8 @@ export default class Tabs extends PureComponent {
   }
 }
 
+Tabs.displayName = 'Tabs';
+
 Tabs.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([
@@ -89,3 +89,5 @@ Tabs.propTypes = {
     PropTypes.arrayOf([PropTypes.node]),
   ]),
 };
+
+Tabs.defaultProps = { className: '' };

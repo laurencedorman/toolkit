@@ -34,6 +34,7 @@ const HeightTransition = ({ children }) => {
   );
 };
 
+HeightTransition.displayName = 'HeightTransition';
 HeightTransition.propTypes = { children: PropTypes.element.isRequired };
 
 export default HeightTransition;

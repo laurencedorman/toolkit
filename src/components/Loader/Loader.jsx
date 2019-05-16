@@ -9,18 +9,9 @@ import PropTypes from 'prop-types';
 import styles from './Loader.module.scss';
 
 const bar = [
-  {
-    x: '0',
-    begin: '0s',
-  },
-  {
-    x: '10',
-    begin: '0.16s',
-  },
-  {
-    x: '20',
-    begin: '0.32s',
-  },
+  { x: '0', begin: '0s' },
+  { x: '10', begin: '0.16s' },
+  { x: '20', begin: '0.32s' },
 ];
 
 const Loader = ({ fill, dataQa }) => (
@@ -63,6 +54,8 @@ const Loader = ({ fill, dataQa }) => (
     </svg>
   </div>
 );
+
+Loader.displayName = 'Loader';
 
 Loader.propTypes = {
   fill: PropTypes.string,

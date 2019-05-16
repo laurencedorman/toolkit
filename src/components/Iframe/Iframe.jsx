@@ -20,6 +20,8 @@ const Iframe = ({ id, src, title, dataQa }) => (
   </div>
 );
 
+Iframe.displayName = 'Iframe';
+
 Iframe.propTypes = {
   id: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,

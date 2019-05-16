@@ -35,6 +35,8 @@ const Wrapper = ({ children, className, direction, type, style, dataQa }) => {
   );
 };
 
+Wrapper.displayName = 'Wrapper';
+
 Wrapper.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -56,9 +58,8 @@ Wrapper.propTypes = {
 };
 
 Wrapper.defaultProps = {
-  className: undefined,
+  className: '',
   direction: 'column',
-  style: {},
   type: 'div',
   dataQa: '',
 };

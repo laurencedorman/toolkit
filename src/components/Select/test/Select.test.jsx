@@ -30,7 +30,7 @@ describe('Select', () => {
       />
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should not have a defaultValue, it makes the component not to update correctly to immidiate value changes after first render', () => {

@@ -13,6 +13,8 @@ const Tab = ({ children, label, defaultActive }) => (
   </div>
 );
 
+Tab.displayName = 'Tab';
+
 Tab.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,

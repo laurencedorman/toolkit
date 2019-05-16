@@ -17,7 +17,6 @@ exports[`Textarea should match snapshot 1`] = `
       form=""
       id=""
       name="name"
-      onChange={null}
       placeholder="placeholder"
       required={false}
       rows="5"

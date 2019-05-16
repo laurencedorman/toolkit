@@ -63,6 +63,8 @@ const InputCheckGroup = ({
   );
 };
 
+InputCheckGroup.displayName = 'InputCheckGroup';
+
 InputCheckGroup.propTypes = {
   className: PropTypes.string,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
@@ -87,7 +89,6 @@ InputCheckGroup.defaultProps = {
   disabled: false,
   error: '',
   inputGroupTitle: '',
-  onChange: null,
   required: false,
   selectedOption: '',
   touched: true,

@@ -34,6 +34,8 @@ const Step = ({ className, step, active, label, done }) => {
   );
 };
 
+Step.displayName = 'Step';
+
 Step.propTypes = {
   className: PropTypes.string,
   step: PropTypes.string,
@@ -44,7 +46,6 @@ Step.propTypes = {
 
 Step.defaultProps = {
   className: '',
-  label: null,
   active: false,
 };
 

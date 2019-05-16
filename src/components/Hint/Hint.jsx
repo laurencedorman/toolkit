@@ -33,6 +33,8 @@ const Hint = ({
   );
 };
 
+Hint.displayName = 'Hint';
+
 Hint.propTypes = {
   theme: PropTypes.oneOf(['default', 'light', 'danger', 'menthe']),
   textAlert: PropTypes.oneOfType([
@@ -54,7 +56,7 @@ Hint.defaultProps = {
   theme: 'default',
   iconComponent: IconAlertCircle,
   iconWidth: 32,
-  className: undefined,
+  className: '',
   dataQa: '',
 };
 

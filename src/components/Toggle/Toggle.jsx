@@ -55,6 +55,8 @@ export default class Toggle extends PureComponent {
   }
 }
 
+Toggle.displayName = 'Toggle';
+
 Toggle.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };

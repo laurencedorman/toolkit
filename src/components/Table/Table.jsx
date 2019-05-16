@@ -31,6 +31,8 @@ const Table = ({ className, columns, data, defaultPageSize, loading }) => {
   );
 };
 
+Table.displayName = 'Table';
+
 Table.propTypes = {
   className: PropTypes.string,
   columns: PropTypes.arrayOf(PropTypes.shape()),

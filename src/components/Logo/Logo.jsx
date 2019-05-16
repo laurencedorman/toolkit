@@ -80,6 +80,8 @@ const Logo = ({ theme, mini, className, dataQa }) => {
   );
 };
 
+Logo.displayName = 'Logo';
+
 Logo.propTypes = {
   theme: PropTypes.oneOf([
     'color',
@@ -96,7 +98,7 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
   theme: 'color',
-  className: undefined,
+  className: '',
   dataQa: '',
   mini: false,
 };
