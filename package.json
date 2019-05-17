@@ -26,8 +26,8 @@
     "react-table": "^6.10.0"
   },
   "devDependencies": {
-    "@manomano/eslint-config": "^2.3.1",
-    "@manomano/macgyver": "^2.3.1",
+    "@manomano/eslint-config": "^2.3.3",
+    "@manomano/macgyver": "^2.3.3",
     "@manomano/prettier-config": "^2.0.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
@@ -80,8 +80,8 @@
     "start": "styleguidist server",
     "styleguide": "styleguidist build",
     "stylelint": "stylelint src/**/**/*.scss",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "macgyver test",
+    "test:coverage": "macgyver test --coverage"
   },
   "eslintConfig": {
     "extends": "@manomano/eslint-config"
