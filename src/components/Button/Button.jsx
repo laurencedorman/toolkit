@@ -66,41 +66,48 @@ const Button = React.forwardRef(
 );
 
 Button.propTypes = {
-  id: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node,
   ]),
-  theme: PropTypes.oneOf(['default', 'primary', 'secondary', 'ghost', 'reset']),
-  size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
-  type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
+  className: PropTypes.string,
+  dataQa: PropTypes.string,
+  disabled: PropTypes.bool,
+  fill: PropTypes.string,
   iconComponent: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
     PropTypes.bool,
   ]),
-  reverse: PropTypes.bool,
-  disabled: PropTypes.bool,
+  id: PropTypes.string,
   onClick: PropTypes.func,
-  dataQa: PropTypes.string,
-  className: PropTypes.string,
+  reverse: PropTypes.bool,
+  size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
+  theme: PropTypes.oneOf([
+    'default',
+    'link',
+    'primary',
+    'secondary',
+    'ghost',
+    'reset',
+  ]),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  fill: PropTypes.string,
+  type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
 };
 
 Button.displayName = 'Button';
 
 Button.defaultProps = {
-  theme: 'default',
-  size: 'default',
-  type: 'button',
-  reverse: false,
-  disabled: false,
-  dataQa: '',
   className: '',
-  title: '',
+  dataQa: '',
+  disabled: false,
   fill: colors.white,
+  reverse: false,
+  size: 'default',
+  theme: 'default',
+  title: '',
+  type: 'button',
 };
 
 export default Button;
