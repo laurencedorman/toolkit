@@ -10,6 +10,7 @@ import Layout from '../Layout';
   <Button theme="secondary">secondary Button</Button>
   <Button theme="ghost">ghost Button</Button>
   <Button theme="reset">reset style Button</Button>
+  <Button theme="link">Link Button</Button>
   <Button disabled>disabled Button</Button>
 </Layout>;
 ```
