@@ -37,7 +37,7 @@ const Modal = ({
   );
 
   const headerStyle = cn(styles.header, {
-    [styles.hasContent]: header !== null,
+    [styles.hasContent]: !!header,
   });
 
   return (
@@ -73,7 +73,7 @@ const Modal = ({
                 }}
               >
                 <Wrapper className={headerStyle} data-qa={dataQa}>
-                  {renderHeader(header)}
+                  <h4>{header}</h4>
                   <Icon
                     component={IconClose}
                     size="12"
@@ -102,13 +102,6 @@ const Modal = ({
   );
 };
 
-const renderHeader = header =>
-  typeof header === 'string' ? (
-    <h4>{header}</h4>
-  ) : typeof header === 'function' ? (
-    <h4>{header()}</h4>
-  ) : null;
-
 Modal.dislayName = 'Modal';
 
 Modal.propTypes = {
@@ -120,11 +113,7 @@ Modal.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
-  header: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.arrayOf([]),
-  ]),
+  header: PropTypes.node,
   buttonTitle: PropTypes.string,
   noFooter: PropTypes.bool,
   hasIframe: PropTypes.bool,
@@ -133,7 +122,6 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   className: '',
-  header: null,
   buttonTitle: 'close',
   noFooter: false,
   hasIframe: false,

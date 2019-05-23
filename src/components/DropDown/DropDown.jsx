@@ -50,7 +50,7 @@ const DropDown = ({
         style={{ backgroundColor }}
         dataQa={dataQa}
       >
-        {renderTitle(title)}
+        {title}
         {icon && (
           <Icon
             component={ChevronRight}
@@ -77,21 +77,10 @@ const DropDown = ({
   );
 };
 
-DropDown.displayName = 'Dropdown';
-
-const renderTitle = title =>
-  typeof title === 'string'
-    ? title
-    : typeof title === 'function'
-    ? title()
-    : null;
+DropDown.displayName = 'DropDown';
 
 DropDown.propTypes = {
-  title: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.element,
-  ]),
+  title: PropTypes.node,
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   on: PropTypes.bool.isRequired,
   onClick: PropTypes.func,

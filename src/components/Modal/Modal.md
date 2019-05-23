@@ -43,31 +43,6 @@ import Layout from '../Layout';
 import Toggle from '../Toggle';
 import Wrapper from '../Wrapper';
 
-const renderComp = () => 'Header title render as a function';
-
-<Layout direction="column" styleGuidist>
-  <h4>Modal with Header as a render function and default footer</h4>
-  <Toggle>
-    {({ on, toggle }) => (
-      <div>
-        <Button onClick={toggle}>Modal</Button>
-        <Modal on={on} toggle={toggle} header={renderComp}>
-          <Wrapper>
-            <p>body render with children</p>
-          </Wrapper>
-        </Modal>
-      </div>
-    )}
-  </Toggle>
-</Layout>;
-```
-
-```js
-import Button from '../Button';
-import Layout from '../Layout';
-import Toggle from '../Toggle';
-import Wrapper from '../Wrapper';
-
 <Layout direction="column" styleGuidist>
   <h4>Modal without Header and Footer</h4>
   <Toggle>

@@ -34,11 +34,6 @@ describe('Modal', () => {
     expect(wrapper.props().header).toEqual('header');
   });
 
-  it('should render header with function', () => {
-    wrapper = mount(<Modal on header={() => 'header'} />);
-    expect(wrapper.find('h4').text()).toEqual('header');
-  });
-
   it('should stop propagation on div className "content" click', () => {
     wrapper = mount(
       <Modal on onClick={mock}>

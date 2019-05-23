@@ -5,7 +5,7 @@ Warning
 <b>Tabs:</b>
 
 - Just add label props on every children.
-- Set props 'defaultActive' (boolean) to choose default tab active on mounted component.
+- Set props 'isDefaultActive' (boolean) to choose default tab active on mounted component.
 
 <b>Tips :</b>
 
@@ -52,7 +52,7 @@ import Tab from './Tab';
     <h4>title</h4>
   </Tab>
 
-  <Tab label={() => <span>Label Three</span>} defaultActive>
+  <Tab label={<span>Label Three</span>} isDefaultActive>
     <p>
       Lorizzle owned dolizzle ghetto amizzle, for sure adipiscing izzle. Dang
       shiz velizzle, away yo, suscipizzle quizzle, gravida vizzle, bow wow wow.
@@ -103,7 +103,7 @@ const result = test.concat(test2);
 
 <Tabs>
   {result.map((key, i) => (
-    <Tab key={key} label={key} defaultActive={key === 'Tab4'}>
+    <Tab key={key} label={key} isDefaultActive={key === 'Tab4'}>
       {key} element
     </Tab>
   ))}
