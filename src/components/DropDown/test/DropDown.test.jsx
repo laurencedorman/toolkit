@@ -74,22 +74,6 @@ describe('DropDown', () => {
       const icon = button.find(Icon);
       expect(icon).toHaveLength(0);
     });
-
-    it('should render title as function', () => {
-      // When
-      const wrapper = shallow(
-        <DropDown
-          on={false}
-          icon={false}
-          title={() => 'titleTest'}
-          {...defaultProps}
-        />
-      );
-
-      // Then
-      const button = wrapper.find(Button);
-      expect(button.text()).toEqual('titleTest');
-    });
   });
 
   describe('props', () => {

@@ -101,7 +101,7 @@ const renderTooltip = (display, content, bgColor) => {
                         </svg>
                       </div>
                       <div className={styles.content}>
-                        {renderContent(content, styles.spanContent)}
+                        <span className={styles.spanContent}>{content}</span>
                       </div>
                     </animated.div>
                   </div>
@@ -114,13 +114,6 @@ const renderTooltip = (display, content, bgColor) => {
   );
 };
 
-const renderContent = (content, className) =>
-  typeof content === 'string' ? (
-    <span className={className}>{content}</span>
-  ) : typeof content === 'function' ? (
-    content()
-  ) : null;
-
 Tooltip.displayName = 'Tooltip';
 
 Tooltip.propTypes = {
@@ -129,11 +122,7 @@ Tooltip.propTypes = {
     PropTypes.func,
     PropTypes.element,
   ]).isRequired,
-  content: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.element,
-  ]).isRequired,
+  content: PropTypes.node.isRequired,
   position: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   className: PropTypes.string,
   bgColor: PropTypes.string,

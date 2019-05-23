@@ -25,7 +25,7 @@ export default class Tabs extends PureComponent {
 
     if (React.Children.count(children) > 1) {
       React.Children.map(children, child =>
-        child.props.defaultActive
+        child.props.isDefaultActive
           ? this.onClickTabItem(child.props.label)
           : this.onClickTabItem(children[0].props.label)
       );
@@ -39,7 +39,7 @@ export default class Tabs extends PureComponent {
       React.Children.count(children)
     ) {
       React.Children.map(children, child =>
-        child.props.defaultActive
+        child.props.isDefaultActive
           ? this.onClickTabItem(child.props.label)
           : this.onClickTabItem(children[0].props.label)
       );

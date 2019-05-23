@@ -10,26 +10,19 @@ import TabLabel from '../TabLabel';
 
 describe('TabLabel', () => {
   let wrapper;
-  const renderMock = jest.fn();
+  const onClickMock = jest.fn();
+  const mockLabel = 'test';
 
   wrapper = shallow(
-    <TabLabel onClick={renderMock} label="test" activeTab="test" />
+    <TabLabel onClick={onClickMock} label={mockLabel} activeTab="test" />
   );
 
-  it('should render without crash with layoutContainer', () => {
-    expect(wrapper.length).toEqual(1);
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('span click invoke onClick props', () => {
     wrapper.find('span').simulate('click');
-    expect(renderMock).toHaveBeenCalled();
-  });
-
-  it('should execute label if typeof is a function', () => {
-    const label = () => 'test';
-
-    wrapper = shallow(
-      <TabLabel onClick={renderMock} label={label} activeTab="test" />
-    );
+    expect(onClickMock).toHaveBeenCalledWith(mockLabel);
   });
 });

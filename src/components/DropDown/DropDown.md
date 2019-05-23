@@ -134,10 +134,6 @@ initialState = {
   ],
 };
 
-renderTitleWithIcon = () => (
-  <Icon component={IconDotMenu} size="18" fill="#fff" />
-);
-
 <Layout direction="column" styleGuidist>
   <h4>DropDown with sideLeft options</h4>
   <Toggle>
@@ -149,7 +145,7 @@ renderTitleWithIcon = () => (
         sideLeft
         icon={false}
         active={state.currentValue}
-        title={renderTitleWithIcon}
+        title={<Icon component={IconDotMenu} size="18" fill="#fff" />}
         onClick={e => setState({ currentValue: e.currentTarget.dataset.value })}
       />
     )}
@@ -185,8 +181,6 @@ initialState = {
   ],
 };
 
-renderTitle = () => <Icon component={IconDotMenu} size={18} fill="#000" />;
-
 <Layout direction="column" styleGuidist>
   <h4>DropDown with sideRight options</h4>
   <Toggle>
@@ -200,7 +194,7 @@ renderTitle = () => <Icon component={IconDotMenu} size={18} fill="#000" />;
         backgroundColor="transparent"
         dark
         active={state.currentValue}
-        title={renderTitle}
+        title={<Icon component={IconDotMenu} size={18} fill="#000" />}
         onClick={e => setState({ currentValue: e.currentTarget.dataset.value })}
       />
     )}
