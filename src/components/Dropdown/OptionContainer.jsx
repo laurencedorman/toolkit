@@ -8,10 +8,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import ToggleDown from '../ToggleDown';
-import styles from './DropDown.module.scss';
+import styles from './Dropdown.module.scss';
 
 /**
- * @visibleName DropDown
+ * @visibleName Dropdown
  */
 const OptionContainer = ({
   on,

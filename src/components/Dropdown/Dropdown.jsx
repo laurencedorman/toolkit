@@ -15,9 +15,9 @@ import { useMeasure } from '../GetMeasure';
 import OptionContainer from './OptionContainer';
 
 import colors from '../../styles/colors';
-import styles from './DropDown.module.scss';
+import styles from './Dropdown.module.scss';
 
-const DropDown = ({
+const Dropdown = ({
   title,
   on,
   toggle,
@@ -77,9 +77,9 @@ const DropDown = ({
   );
 };
 
-DropDown.displayName = 'DropDown';
+Dropdown.displayName = 'Dropdown';
 
-DropDown.propTypes = {
+Dropdown.propTypes = {
   title: PropTypes.node,
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   on: PropTypes.bool.isRequired,
@@ -98,7 +98,7 @@ DropDown.propTypes = {
   dataQa: PropTypes.string,
 };
 
-DropDown.defaultProps = {
+Dropdown.defaultProps = {
   title: '',
   right: false,
   disabled: false,
@@ -112,4 +112,4 @@ DropDown.defaultProps = {
   dataQa: '',
 };
 
-export default DropDown;
+export default Dropdown;

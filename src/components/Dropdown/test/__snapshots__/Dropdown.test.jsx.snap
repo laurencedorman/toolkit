@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropDown template should match snapshot 1`] = `
+exports[`Dropdown template should match snapshot 1`] = `
 <div
   className="wrapper my class name"
 >
