@@ -7,11 +7,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Button from '../../Button';
-import DropDown from '../DropDown';
+import Dropdown from '../Dropdown';
 import Icon from '../../Icon';
 import OptionContainer from '../OptionContainer';
 
-describe('DropDown', () => {
+describe('Dropdown', () => {
   const defaultProps = {
     options: [{ value: 'valueTest', label: 'labelTest' }],
   };
@@ -20,7 +20,7 @@ describe('DropDown', () => {
     it('should match snapshot', () => {
       // When
       const wrapper = shallow(
-        <DropDown
+        <Dropdown
           on
           title="titleTest"
           right={true}
@@ -44,7 +44,7 @@ describe('DropDown', () => {
     it('should render no title and no icon when no props title and icon', () => {
       // When
       const wrapper = shallow(
-        <DropDown on={false} icon={false} {...defaultProps} />
+        <Dropdown on={false} icon={false} {...defaultProps} />
       );
 
       // Then
@@ -54,7 +54,7 @@ describe('DropDown', () => {
 
     it('should render just an icon with no title', () => {
       // When
-      const wrapper = shallow(<DropDown on={false} {...defaultProps} />);
+      const wrapper = shallow(<Dropdown on={false} {...defaultProps} />);
 
       // Then
       const icon = wrapper.find(Button).find(Icon);
@@ -64,7 +64,7 @@ describe('DropDown', () => {
     it('should render just title with no icon', () => {
       // When
       const wrapper = shallow(
-        <DropDown on={false} icon={false} title="titleTest" {...defaultProps} />
+        <Dropdown on={false} icon={false} title="titleTest" {...defaultProps} />
       );
 
       // Then
@@ -79,7 +79,7 @@ describe('DropDown', () => {
   describe('props', () => {
     it('should have default props', () => {
       // Then
-      expect(DropDown.defaultProps).toEqual({
+      expect(Dropdown.defaultProps).toEqual({
         backgroundColor: '#29b9ad',
         className: undefined,
         dataQa: '',
@@ -101,7 +101,7 @@ describe('DropDown', () => {
         // Given
         const onClickMock = jest.fn();
         const wrapper = shallow(
-          <DropDown on={false} toggle={onClickMock} {...defaultProps} />
+          <Dropdown on={false} toggle={onClickMock} {...defaultProps} />
         );
         const button = wrapper.find(Button);
 
@@ -118,7 +118,7 @@ describe('DropDown', () => {
         // Given
         const onClickMock = jest.fn();
         const wrapper = shallow(
-          <DropDown on={false} onClick={onClickMock} {...defaultProps} />
+          <Dropdown on={false} onClick={onClickMock} {...defaultProps} />
         );
         const optionContainer = wrapper.find(OptionContainer);
 
@@ -135,7 +135,7 @@ describe('DropDown', () => {
         // Given
         const toggleMock = jest.fn();
         const wrapper = shallow(
-          <DropDown on={false} toggle={toggleMock} {...defaultProps} />
+          <Dropdown on={false} toggle={toggleMock} {...defaultProps} />
         );
 
         const optionContainer = wrapper

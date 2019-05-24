@@ -4,5 +4,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default } from './DropDown';
+export { default } from './Dropdown';
 export { default as OptionContainer } from './OptionContainer';

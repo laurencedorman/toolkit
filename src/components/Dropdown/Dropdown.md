@@ -42,11 +42,11 @@ initialState = {
 };
 
 <Layout direction="column" styleGuidist>
-  <h4>DropDown</h4>
+  <h4>Dropdown</h4>
 
   <Toggle>
     {({ on, toggle }) => (
-      <DropDown
+      <Dropdown
         on={on}
         toggle={toggle}
         options={state.option}
@@ -88,10 +88,10 @@ initialState = {
 };
 
 <Layout direction="column" styleGuidist>
-  <h4>DropDown with right options</h4>
+  <h4>Dropdown with right options</h4>
   <Toggle>
     {({ on, toggle }) => (
-      <DropDown
+      <Dropdown
         on={on}
         toggle={toggle}
         options={state.option}
@@ -135,10 +135,10 @@ initialState = {
 };
 
 <Layout direction="column" styleGuidist>
-  <h4>DropDown with sideLeft options</h4>
+  <h4>Dropdown with sideLeft options</h4>
   <Toggle>
     {({ on, toggle }) => (
-      <DropDown
+      <Dropdown
         on={on}
         toggle={toggle}
         options={state.option}
@@ -182,10 +182,10 @@ initialState = {
 };
 
 <Layout direction="column" styleGuidist>
-  <h4>DropDown with sideRight options</h4>
+  <h4>Dropdown with sideRight options</h4>
   <Toggle>
     {({ on, toggle }) => (
-      <DropDown
+      <Dropdown
         on={on}
         toggle={toggle}
         options={state.option}

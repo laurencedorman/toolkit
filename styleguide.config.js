@@ -101,7 +101,7 @@ module.exports = {
       components: 'src/components/*/*.jsx',
       sectionDepth: 1,
       ignore: [
-        'src/components/DropDown/OptionContainer.jsx',
+        'src/components/Dropdown/OptionContainer.jsx',
         'src/components/GetMeasure/*.jsx',
         'src/components/HeightTransition/*.jsx',
         'src/components/InputAutoComplete/!(InputAutoComplete.jsx)',
