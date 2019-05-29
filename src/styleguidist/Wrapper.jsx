@@ -4,16 +4,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '../index.scss';
 
-type propTypes = { children: Node };
+const Wrapper = ({ children }) => {
+  return <Router>{children}</Router>;
+};
 
-export default class Wrapper extends PureComponent<propTypes> {
-  render() {
-    const { children } = this.props;
-
-    return <Router>{children}</Router>;
-  }
-}
+export default Wrapper;

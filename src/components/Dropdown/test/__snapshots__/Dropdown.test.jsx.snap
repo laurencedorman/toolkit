@@ -47,7 +47,18 @@ exports[`Dropdown template should match snapshot 1`] = `
     right={true}
     sideLeft={true}
     sideRight={true}
-    size={Object {}}
+    size={
+      Object {
+        "bottom": 0,
+        "height": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0,
+      }
+    }
     toggle={null}
   />
 </div>
