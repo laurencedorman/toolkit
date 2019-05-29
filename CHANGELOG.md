@@ -1,3 +1,51 @@
+# [3.0.0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.3...v3.0.0) (2019-05-29)
+
+
+* Merge branch 'normalizeDropdown' into 'master' ([01a57ab](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/01a57ab))
+* Merge branch 'mantoolkit-42' into 'master' ([f5056c0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/f5056c0))
+* Merge branch 'fixStepControllerTypo' into 'master' ([cb688e9](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/cb688e9))
+* Merge branch 'removeField' into 'master' ([877ac9c](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/877ac9c))
+* Merge branch 'removeMarginBottom' into 'master' ([3946e2f](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/3946e2f))
+* Merge branch 'removeWrapperFormSelect' into 'master' ([7968c8e](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/7968c8e))
+
+
+### Bug Fixes
+
+* **code:** Fix Circular dependency getMeasure ([43db045](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/43db045))
+* **GetMeasure:** Initialise properties to 0 in useMeasure. ([bb3c1f0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/bb3c1f0))
+* **infra:** Fix styleguidist using platform ([bcac2ec](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/bcac2ec))
+
+
+### Features
+
+* **code:** Add NOOP and getDisplayName Helpers. ([9899bd5](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/9899bd5))
+* **infra:** Enable hooks inside styleguidist ([d175315](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/d175315))
+
+
+### BREAKING CHANGES
+
+* Rename DropDown to Dropdown
+
+See merge request component-react/toolkit.manomano-lan.com!259
+* add displayName to components.
+* Remove unneeded fragments from icons. 
+
+See merge request component-react/toolkit.manomano-lan.com!242
+* **code:** add displayName to components.
+* **code:** Remove unneeded fragments from icons.
+* Rename StepControler -> StepController
+
+See merge request component-react/toolkit.manomano-lan.com!253
+* Remove Field component
+
+See merge request component-react/toolkit.manomano-lan.com!252
+* Remove marginBottom property from Button.
+
+See merge request component-react/toolkit.manomano-lan.com!251
+* remove withReduxFormSelect
+
+See merge request component-react/toolkit.manomano-lan.com!250
+
 ## [2.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.2...v2.0.3) (2019-05-02)
 
 
