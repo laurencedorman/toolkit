@@ -85,7 +85,9 @@
   will-change: transform, opacity;
 
   &.noFooter {
-    padding-bottom: 2em;
+    @include mq(‘desktop’) {
+      padding-bottom: 2em;
+    }
   }
   &.iframe {
     width: 90vw;
