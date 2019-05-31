@@ -83,6 +83,10 @@ module.exports = {
       content: 'src/styleguidist/Colors.md',
     },
     {
+      name: 'Manoolkit Font',
+      content: 'src/styleguidist/Font.md',
+    },
+    {
       name: 'Manoolkit Utilities',
       description: 'Some components to help',
       components: [

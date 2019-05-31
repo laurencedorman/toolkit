@@ -10,7 +10,7 @@ exports[`Tooltip should match snapshot 1`] = `
 >
   <Toggle>
     <span
-      className="transmitter"
+      className="toolkit transmitter"
       data-qa=""
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}

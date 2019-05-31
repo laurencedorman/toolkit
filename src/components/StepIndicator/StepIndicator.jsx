@@ -11,7 +11,11 @@ import Step from './Step';
 import styles from './StepIndicator.module.scss';
 
 const StepIndicator = ({ children, className, activeStep, lastStep }) => {
-  const classNames = cn(styles.stepIndicatorContainer, className);
+  const classNames = cn(
+    styles.toolkit,
+    styles.stepIndicatorContainer,
+    className
+  );
   return (
     <div className={classNames}>
       <div className={styles.content}>

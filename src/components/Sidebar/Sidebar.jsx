@@ -12,6 +12,7 @@ import styles from './Sidebar.module.scss';
 
 const Sidebar = ({ on, children, className, position, width, dataQa }) => {
   const classNames = cn(
+    styles.toolkit,
     styles.sidebar,
     {
       [styles.on]: on,

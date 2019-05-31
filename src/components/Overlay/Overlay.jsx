@@ -6,35 +6,40 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { animated, Transition } from 'react-spring';
 import styles from './Overlay.module.scss';
 
-const Overlay = ({ onClick, on, zIndex, backgroundColor }) => (
-  <Transition
-    native
-    config={{ precision: 0.9 }}
-    items={on}
-    from={{ o: 0 }}
-    enter={{ o: 0.5 }}
-    leave={{ o: 0 }}
-  >
-    {on =>
-      on &&
-      (({ o }) => (
-        <animated.div
-          className={styles.overlay}
-          onClick={onClick}
-          style={{
-            opacity: o.interpolate(o => o),
-            cursor: onClick && 'pointer',
-            zIndex,
-            backgroundColor,
-          }}
-        />
-      ))
-    }
-  </Transition>
-);
+const Overlay = ({ onClick, on, zIndex, backgroundColor }) => {
+  const classNames = cn(styles.toolkit, styles.overlay);
+
+  return (
+    <Transition
+      native
+      config={{ precision: 0.9 }}
+      items={on}
+      from={{ o: 0 }}
+      enter={{ o: 0.5 }}
+      leave={{ o: 0 }}
+    >
+      {on =>
+        on &&
+        (({ o }) => (
+          <animated.div
+            className={classNames}
+            onClick={onClick}
+            style={{
+              opacity: o.interpolate(o => o),
+              cursor: onClick && 'pointer',
+              zIndex,
+              backgroundColor,
+            }}
+          />
+        ))
+      }
+    </Transition>
+  );
+};
 
 Overlay.displayName = 'Overlay';
 

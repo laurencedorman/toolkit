@@ -7,7 +7,7 @@ exports[`TabLabel should match snapshot 1`] = `
   role="tab"
 >
   <span
-    className="active"
+    className="toolkit active"
     onClick={[Function]}
   >
     test

@@ -26,7 +26,12 @@ const InputCheckGroup = ({
   touched,
   type,
 }) => {
-  const classNames = cn(styles.CheckGroup, styles[direction], className);
+  const classNames = cn(
+    styles.toolkit,
+    styles.CheckGroup,
+    styles[direction],
+    className
+  );
 
   const labelStyle = cn({
     [styles.required]: required,

@@ -2,7 +2,7 @@
 
 exports[`Select should render correctly 1`] = `
 <div
-  className="select test-class"
+  className="toolkit select test-class"
   data-qa=""
 >
   <label>

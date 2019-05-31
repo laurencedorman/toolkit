@@ -6,19 +6,24 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import styles from './Iframe.module.scss';
 
-const Iframe = ({ id, src, title, dataQa }) => (
-  <div className={styles.container} data-qa={dataQa}>
-    <iframe
-      id={id}
-      title={title}
-      className={styles.iframe}
-      src={src}
-      frameBorder="0"
-    />
-  </div>
-);
+const Iframe = ({ id, src, title, className, dataQa }) => {
+  const classNames = cn(styles.toolkit, styles.container, className);
+
+  return (
+    <div className={classNames} data-qa={dataQa}>
+      <iframe
+        id={id}
+        title={title}
+        className={styles.iframe}
+        src={src}
+        frameBorder="0"
+      />
+    </div>
+  );
+};
 
 Iframe.displayName = 'Iframe';
 
@@ -26,6 +31,7 @@ Iframe.propTypes = {
   id: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  className: PropTypes.string,
   dataQa: PropTypes.string,
 };
 

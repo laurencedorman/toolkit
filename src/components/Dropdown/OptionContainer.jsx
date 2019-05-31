@@ -34,10 +34,13 @@ const OptionContainer = ({
 
   const itemOption = item =>
     cn(
+      'li',
       className,
       { [styles.disabled]: item.disabled },
       { [styles.active]: (item.value || item.id) === active }
     );
+
+  const list = cn('ul', styles.list);
 
   const space = 8;
 
@@ -51,7 +54,7 @@ const OptionContainer = ({
     <>
       {on && <div className={styles.closeTarget} onClick={toggle} />}
       <ToggleDown on={on} className={container} style={setPosition}>
-        <ul className={styles.list}>
+        <ul className={list}>
           {options.map((item, index) => {
             const key = item.id ? item.id.toString() : index;
             return (

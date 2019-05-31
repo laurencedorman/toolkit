@@ -21,14 +21,14 @@ import Toggle from '../Toggle';
 import Wrapper from '../Wrapper';
 
 <Layout direction="column" styleGuidist>
-  <h4>Modal with Header as string and default footer</h4>
+  <h4 className="h4">Modal with Header as string and default footer</h4>
   <Toggle>
     {({ on, toggle }) => (
       <div>
         <Button onClick={toggle}>Modal</Button>
         <Modal on={on} toggle={toggle} header="Modal title as a string props">
           <Wrapper>
-            <p>body render with children</p>
+            <p className="p">body render with children</p>
           </Wrapper>
         </Modal>
       </div>
@@ -44,14 +44,14 @@ import Toggle from '../Toggle';
 import Wrapper from '../Wrapper';
 
 <Layout direction="column" styleGuidist>
-  <h4>Modal without Header and Footer</h4>
+  <h4 className="h4">Modal without Header and Footer</h4>
   <Toggle>
     {({ on, toggle }) => (
       <div>
         <Button onClick={toggle}>Modal</Button>
         <Modal on={on} toggle={toggle} noFooter>
           <Wrapper>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -86,14 +86,14 @@ import Toggle from '../Toggle';
 import Wrapper from '../Wrapper';
 
 <Layout direction="column" styleGuidist>
-  <h4>Modal with big body content</h4>
+  <h4 className="h4">Modal with big body content</h4>
   <Toggle>
     {({ on, toggle }) => (
       <div>
         <Button onClick={toggle}>Modal</Button>
         <Modal on={on} toggle={toggle} header="Modal title as a string props">
           <Wrapper>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -113,7 +113,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -133,7 +133,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -153,7 +153,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -173,7 +173,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -193,7 +193,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -213,7 +213,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -233,7 +233,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -253,7 +253,7 @@ import Wrapper from '../Wrapper';
               lectizzle. Fusce mauris dang, get down get down shit, adipiscing
               ut, shiznit sizzle amizzle, dope.
             </p>
-            <p>
+            <p className="p">
               Vestibulizzle ante yo mamma primis fo shizzle mah nizzle fo
               rizzle, mah home g-dizzle fizzle fo shizzle luctus check it out
               shit shiznit my shizz Curae; Crunk for sure nulla quis ghetto
@@ -288,7 +288,7 @@ import Layout from '../Layout';
 import Toggle from '../Toggle';
 
 <Layout direction="column" styleGuidist>
-  <h4>Modal with iframe content</h4>
+  <h4 className="h4">Modal with iframe content</h4>
   <Toggle>
     {({ on, toggle }) => (
       <div>

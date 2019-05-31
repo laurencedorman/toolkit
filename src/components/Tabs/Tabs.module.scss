@@ -57,7 +57,7 @@
         width: 0;
         height: 4px;
         left: 0;
-        bottom: em(-4);
+        bottom: em(12);
         background-color: $blueMood;
         transition: width $timeout $out;
         will-change: width;

@@ -19,7 +19,7 @@ const Icon = ({
   dataQa,
   component: Component,
 }) => {
-  const classNames = cn(styles.container, className);
+  const classNames = cn(styles.toolkit, styles.container, className);
 
   return (
     <div

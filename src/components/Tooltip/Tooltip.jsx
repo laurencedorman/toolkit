@@ -34,7 +34,7 @@ export default class Tooltip extends PureComponent {
   render() {
     const { children, className, dataQa, content, bgColor } = this.props;
 
-    const classNames = cn(styles.transmitter, className);
+    const classNames = cn(styles.toolkit, styles.transmitter, className);
 
     return (
       <Toggle>
