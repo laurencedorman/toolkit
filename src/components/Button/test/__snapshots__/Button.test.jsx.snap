@@ -2,7 +2,7 @@
 
 exports[`Button should match snapshot 1`] = `
 <button
-  className="button default default onlyIcon"
+  className="toolkit button default default onlyIcon"
   data-qa=""
   disabled={false}
   type="button"

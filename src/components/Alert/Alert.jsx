@@ -24,6 +24,7 @@ const Alert = ({
   dataQa,
 }) => {
   const classNames = cn(
+    styles.toolkit,
     styles.alert,
     {
       [styles.right]: position === 'topRight' || position === 'bottomRight',

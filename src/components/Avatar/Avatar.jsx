@@ -10,7 +10,7 @@ import cn from 'classnames';
 import styles from './Avatar.module.scss';
 
 const Avatar = ({ className, src, alt, size, dataQa }) => {
-  const classNames = cn(styles.avatar, styles[size], className);
+  const classNames = cn(styles.toolkit, styles.avatar, styles[size], className);
 
   return (
     <div role="img" aria-label="Avatar" className={classNames}>

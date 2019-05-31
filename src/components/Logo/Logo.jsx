@@ -11,7 +11,7 @@ import colors from '../../styles/colors';
 import styles from './Logo.module.scss';
 
 const Logo = ({ theme, mini, className, dataQa }) => {
-  const classNames = cn(styles.logo, styles[theme], className);
+  const classNames = cn(styles.toolkit, styles.logo, styles[theme], className);
 
   return (
     <svg

@@ -18,6 +18,7 @@ const Layout = ({
   dataQa,
 }) => {
   const classNames = cn(
+    styles.toolkit,
     styles.layout,
     {
       [styles.guide]: styleGuidist,

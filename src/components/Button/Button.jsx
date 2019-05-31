@@ -33,6 +33,7 @@ const Button = React.forwardRef(
     ref
   ) => {
     const classNames = cn(
+      styles.toolkit,
       styles.button,
       styles[size],
       styles[theme],

@@ -10,9 +10,11 @@ import ReactTable from 'react-table';
 import cn from 'classnames';
 import defaultStyles from 'react-table/react-table.css';
 import './Table.scss';
+import styles from '../Logo/Logo.module.scss';
 
 const Table = ({ className, columns, data, defaultPageSize, loading }) => {
   const classNames = cn(
+    styles.toolkit,
     defaultStyles,
     className,
     'table',

@@ -32,7 +32,7 @@ export default class Stepper extends PureComponent {
   render() {
     const { children, className, activeStep, direction } = this.props;
 
-    const classNames = cn(styles.stepper, className);
+    const classNames = cn(styles.toolkit, styles.stepper, className);
 
     const up = direction === 'up';
 

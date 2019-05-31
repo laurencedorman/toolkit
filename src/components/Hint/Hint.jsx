@@ -19,7 +19,7 @@ const Hint = ({
   className,
   dataQa,
 }) => {
-  const classNames = cn(styles.hint, styles[theme], className);
+  const classNames = cn(styles.toolkit, styles.hint, styles[theme], className);
 
   return (
     <div className={classNames} data-qa={dataQa}>
@@ -27,7 +27,7 @@ const Hint = ({
         <Icon component={iconComponent} size={iconWidth} />
       </div>
       <div>
-        <p>{textAlert}</p>
+        <p className="p">{textAlert}</p>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 exports[`Textarea should match snapshot 1`] = `
 <div
-  className="container"
+  className="toolkit container"
 >
   <div
     className="content"

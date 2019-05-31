@@ -20,7 +20,12 @@ const Switch = ({
   reset,
   itemId,
 }) => {
-  const container = cn(styles.container, { [styles.reset]: reset }, className);
+  const container = cn(
+    styles.toolkit,
+    styles.container,
+    { [styles.reset]: reset },
+    className
+  );
 
   const labelClass = cn(styles.label, {
     [styles.active]: checked,

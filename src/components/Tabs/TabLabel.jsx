@@ -15,7 +15,9 @@ const TabLabel = ({ activeTab, className, label, onClick }) => {
     onClick(label);
   };
 
-  const classNames = cn(className, { [styles.active]: activeTab === label });
+  const classNames = cn(styles.toolkit, className, {
+    [styles.active]: activeTab === label,
+  });
 
   return (
     <li

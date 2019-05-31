@@ -14,10 +14,10 @@ exports[`OptionContainer should match snapshot 1`] = `
     }
   >
     <ul
-      className="list"
+      className="ul list"
     >
       <li
-        className=""
+        className="li"
         data-value="test"
         key="0"
         onClick={null}

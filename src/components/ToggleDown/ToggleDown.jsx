@@ -11,7 +11,7 @@ import cn from 'classnames';
 import styles from './ToggleDown.module.scss';
 
 const ToggleDown = ({ on, children, className, style }) => {
-  const classNames = cn(styles.toggleDown, className);
+  const classNames = cn(styles.toolkit, styles.toggleDown, className);
 
   return (
     <Spring

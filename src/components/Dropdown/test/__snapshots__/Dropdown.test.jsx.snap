@@ -2,7 +2,7 @@
 
 exports[`Dropdown template should match snapshot 1`] = `
 <div
-  className="wrapper my class name"
+  className="toolkit wrapper my class name"
 >
   <Button
     className="button"

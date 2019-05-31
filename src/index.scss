@@ -7,125 +7,74 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import './styles/import';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
+body,
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  padding: 0;
-  font: $browser-context $main-font;
-  line-height: 1.45 !important;
   color: $squidInk;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin-bottom: 0.5em;
-  line-height: 1.2;
+.toolkit {
+  box-sizing: border-box;
+  margin: 0;
+  font: $browser-context $main-font;
+}
 
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0 0 0.5em 0.015em;
+  font-weight: 600;
+  line-height: 1.2;
   &:last-child {
     margin-bottom: 0;
   }
 }
 
-h1 {
+.h1 {
   font-size: em(28);
 }
-
-h2 {
+.h2 {
   font-size: em(24);
 }
-
-h3 {
+.h3 {
   font-size: em(20);
 }
-
-h4 {
+.h4 {
   font-size: em(16);
 }
 
-h1,
-h2,
-h3,
-h4,
-.title,
-.subTitle {
-  margin-left: -0.015em;
-  font-weight: 600;
-}
-
-p,
-li,
-label {
-  font-size: em(14);
-}
-
-ul {
+.ul {
+  margin: 0;
   padding: 0;
 }
 
-p:not(:last-child),
-ul:not(:last-child) {
-  margin-bottom: em(16);
-}
-
-li {
-  line-height: 1.85;
+.li {
   list-style-type: none;
 }
 
-.subTitle,
-.text,
-.link,
+.p,
+.li,
 .label,
-p,
-span,
-a,
-ul,
-li,
-ol,
-figure,
-pre,
-table,
-span,
-label,
-fieldset,
-input {
-  font-weight: 400;
+.span {
+  line-height: 1.75;
+  font-size: em(14);
+  margin-top: 0;
+  span {
+    font-size: inherit;
+  }
 }
 
-.smallText,
-small {
+.p,
+.ul {
+  margin-bottom: em(16);
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.small {
   font-size: em(12);
-}
-
-a,
-.link {
-  color: $balataGreen;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-    transition: color 0.3s ease-in-out;
-  }
-
-  &:active {
-    color: $blueMood;
-  }
-
-  &:disabled {
-    color: $greyDark;
-  }
 }
