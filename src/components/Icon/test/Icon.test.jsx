@@ -7,11 +7,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Icon from '../Icon';
+import IconDocument from '../Icons/IconDocument';
 
 describe('Icon', () => {
   let wrapper;
 
-  wrapper = shallow(<Icon name="document" />);
+  wrapper = shallow(<Icon component={IconDocument} />);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);
@@ -20,9 +21,5 @@ describe('Icon', () => {
   it('should render different role', () => {
     const click = jest.fn();
     wrapper.setProps({ onClick: click });
-  });
-
-  it('should render different svg with special name', () => {
-    wrapper = shallow(<Icon name="chevron-up" />);
   });
 });
