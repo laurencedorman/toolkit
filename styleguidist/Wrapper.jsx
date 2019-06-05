@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import '../index.scss';
+import '../src/index.scss';
 
 const Wrapper = ({ children }) => {
   return <Router>{children}</Router>;
