@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme/build';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Wrapper from '../Wrapper';
 

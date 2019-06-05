@@ -11,7 +11,7 @@ module.exports = {
   webpackConfig: config({ name: 'gb', language: 'en' }),
   title: ' ',
   styleguideComponents: {
-    Wrapper: path.join(__dirname, './src/styleguidist/Wrapper'),
+    Wrapper: path.join(__dirname, './styleguidist/Wrapper'),
   },
   components: 'src/components/**/*.jsx',
   styleguideDir: 'dist',
@@ -72,19 +72,19 @@ module.exports = {
   sections: [
     {
       name: 'Start',
-      content: 'src/styleguidist/Start.md',
+      content: 'styleguidist/Start.md',
     },
     {
       name: 'Introduction',
-      content: 'src/styleguidist/Introduction.md',
+      content: 'styleguidist/Introduction.md',
     },
     {
       name: 'Manoolkit Colors',
-      content: 'src/styleguidist/Colors.md',
+      content: 'styleguidist/Colors.md',
     },
     {
       name: 'Manoolkit Font',
-      content: 'src/styleguidist/Font.md',
+      content: 'styleguidist/Font.md',
     },
     {
       name: 'Manoolkit Utilities',
