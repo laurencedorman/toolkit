@@ -21,7 +21,7 @@ const Switch = ({
   itemId,
 }) => {
   const container = cn(
-    styles.toolkit,
+    'toolkit',
     styles.container,
     { [styles.reset]: reset },
     className

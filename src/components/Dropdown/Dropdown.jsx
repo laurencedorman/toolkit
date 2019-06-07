@@ -35,7 +35,7 @@ const Dropdown = ({
   onClick,
   dataQa,
 }) => {
-  const wrapper = cn(styles.toolkit, styles.wrapper, className);
+  const wrapper = cn('toolkit', styles.wrapper, className);
 
   const iconButton = cn(styles.iconButton, { [styles.rotate]: on });
   const [size, ref] = useMeasure();

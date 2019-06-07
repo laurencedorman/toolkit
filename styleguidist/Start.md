@@ -16,17 +16,23 @@
 
 ### Installation
 
-`yarn add @manomano/toolkit`
+```bash
+yarn add @manomano/toolkit
+```
 
-or
+Then add the className 'toolkit' the most upper element of your project. This is needed to make use of some global styles. Example:
 
-`npm install @manomano/toolkit --save`
+```jsx static
+<body className="toolkit">
+```
 
 <br/>
 
 ### Usage
 
-`import { component } from '@manomano/toolkit';`
+```js static
+import { component } from '@manomano/toolkit';
+```
 
 ### Warning
 

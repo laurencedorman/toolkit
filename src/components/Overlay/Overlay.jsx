@@ -11,7 +11,7 @@ import { animated, Transition } from 'react-spring';
 import styles from './Overlay.module.scss';
 
 const Overlay = ({ onClick, on, zIndex, backgroundColor }) => {
-  const classNames = cn(styles.toolkit, styles.overlay);
+  const classNames = cn('toolkit', styles.overlay);
 
   return (
     <Transition

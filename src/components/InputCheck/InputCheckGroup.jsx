@@ -27,7 +27,7 @@ const InputCheckGroup = ({
   type,
 }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     styles.CheckGroup,
     styles[direction],
     className

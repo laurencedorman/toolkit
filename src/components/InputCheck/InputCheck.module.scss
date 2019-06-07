@@ -38,6 +38,7 @@ $radioCheckedInnerShadow: 0 0 0 em(2) $white inset;
   }
 
   label {
+    font-size: em(16);
     position: relative;
     display: inline-block;
     padding-left: $inputCheckboxSize + em(8); // 8 $halfSpace in px

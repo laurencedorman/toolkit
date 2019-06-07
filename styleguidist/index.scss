@@ -1,0 +1,60 @@
+/**
+ * Copyright (c) Colibri SAS - ManoMano
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../src/styles/colors';
+@import '../src/styles/openSans';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.728rem;
+}
+
+h3 {
+  font-size: 1.44rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+.rsg--sidebar-4 {
+  width: 240px;
+}
+
+.rsg--hasSidebar-2 {
+  padding-left: 240px;
+}
+
+.rsg--spacing-25 {
+  margin-top: 32px;
+}
+
+.separator-block {
+  margin-bottom: 38px;
+}
+
+.block-title {
+  margin: 8px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.text-light {
+  color: $greyMedDarker;
+}
+
+.blue-container {
+  background: $squidInk;
+  padding: 24px;
+}

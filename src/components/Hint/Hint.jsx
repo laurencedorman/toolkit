@@ -19,7 +19,7 @@ const Hint = ({
   className,
   dataQa,
 }) => {
-  const classNames = cn(styles.toolkit, styles.hint, styles[theme], className);
+  const classNames = cn('toolkit', styles.hint, styles[theme], className);
 
   return (
     <div className={classNames} data-qa={dataQa}>
