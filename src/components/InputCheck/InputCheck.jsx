@@ -29,7 +29,7 @@ const InputCheck = ({
   value,
 }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     styles.inputCheck,
     { [styles.noLabel]: !label, [styles.required]: required },
     className

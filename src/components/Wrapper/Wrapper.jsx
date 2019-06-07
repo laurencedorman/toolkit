@@ -14,7 +14,7 @@ import styles from './Wrapper.module.scss';
  */
 const Wrapper = ({ children, className, direction, type, style, dataQa }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     styles.wrapper,
     {
       [styles.row]: direction === 'row',

@@ -28,7 +28,7 @@ const Textarea = ({
   valid,
   helper,
 }) => {
-  const container = cn(styles.toolkit, styles.container, className);
+  const container = cn('toolkit', styles.container, className);
 
   const content = cn(styles.content, {
     [styles.hasValue]: value !== '',

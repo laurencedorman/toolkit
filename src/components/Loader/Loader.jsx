@@ -16,7 +16,7 @@ const bar = [
 ];
 
 const Loader = ({ fill, dataQa }) => {
-  const classNames = cn(styles.toolkit, styles.loader);
+  const classNames = cn('toolkit', styles.loader);
 
   return (
     <div className={classNames} role="alert" aria-busy="true" data-qa={dataQa}>

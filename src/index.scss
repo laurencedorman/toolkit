@@ -3,78 +3,116 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import './styles/import';
 
-body,
-html {
-  scroll-behavior: smooth;
-  color: $squidInk;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .toolkit {
-  box-sizing: border-box;
-  margin: 0;
   font: $browser-context $main-font;
-}
+  line-height: 1.5;
+  color: $squidInk;
 
-.h1,
-.h2,
-.h3,
-.h4 {
-  margin: 0 0 0.5em 0.015em;
-  font-weight: 600;
-  line-height: 1.2;
-  &:last-child {
-    margin-bottom: 0;
+  * {
+    box-sizing: border-box;
   }
-}
 
-.h1 {
-  font-size: em(28);
-}
-.h2 {
-  font-size: em(24);
-}
-.h3 {
-  font-size: em(20);
-}
-.h4 {
-  font-size: em(16);
-}
-
-.ul {
-  margin: 0;
-  padding: 0;
-}
-
-.li {
-  list-style-type: none;
-}
-
-.p,
-.li,
-.label,
-.span {
-  line-height: 1.75;
-  font-size: em(14);
-  margin-top: 0;
-  span {
-    font-size: inherit;
+  ul {
+    margin: 0;
+    padding: 0;
   }
-}
 
-.p,
-.ul {
-  margin-bottom: em(16);
-  &:last-of-type {
-    margin-bottom: 0;
+  li {
+    list-style-type: none;
   }
-}
 
-.small {
-  font-size: em(12);
+  p,
+  li,
+  label,
+  span,
+  strong {
+    font-size: em(14);
+
+    span {
+      font-size: inherit;
+    }
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  p,
+  ul {
+    margin-bottom: em(16);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  small {
+    font-size: em(12);
+  }
+
+  .text-white {
+    color: $white;
+  }
+
+  a,
+  .link {
+    color: $balataGreen;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      transition: color 0.3s ease-in-out;
+    }
+
+    &:active {
+      color: $blueMood;
+    }
+
+    &:disabled {
+      color: $greyDark;
+    }
+
+    &:visited {
+      color: $purpleRain;
+    }
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin: 0 0 em(12);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1,
+  .h1 {
+    font-size: em(28);
+  }
+
+  h2,
+  .h2 {
+    font-size: em(24);
+  }
+
+  h3,
+  .h3 {
+    font-size: em(20);
+  }
+
+  h4,
+  .h4 {
+    font-size: em(16);
+  }
 }

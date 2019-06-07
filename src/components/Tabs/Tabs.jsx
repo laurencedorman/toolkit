@@ -52,7 +52,7 @@ export default class Tabs extends PureComponent {
     const { children, className } = this.props;
     const { activeTab } = this.state;
 
-    const classNames = cn(styles.toolkit, styles.tabs, className);
+    const classNames = cn('toolkit', styles.tabs, className);
 
     return (
       <Wrapper className={classNames}>

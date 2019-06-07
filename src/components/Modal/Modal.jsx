@@ -28,7 +28,7 @@ const Modal = ({
   dataQa,
 }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     styles.content,
     {
       [styles.noFooter]: noFooter,

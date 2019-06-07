@@ -6,7 +6,7 @@ const style = {
   textAlign: 'center',
 };
 
-<div style={style}>
+<div style={style} className="toolkit">
   <div>
     <div style={{ width: '100%', minHeight: '100px', background: '#0c193a' }} />
     <div>squidInk</div>

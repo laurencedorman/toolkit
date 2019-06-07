@@ -17,14 +17,7 @@ module.exports = {
   styleguideDir: 'dist',
   template: {
     favicon: './src/assets/favicons.png',
-    head: {
-      links: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Open+Sans',
-        },
-      ],
-    },
+
     body: {
       raw: '<div id="root"></div>',
     },

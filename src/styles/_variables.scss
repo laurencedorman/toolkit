@@ -1,6 +1,6 @@
 $browser-context: 16px;
 
-$main-font: 'Open Sans', sans-serif;
+$main-font: 'Open Sans', mm-main, arial, sans-serif; // mm-main is the Open Sans font with the custom naming as used in manomano-sf
 
 /*Use 'calc' to Up or Down spacing*/
 $doubleSpace: 32;

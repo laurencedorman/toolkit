@@ -13,7 +13,7 @@ import styles from './StepIndicator.module.scss';
 
 const Step = ({ className, step, active, label, done }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     styles.step,
     { [styles.active]: active },
     { [styles.done]: done },

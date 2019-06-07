@@ -11,7 +11,7 @@ import styles from './Tag.module.scss';
 
 const Tag = ({ className, theme, children, disabled, dataQa, onClick }) => {
   const tagClass = cn(
-    styles.toolkit,
+    'toolkit',
     styles.tag,
     styles[theme],
     { [styles.disabled]: disabled, [styles.clickable]: !!onClick },

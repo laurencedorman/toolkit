@@ -47,7 +47,7 @@ const Input = React.forwardRef(
     },
     ref
   ) => {
-    const container = cn(styles.toolkit, styles.container, className);
+    const container = cn('toolkit', styles.container, className);
 
     const contentClass = cn(styles.content, {
       [styles.hasValue]: value !== '',

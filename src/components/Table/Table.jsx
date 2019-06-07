@@ -14,7 +14,7 @@ import styles from '../Logo/Logo.module.scss';
 
 const Table = ({ className, columns, data, defaultPageSize, loading }) => {
   const classNames = cn(
-    styles.toolkit,
+    'toolkit',
     defaultStyles,
     className,
     'table',
