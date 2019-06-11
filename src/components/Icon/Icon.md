@@ -3,16 +3,16 @@ Icon:
 - Import component icon with props <b>component</b>.
 - You need to import Icon component and IconName.
 - Icon was in SVG.
-- Ask you're MR if you need new icon.
+- Open a Merge Request if you need new icon.
 
   <br />
 
 Import example:
 
 ```jsx static
-import { Icon, IconAcount } from 'ToolkitPath';
+import { Icon, IconAccount } from 'ToolkitPath';
 
-<Icon component={IconAcount} />;
+<Icon component={IconAccount} />;
 ```
 
 ```js
