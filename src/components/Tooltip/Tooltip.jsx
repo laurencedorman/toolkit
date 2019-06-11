@@ -14,11 +14,67 @@ import cn from 'classnames';
 
 import Portal from '../Portal';
 import Toggle from '../Toggle';
-import tooltipPosition from './TooltipPosition';
+import tooltipPosition from './tooltipPosition';
 
 import styles from './Tooltip.module.scss';
 
 let addTooltipPosition = {};
+
+const renderTooltip = (display, content, bgColor) => {
+  return (
+    <Portal>
+      <Transition
+        native
+        unique
+        config={{ tension: 350, friction: 23, mass: 0.6, precision: 0.1 }}
+        items={display}
+        from={{ o: 0, s: 0.6 }}
+        enter={{ o: 1, s: 1 }}
+        leave={{ o: 0, s: 0.6 }}
+      >
+        {displayTooltip =>
+          displayTooltip
+            ? // eslint-disable-next-line react/prop-types,react/display-name
+              ({ o, s }) => (
+                <div
+                  className={styles.tooltip}
+                  style={addTooltipPosition.style}
+                >
+                  <div className={styles[addTooltipPosition.class]}>
+                    <animated.div
+                      style={{
+                        opacity: o.interpolate(opacity => opacity),
+                        transform: s.interpolate(scale => `scale(${scale})`),
+                        backgroundColor: bgColor,
+                        color: '#fff',
+                      }}
+                    >
+                      <div className={styles.svg}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 18.39 7.96"
+                          width="16"
+                          height="16"
+                        >
+                          <path
+                            d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z"
+                            fill={bgColor}
+                          />
+                        </svg>
+                      </div>
+                      <div className={styles.content}>
+                        <span className={styles.spanContent}>{content}</span>
+                      </div>
+                    </animated.div>
+                  </div>
+                </div>
+              )
+            : () => null
+        }
+      </Transition>
+    </Portal>
+  );
+};
 
 export default class Tooltip extends PureComponent {
   constructor(props) {
@@ -29,7 +85,10 @@ export default class Tooltip extends PureComponent {
   handleMouseEnter = (e, toggleIn) => {
     const { position } = this.props;
     if (this.transmitter.current) {
-      addTooltipPosition = tooltipPosition(this.transmitter.current, position);
+      addTooltipPosition = tooltipPosition(
+        this.transmitter.current.getBoundingClientRect(),
+        position
+      );
     }
     toggleIn();
   };
@@ -61,61 +120,6 @@ export default class Tooltip extends PureComponent {
     );
   }
 }
-
-const renderTooltip = (display, content, bgColor) => {
-  return (
-    <Portal>
-      <Transition
-        native
-        unique
-        config={{ tension: 350, friction: 23, mass: 0.6, precision: 0.1 }}
-        items={display}
-        from={{ o: 0, s: 0.6 }}
-        enter={{ o: 1, s: 1 }}
-        leave={{ o: 0, s: 0.6 }}
-      >
-        {display =>
-          display
-            ? ({ o, s }) => (
-                <div
-                  className={styles.tooltip}
-                  style={addTooltipPosition.style}
-                >
-                  <div className={styles[addTooltipPosition.class]}>
-                    <animated.div
-                      style={{
-                        opacity: o.interpolate(o => o),
-                        transform: s.interpolate(s => `scale(${s})`),
-                        backgroundColor: bgColor,
-                        color: '#fff',
-                      }}
-                    >
-                      <div className={styles.svg}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 18.39 7.96"
-                          width="16"
-                          height="16"
-                        >
-                          <path
-                            d="M18.39,0,11.31,7.08a3,3,0,0,1-4.23,0L0,0Z"
-                            fill={bgColor}
-                          />
-                        </svg>
-                      </div>
-                      <div className={styles.content}>
-                        <span className={styles.spanContent}>{content}</span>
-                      </div>
-                    </animated.div>
-                  </div>
-                </div>
-              )
-            : () => null
-        }
-      </Transition>
-    </Portal>
-  );
-};
 
 Tooltip.displayName = 'Tooltip';
 
