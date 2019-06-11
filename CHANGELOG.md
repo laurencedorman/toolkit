@@ -1,3 +1,11 @@
+## [3.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.0...v3.0.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* **mobile:** make modal more mobile friendly ([1c9990d](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/1c9990d))
+* **test:** Remove warning ([cdf3f11](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/cdf3f11))
+
 # [3.0.0](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v2.0.3...v3.0.0) (2019-05-29)
 
 
