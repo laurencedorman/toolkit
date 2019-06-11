@@ -85,6 +85,9 @@
     "test:coverage": "macgyver test --coverage"
   },
   "eslintConfig": {
-    "extends": "@manomano/eslint-config"
+    "extends": "@manomano/eslint-config",
+    "rules": {
+      "import/no-named-as-default": 0
+    }
   }
 }
