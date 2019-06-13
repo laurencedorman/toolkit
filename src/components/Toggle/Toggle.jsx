@@ -29,7 +29,11 @@ export default class Toggle extends PureComponent {
       const keys = {
         Escape: () => {
           e.preventDefault();
-          !on ? e.stopPropagation() : this.toggle();
+          if (on) {
+            this.toggle();
+          } else {
+            e.stopPropagation();
+          }
         },
       };
       if (keys[e.key]) keys[e.key]();
@@ -58,5 +62,5 @@ export default class Toggle extends PureComponent {
 Toggle.displayName = 'Toggle';
 
 Toggle.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
 };

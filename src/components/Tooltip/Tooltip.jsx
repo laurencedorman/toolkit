@@ -4,6 +4,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/* eslint-disable */
+// TODO in https://manomano.atlassian.net/browse/REACT-240
+
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Transition, animated } from 'react-spring';

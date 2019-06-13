@@ -11,14 +11,11 @@ import IconEdit from '../../Icon/Icons/IconEdit';
 import Icon from '../../Icon';
 
 describe('Button', () => {
-  const wrapper = shallow(<Button />);
-
   it('should match snapshot', () => {
+    // Given
+    const wrapper = shallow(<Button />);
+    // Then
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should render without crash', () => {
-    expect(wrapper.length).toEqual(1);
   });
 
   it('should render a icon if props is true', () => {

@@ -110,6 +110,9 @@ Dropdown.defaultProps = {
   fill: colors.white,
   stroke: colors.white,
   dataQa: '',
+  active: undefined,
+  toggle: () => {},
+  onClick: () => {},
 };
 
 export default Dropdown;

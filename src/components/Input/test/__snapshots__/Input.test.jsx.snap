@@ -10,12 +10,19 @@ exports[`Input should match snapshot 1`] = `
     <input
       aria-hidden={false}
       aria-label="label"
+      aria-required={false}
       className=""
       data-qa=""
       disabled={false}
       hidden={false}
       id="id"
       name="name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      required={false}
+      spellCheck={false}
       type="text"
       value="value"
     />

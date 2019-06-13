@@ -11,6 +11,18 @@ import Icon from '../Icon';
 import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './Input.module.scss';
 
+const handleIcon = (iconComponent, valid, reset, touched) =>
+  // eslint-disable-next-line no-nested-ternary
+  valid && touched ? (
+    <Icon component={IconCheck} size="22" className={styles.icon} />
+  ) : iconComponent && !reset ? (
+    <Icon component={iconComponent} size="16" className={styles.icon} />
+  ) : null;
+
+const handleIndicator = (indicator, iconComponent) =>
+  indicator &&
+  !iconComponent && <span className={styles.indicator}>{indicator}</span>;
+
 const Input = React.forwardRef(
   (
     {
@@ -95,6 +107,7 @@ const Input = React.forwardRef(
             data-qa={dataQa}
           />
           {label && (
+            // eslint-disable-next-line jsx-a11y/label-has-for
             <label htmlFor={id} className={labelStyle}>
               {label}
             </label>
@@ -111,20 +124,17 @@ const Input = React.forwardRef(
   }
 );
 
-const handleIcon = (iconComponent, valid, reset, touched) =>
-  valid && touched ? (
-    <Icon component={IconCheck} size="22" className={styles.icon} />
-  ) : iconComponent && !reset ? (
-    <Icon component={iconComponent} size="16" className={styles.icon} />
-  ) : null;
-
-const handleIndicator = (indicator, iconComponent) =>
-  indicator &&
-  !iconComponent && <span className={styles.indicator}>{indicator}</span>;
-
 Input.displayName = 'Input';
 
 Input.propTypes = {
+  autoComplete: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  autoCorrect: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   className: PropTypes.string,
   dataQa: PropTypes.string,
   disabled: PropTypes.bool,
@@ -148,7 +158,6 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   reset: PropTypes.bool,
   reverse: PropTypes.bool,
@@ -165,9 +174,15 @@ Input.propTypes = {
   ]).isRequired,
   valid: PropTypes.bool,
   value: PropTypes.string,
+  spellCheck: PropTypes.bool,
 };
 
 Input.defaultProps = {
+  autoComplete: undefined,
+  autoCorrect: undefined,
+  className: undefined,
+  iconComponent: undefined,
+  id: undefined,
   dataQa: '',
   disabled: false,
   error: '',
@@ -178,6 +193,19 @@ Input.defaultProps = {
   touched: true,
   valid: false,
   value: '',
+  indicator: undefined,
+  max: undefined,
+  min: undefined,
+  maxLength: undefined,
+  minLength: undefined,
+  onBlur: () => {},
+  onChange: () => {},
+  onFocus: () => {},
+  onKeyDown: () => {},
+  required: false,
+  reset: false,
+  step: undefined,
+  spellCheck: false,
 };
 
 export default Input;

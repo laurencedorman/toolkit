@@ -44,11 +44,7 @@ ToggleDown.displayName = 'ToggleDown';
 
 ToggleDown.propTypes = {
   on: PropTypes.bool.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf([PropTypes.element]),
-  ]).isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   style: PropTypes.shape({}),
 };

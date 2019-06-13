@@ -5,6 +5,7 @@ exports[`Button should match snapshot 1`] = `
   className="toolkit button default default onlyIcon"
   data-qa=""
   disabled={false}
+  style={Object {}}
   type="button"
 />
 `;

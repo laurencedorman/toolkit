@@ -10,9 +10,7 @@ import Icon from '../Icon';
 import IconDocument from '../Icons/IconDocument';
 
 describe('Icon', () => {
-  let wrapper;
-
-  wrapper = shallow(<Icon component={IconDocument} />);
+  const wrapper = shallow(<Icon component={IconDocument} />);
 
   it('should render without crash with layoutContainer', () => {
     expect(wrapper.length).toEqual(1);

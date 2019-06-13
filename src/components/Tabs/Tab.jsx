@@ -12,11 +12,8 @@ const Tab = ({ children, label }) => <div label={label}>{children}</div>;
 Tab.displayName = 'Tab';
 
 Tab.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   label: PropTypes.node.isRequired,
-  isDefaultActive: PropTypes.bool,
 };
-
-Tab.defaultProps = { isDefaultActive: false };
 
 export default Tab;

@@ -12,22 +12,28 @@ describe('Modal', () => {
   let wrapper;
   const mock = jest.fn();
 
-  beforeEach(() => {
-    wrapper = shallow(<Modal on={false}>Modal content</Modal>);
-  });
+  wrapper = shallow(
+    <Modal on={false} toggle={mock}>
+      Modal content
+    </Modal>
+  );
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render modal if props is on', () => {
-    wrapper = mount(<Modal on={true}>Modal content</Modal>);
+    wrapper = mount(
+      <Modal on toggle={mock}>
+        Modal content
+      </Modal>
+    );
     expect(wrapper.props().on).toBe(true);
   });
 
   it('should render header', () => {
     wrapper = mount(
-      <Modal on header="header">
+      <Modal on header="header" toggle={mock}>
         Modal content
       </Modal>
     );
@@ -36,7 +42,7 @@ describe('Modal', () => {
 
   it('should stop propagation on div className "content" click', () => {
     wrapper = mount(
-      <Modal on onClick={mock}>
+      <Modal on onClick={mock} toggle={mock}>
         Modal content
       </Modal>
     );

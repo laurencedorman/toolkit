@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types,import/no-extraneous-dependencies */
 /**
  * Copyright (c) Colibri SAS - ManoMano
  * This source code is licensed under the MIT license found in the

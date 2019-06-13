@@ -33,21 +33,23 @@ const Switch = ({
 
   return (
     <div className={container}>
-      <input
-        className={styles.switch}
-        type="checkbox"
-        id={id}
-        name={name}
-        value={id}
-        data-itemid={itemId}
-        checked={checked}
-        onChange={onChange}
-        data-qa={dataQa}
-        aria-checked={checked}
-        aria-describedby={id}
-      />
-      <label htmlFor={id} className={labelClass} />
+      <label htmlFor={id} className={labelClass}>
+        <input
+          className={styles.switch}
+          type="checkbox"
+          id={id}
+          name={name}
+          value={id}
+          data-itemid={itemId}
+          checked={checked}
+          onChange={onChange}
+          data-qa={dataQa}
+          aria-checked={checked}
+          aria-describedby={id}
+        />
+      </label>
       {label && (
+        // eslint-disable-next-line jsx-a11y/label-has-for
         <label htmlFor={id} className={styles.title}>
           {label}
         </label>

@@ -5,7 +5,9 @@ exports[`Select should render correctly 1`] = `
   className="toolkit select test-class"
   data-qa=""
 >
-  <label>
+  <label
+    htmlFor="testId"
+  >
     <span
       className="label"
     >

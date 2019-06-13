@@ -14,6 +14,7 @@ jest.mock('resize-observer-polyfill', () => ({
     constructor(cb) {
       this.cb = cb;
     }
+
     observe(element) {
       this.cb([
         {
@@ -29,6 +30,7 @@ jest.mock('resize-observer-polyfill', () => ({
       ]);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     unobserve() {}
   },
 }));
@@ -61,6 +63,7 @@ describe('useMeasure', () => {
 
   it('should calculate size properly', () => {
     let expectedSize;
+    // eslint-disable-next-line react/prop-types
     function App({ expectedWidth, expectedHeight }) {
       const [size, ref] = useMeasure();
       expectedSize = size;

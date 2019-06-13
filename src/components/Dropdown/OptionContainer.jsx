@@ -52,7 +52,8 @@ const OptionContainer = ({
 
   return (
     <>
-      {on && <div className={styles.closeTarget} onClick={toggle} />}
+      {// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+      on && <div className={styles.closeTarget} onClick={toggle} />}
       <ToggleDown on={on} className={container} style={setPosition}>
         <ul className={list}>
           {options.map((item, index) => {
@@ -90,10 +91,10 @@ OptionContainer.propTypes = {
   right: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
   active: PropTypes.string,
   sideLeft: PropTypes.bool,
   sideRight: PropTypes.bool,
+  size: PropTypes.shape({}).isRequired,
 };
 
 OptionContainer.defaultProps = {
@@ -101,7 +102,6 @@ OptionContainer.defaultProps = {
   onClick: null,
   right: false,
   className: '',
-  disabled: false,
   active: '',
   sideLeft: false,
   sideRight: false,

@@ -22,6 +22,7 @@ const Icon = ({
   const classNames = cn('toolkit', styles.container, className);
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className={classNames}
       onClick={onClick}
@@ -58,7 +59,9 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  className: '',
+  onClick: () => {},
+  onKeyPress: () => {},
+  className: undefined,
   size: 32,
   fill: '#0c193a',
   dataQa: '',

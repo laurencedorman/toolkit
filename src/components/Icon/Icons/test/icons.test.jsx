@@ -21,6 +21,7 @@ describe('Icons', () => {
       const iconName = icon.split('.')[0];
 
       it(`${iconName} should match snapshot`, () => {
+        // eslint-disable-next-line import/no-dynamic-require,global-require
         const Component = require(path.join(iconsDir, icon)).default;
         const wrapper = shallow(<Component />);
 

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-for */
 /**
  * Copyright (c) Colibri SAS - ManoMano
  * This source code is licensed under the MIT license found in the
@@ -10,6 +11,7 @@ import cn from 'classnames';
 import styles from './Select.module.scss';
 
 const Select = ({
+  id,
   className,
   dataQa,
   disabled,
@@ -33,7 +35,7 @@ const Select = ({
 
   return (
     <div className={classNames} data-qa={dataQa}>
-      <label>
+      <label htmlFor={id}>
         {label && (
           <span className={styles.label}>
             {label}
@@ -43,6 +45,7 @@ const Select = ({
         <span className={styles.mask}>
           <select
             {...selectProps}
+            id={id}
             aria-required={required}
             className={styles.control}
             disabled={disabled}
@@ -57,6 +60,7 @@ const Select = ({
             {options.map((option, index) => (
               <option
                 value={option.value}
+                // eslint-disable-next-line react/no-array-index-key
                 key={`${index}-${option.value}`}
                 disabled={option.disabled}
               >
@@ -82,6 +86,7 @@ const Select = ({
 Select.displayName = 'Select';
 
 Select.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
@@ -104,7 +109,8 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  className: '',
+  id: undefined,
+  className: undefined,
   dataQa: '',
   disabled: false,
   error: '',

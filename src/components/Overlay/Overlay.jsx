@@ -22,14 +22,15 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }) => {
       enter={{ o: 0.5 }}
       leave={{ o: 0 }}
     >
-      {on =>
-        on &&
+      {display =>
+        display &&
+        // eslint-disable-next-line react/prop-types,react/display-name
         (({ o }) => (
           <animated.div
             className={classNames}
             onClick={onClick}
             style={{
-              opacity: o.interpolate(o => o),
+              opacity: o.interpolate(opacity => opacity),
               cursor: onClick && 'pointer',
               zIndex,
               backgroundColor,
@@ -53,6 +54,7 @@ Overlay.propTypes = {
 Overlay.defaultProps = {
   zIndex: 8000,
   backgroundColor: '#000',
+  onClick: null,
 };
 
 export default Overlay;

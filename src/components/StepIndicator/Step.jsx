@@ -11,22 +11,22 @@ import Icon from '../Icon';
 import IconCheck from '../Icon/Icons/IconCheck';
 import styles from './StepIndicator.module.scss';
 
-const Step = ({ className, step, active, label, done }) => {
+const Step = ({ className, step, active, label, isDone }) => {
   const classNames = cn(
     'toolkit',
     styles.step,
     { [styles.active]: active },
-    { [styles.done]: done },
+    { [styles.done]: isDone },
     className
   );
 
-  const icon = cn({ [styles.icon]: done }, className);
+  const icon = cn({ [styles.icon]: isDone }, className);
 
   return (
     <div className={styles.container}>
       <div className={classNames}>
         {step}
-        {done ? (
+        {isDone ? (
           <Icon component={IconCheck} fill="#fff" className={icon} size={18} />
         ) : null}
       </div>
@@ -39,15 +39,17 @@ Step.displayName = 'Step';
 
 Step.propTypes = {
   className: PropTypes.string,
-  step: PropTypes.string,
+  step: PropTypes.string.isRequired,
   label: PropTypes.string,
   active: PropTypes.bool,
-  done: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  isDone: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
 };
 
 Step.defaultProps = {
   className: '',
   active: false,
+  label: undefined,
+  isDone: false,
 };
 
 export default Step;

@@ -20,9 +20,7 @@ describe('GetMeasure', () => {
   });
 
   it('should pass proper props to children', async () => {
-    const children = jest.fn(({ size, ref }) => (
-      <div ref={ref}>Dumb component</div>
-    ));
+    const children = jest.fn(({ ref }) => <div ref={ref}>Dumb component</div>);
 
     shallow(<GetMeasure>{children}</GetMeasure>);
 

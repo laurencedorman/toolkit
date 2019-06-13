@@ -84,11 +84,6 @@ describe('InputCheckGroup', () => {
     );
   });
 
-  it('should be disabled', () => {
-    expect(wrapper.setProps({ checked: true }));
-    expect(wrapper.setProps({ disabled: true }));
-  });
-
   it('should render error message if error', () => {
     wrapper.setProps({ error: 'Oh no an error!' });
 

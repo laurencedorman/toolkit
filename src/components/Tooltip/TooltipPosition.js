@@ -7,7 +7,7 @@
 const space = 16;
 const requiredSpace = 200;
 
-export const tooltipPosition = (ref, position) => {
+const tooltipPosition = (ref, position) => {
   const {
     top,
     left,

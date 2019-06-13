@@ -50,7 +50,7 @@ Wrapper.propTypes = {
       PropTypes.elementType,
       PropTypes.node,
     ]),
-  ]),
+  ]).isRequired,
   className: PropTypes.string,
   direction: PropTypes.string,
   style: PropTypes.shape({}),
@@ -63,6 +63,7 @@ Wrapper.defaultProps = {
   direction: 'column',
   type: 'div',
   dataQa: '',
+  style: {},
 };
 
 export default Wrapper;

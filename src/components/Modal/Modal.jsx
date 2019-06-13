@@ -51,52 +51,55 @@ const Modal = ({
         enter={{ o: 1, s: 1, y: '0' }}
         leave={{ o: 0, s: 0.75, y: '33vh' }}
       >
-        {on =>
-          on &&
-          (({ o, s, y }) => (
-            <animated.div
-              onClick={toggle}
-              className={styles.modal}
-              role="dialog"
-              style={{
-                opacity: o.interpolate(o => o),
-              }}
-            >
-              <animated.div
-                className={classNames}
-                onClick={e => e.stopPropagation()}
-                role="contentinfo"
-                style={{
-                  transform: interpolate(
-                    [s, y],
-                    (s, y) => `scale(${s}) translate3d(0, ${y}, 0)`
-                  ),
-                }}
-              >
-                <Wrapper className={headerStyle} data-qa={dataQa}>
-                  <h4>{header}</h4>
-                  <Icon
-                    component={IconClose}
-                    size="12"
-                    onClick={toggle}
-                    className={styles.icon}
-                  />
-                </Wrapper>
+        {display =>
+          display
+            ? // eslint-disable-next-line react/prop-types,react/display-name
+              ({ o, s, y }) => (
+                <animated.div
+                  onClick={toggle}
+                  className={styles.modal}
+                  role="dialog"
+                  style={{
+                    opacity: o.interpolate(opacity => opacity),
+                  }}
+                >
+                  <animated.div
+                    className={classNames}
+                    onClick={e => e.stopPropagation()}
+                    role="contentinfo"
+                    style={{
+                      transform: interpolate(
+                        [s, y],
+                        (scale, translateY) =>
+                          `scale(${scale}) translate3d(0, ${translateY}, 0)`
+                      ),
+                    }}
+                  >
+                    <Wrapper className={headerStyle} data-qa={dataQa}>
+                      <h4>{header}</h4>
+                      <Icon
+                        component={IconClose}
+                        size="12"
+                        onClick={toggle}
+                        className={styles.icon}
+                      />
+                    </Wrapper>
 
-                <Wrapper className={styles.body}>{children}</Wrapper>
+                    <Wrapper className={styles.body}>{children}</Wrapper>
 
-                {!noFooter && (
-                  <Wrapper className={styles.footer} direction="row">
-                    <Button
-                      title={buttonTitle}
-                      onClick={toggle}
-                      theme="secondary"
-                    />
-                  </Wrapper>
-                )}
-              </animated.div>
-            </animated.div>
-          ))
+                    {!noFooter && (
+                      <Wrapper className={styles.footer} direction="row">
+                        <Button
+                          title={buttonTitle}
+                          onClick={toggle}
+                          theme="secondary"
+                        />
+                      </Wrapper>
+                    )}
+                  </animated.div>
+                </animated.div>
+              )
+            : () => null
         }
       </Transition>
     </Portal>
@@ -107,12 +110,12 @@ Modal.dislayName = 'Modal';
 
 Modal.propTypes = {
   on: PropTypes.bool.isRequired,
-  toggle: PropTypes.func,
+  toggle: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node,
-  ]),
+  ]).isRequired,
   className: PropTypes.string,
   header: PropTypes.node,
   buttonTitle: PropTypes.string,
@@ -127,6 +130,7 @@ Modal.defaultProps = {
   noFooter: false,
   hasIframe: false,
   dataQa: '',
+  header: undefined,
 };
 
 export default Modal;

@@ -29,7 +29,7 @@ describe('Overlay', () => {
   });
 
   it('should have pointer cursor if component has props onClick', () => {
-    wrapper = mount(<Overlay on={true} {...props} />);
+    wrapper = mount(<Overlay on {...props} />);
     expect(wrapper.find('div').prop('style')).toHaveProperty(
       'cursor',
       'pointer'
