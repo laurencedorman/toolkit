@@ -9,17 +9,14 @@ import { mount } from 'enzyme';
 import Tooltip from '../Tooltip';
 
 describe('Tooltip', () => {
-  let wrapper;
-
-  wrapper = mount(<Tooltip content="test">test</Tooltip>);
+  const wrapper = mount(<Tooltip content="test">test</Tooltip>);
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render content', () => {
-    wrapper = mount(<Tooltip content="content">test</Tooltip>);
-    expect(wrapper.props().content).toEqual('content');
+    expect(wrapper.props().content).toEqual('test');
   });
 
   it('should display tooltip', () => {

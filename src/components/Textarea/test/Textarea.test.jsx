@@ -28,7 +28,7 @@ describe('Textarea', () => {
   });
 
   it('should render label', () => {
-    //when
+    // when
     wrapper = shallow(
       <Textarea name="name" placeholder="placeholder" label="label" />
     );
@@ -38,7 +38,7 @@ describe('Textarea', () => {
   });
 
   it('should render an helper', () => {
-    //when
+    // when
     wrapper = shallow(
       <Textarea name="name" placeholder="placeholder" helper="helper" />
     );
@@ -48,7 +48,7 @@ describe('Textarea', () => {
   });
 
   it('should render an error', () => {
-    //when
+    // when
     wrapper = shallow(
       <Textarea
         name="name"

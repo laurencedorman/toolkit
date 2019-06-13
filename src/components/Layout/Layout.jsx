@@ -42,7 +42,7 @@ Layout.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.node,
-  ]),
+  ]).isRequired,
   className: PropTypes.string,
   direction: PropTypes.oneOf(['row', 'column']),
   styleGuidist: PropTypes.bool,
@@ -55,6 +55,7 @@ Layout.defaultProps = {
   direction: 'row',
   styleGuidist: false,
   dataQa: '',
+  style: {},
 };
 
 export default Layout;

@@ -9,8 +9,7 @@ import { shallow } from 'enzyme';
 import Tag from '../Tag';
 
 describe('Tag', () => {
-  let wrapper;
-  wrapper = shallow(
+  const wrapper = shallow(
     <Tag>
       <p>Tag</p>
     </Tag>

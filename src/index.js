@@ -42,7 +42,7 @@ export { default as ToggleDown } from './components/ToggleDown';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Wrapper } from './components/Wrapper';
 
-//Icons
+// Icons
 export { default as IconAbTest } from './components/Icon/Icons/IconAbTest';
 export { default as IconAccount } from './components/Icon/Icons/IconAccount';
 export {

@@ -9,11 +9,10 @@ import { shallow } from 'enzyme';
 import TabLabel from '../TabLabel';
 
 describe('TabLabel', () => {
-  let wrapper;
   const onClickMock = jest.fn();
   const mockLabel = 'test';
 
-  wrapper = shallow(
+  const wrapper = shallow(
     <TabLabel onClick={onClickMock} label={mockLabel} activeTab="test" />
   );
 

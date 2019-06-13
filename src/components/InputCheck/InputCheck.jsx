@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-for */
 /**
  * Copyright (c) Colibri SAS - ManoMano
  * This source code is licensed under the MIT license found in the
@@ -79,12 +80,14 @@ InputCheck.propTypes = {
 
 InputCheck.defaultProps = {
   checked: false,
-  className: '',
+  className: undefined,
+  id: undefined,
   dataQa: '',
   disabled: false,
   itemId: '',
   label: '',
   required: false,
+  onChange: () => {},
 };
 
 export default InputCheck;

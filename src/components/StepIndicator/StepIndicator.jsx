@@ -4,19 +4,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Step from './Step';
 import styles from './StepIndicator.module.scss';
 
-const StepIndicator = ({ children, className, activeStep, lastStep }) => {
-  const classNames = cn('toolkit', styles.stepIndicatorContainer, className);
+const StepIndicator = ({ children, className, activeStep }) => {
+  const classNames = cn(
+    styles.toolkit,
+    styles.stepIndicatorContainer,
+    className
+  );
   return (
     <div className={classNames}>
       <div className={styles.content}>
         <div className={styles.line} />
-        {React.Children.map(children, (child, index) => {
+        {Children.map(children, (child, index) => {
           const { step, label, done } = child.props;
 
           return (
@@ -25,7 +29,7 @@ const StepIndicator = ({ children, className, activeStep, lastStep }) => {
               step={step}
               label={label}
               active={activeStep === index}
-              done={activeStep > index || lastStep || done}
+              done={activeStep > index || done}
             />
           );
         })}
@@ -42,13 +46,13 @@ StepIndicator.propTypes = {
     PropTypes.element,
     PropTypes.node,
     PropTypes.string,
-  ]),
+  ]).isRequired,
   activeStep: PropTypes.number,
-  lastStep: PropTypes.number,
 };
 
 StepIndicator.defaultProps = {
   className: '',
+  activeStep: 0,
 };
 
 export default StepIndicator;

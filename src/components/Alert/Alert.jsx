@@ -13,6 +13,21 @@ import Hint from '../Hint';
 import Portal from '../Portal';
 import styles from './Alert.module.scss';
 
+export const translate = value => {
+  switch (value) {
+    case 'topRight':
+    case 'bottomRight':
+      return 320;
+    case 'topLeft':
+    case 'bottomLeft':
+      return -320;
+    default:
+      return 320;
+  }
+};
+
+const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
+
 const Alert = ({
   on,
   className,
@@ -51,8 +66,9 @@ const Alert = ({
         enter={{ transform: 'translateX(0)' }}
         leave={{ transform: `translateX(${setTranslate}px)` }}
       >
-        {on =>
-          on &&
+        {display =>
+          display &&
+          // eslint-disable-next-line react/display-name
           (style => (
             <animated.div
               className={classNames}
@@ -70,21 +86,6 @@ const Alert = ({
     </Portal>
   );
 };
-
-export const translate = value => {
-  switch (value) {
-    case 'topRight':
-    case 'bottomRight':
-      return 320;
-    case 'topLeft':
-    case 'bottomLeft':
-      return -320;
-    default:
-      return 320;
-  }
-};
-
-const timer = (toggle, timeout) => setTimeout(() => toggle(), timeout);
 
 Alert.displayName = 'Alert';
 
@@ -111,6 +112,7 @@ Alert.defaultProps = {
   theme: 'default',
   className: '',
   position: 'topRight',
+  timeout: 0,
   dataQa: '',
 };
 

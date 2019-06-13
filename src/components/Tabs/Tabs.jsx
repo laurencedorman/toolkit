@@ -87,7 +87,7 @@ Tabs.propTypes = {
     PropTypes.element,
     PropTypes.node,
     PropTypes.arrayOf([PropTypes.node]),
-  ]),
+  ]).isRequired,
 };
 
 Tabs.defaultProps = { className: '' };

@@ -13,7 +13,7 @@ import OptionContainer from '../OptionContainer';
 
 describe('Dropdown', () => {
   const defaultProps = {
-    options: [{ value: 'valueTest', label: 'labelTest' }],
+    options: [{ value: 'valueTest', label: 'labelTest', on: true }],
   };
 
   describe('template', () => {
@@ -23,19 +23,27 @@ describe('Dropdown', () => {
         <Dropdown
           on
           title="titleTest"
-          right={true}
-          disabled={true}
+          right
+          disabled
           active="active"
           backgroundColor="#fff"
           className="my class name"
-          sideLeft={true}
-          sideRight={true}
+          sideLeft
+          sideRight
           fill="#666"
           stroke="#555"
           dataQa="testQa"
           {...defaultProps}
         />
       );
+
+      // Then
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should match snapshot without default props', () => {
+      // When
+      const wrapper = shallow(<Dropdown {...defaultProps} />);
 
       // Then
       expect(wrapper).toMatchSnapshot();
@@ -73,25 +81,6 @@ describe('Dropdown', () => {
 
       const icon = button.find(Icon);
       expect(icon).toHaveLength(0);
-    });
-  });
-
-  describe('props', () => {
-    it('should have default props', () => {
-      // Then
-      expect(Dropdown.defaultProps).toEqual({
-        backgroundColor: '#29b9ad',
-        className: undefined,
-        dataQa: '',
-        disabled: false,
-        fill: '#ffffff',
-        icon: true,
-        right: false,
-        sideLeft: false,
-        sideRight: false,
-        stroke: '#ffffff',
-        title: '',
-      });
     });
   });
 
@@ -147,7 +136,7 @@ describe('Dropdown', () => {
         optionContainer.simulate('click');
 
         // Then
-        expect(toggleMock).toHaveBeenCalled();
+        expect(toggleMock).toHaveBeenCalledWith();
       });
     });
   });

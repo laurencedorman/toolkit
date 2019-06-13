@@ -46,6 +46,7 @@ const Button = React.forwardRef(
     );
 
     return (
+      // eslint-disable-next-line react/button-has-type
       <button
         id={id}
         disabled={disabled}
@@ -67,22 +68,14 @@ const Button = React.forwardRef(
 );
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
+  children: PropTypes.node,
   className: PropTypes.string,
   dataQa: PropTypes.string,
   disabled: PropTypes.bool,
   fill: PropTypes.string,
-  iconComponent: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.func,
-    PropTypes.bool,
-  ]),
+  iconComponent: PropTypes.node,
   id: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   reverse: PropTypes.bool,
   size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
   theme: PropTypes.oneOf([
@@ -95,11 +88,13 @@ Button.propTypes = {
   ]),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf(['submit', 'reset', 'button', 'menu']),
+  style: PropTypes.shape({}),
 };
 
 Button.displayName = 'Button';
 
 Button.defaultProps = {
+  children: undefined,
   className: '',
   dataQa: '',
   disabled: false,
@@ -109,6 +104,9 @@ Button.defaultProps = {
   theme: 'default',
   title: '',
   type: 'button',
+  iconComponent: undefined,
+  id: undefined,
+  style: {},
 };
 
 export default Button;

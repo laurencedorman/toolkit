@@ -73,7 +73,7 @@ describe('Input', () => {
   });
 
   it('should render icon validation if props valid is true', () => {
-    //when
+    // when
     wrapper = shallow(
       <Input
         type="text"
@@ -91,7 +91,7 @@ describe('Input', () => {
   });
 
   it('should render icon component if props iconComponent is set', () => {
-    //when
+    // when
     wrapper = shallow(
       <Input
         type="text"

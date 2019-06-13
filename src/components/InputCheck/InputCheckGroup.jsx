@@ -97,6 +97,7 @@ InputCheckGroup.defaultProps = {
   required: false,
   selectedOption: '',
   touched: true,
+  onChange: null,
 };
 
 export default InputCheckGroup;

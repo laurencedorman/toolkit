@@ -22,19 +22,14 @@ const Card = ({ children, className, dataQa }) => {
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.func,
-    PropTypes.node,
-  ]),
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   dataQa: PropTypes.string,
 };
 
 Card.defaultProps = {
-  className: '',
-  dataQa: '',
+  className: undefined,
+  dataQa: undefined,
 };
 
 export default Card;

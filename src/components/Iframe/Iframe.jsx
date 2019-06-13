@@ -35,6 +35,9 @@ Iframe.propTypes = {
   dataQa: PropTypes.string,
 };
 
-Iframe.defaultProps = { dataQa: '' };
+Iframe.defaultProps = {
+  dataQa: '',
+  className: undefined,
+};
 
 export default Iframe;

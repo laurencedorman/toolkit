@@ -21,17 +21,19 @@ const TabBody = ({ children, activeTab }) => {
         native
         unique
         reset
-        items={true}
-        from={{ o: 0 }}
-        enter={{ o: 1 }}
-        leave={{ o: 0 }}
+        items
+        from={{ opacity: 0 }}
+        enter={{ opacity: 1 }}
+        leave={{ opacity: 0 }}
       >
         {isOn =>
           isOn &&
-          (({ o }) => (
+          // eslint-disable-next-line react/prop-types,react/display-name
+          (({ opacity }) => (
             <animated.div
               key={label}
-              style={{ opacity: o.interpolate(o => o) }}
+              // eslint-disable-next-line no-shadow
+              style={{ opacity: opacity.interpolate(o => o) }}
             >
               {child.props.children}
             </animated.div>

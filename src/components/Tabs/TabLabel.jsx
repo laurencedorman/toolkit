@@ -4,6 +4,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/* eslint-disable */
+// TODO in https://manomano.atlassian.net/browse/REACT-243
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -35,7 +38,7 @@ const TabLabel = ({ activeTab, className, label, onClick }) => {
 TabLabel.displayName = 'TabLabel';
 
 TabLabel.propTypes = {
-  label: PropTypes.node,
+  label: PropTypes.node.isRequired,
   activeTab: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,

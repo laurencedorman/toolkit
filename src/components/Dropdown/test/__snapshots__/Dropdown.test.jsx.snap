@@ -9,6 +9,7 @@ exports[`Dropdown template should match snapshot 1`] = `
     dataQa="testQa"
     disabled={true}
     fill="#ffffff"
+    onClick={[Function]}
     reverse={false}
     size="default"
     style={
@@ -26,6 +27,8 @@ exports[`Dropdown template should match snapshot 1`] = `
       component={[Function]}
       dataQa=""
       fill="#666"
+      onClick={[Function]}
+      onKeyPress={[Function]}
       size="16"
       stroke="#555"
     />
@@ -33,13 +36,13 @@ exports[`Dropdown template should match snapshot 1`] = `
   <OptionContainer
     active="active"
     className="my class name"
-    disabled={false}
     on={true}
-    onClick={null}
+    onClick={[Function]}
     options={
       Array [
         Object {
           "label": "labelTest",
+          "on": true,
           "value": "valueTest",
         },
       ]
@@ -59,7 +62,72 @@ exports[`Dropdown template should match snapshot 1`] = `
         "y": 0,
       }
     }
-    toggle={null}
+    toggle={[Function]}
+  />
+</div>
+`;
+
+exports[`Dropdown template should match snapshot without default props 1`] = `
+<div
+  className="toolkit wrapper"
+>
+  <Button
+    className="button"
+    dataQa=""
+    disabled={false}
+    fill="#ffffff"
+    onClick={[Function]}
+    reverse={false}
+    size="default"
+    style={
+      Object {
+        "backgroundColor": "#29b9ad",
+      }
+    }
+    theme="default"
+    title=""
+    type="button"
+  >
+    <Icon
+      className="iconButton"
+      component={[Function]}
+      dataQa=""
+      fill="#ffffff"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      size="16"
+      stroke="#ffffff"
+    />
+  </Button>
+  <OptionContainer
+    active=""
+    className=""
+    onClick={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "labelTest",
+          "on": true,
+          "value": "valueTest",
+        },
+      ]
+    }
+    right={false}
+    sideLeft={false}
+    sideRight={false}
+    size={
+      Object {
+        "bottom": 0,
+        "height": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    toggle={[Function]}
   />
 </div>
 `;
