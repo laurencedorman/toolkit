@@ -19,6 +19,7 @@ describe('tooltipPosition', () => {
   afterEach(() => {
     window.scrollX = oldWindowScrollX;
     window.innerHeight = oldWindowInnerHeight;
+    // eslint-disable-next-line no-global-assign
     document = { body: { clientWidth: oldDocument } };
   });
 
@@ -70,6 +71,7 @@ describe('tooltipPosition', () => {
   it('should return left position when window.innerWidth is less than right smaller than requiredSpace', () => {
     window.scrollX = 0;
     window.innerWidth = 1920;
+    // eslint-disable-next-line no-global-assign
     document = 1920;
 
     const element = dummyElement(500, 10, 0, 1820);
@@ -89,6 +91,7 @@ describe('tooltipPosition', () => {
   it('should return left position with top & right style when position is left', () => {
     window.scrollX = 0;
     window.innerWidth = 1920;
+    // eslint-disable-next-line no-global-assign
     document = 1920;
 
     const element = dummyElement(500, 0, 0, 500);
