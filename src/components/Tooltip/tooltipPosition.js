@@ -7,16 +7,9 @@
 const space = 16;
 const requiredSpace = 200;
 
-const tooltipPosition = (ref, position) => {
-  const {
-    top,
-    left,
-    right,
-    bottom,
-    width,
-    height,
-  } = ref.getBoundingClientRect();
 
+export const tooltipPosition = (element, position) => {
+  const { top, left, right, bottom, width, height } = element;
   const leftSpace = left + width / 2 + window.scrollX;
 
   switch (true) {
