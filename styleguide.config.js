@@ -4,11 +4,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const config = require('@manomano/webpack/config.js');
 const path = require('path');
 
 module.exports = {
-  webpackConfig: config({ name: 'gb', language: 'en' }),
+  webpackConfig: config({ platform: { name: 'gb', language: 'en' } }),
   title: ' ',
   styleguideComponents: {
     Wrapper: path.join(__dirname, './styleguidist/Wrapper'),
