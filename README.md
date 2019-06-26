@@ -4,6 +4,8 @@
 
 ## Manoolkit
 
+Demo of currently available components: [Demo Toolkit](http://master.toolkit.manomano-lan.com/) (activate your VPN)
+
 ##### version 0.1.0
 
 ---
