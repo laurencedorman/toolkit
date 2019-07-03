@@ -94,7 +94,10 @@ OptionContainer.propTypes = {
   active: PropTypes.string,
   sideLeft: PropTypes.bool,
   sideRight: PropTypes.bool,
-  size: PropTypes.shape({}).isRequired,
+  size: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+  }).isRequired,
 };
 
 OptionContainer.defaultProps = {

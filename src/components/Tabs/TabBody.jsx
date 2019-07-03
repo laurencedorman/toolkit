@@ -32,7 +32,7 @@ const TabBody = ({ children, activeTab }) => {
           (({ opacity }) => (
             <animated.div
               key={label}
-              // eslint-disable-next-line no-shadow
+              // eslint-disable-next-line no-shadow,react/prop-types
               style={{ opacity: opacity.interpolate(o => o) }}
             >
               {child.props.children}

@@ -30,6 +30,7 @@ const Overlay = ({ onClick, on, zIndex, backgroundColor }) => {
             className={classNames}
             onClick={onClick}
             style={{
+              // eslint-disable-next-line react/prop-types
               opacity: o.interpolate(opacity => opacity),
               cursor: onClick && 'pointer',
               zIndex,
