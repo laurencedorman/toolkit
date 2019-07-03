@@ -6,8 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-import styles from './Loader.module.scss';
+// import styles from './Loader.module.scss';
 
 const bar = [
   { x: '0', begin: '0s' },
@@ -16,10 +15,14 @@ const bar = [
 ];
 
 const Loader = ({ fill, dataQa }) => {
-  const classNames = cn('toolkit', styles.loader);
-
   return (
-    <div className={classNames} role="alert" aria-busy="true" data-qa={dataQa}>
+    <div
+      className="toolkit"
+      style={{ display: 'inline-flex' }}
+      role="alert"
+      aria-busy="true"
+      data-qa={dataQa}
+    >
       <svg
         role="img"
         xmlns="http://www.w3.org/2000/svg"
