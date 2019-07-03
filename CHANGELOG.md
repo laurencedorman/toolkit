@@ -1,3 +1,11 @@
+## [3.0.4](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.3...v3.0.4) (2019-07-03)
+
+
+### Bug Fixes
+
+* **Loader:** Inline css to avoid webpack css order error ([211031e](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/211031e))
+* **Select:** Fixes className prop ([ea3950c](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/ea3950c))
+
 ## [3.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.2...v3.0.3) (2019-07-03)
 
 
