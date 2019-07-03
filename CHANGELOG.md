@@ -1,3 +1,10 @@
+## [3.0.3](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.2...v3.0.3) (2019-07-03)
+
+
+### Bug Fixes
+
+* **pipeline:** fix publish process ([e35b591](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/e35b591))
+
 ## [3.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.1...v3.0.2) (2019-07-03)
 
 
