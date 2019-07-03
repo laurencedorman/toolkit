@@ -49,8 +49,7 @@ initialState = { value: '' };
   name="withError"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-  error
-  messageError="error was found"
+  error="Error was found"
 />;
 ```
 
@@ -82,8 +81,7 @@ initialState = { value: '' };
   helper="An helper to display some information!"
   value={state.value}
   onChange={e => setState({ value: e.target.value })}
-  error
-  messageError="error was found"
+  error="Error was found"
 />;
 ```
 
