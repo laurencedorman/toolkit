@@ -1,3 +1,10 @@
+## [3.0.2](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.1...v3.0.2) (2019-07-03)
+
+
+### Bug Fixes
+
+* **InputDemo:** Fixes error state demo on Input ([939c006](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/commit/939c006))
+
 ## [3.0.1](https://git.manomano.tech/component-react/toolkit.manomano-lan.com/compare/v3.0.0...v3.0.1) (2019-06-11)
 
 
