@@ -60,6 +60,7 @@ const Modal = ({
                   className={styles.modal}
                   role="dialog"
                   style={{
+                    // eslint-disable-next-line react/prop-types
                     opacity: o.interpolate(opacity => opacity),
                   }}
                 >

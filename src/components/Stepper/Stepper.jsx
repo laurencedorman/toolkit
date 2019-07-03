@@ -37,6 +37,7 @@ const bodyStepper = (children, activeStep, up) => {
         <animated.div
           className={styles.container}
           style={{
+            // eslint-disable-next-line react/prop-types
             transform: translate.interpolate(t => `translate(${t}%, 0)`),
           }}
         >
