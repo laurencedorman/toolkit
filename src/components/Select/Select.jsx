@@ -26,7 +26,7 @@ const Select = ({
   value,
   ...selectProps
 }) => {
-  const classNames = cn('toolkit', styles.select, styles[className], {
+  const classNames = cn('toolkit', styles.select, className, {
     [styles.noOptionSelected]: !value && placeholder,
     [styles.light]: themeLight,
     [styles.hasError]: touched && error && error.length > 0,
