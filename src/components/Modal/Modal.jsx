@@ -4,7 +4,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Transition, animated, interpolate } from 'react-spring';
 import cn from 'classnames';
@@ -41,6 +41,15 @@ const Modal = ({
     [styles.hasContent]: !!header,
   });
 
+  useLayoutEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    if (on) {
+      document.body.style.overflow = 'hidden';
+    }
+    // eslint-disable-next-line no-return-assign
+    return () => (document.body.style.overflow = originalStyle);
+  }, [on]);
+
   return (
     <Portal>
       <Transition
@@ -54,52 +63,54 @@ const Modal = ({
         {display =>
           display
             ? // eslint-disable-next-line react/prop-types,react/display-name
-              ({ o, s, y }) => (
-                <animated.div
-                  onClick={toggle}
-                  className={styles.modal}
-                  role="dialog"
-                  style={{
-                    // eslint-disable-next-line react/prop-types
-                    opacity: o.interpolate(opacity => opacity),
-                  }}
-                >
+              ({ o, s, y }) => {
+                return (
                   <animated.div
-                    className={classNames}
-                    onClick={e => e.stopPropagation()}
-                    role="contentinfo"
+                    onClick={toggle}
+                    className={styles.modal}
+                    role="dialog"
                     style={{
-                      transform: interpolate(
-                        [s, y],
-                        (scale, translateY) =>
-                          `scale(${scale}) translate3d(0, ${translateY}, 0)`
-                      ),
+                      // eslint-disable-next-line react/prop-types
+                      opacity: o.interpolate(opacity => opacity),
                     }}
                   >
-                    <Wrapper className={headerStyle} data-qa={dataQa}>
-                      <h4>{header}</h4>
-                      <Icon
-                        component={IconClose}
-                        size="12"
-                        onClick={toggle}
-                        className={styles.icon}
-                      />
-                    </Wrapper>
-
-                    <Wrapper className={styles.body}>{children}</Wrapper>
-
-                    {!noFooter && (
-                      <Wrapper className={styles.footer} direction="row">
-                        <Button
-                          title={buttonTitle}
+                    <animated.div
+                      className={classNames}
+                      onClick={e => e.stopPropagation()}
+                      role="contentinfo"
+                      style={{
+                        transform: interpolate(
+                          [s, y],
+                          (scale, translateY) =>
+                            `scale(${scale}) translate3d(0, ${translateY}, 0)`
+                        ),
+                      }}
+                    >
+                      <Wrapper className={headerStyle} data-qa={dataQa}>
+                        <h4>{header}</h4>
+                        <Icon
+                          component={IconClose}
+                          size="12"
                           onClick={toggle}
-                          theme="secondary"
+                          className={styles.icon}
                         />
                       </Wrapper>
-                    )}
+
+                      <Wrapper className={styles.body}>{children}</Wrapper>
+
+                      {!noFooter && (
+                        <Wrapper className={styles.footer} direction="row">
+                          <Button
+                            title={buttonTitle}
+                            onClick={toggle}
+                            theme="secondary"
+                          />
+                        </Wrapper>
+                      )}
+                    </animated.div>
                   </animated.div>
-                </animated.div>
-              )
+                );
+              }
             : () => null
         }
       </Transition>
