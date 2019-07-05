@@ -75,7 +75,7 @@ Button.propTypes = {
   fill: PropTypes.string,
   iconComponent: PropTypes.node,
   id: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   reverse: PropTypes.bool,
   size: PropTypes.oneOf(['big', 'default', 'small', 'xsmall']),
   theme: PropTypes.oneOf([
@@ -99,14 +99,15 @@ Button.defaultProps = {
   dataQa: '',
   disabled: false,
   fill: colors.white,
+  iconComponent: undefined,
+  id: undefined,
+  onClick: undefined,
   reverse: false,
   size: 'default',
+  style: {},
   theme: 'default',
   title: '',
   type: 'button',
-  iconComponent: undefined,
-  id: undefined,
-  style: {},
 };
 
 export default Button;
